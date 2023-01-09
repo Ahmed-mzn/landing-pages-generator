@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['landing.socialbot.dev', '52.90.84.132', 'localhost']
+ALLOWED_HOSTS = ['landing.socialbot.dev', '52.90.84.132', 'localhost', 'test.ahmedzeini.com']
 
 CSRF_TRUSTED_ORIGINS = ['https://landing.socialbot.dev']
 
