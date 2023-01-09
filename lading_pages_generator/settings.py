@@ -29,6 +29,9 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['landing.socialbot.dev', '52.90.84.132', 'localhost']
 
+CSRF_TRUSTED_ORIGINS = ['https://landing.socialbot.dev/']
+
+
 REST_FRAMEWORK = {
     'NON_FIELD_ERRORS_KEY': 'errors',
     'DATETIME_FORMAT': '%d/%m/%Y %H:%M',
