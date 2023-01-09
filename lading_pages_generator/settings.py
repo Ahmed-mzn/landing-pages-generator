@@ -29,7 +29,7 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['landing.socialbot.dev', '52.90.84.132', 'localhost']
 
-CSRF_TRUSTED_ORIGINS = ['https://landing.socialbot.dev/']
+CSRF_TRUSTED_ORIGINS = ['landing.socialbot.dev']
 
 
 REST_FRAMEWORK = {
