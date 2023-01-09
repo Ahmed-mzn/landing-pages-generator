@@ -143,34 +143,34 @@ class AppByIdView(generics.GenericAPIView):
     authentication_classes = []
 
     def get(self, request, app_id):
-        try:
-            app = App.objects.get(app_id=app_id)
-            templates = app.templates.all().order_by("id")
+        # try:
+        app = App.objects.get(app_id=app_id)
+        templates = app.templates.all().order_by("id")
 
-            # print("next temp: ", app.next_template)
+        # print("next temp: ", app.next_template)
 
-            template_ids = [t.id for t in templates]
-            # print("temp ids: ", template_ids)
+        template_ids = [t.id for t in templates]
+        # print("temp ids: ", template_ids)
 
-            current_temp_id_index = template_ids.index(app.next_template)
-            # print("current index: ", current_temp_id_index)
+        current_temp_id_index = template_ids.index(app.next_template)
+        # print("current index: ", current_temp_id_index)
 
-            if current_temp_id_index == (len(template_ids)-1):
-                app.next_template = template_ids[0]
-                app.save()
-            else:
-                app.next_template = template_ids[current_temp_id_index+1]
-                app.save()
+        if current_temp_id_index == (len(template_ids)-1):
+            app.next_template = template_ids[0]
+            app.save()
+        else:
+            app.next_template = template_ids[current_temp_id_index+1]
+            app.save()
 
-            if app.next_template == 0:
-                app.next_template = templates[0].id
-                app.save()
+        if app.next_template == 0:
+            app.next_template = templates[0].id
+            app.save()
 
-            serializer = self.serializer_class(instance=app, many=False)
+        serializer = self.serializer_class(instance=app, many=False)
 
-            return Response(data=serializer.data, status=status.HTTP_200_OK)
-        except:
-            return Response(data={'msg': 'app not found'}, status=status.HTTP_400_BAD_REQUEST)
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
+        # except:
+        #     return Response(data={'msg': 'app not found'}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class AppCreationListView(generics.GenericAPIView):
