@@ -195,6 +195,6 @@ class AppCreationSerializer(serializers.ModelSerializer):
 
         #os.system(f'/home/khaled/landing_pages/landing-pages-generator/venv/bin/ansible-playbook --extra-vars="domain={domain}" --extra-vars="app_id={app.app_id}" /home/khaled/landing_pages/ansible-landing-generator/deploy.yml')
 
-        CreateDeployAppThread(domain, app.app_id).start()
+        CreateDeployAppThread(domain.name, app.app_id).start()
 
         return app
