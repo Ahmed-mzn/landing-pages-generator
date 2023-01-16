@@ -11,6 +11,6 @@ class CreateDeployAppThread(threading.Thread):
     def run(self):
         try:
             print(f"[+] Starting deployment for domain: {self.domain} app: {self.app_id}")
-            os.system(f'/home/khaled/landing_pages/venv/bin/ansible-playbook --extra-vars="domain={self.domain}" --extra-vars="app_id={self.app_id}" /home/khaled/landing_pages/ansible-landing-generator/deploy.yml')
+            # os.system(f'/home/khaled/landing_pages/venv/bin/ansible-playbook --extra-vars="domain={self.domain}" --extra-vars="app_id={self.app_id}" /home/khaled/landing_pages/ansible-landing-generator/deploy.yml')
         except Exception as e:
             print(e)
