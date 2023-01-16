@@ -1,0 +1,13 @@
+* {
+  direction: rtl;
+}
+
+.swiper-slide.active {
+  background-color: transparent!important;
+  border: 1px solid #000 !important;
+}
+
+#quantity-minus.disabled {
+  color: #D4D7B3!important;
+}
+

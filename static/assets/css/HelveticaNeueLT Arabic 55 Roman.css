@@ -1,0 +1,8 @@
+@font-face {
+	font-family: 'HelveticaNeueLT Arabic 55 Roman';
+	src: url(../../assets/fonts/subset-HelveticaNeueLTArabic-Roman.woff2) format('woff2'),
+	url(../../assets/fonts/subset-HelveticaNeueLTArabic-Roman.woff) format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
