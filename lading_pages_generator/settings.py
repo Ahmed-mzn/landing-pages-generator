@@ -29,7 +29,7 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_DOMAINS = ['landing.socialbot.dev', '52.90.84.132', 'localhost:8000', 'test.ahmedzeini.com']
 ALLOWED_HOSTS = ['*']
-
+WEBSITE_URL = 'http://localhost:8000'
 CSRF_TRUSTED_ORIGINS = ['https://landing.socialbot.dev']
 
 
@@ -158,6 +158,9 @@ STATIC_URL = 'static/'
 # ]
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATIC_ROOT = '/home/khaled/static/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

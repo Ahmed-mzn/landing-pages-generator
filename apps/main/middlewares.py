@@ -12,7 +12,6 @@ class SimpleMiddleware:
     def __call__(self, request):
         # Code to be executed for each request before
         # the view (and later middleware) are called.
-        print('ss')
 
         if request.META['HTTP_HOST'] in settings.ALLOWED_DOMAINS:
             response = self.get_response(request)
@@ -25,7 +24,6 @@ class SimpleMiddleware:
         else:
             # if request.path == '':
             template = Template.objects.all().filter(app__domain__name=domain.name).first()
-            print(template)
             context = {
                 "domain": request.META['HTTP_HOST'],
                 "uri": request.build_absolute_uri(),

@@ -38,8 +38,8 @@ class TemplateAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['template', 'title', 'description', 'image', 'price']
-    list_filter = ['template', 'title', 'price']
+    list_display = ['app', 'title', 'description', 'price']
+    list_filter = ['app', 'title', 'price']
 
 
 @admin.register(Feature)
@@ -56,6 +56,11 @@ class ReviewAdmin(admin.ModelAdmin):
 
 @admin.register(FormsRecord)
 class FormsRecordAdmin(admin.ModelAdmin):
-    list_display = ['template', 'name', 'phone_number', 'city', 'address']
-    list_filter = ['name', 'template', 'phone_number']
+    list_display = ['template', 'lead']
+    list_filter = ['lead', 'template']
 
+
+@admin.register(TemplateProduct)
+class TemplateProductAdmin(admin.ModelAdmin):
+    list_display = ['template', 'product']
+    list_filter = ['product', 'template']

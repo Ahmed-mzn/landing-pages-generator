@@ -8,11 +8,11 @@ from rest_framework.authentication import TokenAuthentication
 
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 
-from .models import Template, App, Product, FormsRecord, Feature, Review, Visit
+from .models import Template, App, Product, FormsRecord, Feature, Review, Visit, Domain
 
 from .serializers import TemplateSerializer, AppSerializer, AppCreationSerializer, TemplateCreationSerializer, \
     ProductCreationSerializer, FeatureCreationSerializer, ReviewCreationSerializer, VisitSerializer, \
-    FormsRecordSerializer, FormsRecordCreationSerializer
+    FormsRecordSerializer, FormsRecordCreationSerializer, TemplateProductCreationSerializer, DomainCreationSerializer
 
 from decouple import config
 import requests
@@ -46,7 +46,7 @@ class FormAPIView(generics.GenericAPIView):
 
 class TemplateViewSet(viewsets.ModelViewSet):
     serializer_class = TemplateCreationSerializer
-    queryset = Template.objects.all()
+    queryset = Template.objects.all().filter(is_deleted=False)
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
@@ -54,19 +54,30 @@ class TemplateViewSet(viewsets.ModelViewSet):
             return self.queryset
         return self.queryset.filter(app__user=self.request.user)
 
+    def destroy(self, request, *args, **kwargs):
+        template = self.get_object()
+        template.soft_delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 class ProductViewSet(viewsets.ModelViewSet):
     serializer_class = ProductCreationSerializer
-    queryset = Product.objects.all()
+    queryset = Product.objects.all().filter(is_deleted=False)
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         if self.request.user.is_staff:
             return self.queryset
-        elif self.request.GET.get('template_id', ''):
-            template_id = self.request.GET.get('template_id', '')
-            return self.queryset.filter(template__app__user=self.request.user, template_id=template_id)
-        return self.queryset.filter(template__app__user=self.request.user)
+        # elif self.request.GET.get('app_id', ''):
+        #     template_id = self.request.GET.get('app_id', '')
+        #     return self.queryset.filter(template__app__user=self.request.user, template_id=template_id)
+        return self.queryset.filter(app__user=self.request.user)
+
+    def destroy(self, request, *args, **kwargs):
+        product = self.get_object()
+        product.soft_delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 
 class FeatureViewSet(viewsets.ModelViewSet):
@@ -188,6 +199,39 @@ class AppCreationListView(generics.GenericAPIView):
         return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+class AssignProductToTemplateView(generics.GenericAPIView):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
+    serializer_class = TemplateProductCreationSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(data=serializer.data, status=status.HTTP_201_CREATED)
+
+        return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class UpdateDomainView(generics.GenericAPIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    serializer_class = DomainCreationSerializer
+
+    def put(self, request, pk):
+
+        domain = get_object_or_404(Domain, pk=pk)
+
+        serializer = self.serializer_class(data=request.data, instance=domain)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+        return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 @api_view(['GET'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
@@ -201,8 +245,8 @@ def get_app(request):
 @authentication_classes([])
 @permission_classes([])
 def get_template(request, template_id):
-    app = get_object_or_404(Template, pk=template_id)
-    serializer = TemplateSerializer(instance=app, many=False)
+    template = get_object_or_404(Template, pk=template_id)
+    serializer = TemplateSerializer(instance=template, many=False)
     return Response(data=serializer.data, status=status.HTTP_200_OK)
 
 

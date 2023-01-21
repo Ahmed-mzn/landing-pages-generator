@@ -1,7 +1,8 @@
 from rest_framework import serializers
 import requests
 from decouple import config
-from .models import Template, App, Product, FormsRecord, Feature, Review, Domain, Visit
+from django.conf import settings
+from .models import Template, App, Product, FormsRecord, Feature, Review, Domain, Visit, TemplateProduct
 from .threads import CreateDeployAppThread
 
 
@@ -13,9 +14,14 @@ class VisitSerializer(serializers.ModelSerializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField('get_image_url')
+
+    def get_image_url(self, obj):
+        return settings.WEBSITE_URL + obj.image.url
+
     class Meta:
         model = Product
-        fields = ('id', 'template', 'title', 'description', 'image', 'price', 'price_after_discount', 'created_at',
+        fields = ('id', 'app', 'title', 'description', 'image', 'price', 'price_after_discount', 'created_at',
                   'updated_at')
 
 
@@ -49,24 +55,44 @@ class ReviewSerializer(serializers.ModelSerializer):
 class TemplateSerializer(serializers.ModelSerializer):
     features = FeatureSerializer(many=True)
     reviews = ReviewSerializer(many=True)
-    products = ProductSerializer(many=True)
-    customer_website = serializers.SerializerMethodField()
+    products = serializers.SerializerMethodField(method_name="get_products")
 
-    def get_customer_website(self, obj):
-        return obj.app.customer_website
+    logo = serializers.SerializerMethodField('get_logo_url')
+    main_image = serializers.SerializerMethodField('get_main_image_url')
+    medals_image = serializers.SerializerMethodField('get_medals_image_url')
+    second_image = serializers.SerializerMethodField('get_second_image_url')
 
-    # def get_products(self, obj):
-    #     print(obj)
-    #     data = Product.objects.all().filter(product_templates__template_id=obj.id)
-    #
-    #     products = ProductSerializer(data, many=True)
-    #     return products.data
+    def get_logo_url(self, obj):
+        if obj.logo:
+            return settings.WEBSITE_URL + obj.logo.url
+        return  ''
+
+    def get_main_image_url(self, obj):
+        if obj.main_image :
+            return settings.WEBSITE_URL + obj.main_image.url
+        return ''
+
+    def get_medals_image_url(self, obj):
+        if obj.medals_image:
+            return settings.WEBSITE_URL + obj.medals_image.url
+        return ''
+
+    def get_second_image_url(self, obj):
+        if obj.second_image:
+            return settings.WEBSITE_URL + obj.second_image.url
+        return ''
+
+    def get_products(self, obj):
+        data = Product.objects.all().filter(product_templates__template_id=obj.id)
+
+        products = ProductSerializer(data, many=True)
+        return products.data
 
     class Meta:
         model = Template
-        fields = ('id', 'template_code', 'description', 'meta_title', 'meta_description', 'meta_keywords', 'logo',
-                  'main_image', 'medals_image', 'second_image', 'review_text', 'primary_color', 'secondary_color',
-                  'products', 'features', 'reviews', 'customer_website', 'created_at', 'updated_at')
+        fields = ('id', 'template_code', 'template_name', 'description', 'meta_title', 'meta_description',
+                  'meta_keywords', 'logo', 'main_image', 'medals_image', 'second_image', 'review_text', 'primary_color',
+                  'secondary_color', 'products', 'features', 'reviews', 'customer_website', 'created_at', 'updated_at')
 
 
 class AppSerializer(serializers.ModelSerializer):
@@ -78,7 +104,6 @@ class AppSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'app_id',
-            'customer_website',
             'next_template',
             'domain',
             'templates',
@@ -88,6 +113,12 @@ class AppSerializer(serializers.ModelSerializer):
 
 
 # Creation Serializers
+
+class TemplateProductCreationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TemplateProduct
+        fields = ('id', 'template', 'product')
+
 
 class FormsRecordCreationSerializer(serializers.ModelSerializer):
     class Meta:
@@ -99,7 +130,7 @@ class FormsRecordCreationSerializer(serializers.ModelSerializer):
 class ProductCreationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('id', 'template', 'title', 'description', 'image', 'price', 'price_after_discount')
+        fields = ('id', 'app', 'title', 'description', 'image', 'price', 'price_after_discount')
 
 
 class FeatureCreationSerializer(serializers.ModelSerializer):
@@ -118,8 +149,8 @@ class TemplateCreationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Template
-        fields = ('id', 'app', 'template_code', 'description', 'meta_title', 'meta_description', 'meta_keywords', 'logo',
-                  'main_image', 'medals_image', 'second_image', 'review_text', 'primary_color',
+        fields = ('id', 'app', 'template_code', 'template_name', 'description', 'meta_title', 'meta_description', 'meta_keywords', 'logo',
+                  'main_image', 'medals_image', 'second_image', 'review_text', 'customer_website', 'primary_color',
                   'secondary_color')
 
 
@@ -143,7 +174,6 @@ class AppCreationSerializer(serializers.ModelSerializer):
             'id',
             'app_id',
             'domain',
-            'customer_website',
             'next_template',
             'created_at',
             'updated_at',
@@ -198,3 +228,9 @@ class AppCreationSerializer(serializers.ModelSerializer):
         CreateDeployAppThread(domain.name, app.app_id).start()
 
         return app
+
+
+class DomainCreationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Domain
+        fields = ('id', 'name', 'type')
