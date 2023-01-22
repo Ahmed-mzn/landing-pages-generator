@@ -8,11 +8,12 @@ from rest_framework.authentication import TokenAuthentication
 
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 
-from .models import Template, App, Product, FormsRecord, Feature, Review, Visit, Domain
+from .models import Template, App, Product, FormsRecord, Feature, Review, Visit, Domain, TemplateProduct
 
 from .serializers import TemplateSerializer, AppSerializer, AppCreationSerializer, TemplateCreationSerializer, \
     ProductCreationSerializer, FeatureCreationSerializer, ReviewCreationSerializer, VisitSerializer, \
-    FormsRecordSerializer, FormsRecordCreationSerializer, TemplateProductCreationSerializer, DomainCreationSerializer
+    FormsRecordSerializer, FormsRecordCreationSerializer, TemplateProductCreationSerializer, DomainCreationSerializer, \
+    BlankTemplateCreationSerializer
 
 from decouple import config
 import requests
@@ -68,9 +69,9 @@ class ProductViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         if self.request.user.is_staff:
             return self.queryset
-        # elif self.request.GET.get('app_id', ''):
-        #     template_id = self.request.GET.get('app_id', '')
-        #     return self.queryset.filter(template__app__user=self.request.user, template_id=template_id)
+        elif self.request.GET.get('template_id', ''):
+            template_id = self.request.GET.get('template_id', '')
+            return self.queryset.filter(app__user=self.request.user, product_templates__template_id=template_id)
         return self.queryset.filter(app__user=self.request.user)
 
     def destroy(self, request, *args, **kwargs):
@@ -204,14 +205,29 @@ class AssignProductToTemplateView(generics.GenericAPIView):
     authentication_classes = [TokenAuthentication]
     serializer_class = TemplateProductCreationSerializer
 
-    def post(self, request):
-        serializer = self.serializer_class(data=request.data)
+    def post(self, request, template_id, product_id):
+        try:
+            template_product = TemplateProduct.objects.get(template_id=template_id, product_id=product_id)
+            return Response(data={"message": "product already exist in the template"},
+                            status=status.HTTP_400_BAD_REQUEST)
+        except:
 
-        if serializer.is_valid():
-            serializer.save()
-            return Response(data=serializer.data, status=status.HTTP_201_CREATED)
+            data = {
+                'template': template_id,
+                'product': product_id,
+            }
+            serializer = self.serializer_class(data=data)
 
-        return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(data=serializer.data, status=status.HTTP_201_CREATED)
+
+            return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, template_id, product_id):
+        template_product = get_object_or_404(TemplateProduct, template_id=template_id, product_id=product_id)
+        template_product.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class UpdateDomainView(generics.GenericAPIView):
@@ -230,6 +246,24 @@ class UpdateDomainView(generics.GenericAPIView):
             return Response(data=serializer.data, status=status.HTTP_200_OK)
 
         return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def create_blank_template(request):
+    serializer = BlankTemplateCreationSerializer(data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+        return Response(
+            {
+                "success": True,
+            },
+            status=status.HTTP_201_CREATED
+        )
+
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['GET'])

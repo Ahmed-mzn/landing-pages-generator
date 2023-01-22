@@ -17,7 +17,9 @@ class ProductSerializer(serializers.ModelSerializer):
     image = serializers.SerializerMethodField('get_image_url')
 
     def get_image_url(self, obj):
-        return settings.WEBSITE_URL + obj.image.url
+        if obj.image:
+            return settings.WEBSITE_URL + obj.image.url
+        return ''
 
     class Meta:
         model = Product
@@ -113,6 +115,13 @@ class AppSerializer(serializers.ModelSerializer):
 
 
 # Creation Serializers
+
+class BlankTemplateCreationSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Template
+        fields = ('id', 'app', 'template_code', 'template_name')
+
 
 class TemplateProductCreationSerializer(serializers.ModelSerializer):
     class Meta:
