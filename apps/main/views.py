@@ -47,13 +47,13 @@ class FormAPIView(generics.GenericAPIView):
 
 class TemplateViewSet(viewsets.ModelViewSet):
     serializer_class = TemplateCreationSerializer
-    queryset = Template.objects.all().filter(is_deleted=False)
+    queryset = Template.objects.all()
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         if self.request.user.is_staff:
             return self.queryset
-        return self.queryset.filter(app__user=self.request.user)
+        return self.queryset.filter(app__user=self.request.user, is_deleted=False)
 
     def destroy(self, request, *args, **kwargs):
         template = self.get_object()

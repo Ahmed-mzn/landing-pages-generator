@@ -98,8 +98,14 @@ class TemplateSerializer(serializers.ModelSerializer):
 
 
 class AppSerializer(serializers.ModelSerializer):
-    templates = TemplateSerializer(many=True)
+    templates = serializers.SerializerMethodField('get_templates')
     domain = DomainSerializer(many=False)
+
+    def get_templates(self, obj):
+        data = Template.objects.all().filter(app_id=obj.id, is_deleted=False)
+
+        templates = TemplateSerializer(data, many=True)
+        return templates.data
 
     class Meta:
         model = App
