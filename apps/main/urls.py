@@ -1,5 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+
 from .views import TemplateViewSet, AppRetrieveDeleteUpdateView, AppByIdView, AppCreationListView, ProductViewSet, \
     FeatureViewSet, ReviewViewSet, check_domain, VisitAPIView, create_visit, create_form, FormAPIView, \
     get_template_one, get_template_two, get_app, get_template, AssignProductToTemplateView, UpdateDomainView, \
