@@ -24,7 +24,11 @@ class VisitAPIView(generics.GenericAPIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        visits = Visit.objects.all().filter(template__app__user=request.user)
+        if self.request.GET.get('template_id', ''):
+            template_id = self.request.GET.get('template_id', '')
+            visits = Visit.objects.all().filter(template__app__user=request.user, template_id=template_id)
+        else:
+            visits = Visit.objects.all().filter(template__app__user=request.user)
 
         serializer = VisitSerializer(visits, many=True)
         return Response(data=serializer.data, status=status.HTTP_200_OK)

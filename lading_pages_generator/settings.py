@@ -36,7 +36,6 @@ X_FRAME_OPTIONS = 'localhost'
 
 REST_FRAMEWORK = {
     'NON_FIELD_ERRORS_KEY': 'errors',
-    'DATETIME_FORMAT': '%d/%m/%Y %H:%M',
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     ),
