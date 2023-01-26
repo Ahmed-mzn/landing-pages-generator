@@ -5,17 +5,69 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>{{ template.meta_title }}</title>
-    <link rel="icon" href="{{ template.logo }}">
+    <link rel="icon" href="https://landing.socialbot.dev/{{ template.logo }}">
     <link rel="stylesheet" href="{% static '/assets/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static '/assets/css/HelveticaNeueLT%20Arabic%2055%20Roman.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static '/assets/fonts/fontawesome-all.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static '/assets/fonts/fontawesome-all.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
     <link href="{% static '/assets/css/styles.css' %}" rel="stylesheet">
+    <style>
+        /* Center the loader */
+        #loader {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          z-index: 1;
+          width: 120px;
+          height: 120px;
+          margin: -76px 0 0 -76px;
+          border: 16px solid #f3f3f3;
+          border-radius: 50%;
+          border-top: 16px solid {{ template.primary_color }};
+          -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+          0% { -webkit-transform: rotate(0deg); }
+          100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+
+        /* Add animation to "page content" */
+        .animate-bottom {
+          position: relative;
+          -webkit-animation-name: animatebottom;
+          -webkit-animation-duration: 1s;
+          animation-name: animatebottom;
+          animation-duration: 1s
+        }
+
+        @-webkit-keyframes animatebottom {
+          from { bottom:-100px; opacity:0 }
+          to { bottom:0px; opacity:1 }
+        }
+
+        @keyframes animatebottom {
+          from{ bottom:-100px; opacity:0 }
+          to{ bottom:0; opacity:1 }
+        }
+
+        #myDiv {
+          display: none;
+          text-align: center;
+        }
+    </style>
 </head>
 
-<body style="font-family: 'HelveticaNeueLT Arabic 55 Roman', sans-serif;">
-    <div id="app">
+<body onload="myFunction()" style="font-family: 'HelveticaNeueLT Arabic 55 Roman', sans-serif;">
+    <div id="loader"></div>
+    <div style="display: none;" id="app" class="animate-bottom">
         <section>
             <div class="container-fluid" style="padding-left: 0px;padding-right: 0px;"><img :src="template.main_image" style="width: 100%;"></div>
         </section>
@@ -145,7 +197,7 @@
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-axios.defaults.baseURL = 'http://localhost:8000/api/v1/public'
+axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'
   const { createApp } = Vue
 
   createApp({
@@ -197,16 +249,8 @@ axios.defaults.baseURL = 'http://localhost:8000/api/v1/public'
             }
         };
     },
-    created(){
-        window.setInterval(() => {
-            this.setDuration();
-        }, 1000)
-        window.addEventListener("beforeunload", this.leaving);
-    },
     mounted() {
         this.getTemplate();
-        this.getIpInfo();
-        // this.startTracking();
     },
     methods: {
         selectProduct(product){
@@ -228,92 +272,6 @@ axios.defaults.baseURL = 'http://localhost:8000/api/v1/public'
             }
 
         },
-        setDuration(){
-            this.session.duration = this.session.duration + 1;
-        },
-        getCookie(cname){
-            let name = cname + "=";
-            let decodedCookie = decodeURIComponent(document.cookie);
-            let ca = decodedCookie.split(';');
-            for(let i = 0; i <ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
-                }
-            }
-            return "";
-        },
-        submitForm(){
-            var valid = true;
-
-            if(this.form.name == ''){
-                valid = false;
-                document.getElementById("formName").style = "background: #f2f2f2;border-color: var(--bs-primary);"
-                document.getElementById("formName").classList.add("is-invalid");
-                document.getElementById("formNameError").textContent = "يرجى إدخال الاسم";
-            } else {
-                document.getElementById("formName").style = "background: #f2f2f2;border-style: none;"
-                document.getElementById("formName").classList.remove("is-invalid");
-                document.getElementById("formNameError").textContent = "";
-            }
-
-            let isnum = /^\d+$/.test(this.form.phone_number);
-            if(this.form.phone_number == '' || !isnum || this.form.phone_number.length != 8){
-                valid = false;
-                document.getElementById("formPhone").style = "background: #f2f2f2;border-color: var(--bs-primary);padding-left: 83px;direction: ltr;"
-                document.getElementById("formPhone").classList.add("is-invalid");
-                document.getElementById("formPhoneError").textContent = "يرجى إدخال رقم جوال صحيح";
-                document.getElementById("formPhoneFlag").style = "position: absolute;top: 35%;transform: translateY(-50%);left: 20px;";
-            } else {
-                document.getElementById("formPhone").style = "background: #f2f2f2;border-style: none;padding-left: 83px;direction: ltr;"
-                document.getElementById("formPhone").classList.remove("is-invalid");
-                document.getElementById("formPhoneError").textContent = "";
-                document.getElementById("formPhoneFlag").style = "position: absolute;top: 50%;transform: translateY(-50%);left: 20px;";
-            }
-
-            if(this.form.address == ''){
-                valid = false;
-                document.getElementById("formAddress").style = "background: #f2f2f2;border-color: var(--bs-primary);"
-                document.getElementById("formAddress").classList.add("is-invalid");
-                document.getElementById("formAddressError").textContent = "يرجى إدخال العنوان";
-            } else {
-                document.getElementById("formAddress").style = "background: #f2f2f2;border-style: none;"
-                document.getElementById("formAddress").classList.remove("is-invalid");
-                document.getElementById("formAddressError").textContent = "";
-            }
-
-            if(valid){
-                axios.post("/create_form", this.form)
-                .then((response) => {
-                    console.log(response);
-                    document.cookie = 'name='+this.form.name+'; expires=Thu, 01 Jan 9999 00:00:00 UTC';
-                    document.cookie = `phonenumber=${this.form.phone_number}; expires=Thu, 01 Jan 9999 00:00:00 UTC`;
-                    document.cookie = `city=${this.form.city}; expires=Thu, 01 Jan 9999 00:00:00 UTC`;
-                    document.cookie = `address=${this.form.address}; expires=Thu, 01 Jan 9999 00:00:00 UTC`;
-
-                    this.success = true;
-                })
-                .catch((error) => {
-                    console.log(JSON.stringify(error));
-                });
-            }
-        },
-        leaving(){
-            fetch('http://localhost:8000/api/v1/public/create_visit', {
-                method: 'POST',
-                body: JSON.stringify(this.session),
-                credentials: "same-origin",
-                headers: {
-                    "Accept": "application/json",
-                    'Content-Type': 'application/json'
-                },
-                keepalive: true,
-            })
-            this.session.duration = 0;
-        },
         getTemplate(){
             axios
             .get(
@@ -333,40 +291,10 @@ axios.defaults.baseURL = 'http://localhost:8000/api/v1/public'
 
                 let html = document.getElementById("html");
                 html.style = `--bs-secondary: ${this.template.secondary_color};--bs-secondary-rgb: 245,210,96;--bs-primary: ${this.template.primary_color};--bs-primary-rgb: 183,194,38;`;
-
-                this.form.name = this.getCookie('name');
-                this.form.phone_number = this.getCookie('phonenumber');
-                this.form.city = this.getCookie('city');
-                this.form.address = this.getCookie('address');
             })
             .catch((error) => {
                 console.log(JSON.stringify(error));
             });
-        },
-        createVisit(){
-            axios.post("/create_visit", this.session)
-            .then((res) => {
-                console.log(res);
-            })
-            .catch((error) =>{
-                console.log(JSON.stringify(error));
-            })
-        },
-        getIpInfo(){
-            axios.get("https://ipinfo.io/?token=37b3a65957bff3")
-            .then(response => {
-                let data = response.data;
-
-                this.session.ip_address = data.ip;
-                this.session.location = data.loc;
-                this.session.city = data.city;
-                this.session.country = data.country;
-                this.session.region = data.region;
-                this.session.template = this.template.id;
-            })
-            .catch((error) =>{
-                console.log(JSON.stringify(error));
-            })
         }
     }
   }).mount('#app')
@@ -374,5 +302,18 @@ axios.defaults.baseURL = 'http://localhost:8000/api/v1/public'
 <script src="{% static '/assets/bootstrap/js/bootstrap.min.js' %}"></script>
 <script src="{% static '/assets/js/app.js' %}"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script>
+
+var myVar;
+
+function myFunction() {
+  myVar = setTimeout(showPage, 1000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("app").style.display = "block";
+}
+</script>
 </body>
 </html>

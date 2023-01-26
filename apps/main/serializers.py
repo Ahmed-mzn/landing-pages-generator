@@ -2,7 +2,7 @@ from rest_framework import serializers
 import requests
 from decouple import config
 from django.conf import settings
-from .models import Template, App, Product, FormsRecord, Feature, Review, Domain, Visit, TemplateProduct
+from .models import Template, App, Product, FormsRecord, Feature, Review, Domain, Visit, TemplateProduct, Lead
 from .threads import CreateDeployAppThread
 
 
@@ -27,13 +27,19 @@ class ProductSerializer(serializers.ModelSerializer):
                   'updated_at')
 
 
+class LeadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Lead
+        fields = ('id', 'name', 'phone_number', 'city', 'address', 'created_at', 'updated_at')
+
+
 class FormsRecordSerializer(serializers.ModelSerializer):
+    lead = LeadSerializer(many=False, read_only=True)
     product = ProductSerializer(many=False, read_only=True)
 
     class Meta:
         model = FormsRecord
-        fields = ('id', 'template', 'product', 'quantity', 'name', 'phone_number', 'city', 'address', 'created_at',
-                  'updated_at')
+        fields = ('id', 'lead', 'template', 'product', 'quantity', 'created_at', 'updated_at')
 
 
 class DomainSerializer(serializers.ModelSerializer):
@@ -122,6 +128,35 @@ class AppSerializer(serializers.ModelSerializer):
 
 # Creation Serializers
 
+class FormsRecordCreationSerializer(serializers.ModelSerializer):
+    lead = LeadSerializer(many=False, read_only=True)
+    quantity = serializers.IntegerField()
+    name = serializers.CharField()
+    phone_number = serializers.CharField()
+    city = serializers.CharField()
+    address = serializers.CharField()
+
+    class Meta:
+        model = FormsRecord
+        fields = ('id', 'lead', 'template', 'product', 'quantity', 'name', 'phone_number', 'city', 'address',
+                  'created_at', 'updated_at')
+
+    def create(self, validated_data):
+        try:
+            lead = Lead.objects.all().get(phone_number=validated_data.get('phone_number'))
+            validated_data.pop('name')
+            validated_data.pop('phone_number')
+            validated_data.pop('city')
+            validated_data.pop('address')
+        except:
+            lead = Lead.objects.create(name=validated_data.pop('name'), phone_number=validated_data.pop('phone_number'),
+                                       city=validated_data.pop('city'), address=validated_data.pop('address'))
+
+        form = FormsRecord.objects.create(lead=lead, **validated_data)
+
+        return form
+
+
 class BlankTemplateCreationSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -133,13 +168,6 @@ class TemplateProductCreationSerializer(serializers.ModelSerializer):
     class Meta:
         model = TemplateProduct
         fields = ('id', 'template', 'product')
-
-
-class FormsRecordCreationSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = FormsRecord
-        fields = ('id', 'template', 'product', 'quantity', 'name', 'phone_number', 'city', 'address', 'created_at',
-                  'updated_at')
 
 
 class ProductCreationSerializer(serializers.ModelSerializer):

@@ -151,7 +151,7 @@ class Lead(SofDelete):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"<Lead {self.lead.name} / {self.lead.phone_number}>"
+        return f"<Lead {self.name} / {self.phone_number}>"
 
 
 class FormsRecord(models.Model):

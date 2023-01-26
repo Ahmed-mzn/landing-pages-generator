@@ -60,6 +60,12 @@ class FormsRecordAdmin(admin.ModelAdmin):
     list_filter = ['lead', 'template']
 
 
+@admin.register(Lead)
+class LeadAdmin(admin.ModelAdmin):
+    list_display = ['name', 'phone_number', 'city']
+    list_filter = ['city']
+
+
 @admin.register(TemplateProduct)
 class TemplateProductAdmin(admin.ModelAdmin):
     list_display = ['template', 'product']
