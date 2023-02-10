@@ -8,15 +8,27 @@ from rest_framework.authentication import TokenAuthentication
 
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 
-from .models import Template, App, Product, FormsRecord, Feature, Review, Visit, Domain, TemplateProduct, Lead
+from .models import Template, App, Product, FormsRecord, Feature, Review, Visit, Domain, TemplateProduct, Lead, City
 
 from .serializers import TemplateSerializer, AppSerializer, AppCreationSerializer, TemplateCreationSerializer, \
     ProductCreationSerializer, FeatureCreationSerializer, ReviewCreationSerializer, VisitSerializer, \
     FormsRecordSerializer, TemplateProductCreationSerializer, DomainCreationSerializer, \
-    BlankTemplateCreationSerializer, LeadSerializer, FormsRecordCreationSerializer
+    BlankTemplateCreationSerializer, LeadSerializer, FormsRecordCreationSerializer, CitySerializer, \
+    AppendTemplateChildSerializer
 
 from decouple import config
 import requests
+
+
+class CityViewSet(viewsets.ModelViewSet):
+    queryset = City.objects.all()
+    serializer_class = CitySerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        if self.request.user.is_staff:
+            return self.queryset
+        return self.queryset.filter(app__user=self.request.user)
 
 
 class VisitAPIView(generics.GenericAPIView):
@@ -62,6 +74,14 @@ class TemplateViewSet(viewsets.ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         template = self.get_object()
         template.soft_delete()
+        template.template_name += ' - ' + template.domain.name
+        template.save()
+        if not template.is_child:
+            for t in template.domain.templates.all().filter(is_deleted=False):
+                t.soft_delete()
+                t.template_name = t.template_name + ' - ' + t.domain.name
+                t.save()
+            template.domain.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
@@ -246,6 +266,34 @@ class UpdateDomainView(generics.GenericAPIView):
 
         if serializer.is_valid():
             serializer.save()
+            return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+        return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class AppendTemplateChildView(generics.GenericAPIView):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
+    serializer_class = AppendTemplateChildSerializer
+
+    def get(self, request):
+        if self.request.GET.get('template_id', ''):
+            template_id = self.request.GET.get('template_id', '')
+            template = get_object_or_404(Template, pk=template_id)
+
+            template_children = Template.objects.filter(is_child=True, domain=template.domain, is_deleted=False)
+        else:
+            template_children = Template.objects.filter(is_child=True, is_deleted=False)
+
+        serializer = TemplateSerializer(instance=template_children, many=True)
+
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save(app=request.user.apps.first())
             return Response(data=serializer.data, status=status.HTTP_200_OK)
 
         return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)

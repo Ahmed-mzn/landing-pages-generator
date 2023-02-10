@@ -4,13 +4,14 @@ from rest_framework.routers import DefaultRouter
 from .views import TemplateViewSet, AppRetrieveDeleteUpdateView, AppByIdView, AppCreationListView, ProductViewSet, \
     FeatureViewSet, ReviewViewSet, check_domain, VisitAPIView, create_visit, create_form, FormAPIView, \
     get_template_one, get_template_two, get_app, get_template, AssignProductToTemplateView, UpdateDomainView, \
-    create_blank_template
+    create_blank_template, CityViewSet, AppendTemplateChildView
 
 router = DefaultRouter()
 router.register('templates', TemplateViewSet, basename='templates')
 router.register('products', ProductViewSet, basename='products')
 router.register('features', FeatureViewSet, basename='features')
 router.register('reviews', ReviewViewSet, basename='reviews')
+router.register('cities', CityViewSet, basename='cities')
 
 
 urlpatterns = [
@@ -23,6 +24,7 @@ urlpatterns = [
          name='assign_product_to_template'),
     path('templates/create_blank_template', create_blank_template, name='create_blank_template'),
     path('domains/<int:pk>', UpdateDomainView.as_view(), name='update_domain'),
+    path('templates/children', AppendTemplateChildView.as_view(), name='append_child_template'),
     path('get_app', get_app, name='get_app'),
     path('check_domain/<str:domain>', check_domain, name='check_domain'),
 

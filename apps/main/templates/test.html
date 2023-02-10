@@ -92,23 +92,30 @@
                             </div>
                             <h3 style="font-size: 16px;">[[product.title]]</h3>
                             <h4 style="font-size: 12px;">[[product.description]]</h4>
-                            <p style="color: #999A9A;text-decoration:  line-through;">[[product.price]] ر.س</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <p style="color: #E5423B;margin-top: 0px;margin-bottom: 6px;white-space: nowrap;">[[product.price]] ر.س</p><span style="font-size: 9px;background: #EB6A64;color: #ffff;border-radius: 17px;padding: 3px 7px 3px;white-space: nowrap;">الاكثر توفيراً</span>
-                            </div>
+                            <template v-if="product.price_after_discount">
+                                <p style="color: #999A9A;text-decoration:  line-through;">[[product.price]] ر.س</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p style="color: #E5423B;margin-top: 0px;margin-bottom: 6px;white-space: nowrap;">[[product.price]] ر.س</p><span style="font-size: 9px;background: #EB6A64;color: #ffff;border-radius: 17px;padding: 3px 7px 3px;white-space: nowrap;">الاكثر توفيراً</span>
+                                </div>
+                            </template>
+                            <template v-else>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p style="color: #E5423B;margin-top: 0px;margin-bottom: 6px;white-space: nowrap;">[[product.price]] ر.س</p><span style="font-size: 9px;background: #EB6A64;color: #ffff;border-radius: 17px;padding: 3px 7px 3px;white-space: nowrap;">الاكثر توفيراً</span>
+                                </div>
+                            </template>
                         </div>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                     <h3 style="font-size: 16px;font-weight: bold;">الكمية</h3>
                     <div class="d-flex justify-content-between align-items-center" style="width: 250px;padding: 10px 25px;border-radius: 5px;color: rgb(0,0,0);border: 1px solid #F2F2F2 ;"><i @click="decreaseQty()" class="fas fa-minus disabled" id="quantity-minus" style="color: var(--bs-primary);"></i><span id="quantity-text" style="font-size: 18px;">1</span><i @click="increaseQty()" class="fas fa-plus" id="quantity-plus" style="color: var(--bs-primary);"></i></div>
-                </div><button class="btn btn-primary py-3" type="button" style="width: 100%;background: var(--bs-primary);border-style: none;border-radius: 4px;margin-top: 34px;">اطلبه الآن</button>
+                </div><a @click="success = false" href="#order_now" class="btn btn-primary py-3" type="button" style="width: 100%;background: var(--bs-primary);border-style: none;border-radius: 4px;margin-top: 34px;">اطلبه الآن</a>
                 <div style="border-bottom: 1px solid #F2F2F2;margin-top: 25px;margin-bottom: 15px;"></div>
                 <h3 style="font-size: 16px;font-weight: bold;">حفظ هذا العرض لوقت لاحق</h3><a class="btn btn-primary d-flex justify-content-center align-items-end" role="button" style="width: 100%;background: #f2f2f2;border-style: none;border-radius: 4px;color: #000;padding-top: 10px;padding-bottom: 16px;"><i class="fab fa-whatsapp" style="font-size: 20px;"></i>&nbsp;<span>ارسله لي عبر الوتس اب<br></span>&nbsp;</a>
                 <div style="border-bottom: 1px solid #F2F2F2;margin-top: 25px;margin-bottom: 15px;" class="mb-4"></div>
             </div>
         </section>
-        <section v-if="!success">
+        <section v-if="!success" id="order_now">
             <div class="container">
                 <div style="box-shadow: 0px 5px 12px #f2f2f2;border: 1px solid #f2f2f2;border-radius: 8px;" class="px-2 pb-3">
                     <h1 style="font-size: 30px;text-align: center;" class="mb-4 mt-3">اطلبه الآن</h1>
@@ -159,17 +166,17 @@
             </div>
         </section>
         <section class="mt-5 pb-0" style="padding-bottom: 0px;">
-            <div class="container-fluid px-0" style="position: relative;"><img style="width: 100%;max-width: 400px;" :src="template.second_image"><img :src="template.logo" style="width: 80px;position: absolute;top: 20px;left: 20px;"></div>
+            <div class="container-fluid px-0" style="position: relative;"><img style="width: 100%;max-width: 400px;" :src="template.second_image"></div>
         </section>
         <section style="background: #FBF4EA;margin-top: -194px;padding-top: 196px;">
             <div class="container" style="padding-bottom: 38px;">
-                <h2 style="font-size: 40px;color: #343434;" class="mb-3 mt-5">لماذا صفوة الجوف؟</h2>
+                <h2 style="font-size: 40px;color: #343434;" class="mb-3 mt-5">لماذا [[template.meta_title]]؟</h2>
                 <!-- <p style="font-size: 16px;color: #343434;">لأننا نقدم منتج فاخر وعضوي ١٠٠٪ يعتني بجودة غذائكم وصحتكم.</p> -->
                 <div v-for="feature in template.features" :key="feature.id">
                     <h2 style="font-size: 30px;color: #343434;" class="mb-3 mt-4"><i class="fas fa-check" style="color: var(--bs-primary);"></i>&nbsp;[[feature.title]]</h2>
                     <p style="font-size: 16px;color: #343434;">[[feature.description]]</p>
                 </div>
-                <button class="btn btn-primary py-3" type="button" style="width: 100%;background: var(--bs-primary);border-style: none;border-radius: 4px;margin-top: 34px;">اطلبه الآن</button>
+                <a @click="success = false" href="#order_now" class="btn btn-primary py-3" type="button" style="width: 100%;background: var(--bs-primary);border-style: none;border-radius: 4px;margin-top: 34px;">اطلبه الآن</a>
             </div>
         </section>
         <section class="pt-4">
@@ -183,7 +190,7 @@
                     <div class="flex-grow-1">
                         <div class="d-flex justify-content-between align-items-start">
                             <div><span style="font-weight: bold;">[[review.username]]</span>
-                                <div style="font-size: 12px;" class="mt-1 mb-1"><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span></div>
+                                <div v-html="getStars(review)" style="font-size: 12px;" class="mt-1 mb-1"></div>
                             </div><span style="font-size: 12px;color: var(--bs-black);background: var(--bs-secondary);border-radius: 50px;" class="py-1 px-3"><i class="fas fa-check"></i>&nbsp;قام بالشراء</span>
                         </div>
                         <p class="mt-2 mb-0">[[review.comment]]</p>
@@ -197,7 +204,7 @@
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'
+axios.defaults.baseURL = 'http://localhost:8000/api/v1/public'
   const { createApp } = Vue
 
   createApp({
@@ -261,8 +268,11 @@ axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'
         // this.startTracking();
     },
     methods: {
+        getStars(review){
+            let star = '<span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span>'
+            return star.repeat(review.rating)
+        },
         selectProduct(product){
-            console.log(product);
             this.form.product_obj = product;
             this.form.product = product.id;
         },
@@ -354,7 +364,7 @@ axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'
             }
         },
         leaving(){
-            fetch('https://landing.socialbot.dev/api/v1/public/create_visit', {
+            fetch('http://localhost:8000/api/v1/public/create_visit', {
                 method: 'POST',
                 body: JSON.stringify(this.session),
                 credentials: "same-origin",

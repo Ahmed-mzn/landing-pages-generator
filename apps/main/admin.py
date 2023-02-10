@@ -24,7 +24,7 @@ class DomainAdmin(admin.ModelAdmin):
 
 @admin.register(App)
 class AppAdmin(admin.ModelAdmin):
-    list_display = ['user', 'app_id', 'domain']
+    list_display = ['user', 'app_id']
     list_filter = ['user']
 
 
@@ -70,3 +70,9 @@ class LeadAdmin(admin.ModelAdmin):
 class TemplateProductAdmin(admin.ModelAdmin):
     list_display = ['template', 'product']
     list_filter = ['product', 'template']
+
+
+@admin.register(City)
+class CityAdmin(admin.ModelAdmin):
+    list_display = ['app', 'name']
+    list_filter = ['app', 'name']

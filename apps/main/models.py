@@ -40,7 +40,6 @@ class Domain(models.Model):
     name = models.CharField(max_length=100, unique=True)
     type = models.CharField(max_length=22, choices=DOMAIN_TYPE)
     record_id = models.CharField(max_length=222, null=True, blank=True)
-    app = models.OneToOneField(App, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -50,12 +49,14 @@ class Domain(models.Model):
 
 class Template(SofDelete):
     app = models.ForeignKey(App, related_name='templates', on_delete=models.CASCADE)
+    domain = models.ForeignKey(Domain, related_name='templates', on_delete=models.SET_NULL, null=True, blank=True)
+    is_child = models.BooleanField(default=False)
     template_code = models.CharField(max_length=85)
     template_name = models.CharField(max_length=85)
-    description = models.CharField(max_length=200)
+    description = models.TextField()
     meta_title = models.CharField(max_length=200)
-    meta_description = models.CharField(max_length=200)
-    meta_keywords = models.CharField(max_length=200)
+    meta_description = models.CharField(max_length=200, null=True, blank=True)
+    meta_keywords = models.CharField(max_length=200, null=True, blank=True)
     logo = models.FileField(upload_to='uploads/%Y/%m/%d')
     main_image = models.FileField(upload_to='uploads/%Y/%m/%d')
     medals_image = models.FileField(upload_to='uploads/%Y/%m/%d')
@@ -74,7 +75,7 @@ class Template(SofDelete):
 class Product(SofDelete):
     app = models.ForeignKey(App, related_name='products', on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
-    description = models.CharField(max_length=100)
+    description = models.TextField()
     image = models.FileField(upload_to='uploads/%Y/%m/%d')
     price = models.FloatField()
     price_after_discount = models.FloatField(null=True, blank=True)
@@ -98,7 +99,7 @@ class TemplateProduct(SofDelete):
 class Feature(SofDelete):
     template = models.ForeignKey(Template, related_name='features', on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
-    description = models.CharField(max_length=100)
+    description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -117,7 +118,7 @@ class Review(SofDelete):
 
     template = models.ForeignKey(Template, related_name='reviews', on_delete=models.CASCADE)
     username = models.CharField(max_length=50)
-    comment = models.CharField(max_length=100)
+    comment = models.TextField()
     rating = models.IntegerField(choices=SCALE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -164,3 +165,16 @@ class FormsRecord(models.Model):
 
     def __str__(self):
         return f"{self.lead.name} / {self.lead.city} / {self.template.template_code}"
+
+
+class City(models.Model):
+    app = models.ForeignKey(App, related_name='cities', on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"<City {self.name}>"
+
+    class Meta:
+        verbose_name_plural = 'Cities'
