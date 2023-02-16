@@ -118,7 +118,7 @@ class TemplateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Template
-        fields = ('id', 'template_code', 'template_name', 'domain', 'description', 'meta_title', 'meta_description',
+        fields = ('id', 'app', 'template_code', 'template_name', 'domain', 'description', 'meta_title', 'meta_description',
                   'cities', 'meta_keywords', 'logo', 'main_image', 'medals_image', 'second_image', 'review_text',
                   'primary_color', 'secondary_color', 'products', 'features', 'reviews', 'customer_website',
                   'is_child', 'is_deleted', 'created_at', 'updated_at')
@@ -241,6 +241,14 @@ class DomainCreationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Domain
         fields = ('id', 'name', 'type')
+
+    def create(self, validated_data):
+        if validated_data['type'] == 'normal':
+            domain_name = validated_data['name'] + '.sfhat.io'
+
+        domain = Domain.objects.create(name=domain_name, type=validated_data['type'])
+
+        return domain
 
 
 class BlankTemplateCreationSerializer(serializers.ModelSerializer):
