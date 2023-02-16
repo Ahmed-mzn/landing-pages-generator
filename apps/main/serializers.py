@@ -1,5 +1,5 @@
 from rest_framework import serializers
-import requests
+import requests, random
 from decouple import config
 from django.conf import settings
 from .models import Template, App, Product, FormsRecord, Feature, Review, Domain, Visit, TemplateProduct, Lead, City
@@ -98,20 +98,20 @@ class TemplateSerializer(serializers.ModelSerializer):
     def get_main_image_url(self, obj):
         if obj.main_image :
             return settings.WEBSITE_URL + obj.main_image.url
-        return ''
+        return settings.WEBSITE_URL + 'static/assets/img/hero.png'
 
     def get_medals_image_url(self, obj):
         if obj.medals_image:
             return settings.WEBSITE_URL + obj.medals_image.url
-        return ''
+        return settings.WEBSITE_URL + 'static/assets/img/Rectangle 1249.png'
 
     def get_second_image_url(self, obj):
         if obj.second_image:
             return settings.WEBSITE_URL + obj.second_image.url
-        return ''
+        return settings.WEBSITE_URL + 'static/assets/img/olivia.png'
 
     def get_products(self, obj):
-        data = Product.objects.all().filter(product_templates__template_id=obj.id)
+        data = Product.objects.all().filter(product_templates__template_id=obj.id, is_deleted=False)
 
         products = ProductSerializer(data, many=True)
         return products.data
@@ -149,11 +149,12 @@ class AppSerializer(serializers.ModelSerializer):
 
 class AppendTemplateChildSerializer(serializers.ModelSerializer):
     template = serializers.IntegerField(allow_null=True)
+    parent_template = serializers.IntegerField(allow_null=True, default=0)
     is_copy = serializers.BooleanField(default=True)
 
     class Meta:
         model = Template
-        fields = ('template', 'template_name', 'template_code', 'is_copy')
+        fields = ('template', 'template_name', 'template_code', 'parent_template', 'is_copy')
 
     def validate_template(self, value):
         try:
@@ -163,22 +164,48 @@ class AppendTemplateChildSerializer(serializers.ModelSerializer):
 
         return value
 
+    def validate_parent_template(self, value):
+        try:
+            Template.objects.get(pk=value)
+        except:
+            raise serializers.ValidationError(detail="Template not found")
+
+        return value
+
     def create(self, validated_data):
         template_id = validated_data.pop('template')
+        parent_template_id = validated_data.pop('parent_template')
         is_copy = validated_data.pop('is_copy')
 
+        parent_template = Template.objects.get(pk=parent_template_id)
         template = Template.objects.get(pk=template_id)
+        new_template = Template.objects.get(pk=template_id)
 
         if is_copy:
-            template.pk = None
-            template.is_child = True
-            template.template_name = validated_data['template_name']
-            template.save()
-        else:
-            new_template = Template.objects.create(domain=template.domain, is_child=True, **validated_data)
-            template = new_template
+            new_template.parent_id = parent_template.pk
+            new_template.pk = None
+            new_template.is_child = True
+            new_template.template_name = template.template_name \
+                                         + '-copy(' + str(template.child_templates.count()+1) + ')'
+            new_template.save()
 
-        return template
+            # make copy of features
+            for f in template.features.all():
+                Feature.objects.create(template=new_template, title=f.title, description=f.description)
+
+            # make copy of reviews
+            for r in template.reviews.all():
+                Review.objects.create(template=new_template, username=r.username, comment=r.comment, rating=r.rating)
+
+            # make copy of products
+            for p in template.template_products.all():
+                TemplateProduct.objects.create(template=new_template, product=p.product)
+
+        else:
+            new_template = Template.objects.create(domain=template.domain, parent=parent_template, is_child=True,
+                                                   **validated_data)
+
+        return new_template
 
 
 class FormsRecordCreationSerializer(serializers.ModelSerializer):
@@ -275,12 +302,16 @@ class ReviewCreationSerializer(serializers.ModelSerializer):
 
 
 class TemplateCreationSerializer(serializers.ModelSerializer):
+    domain = DomainSerializer(many=False)
 
     class Meta:
         model = Template
-        fields = ('id', 'app', 'template_code', 'template_name', 'description', 'meta_title', 'meta_description', 'meta_keywords', 'logo',
-                  'main_image', 'medals_image', 'second_image', 'review_text', 'customer_website', 'primary_color',
-                  'secondary_color')
+        fields = ('id', 'app', 'domain', 'template_code', 'template_name', 'description', 'meta_title',
+                  'meta_description', 'meta_keywords', 'main_image', 'medals_image', 'second_image',
+                  'review_text', 'customer_website', 'primary_color', 'is_child')
+        read_only_fields = (
+            'domain',
+        )
 
 
 class AppCreationSerializer(serializers.ModelSerializer):

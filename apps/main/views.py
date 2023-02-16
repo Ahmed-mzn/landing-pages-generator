@@ -8,15 +8,16 @@ from rest_framework.authentication import TokenAuthentication
 
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 
-from .models import Template, App, Product, FormsRecord, Feature, Review, Visit, Domain, TemplateProduct, Lead, City
+from .models import Template, App, Product, FormsRecord, Feature, Review, Visit, Domain, TemplateProduct, City
 
 from .serializers import TemplateSerializer, AppSerializer, AppCreationSerializer, TemplateCreationSerializer, \
     ProductCreationSerializer, FeatureCreationSerializer, ReviewCreationSerializer, VisitSerializer, \
     FormsRecordSerializer, TemplateProductCreationSerializer, DomainCreationSerializer, \
     BlankTemplateCreationSerializer, LeadSerializer, FormsRecordCreationSerializer, CitySerializer, \
-    AppendTemplateChildSerializer
+    AppendTemplateChildSerializer, ProductSerializer
 
 from decouple import config
+import openai
 import requests
 
 
@@ -69,17 +70,23 @@ class TemplateViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         if self.request.user.is_staff:
             return self.queryset
-        return self.queryset.filter(app__user=self.request.user, is_deleted=False)
+        return self.queryset.filter(app__user=self.request.user)
+
+    def retrieve(self, request, pk=None):
+        queryset = Template.objects.all()
+        template = get_object_or_404(queryset, pk=pk)
+        serializer = self.serializer_class(template)
+        return Response(serializer.data)
 
     def destroy(self, request, *args, **kwargs):
         template = self.get_object()
         template.soft_delete()
-        template.template_name += ' - ' + template.domain.name
+        template.template_name += '(' + template.domain.name.replace('.', '-') + ')'
         template.save()
         if not template.is_child:
             for t in template.domain.templates.all().filter(is_deleted=False):
                 t.soft_delete()
-                t.template_name = t.template_name + ' - ' + t.domain.name
+                t.template_name = t.template_name + '(' + t.domain.name.replace('.', '-') + ')'
                 t.save()
             template.domain.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
@@ -294,9 +301,121 @@ class AppendTemplateChildView(generics.GenericAPIView):
 
         if serializer.is_valid():
             serializer.save(app=request.user.apps.first())
-            return Response(data=serializer.data, status=status.HTTP_200_OK)
+            return Response(data=serializer.data, status=status.HTTP_201_CREATED)
 
         return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ArchiveTemplateView(generics.GenericAPIView):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
+    serializer_class = TemplateSerializer
+
+    def get(self, request):
+        data = Template.objects.filter(app__user=request.user, is_child=False, is_deleted=True)
+
+        serializer = self.serializer_class(instance=data, many=True)
+
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request):
+        pk = request.data.get('template', '')
+
+        domain = request.data.get('domain', '')
+
+        domain_serializer = DomainCreationSerializer(data=domain)
+
+        if domain_serializer.is_valid():
+            domain_obj = domain_serializer.save()
+
+            template = get_object_or_404(Template, pk=pk)
+
+            template.is_deleted = False
+            template.domain = domain_obj
+
+            if template.child_templates.all():
+                for t in template.child_templates.all():
+                    t.is_deleted = False
+                    t.domain = domain_obj
+                    t.save()
+
+            template.save()
+
+            serializer = self.serializer_class(instance=template, many=False)
+
+            return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+        return Response(data=domain_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ArchiveProductView(generics.GenericAPIView):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
+    serializer_class = ProductSerializer
+
+    def get(self, request):
+        data = Product.objects.filter(app__user=request.user, is_deleted=True)
+
+        serializer = self.serializer_class(instance=data, many=True)
+
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request):
+        pk = request.data.get('product', '')
+
+        product = get_object_or_404(Product, pk=pk)
+        product.is_deleted = False
+        product.save()
+
+        serializer = self.serializer_class(instance=product, many=False)
+
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def get_product_description(request):
+    title = request.data.get('title', '')
+
+    openai.api_key = config('CHAT_GPT_API_KEY')
+    completions = openai.Completion.create(
+        engine="text-davinci-003",
+        prompt=f'اكتبلي تعريق قصير عن منتج {title} لا يتجاوز ثلاثين حرف ',
+        max_tokens=1024,
+        n=1,
+        stop=None,
+        temperature=0.5,
+    )
+
+    message = completions.choices[0].text
+    print(message)
+    # headers = {
+    #     "Content-Type": "application/json; charset=utf-8",
+    #     "Authorization": f"Bearer {config('CHAT_GPT_API_KEY')}"
+    # }
+    # data = {
+    #     "model": "text-davinci-003",
+    #     "prompt": "اكتبلي تعريق قصير عن منتج زيت الزيتون لا يتجاوز ثلاثين حرف",
+    #     "max_tokens": 1024,
+    #     "n": 1,
+    #     "stop": "None",
+    #     "temperature": 0
+    # }
+    # url = "https://api.openai.com/v1/completions"
+    #
+    # response = requests.post(url, headers=headers, json=data)
+    #
+    # print("Status Code", response.status_code)
+    # print("JSON Response ", response.json())
+
+    return Response(
+        {
+            # "success": response.json()['choices'][0]['text'],
+            "result": message,
+        },
+        status=status.HTTP_201_CREATED
+    )
 
 
 @api_view(['POST'])
@@ -335,25 +454,34 @@ def get_template(request, template_id):
     return Response(data=serializer.data, status=status.HTTP_200_OK)
 
 
-@api_view(['GET'])
+@api_view(['POST'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
-def check_domain(request, domain):
-    url = f"https://api.cloudflare.com/client/v4/zones/{config('CLOUDFLARE_ZONE_ID')}/dns_records?match=any&name={domain}"
-    headers = {"Authorization": f"Bearer {config('CLOUDFLARE_API_KEY')}"}
-    result = requests.get(url=url, headers=headers).json()
+def check_domain(request):
+    # url = f"https://api.cloudflare.com/client/v4/zones/{config('CLOUDFLARE_ZONE_ID')}/dns_records?match=any&name={domain}"
+    # headers = {"Authorization": f"Bearer {config('CLOUDFLARE_API_KEY')}"}
+    # result = requests.get(url=url, headers=headers).json()
+    #
+    # if result['result_info']['count'] != 0:
+    #     return Response(
+    #         {
+    #             "result": False,
+    #         },
+    #         status=status.HTTP_200_OK
+    #     )
 
-    if result['result_info']['count'] != 0:
-        return Response(
-            {
-                "result": False,
-            },
-            status=status.HTTP_200_OK
-        )
+    domain = request.data.get('domain', '')
+
+    count_domain = Domain.objects.filter(name=domain).count()
+
+    result = True
+
+    if count_domain != 0:
+        result = False
 
     return Response(
         {
-            "result": True,
+            "result": result,
         },
         status=status.HTTP_200_OK
     )

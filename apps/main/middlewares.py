@@ -26,22 +26,23 @@ class SimpleMiddleware:
             # print("----------------------------------------------------------start")
             # print("host : ", request.META['HTTP_HOST'])
             # print("path : ", request.path)
-            app = App.objects.filter(domain=domain).first()
 
-            templates = app.templates.all().order_by("id")
+            templates = domain.templates.all().filter(is_deleted=False).order_by("id")
+
+            app = templates.filter(is_child=False).first()
 
             if app.next_template == 0:
                 app.next_template = templates[0].id
                 app.save()
             else:
-                # print("next temp: ", app.next_template)
+                print("next temp: ", app.next_template)
 
                 template_ids = [t.id for t in templates]
-                # print("temp ids: ", template_ids)
+                print("temp ids: ", template_ids)
 
                 current_temp_id_index = template_ids.index(app.next_template)
-                # print("current index: ", current_temp_id_index)
-                # print("len ids: ", (len(template_ids) - 1))
+                print("current index: ", current_temp_id_index)
+                print("len ids: ", (len(template_ids) - 1))
 
                 if current_temp_id_index == (len(template_ids) - 1):
                     app.next_template = template_ids[0]
@@ -49,7 +50,7 @@ class SimpleMiddleware:
                 else:
                     app.next_template = template_ids[current_temp_id_index + 1]
                     app.save()
-            template = Template.objects.get(app__domain__name=domain.name, pk=app.next_template)
+            template = Template.objects.get(domain=domain, pk=app.next_template)
             context = {
                 "template": template
             }
@@ -61,7 +62,7 @@ class SimpleMiddleware:
                 response = self.get_response(request)
                 return response
             else:
-                templates = Template.objects.all().filter(app__domain=domain).order_by("id")
+                templates = Template.objects.all().filter(domain=domain).order_by("id")
                 templates_names = [t.template_name for t in templates]
                 print(templates_names)
                 if split_path[1] in templates_names:

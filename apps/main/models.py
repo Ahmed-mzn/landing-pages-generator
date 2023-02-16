@@ -50,26 +50,31 @@ class Domain(models.Model):
 class Template(SofDelete):
     app = models.ForeignKey(App, related_name='templates', on_delete=models.CASCADE)
     domain = models.ForeignKey(Domain, related_name='templates', on_delete=models.SET_NULL, null=True, blank=True)
+    parent = models.ForeignKey('self', related_name='child_templates', on_delete=models.SET_NULL, null=True, blank=True)
     is_child = models.BooleanField(default=False)
+    next_template = models.IntegerField(default=0)
     template_code = models.CharField(max_length=85)
     template_name = models.CharField(max_length=85)
     description = models.TextField()
     meta_title = models.CharField(max_length=200)
     meta_description = models.CharField(max_length=200, null=True, blank=True)
     meta_keywords = models.CharField(max_length=200, null=True, blank=True)
-    logo = models.FileField(upload_to='uploads/%Y/%m/%d')
+    logo = models.FileField(upload_to='uploads/%Y/%m/%d', null=True, blank=True)
     main_image = models.FileField(upload_to='uploads/%Y/%m/%d')
     medals_image = models.FileField(upload_to='uploads/%Y/%m/%d')
     second_image = models.FileField(upload_to='uploads/%Y/%m/%d')
     review_text = models.CharField(max_length=200)
     primary_color = models.CharField(max_length=20)
-    secondary_color = models.CharField(max_length=20)
+    secondary_color = models.CharField(max_length=20, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     customer_website = models.CharField(max_length=200)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"<Template {self.template_code} - {self.app.user}>"
+        return f"<Template {self.template_code} - {self.template_name} / {self.app.user}>"
+
+    class Meta:
+        ordering = ('pk', )
 
 
 class Product(SofDelete):

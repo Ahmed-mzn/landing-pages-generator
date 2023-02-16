@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html id="html" lang="en" dir="rtl" style="--bs-secondary: {{template.secondary_color}};--bs-secondary-rgb: 245,210,96;--bs-primary: {{template.primary_color}};--bs-primary-rgb: 183,194,38;">
+<html id="html" lang="en" dir="rtl" style="--bs-secondary: #f5d260;--bs-secondary-rgb: 245,210,96;--bs-primary: {{template.primary_color}};--bs-primary-rgb: 183,194,38;">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -95,7 +95,7 @@
                             <template v-if="product.price_after_discount">
                                 <p style="color: #999A9A;text-decoration:  line-through;">[[product.price]] ر.س</p>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <p style="color: #E5423B;margin-top: 0px;margin-bottom: 6px;white-space: nowrap;">[[product.price]] ر.س</p><span style="font-size: 9px;background: #EB6A64;color: #ffff;border-radius: 17px;padding: 3px 7px 3px;white-space: nowrap;">الاكثر توفيراً</span>
+                                    <p style="color: #E5423B;margin-top: 0px;margin-bottom: 6px;white-space: nowrap;">[[product.price_after_discount]] ر.س</p><span style="font-size: 9px;background: #EB6A64;color: #ffff;border-radius: 17px;padding: 3px 7px 3px;white-space: nowrap;">الاكثر توفيراً</span>
                                 </div>
                             </template>
                             <template v-else>
@@ -112,10 +112,10 @@
                 </div><a @click="success = false" href="#order_now" class="btn btn-primary py-3" type="button" style="width: 100%;background: var(--bs-primary);border-style: none;border-radius: 4px;margin-top: 34px;">اطلبه الآن</a>
                 <div style="border-bottom: 1px solid #F2F2F2;margin-top: 25px;margin-bottom: 15px;"></div>
                 <h3 style="font-size: 16px;font-weight: bold;">حفظ هذا العرض لوقت لاحق</h3><a class="btn btn-primary d-flex justify-content-center align-items-end" role="button" style="width: 100%;background: #f2f2f2;border-style: none;border-radius: 4px;color: #000;padding-top: 10px;padding-bottom: 16px;"><i class="fab fa-whatsapp" style="font-size: 20px;"></i>&nbsp;<span>ارسله لي عبر الوتس اب<br></span>&nbsp;</a>
-                <div style="border-bottom: 1px solid #F2F2F2;margin-top: 25px;margin-bottom: 15px;" class="mb-4"></div>
+                <div id="order_now" style="border-bottom: 1px solid #F2F2F2;margin-top: 25px;margin-bottom: 15px;" class="mb-4"></div>
             </div>
         </section>
-        <section v-if="!success" id="order_now">
+        <section v-if="!success" >
             <div class="container">
                 <div style="box-shadow: 0px 5px 12px #f2f2f2;border: 1px solid #f2f2f2;border-radius: 8px;" class="px-2 pb-3">
                     <h1 style="font-size: 30px;text-align: center;" class="mb-4 mt-3">اطلبه الآن</h1>
@@ -130,19 +130,17 @@
                             <div id="formPhoneError" style="color: var(--bs-primary)" class="invalid-feedback"></div>
                         </div>
                         <div class="mb-2" style="position: relative;"><select v-model="form.city" class="form-select py-3" style="padding-right: 12px;padding-left: 34px;border-style: none;background: #f2f2f2;">
-                                <option value="1">جدة</option>
-                                <option value="2">مكة</option>
-                                <option value="3">الرياض</option>
+                                <option v-for="city in template.cities" :key="city.id" :value="city.name">[[city.name]]</option>
                             </select><i class="fas fa-chevron-down" style="position: absolute;top: 50%;transform: translateY(-50%);left: 20px;"></i></div>
                         <div class="mb-2">
                             <input id="formAddress" v-model="form.address" class="form-control py-3" type="text" placeholder="العنوان (الحي، الشارع)" style="background: #f2f2f2;border-style: none;">
                             <div id="formAddressError" style="color: var(--bs-primary)" class="invalid-feedback"></div>
                         </div>
                         <div class="d-flex justify-content-between mt-3" style="color: #343434;"><span>[[form.product_obj.title]]</span><span>x[[form.quantity]]</span></div>
-                        <div class="d-flex justify-content-between mt-2" style="color: #343434;"><span>السعر شامل الضريبة</span><span>[[form.product_obj.price]] ر.س</span></div>
+                        <div class="d-flex justify-content-between mt-2" style="color: #343434;"><span>السعر شامل الضريبة</span><span>[[unitPrice]] ر.س</span></div>
                         <div class="d-flex justify-content-between mt-2" style="color: #343434;"><span>الشحن السريع</span><span>مجاني</span></div>
                         <div style="border-bottom: 1px solid #F2F2F2;margin-top: 25px;margin-bottom: 15px;" class="mb-0"></div>
-                        <div class="d-flex justify-content-between mt-2" style="color: #343434;"><span style="font-weight: bold;">الاجمالي</span><span style="font-weight: bold;">[[form.quantity * form.product_obj.price]] ر.س</span></div>
+                        <div class="d-flex justify-content-between mt-2" style="color: #343434;"><span style="font-weight: bold;">الاجمالي</span><span style="font-weight: bold;">[[totalAmount]] ر.س</span></div>
                         <a @click="submitForm()" class="btn btn-primary py-3 mt-4" role="button" style="width: 100%;background: var(--bs-primary);border-style: none;border-radius: 4px;margin-top: 34px;">شراء</a>
                     </form>
                 </div>
@@ -204,7 +202,7 @@
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-axios.defaults.baseURL = 'http://localhost:8000/api/v1/public'
+axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'
   const { createApp } = Vue
 
   createApp({
@@ -266,6 +264,14 @@ axios.defaults.baseURL = 'http://localhost:8000/api/v1/public'
         this.getTemplate();
         this.getIpInfo();
         // this.startTracking();
+    },
+    computed:{
+      unitPrice(){
+          return this.form.product_obj.price_after_discount ? this.form.product_obj.price_after_discount : this.form.product_obj.price
+      },
+      totalAmount(){
+          return this.form.product_obj.price_after_discount ? this.form.quantity * this.form.product_obj.price_after_discount : this.form.quantity * this.form.product_obj.price
+      }
     },
     methods: {
         getStars(review){
@@ -350,7 +356,6 @@ axios.defaults.baseURL = 'http://localhost:8000/api/v1/public'
             if(valid){
                 axios.post("/create_form", this.form)
                 .then((response) => {
-                    console.log(response);
                     document.cookie = 'name='+this.form.name+'; expires=Thu, 01 Jan 9999 00:00:00 UTC';
                     document.cookie = `phonenumber=${this.form.phone_number}; expires=Thu, 01 Jan 9999 00:00:00 UTC`;
                     document.cookie = `city=${this.form.city}; expires=Thu, 01 Jan 9999 00:00:00 UTC`;
@@ -364,7 +369,7 @@ axios.defaults.baseURL = 'http://localhost:8000/api/v1/public'
             }
         },
         leaving(){
-            fetch('http://localhost:8000/api/v1/public/create_visit', {
+            fetch('https://landing.socialbot.dev/api/v1/public/create_visit', {
                 method: 'POST',
                 body: JSON.stringify(this.session),
                 credentials: "same-origin",
@@ -394,11 +399,11 @@ axios.defaults.baseURL = 'http://localhost:8000/api/v1/public'
                 }
 
                 let html = document.getElementById("html");
-                html.style = `--bs-secondary: ${this.template.secondary_color};--bs-secondary-rgb: 245,210,96;--bs-primary: ${this.template.primary_color};--bs-primary-rgb: 183,194,38;`;
+                html.style = `--bs-secondary: #f5d260;--bs-secondary-rgb: 245,210,96;--bs-primary: ${this.template.primary_color};--bs-primary-rgb: 183,194,38;`;
 
                 this.form.name = this.getCookie('name');
                 this.form.phone_number = this.getCookie('phonenumber');
-                this.form.city = this.getCookie('city');
+                this.form.city = this.getCookie('city') ? this.getCookie('city') : this.template.cities[0].name;
                 this.form.address = this.getCookie('address');
             })
             .catch((error) => {

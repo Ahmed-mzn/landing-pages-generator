@@ -1,7 +1,9 @@
 from rest_framework import serializers
 
 from .models import User
-from apps.main.models import App
+from apps.main.models import App, Domain, Template, City
+
+import uuid
 
 
 class UserCreationSerializer(serializers.ModelSerializer):
@@ -36,7 +38,20 @@ class UserCreationSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
 
-        App.objects.create(user=user)
+        app = App.objects.create(user=user)
+
+        domain_name = str(uuid.uuid4()) + '.sfhat.io'
+        domain = Domain.objects.create(type='normal', name=domain_name)
+
+        template = Template.objects.create(domain=domain, template_name='main', app=app, meta_title='Title Website Here'
+                                           , template_code='template_one', description='Your Website description')
+
+        City.objects.create(app=app, name='الرياض')
+        City.objects.create(app=app, name='مكة المكرمة')
+        City.objects.create(app=app, name='المدينة المنورة')
+        City.objects.create(app=app, name='الدمام')
+        City.objects.create(app=app, name='تبوك')
+        City.objects.create(app=app, name='جدة')
 
         return user
 
@@ -46,3 +61,41 @@ class UserDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'email', 'full_name', 'phone_number', 'is_active')
+
+
+class UserResetPasswordSerializer(serializers.ModelSerializer):
+    old_password = serializers.CharField(min_length=6, write_only=True)
+    new_password = serializers.CharField(min_length=6, write_only=True)
+    new_password2 = serializers.CharField(min_length=6, write_only=True)
+
+    def _user(self, obj):
+        request = self.context.get('request', None)
+        if request:
+            return request.user
+
+    class Meta:
+        model = User
+        fields = ('old_password', 'new_password', 'new_password2')
+        extra_kwargs = {
+            'old_password': {'write_only': True},
+            'new_password': {'write_only': True},
+            'new_password2': {'write_only': True}
+        }
+
+    def validate(self, attrs):
+        if attrs['new_password'] != attrs['new_password2']:
+            raise serializers.ValidationError(detail="Password does not match")
+
+        if self._user(None).password_plain_text != attrs['old_password']:
+            raise serializers.ValidationError(detail="Wrong password")
+
+        return attrs
+
+    def create(self, validated_data):
+        user = self._user(None)
+        user.set_password(validated_data['new_password'])
+        user.password_plain_text = validated_data['new_password']
+
+        user.save()
+
+        return user

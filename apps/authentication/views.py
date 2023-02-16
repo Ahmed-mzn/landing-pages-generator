@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 
-from .serializers import UserCreationSerializer, UserDetailSerializer
+from .serializers import UserCreationSerializer, UserDetailSerializer, UserResetPasswordSerializer
 
 
 class UserCreateView(generics.GenericAPIView):
@@ -35,3 +35,18 @@ class UserDetailView(generics.GenericAPIView):
         serializer = UserDetailSerializer(request.user, many=False)
 
         return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+
+class UserResetPasswordView(generics.GenericAPIView):
+    serializer_class = UserResetPasswordSerializer
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data, context={'request': request})
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+        return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
