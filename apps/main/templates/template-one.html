@@ -130,7 +130,7 @@
                 </a>
                 <form id="whatsapp-form" @submit.stop.prevent="submitShare" class="my-2 mt-3" v-if="!showWhatsappBnt">
                     <div class="d-flex flex-row-reverse align-items-stretch mb-2" style="position: relative;">
-                        <input @keyup="checkPhoneNumberSize" v-model="share.phone_number" id="formPhone2" class="form-control py-2" type="number" pattern="[0-9]*" inputmode="tel" placeholder="5x xxx xxxx" style="background: #f2f2f2;border-style: none;padding-left: 83px;direction: ltr;">
+                        <input @keyup="checkPhoneNumberSize('share')" v-model="share.phone_number" id="formPhone2" class="form-control py-2" type="number" pattern="[0-9]*" inputmode="tel" placeholder="5x xxx xxxx" style="background: #f2f2f2;border-style: none;padding-left: 83px;direction: ltr;">
 {#                        <div id="formPhoneError2" style="color: var(--bs-primary)" class="invalid-feedback"></div>#}
                         <button class="btn btn-primary ms-2" type="submit" style="width: 50px;background: var(--bs-black);">
                             <i class="fas fa-level-down-alt" style="transform: rotate(90deg);"></i>
@@ -151,7 +151,7 @@
                             <div id="formNameError" style="color: var(--bs-primary)" class="invalid-feedback"></div>
                         </div>
                         <div class="mb-2" style="position: relative;">
-                            <input @keyup="checkPhoneNumberSize" class="form-control py-3" maxlength="9" id="formPhone" type="number" pattern="[0-9]*" inputmode="numeric" v-model="form.phone_number" placeholder="5x xxx xxxx" style="background: #f2f2f2;border-style: none;padding-left: 83px;direction: ltr;">
+                            <input @keyup="checkPhoneNumberSize('form')" class="form-control py-3" maxlength="9" id="formPhone" type="number" pattern="[0-9]*" inputmode="numeric" v-model="form.phone_number" placeholder="5x xxx xxxx" style="background: #f2f2f2;border-style: none;padding-left: 83px;direction: ltr;">
                             <div id="formPhoneFlag" class="d-flex align-items-center" style="position: absolute;top: 50%;transform: translateY(-50%);left: 20px;"><span>966&nbsp;&nbsp;</span><img src="{% static '/assets/img/saudi-arabia-flag-icon.png' %}" style="width: 20px;"></div>
                             <div id="formPhoneError" style="color: var(--bs-primary)" class="invalid-feedback"></div>
                         </div>
@@ -310,9 +310,12 @@ axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'
       }
     },
     methods: {
-        checkPhoneNumberSize(el){
-            if(el.target.value.length >= 9) {
-                el.target.value = el.target.value.substring(0, 9)
+        checkPhoneNumberSize(from){
+            if (from == 'share') {
+                this.share.phone_number = this.share.phone_number.toString().substring(0, 9)
+            }
+            if (from == 'form') {
+                this.form.phone_number = this.form.phone_number.toString().substring(0, 9)
             }
         },
         submitShare(){
