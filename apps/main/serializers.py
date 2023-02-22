@@ -13,11 +13,6 @@ class CitySerializer(serializers.ModelSerializer):
         fields = ('id', 'app', 'name', 'created_at', 'updated_at')
 
 
-class TemplateShareSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = TemplateShare
-        fields = ('id', 'template', 'phone_number', 'city', 'created_at', 'updated_at')
-
 
 class VisitSerializer(serializers.ModelSerializer):
     class Meta:
@@ -38,6 +33,19 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = ('id', 'app', 'title', 'description', 'image', 'price', 'price_after_discount', 'created_at',
                   'updated_at')
+
+
+class TemplateShareSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = TemplateShare
+        fields = ('id', 'template', 'product', 'phone_number', 'city', 'created_at', 'updated_at')
+
+    def to_representation(self, instance):
+        representation = super(TemplateShareSerializer, self).to_representation(instance)
+        representation['product'] = ProductSerializer(instance.product).data
+
+        return representation
 
 
 class LeadSerializer(serializers.ModelSerializer):

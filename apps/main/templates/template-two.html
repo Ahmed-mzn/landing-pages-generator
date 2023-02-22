@@ -124,10 +124,16 @@
                     <div class="d-flex justify-content-between align-items-center" style="width: 250px;padding: 10px 25px;border-radius: 5px;color: rgb(0,0,0);border: 1px solid #F2F2F2 ;"><i @click="decreaseQty()" class="fas fa-minus disabled" id="quantity-minus" style="color: var(--bs-primary);"></i><span id="quantity-text" style="font-size: 18px;">1</span><i @click="increaseQty()" class="fas fa-plus" id="quantity-plus" style="color: var(--bs-primary);"></i></div>
                 </div><a @click="success = false" href="#order_now" class="btn btn-primary py-3" type="button" style="width: 100%;background: var(--bs-primary);border-style: none;border-radius: 4px;margin-top: 34px;">اطلبه الآن</a>
                 <div style="border-bottom: 1px solid #F2F2F2;margin-top: 25px;margin-bottom: 15px;"></div>
-                <h3 style="font-size: 16px;font-weight: bold;">حفظ هذا العرض لوقت لاحق</h3><a v-if="!showWhatsappBnt" @click="showWhatsappBnt = true" class="btn btn-primary d-flex justify-content-center align-items-end" role="button" style="width: 100%;background: #f2f2f2;border-style: none;border-radius: 4px;color: #000;padding-top: 10px;padding-bottom: 16px;"><i class="fab fa-whatsapp" style="font-size: 20px;"></i>&nbsp;<span>ارسله لي عبر الوتس اب<br></span>&nbsp;</a>
-                <form id="whatsapp-form" @submit.stop.prevent="submitShare" class="my-2 mt-3" v-if="showWhatsappBnt">
+                <h3 style="font-size: 16px;font-weight: bold;">حفظ هذا العرض لوقت لاحق</h3>
+                <a v-if="showWhatsappBnt && !showWhatsappSendSuccessBtn" @click="showWhatsappBnt = false" class="btn btn-primary d-flex justify-content-center align-items-end" role="button" style="width: 100%;background: #f2f2f2;border-style: none;border-radius: 4px;color: #000;padding-top: 10px;padding-bottom: 16px;">
+                    <i class="fab fa-whatsapp" style="font-size: 20px;"></i>&nbsp;<span>ارسله لي عبر الوتس اب<br></span>&nbsp;
+                </a>
+                <a v-if="showWhatsappSendSuccessBtn" @click="showWhatsappBnt = true; showWhatsappSendSuccessBtn= false" class="btn btn-primary d-flex justify-content-center align-items-end" role="button" style="width: 100%;background: #f2f2f2;border-style: none;border-radius: 4px;color: #000;padding-top: 10px;padding-bottom: 16px;">
+                    <i class="fas fa-check-circle" style="font-size: 20px;color: green"></i>&nbsp;<span>تم الإرسال، تحقق من الوتس اب<br></span>&nbsp;
+                </a>
+                <form id="whatsapp-form" @submit.stop.prevent="submitShare" class="my-2 mt-3" v-if="!showWhatsappBnt">
                     <div class="d-flex flex-row-reverse align-items-stretch mb-2" style="position: relative;">
-                        <input v-model="share.phone_number" id="formPhone2" class="form-control py-2" type="number" pattern="[0-9]*" inputmode="tel" placeholder="5x xxx xxxx" style="background: #f2f2f2;border-style: none;padding-left: 83px;direction: ltr;">
+                        <input @keyup="checkPhoneNumberSize" v-model="share.phone_number" id="formPhone2" class="form-control py-2" type="number" pattern="[0-9]*" inputmode="tel" placeholder="5x xxx xxxx" style="background: #f2f2f2;border-style: none;padding-left: 83px;direction: ltr;">
 {#                        <div id="formPhoneError2" style="color: var(--bs-primary)" class="invalid-feedback"></div>#}
                         <button class="btn btn-primary ms-2" type="submit" style="width: 50px;background: var(--bs-black);">
                             <i class="fas fa-level-down-alt" style="transform: rotate(90deg);"></i>
@@ -148,7 +154,7 @@
                             <div id="formNameError" style="color: var(--bs-primary)" class="invalid-feedback"></div>
                         </div>
                         <div class="mb-2" style="position: relative;">
-                            <input class="form-control py-3" id="formPhone" type="number" pattern="[0-9]*" inputmode="numeric" v-model="form.phone_number" placeholder="5x xxx xxxx" style="background: #f2f2f2;border-style: none;padding-left: 83px;direction: ltr;">
+                            <input @keyup="checkPhoneNumberSize" class="form-control py-3" id="formPhone" type="number" pattern="[0-9]*" inputmode="numeric" v-model="form.phone_number" placeholder="5x xxx xxxx" style="background: #f2f2f2;border-style: none;padding-left: 83px;direction: ltr;">
                             <div id="formPhoneFlag" class="d-flex align-items-center" style="position: absolute;top: 50%;transform: translateY(-50%);left: 20px;"><span>966&nbsp;&nbsp;</span><img src="{% static '/assets/img/saudi-arabia-flag-icon.png' %}" style="width: 20px;"></div>
                             <div id="formPhoneError" style="color: var(--bs-primary)" class="invalid-feedback"></div>
                         </div>
@@ -217,7 +223,7 @@
                         <p class="mt-2 mb-0">[[review.comment]]</p>
                     </div>
                 </div>
-                <a class="btn btn-primary py-3 mt-4 mb-4" role="button" style="width: 100%;border-radius: 8px;margin-top: 34px;background: transparent;color: #000;border-style: solid;border-color: #000;" target="_blank" :href="template.customer_website">للمزيد زر&nbsp;[[template.customer_website]]</a>
+                <a class="btn btn-primary py-3 mt-4 mb-4" role="button" style="width: 100%;border-radius: 8px;margin-top: 34px;background: transparent;color: #000;border-style: solid;border-color: #000;" target="_blank" :href="'http://'+template.customer_website">للمزيد زر&nbsp;[[template.customer_website]]</a>
             </div>
         </section>
     </div>
@@ -225,8 +231,8 @@
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'
-{#axios.defaults.baseURL = 'http://localhost:8000/api/v1/public'#}
+{#axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'#}
+axios.defaults.baseURL = 'http://localhost:8000/api/v1/public'
   const { createApp } = Vue
 
   createApp({
@@ -234,7 +240,8 @@ axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'
     data() {
         return {
             success: false,
-            showWhatsappBnt: false,
+            showWhatsappBnt: true,
+            showWhatsappSendSuccessBtn: false,
             form: {
                 product_obj: {
                     title: '',
@@ -305,6 +312,11 @@ axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'
       }
     },
     methods: {
+        checkPhoneNumberSize(el){
+            if(el.target.value.length >= 9) {
+                el.target.value = el.target.value.substring(0, 9)
+            }
+        },
         submitShare(){
             let valid = true;
             this.share.template = this.template.id
@@ -327,7 +339,8 @@ axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'
                 axios.post("/create_share", this.share)
                     .then(res => {
                         console.log(res)
-                        this.showWhatsappBnt = false
+                        this.showWhatsappBnt = true
+                        this.showWhatsappSendSuccessBtn = true
                     })
                     .catch(err => {
                         console.log(err)
@@ -397,7 +410,7 @@ axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'
 
             let isnum = /^\d+$/.test(this.form.phone_number);
 
-            if(this.form.phone_number == '' || !isnum || this.form.phone_number.toString().length != 8){
+            if(this.form.phone_number == '' || !isnum || this.form.phone_number.toString().length != 9){
                 valid = false;
                 document.getElementById("formPhone").style = "background: #f2f2f2;border-color: var(--bs-primary);padding-left: 83px;direction: ltr;"
                 document.getElementById("formPhone").classList.add("is-invalid");

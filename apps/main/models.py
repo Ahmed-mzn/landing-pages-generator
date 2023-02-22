@@ -139,6 +139,7 @@ class Review(SofDelete):
 
 class TemplateShare(models.Model):
     template = models.ForeignKey(Template, related_name='shares', on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, related_name='shares', on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=85)
     city = models.CharField(max_length=85)
     created_at = models.DateTimeField(auto_now_add=True)
