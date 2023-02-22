@@ -430,6 +430,7 @@ axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'
             }
         },
         leaving(){
+            this.session.template = this.template.id
             fetch('https://landing.socialbot.dev/api/v1/public/create_visit', {
                 method: 'POST',
                 body: JSON.stringify(this.session),
