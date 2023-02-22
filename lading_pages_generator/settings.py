@@ -31,6 +31,7 @@ ALLOWED_DOMAINS = ['landing.socialbot.dev', '52.90.84.132', 'localhost:8000', 't
                    '127.0.0.1']
 ALLOWED_HOSTS = ['*']
 WEBSITE_URL = 'https://landing.socialbot.dev'
+# WEBSITE_URL = 'http://localhost:8000'
 CSRF_TRUSTED_ORIGINS = ['https://landing.socialbot.dev']
 X_FRAME_OPTIONS = 'test.ahmedzeini.com'
 
@@ -116,7 +117,9 @@ DATABASES = {
         'HOST': config('DB_HOST'),
         'PORT': config('DB_PORT'),
         'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
+            'use_unicode': True,
         }
     }
 }

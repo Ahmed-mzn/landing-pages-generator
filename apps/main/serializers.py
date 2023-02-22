@@ -2,7 +2,8 @@ from rest_framework import serializers
 import requests, random
 from decouple import config
 from django.conf import settings
-from .models import Template, App, Product, FormsRecord, Feature, Review, Domain, Visit, TemplateProduct, Lead, City
+from .models import Template, App, Product, FormsRecord, Feature, Review, Domain, Visit, TemplateProduct, Lead, City, \
+    TemplateShare
 from .threads import CreateDeployAppThread
 
 
@@ -10,6 +11,12 @@ class CitySerializer(serializers.ModelSerializer):
     class Meta:
         model = City
         fields = ('id', 'app', 'name', 'created_at', 'updated_at')
+
+
+class TemplateShareSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TemplateShare
+        fields = ('id', 'template', 'phone_number', 'city', 'created_at', 'updated_at')
 
 
 class VisitSerializer(serializers.ModelSerializer):
@@ -118,10 +125,11 @@ class TemplateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Template
-        fields = ('id', 'app', 'template_code', 'template_name', 'domain', 'description', 'meta_title', 'meta_description',
-                  'cities', 'meta_keywords', 'logo', 'main_image', 'medals_image', 'second_image', 'review_text',
-                  'primary_color', 'secondary_color', 'products', 'features', 'reviews', 'customer_website',
-                  'is_child', 'is_deleted', 'created_at', 'updated_at')
+        fields = ('id', 'app', 'template_code', 'template_name', 'domain', 'description', 'meta_title',
+                  'meta_description', 'cities', 'meta_keywords', 'logo', 'main_image', 'medals_image', 'second_image',
+                  'review_text', 'primary_color', 'secondary_color', 'products', 'features', 'reviews',
+                  'customer_website', 'feature_text', 'total_redirect_numbers', 'template_redirect_numbers',
+                  'template_redirect_percentage', 'is_child', 'is_deleted', 'created_at', 'updated_at')
 
 
 class AppSerializer(serializers.ModelSerializer):
@@ -185,6 +193,10 @@ class AppendTemplateChildSerializer(serializers.ModelSerializer):
             new_template.parent_id = parent_template.pk
             new_template.pk = None
             new_template.is_child = True
+            new_template.template_redirect_numbers = 0
+            new_template.next_template = 0
+            new_template.next_template_redirect_numbers = 0
+            new_template.total_redirect_numbers = 0
             new_template.template_name = template.template_name \
                                          + '-copy(' + str(template.child_templates.count()+1) + ')'
             new_template.save()
@@ -222,6 +234,7 @@ class FormsRecordCreationSerializer(serializers.ModelSerializer):
                   'created_at', 'updated_at')
 
     def create(self, validated_data):
+        print(validated_data['product'])
         try:
             lead = Lead.objects.all().get(phone_number=validated_data.get('phone_number'))
             validated_data.pop('name')
@@ -231,8 +244,12 @@ class FormsRecordCreationSerializer(serializers.ModelSerializer):
         except:
             lead = Lead.objects.create(name=validated_data.pop('name'), phone_number=validated_data.pop('phone_number'),
                                        city=validated_data.pop('city'), address=validated_data.pop('address'))
-
-        form = FormsRecord.objects.create(lead=lead, **validated_data)
+        product = validated_data['product']
+        if product.price_after_discount:
+            amount = validated_data['quantity'] * product.price_after_discount
+        else:
+            amount = validated_data['quantity'] * product.price
+        form = FormsRecord.objects.create(lead=lead, amount=amount, **validated_data)
 
         return form
 
@@ -315,10 +332,12 @@ class TemplateCreationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Template
         fields = ('id', 'app', 'domain', 'template_code', 'template_name', 'description', 'meta_title',
-                  'meta_description', 'meta_keywords', 'main_image', 'medals_image', 'second_image',
+                  'meta_description', 'meta_keywords', 'main_image', 'medals_image', 'second_image', 'feature_text',
+                  'total_redirect_numbers', 'template_redirect_numbers', 'template_redirect_percentage',
                   'review_text', 'customer_website', 'primary_color', 'is_child')
         read_only_fields = (
             'domain',
+            'total_redirect_numbers', 'template_redirect_numbers', 'template_redirect_percentage',
         )
 
 

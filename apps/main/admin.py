@@ -76,3 +76,9 @@ class TemplateProductAdmin(admin.ModelAdmin):
 class CityAdmin(admin.ModelAdmin):
     list_display = ['app', 'name']
     list_filter = ['app', 'name']
+
+
+@admin.register(TemplateShare)
+class CityAdmin(admin.ModelAdmin):
+    list_display = ['phone_number', 'template', 'city']
+    list_filter = []

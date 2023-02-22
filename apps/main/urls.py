@@ -5,7 +5,7 @@ from .views import TemplateViewSet, AppRetrieveDeleteUpdateView, AppByIdView, Ap
     FeatureViewSet, ReviewViewSet, check_domain, VisitAPIView, create_visit, create_form, FormAPIView, \
     get_template_one, get_template_two, get_app, get_template, AssignProductToTemplateView, UpdateDomainView, \
     create_blank_template, CityViewSet, AppendTemplateChildView, get_product_description, ArchiveTemplateView, \
-    ArchiveProductView
+    ArchiveProductView, TemplateShareViewSet, create_share, set_variant
 
 router = DefaultRouter()
 router.register('templates', TemplateViewSet, basename='templates')
@@ -13,6 +13,7 @@ router.register('products', ProductViewSet, basename='products')
 router.register('features', FeatureViewSet, basename='features')
 router.register('reviews', ReviewViewSet, basename='reviews')
 router.register('cities', CityViewSet, basename='cities')
+router.register('shares', TemplateShareViewSet, basename='shares')
 
 
 urlpatterns = [
@@ -29,6 +30,7 @@ urlpatterns = [
     path('templates/archive', ArchiveTemplateView.as_view(), name='archie_templates'),
     path('get_app', get_app, name='get_app'),
     path('check_domain', check_domain, name='check_domain'),
+    path('templates/variant', set_variant, name='set_variant'),
     path('products/get_product_description', get_product_description, name='get_product_description'),
     path('products/archive', ArchiveProductView.as_view(), name='products_archive'),
 
@@ -39,4 +41,5 @@ urlpatterns = [
     path('public/apps/templates/<str:template_id>', get_template, name='get_template'),
     path('public/create_visit', create_visit, name='create_visit'),
     path('public/create_form', create_form, name='create_form'),
+    path('public/create_share', create_share, name='create_share'),
 ]

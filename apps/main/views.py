@@ -8,13 +8,14 @@ from rest_framework.authentication import TokenAuthentication
 
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 
-from .models import Template, App, Product, FormsRecord, Feature, Review, Visit, Domain, TemplateProduct, City
+from .models import Template, App, Product, FormsRecord, Feature, Review, Visit, Domain, TemplateProduct, City, \
+    TemplateShare
 
 from .serializers import TemplateSerializer, AppSerializer, AppCreationSerializer, TemplateCreationSerializer, \
     ProductCreationSerializer, FeatureCreationSerializer, ReviewCreationSerializer, VisitSerializer, \
     FormsRecordSerializer, TemplateProductCreationSerializer, DomainCreationSerializer, \
     BlankTemplateCreationSerializer, LeadSerializer, FormsRecordCreationSerializer, CitySerializer, \
-    AppendTemplateChildSerializer, ProductSerializer
+    AppendTemplateChildSerializer, ProductSerializer, TemplateShareSerializer
 
 from decouple import config
 import openai
@@ -30,6 +31,20 @@ class CityViewSet(viewsets.ModelViewSet):
         if self.request.user.is_staff:
             return self.queryset
         return self.queryset.filter(app__user=self.request.user)
+
+
+class TemplateShareViewSet(viewsets.ModelViewSet):
+    queryset = TemplateShare.objects.all()
+    serializer_class = TemplateShareSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        if self.request.user.is_staff:
+            return self.queryset
+        elif self.request.GET.get('template_id', ''):
+            template_id = self.request.GET.get('template_id', '')
+            return self.queryset.filter(template__app__user=self.request.user, template_id=template_id)
+        return self.queryset.filter(template__app__user=self.request.user)
 
 
 class VisitAPIView(generics.GenericAPIView):
@@ -389,7 +404,6 @@ def get_product_description(request):
     )
 
     message = completions.choices[0].text
-    print(message)
     # headers = {
     #     "Content-Type": "application/json; charset=utf-8",
     #     "Authorization": f"Bearer {config('CHAT_GPT_API_KEY')}"
@@ -443,6 +457,27 @@ def get_app(request):
     app = request.user.apps.first()
     serializer = AppSerializer(instance=app, many=False)
     return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def set_variant(request):
+    data = request.data
+    templates = data.get('templates')
+    for t in templates:
+        if t['is_main_template']:
+            template = get_object_or_404(Template, pk=t['id'])
+            template.template_redirect_numbers = t['redirect_numbers']
+            template.total_redirect_numbers = data.get('total')
+            template.next_template = 0
+            template.save()
+        else:
+            template = get_object_or_404(Template, pk=t['id'])
+            template.template_redirect_numbers = t['redirect_numbers']
+            template.save()
+    return Response(data={'success': True}, status=status.HTTP_200_OK)
+
 
 
 @api_view(['GET'])
@@ -514,6 +549,26 @@ def create_form(request):
     data = request.data
 
     serializer = FormsRecordCreationSerializer(data=data)
+
+    if serializer.is_valid():
+        serializer.save()
+        return Response(
+            {
+                "success": True,
+            },
+            status=status.HTTP_201_CREATED
+        )
+
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+@authentication_classes([])
+@permission_classes([])
+def create_share(request):
+    data = request.data
+
+    serializer = TemplateShareSerializer(data=data)
 
     if serializer.is_valid():
         serializer.save()

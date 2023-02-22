@@ -43,8 +43,8 @@ class UserCreationSerializer(serializers.ModelSerializer):
         domain_name = str(uuid.uuid4()) + '.sfhat.io'
         domain = Domain.objects.create(type='normal', name=domain_name)
 
-        template = Template.objects.create(domain=domain, template_name='main', app=app, meta_title='Title Website Here'
-                                           , template_code='template_one', description='Your Website description')
+        template = Template.objects.create(domain=domain, template_name='main', app=app, template_code='template_one',
+                                           template_redirect_numbers=10, total_redirect_numbers=10)
 
         City.objects.create(app=app, name='الرياض')
         City.objects.create(app=app, name='مكة المكرمة')

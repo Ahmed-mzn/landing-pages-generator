@@ -39,3 +39,15 @@ slides.forEach(slide => {
         }
     });
 });
+
+
+const horizontalCards = document.querySelectorAll(".horizontal-card");
+
+horizontalCards.forEach(card => {
+   card.addEventListener('click', function(event){
+        horizontalCards.forEach(card => {
+            card.classList.remove('active');
+        })
+        card.classList.add('active');
+   });
+});

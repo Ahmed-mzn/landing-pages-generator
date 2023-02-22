@@ -53,6 +53,10 @@ class Template(SofDelete):
     parent = models.ForeignKey('self', related_name='child_templates', on_delete=models.SET_NULL, null=True, blank=True)
     is_child = models.BooleanField(default=False)
     next_template = models.IntegerField(default=0)
+    next_template_redirect_numbers = models.IntegerField(default=0)
+    total_redirect_numbers = models.IntegerField(default=10)
+    template_redirect_numbers = models.IntegerField(default=0)
+    template_redirect_percentage = models.IntegerField(default=0)
     template_code = models.CharField(max_length=85)
     template_name = models.CharField(max_length=85)
     description = models.TextField()
@@ -64,6 +68,7 @@ class Template(SofDelete):
     medals_image = models.FileField(upload_to='uploads/%Y/%m/%d')
     second_image = models.FileField(upload_to='uploads/%Y/%m/%d')
     review_text = models.CharField(max_length=200)
+    feature_text = models.CharField(max_length=200)
     primary_color = models.CharField(max_length=20)
     secondary_color = models.CharField(max_length=20, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -132,6 +137,14 @@ class Review(SofDelete):
         return f'{self.username} - {self.rating} stars'
 
 
+class TemplateShare(models.Model):
+    template = models.ForeignKey(Template, related_name='shares', on_delete=models.CASCADE)
+    phone_number = models.CharField(max_length=85)
+    city = models.CharField(max_length=85)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
 class Visit(models.Model):
     template = models.ForeignKey(Template, related_name='visits', on_delete=models.CASCADE)
     city = models.CharField(max_length=85)
@@ -161,10 +174,28 @@ class Lead(SofDelete):
 
 
 class FormsRecord(models.Model):
+    PENDING = 'pending'
+    CONFIRMED = 'confirmed'
+    PROGRESS = 'progress'
+    INDELIVERY = 'indelivery'
+    DELIVERED = 'delivered'
+    UNDELIVERED = 'undelivered'
+
+    STATUS_CHOICES = (
+        (PENDING, 'pending'),
+        (CONFIRMED, 'confirmed'),
+        (PROGRESS, 'progress'),
+        (INDELIVERY, 'indelivery'),
+        (DELIVERED, 'delivered'),
+        (UNDELIVERED, 'undelivered'),
+    )
     template = models.ForeignKey(Template, related_name='forms_records', on_delete=models.CASCADE)
     product = models.ForeignKey(Product, related_name='forms_templates', on_delete=models.CASCADE)
     lead = models.ForeignKey(Lead, related_name='forms_leads', on_delete=models.CASCADE)
     quantity = models.IntegerField()
+    is_paid = models.BooleanField(default=False)
+    status = models.CharField(max_length=100, choices=STATUS_CHOICES, default='pending')
+    amount = models.DecimalField(max_digits=60, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
