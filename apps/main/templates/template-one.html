@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html id="html" lang="en" dir="rtl" style="--bs-secondary: #f5d260;--bs-secondary-rgb: 245,210,96;--bs-primary: {{template.primary_color}};--bs-primary-rgb: 183,194,38;">
+<html id="html" lang="en" dir="rtl" style="--bs-secondary: #f5d260;--bs-secondary-rgb: 245,210,96;--bs-primary: {{template.primary_color}};--bs-primary-rgb: 183,194,38;--bs-third:{{ template.secondary_color }};">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -96,7 +96,7 @@
                 <h3 style="font-size: 16px;font-weight: bold;" class="mb-4">العرض</h3>
                 <div id="swiperSlider" class="swiper-container" style="margin-bottom: 57px;overflow: hidden;">
                     <div class="swiper-wrapper" style="cursor: pointer;">
-                        <div v-for="(product, index) in template.products" :key="product.id" :class="getDivClass(index)" @click="selectProduct(product)" style="width: 145px;padding-bottom: 9px;padding-left: 8px;padding-right: 8px;padding-top: 0px;margin-left: 11px;background-color: #f2f2f2;border-radius: 8px;border-style: solid;border-color: transparent;">
+                        <div v-for="(product, index) in template.products" :key="product.id" :id="'product-'+[[product.id.toString()]]" :class="getDivClass(index)" @click="selectProduct(product)" style="width: 145px;padding-bottom: 9px;padding-left: 8px;padding-right: 8px;padding-top: 0px;margin-left: 11px;background-color: #f2f2f2;border-radius: 8px;border-style: solid;border-color: transparent;">
                             <div style="width: 70px;height: 70px;border-radius: 10px;margin-bottom: 10px;position: relative;margin-top: 15px;">
                                 <div style="position: absolute;width: 75px;left: -22px;"><img :src="product.image" style="width: 100%;"></div>
                             </div>
@@ -186,7 +186,7 @@
         <section class="mt-5 pb-0" style="padding-bottom: 0px;">
             <div class="container-fluid px-0" style="position: relative;"><img style="width: 100%;max-width: 400px;" :src="template.second_image"></div>
         </section>
-        <section style="background: #FBF4EA;margin-top: -194px;padding-top: 196px;">
+        <section style="background: var(--bs-third);margin-top: -194px;padding-top: 196px;">
             <div class="container" style="padding-bottom: 38px;">
                 <h2 style="font-size: 40px;color: #343434;" class="mb-3 mt-5">[[template.feature_text]]</h2>
                 <!-- <p style="font-size: 16px;color: #343434;">لأننا نقدم منتج فاخر وعضوي ١٠٠٪ يعتني بجودة غذائكم وصحتكم.</p> -->
@@ -338,6 +338,13 @@ axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'
         selectProduct(product){
             this.form.product_obj = product;
             this.form.product = product.id;
+
+            const slides = document.querySelectorAll('.swiper-slide');
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            document.getElementById('product-'+product.id).classList.add('active');
         },
         decreaseQty(){
             this.form.quantity = this.form.quantity - 1;
@@ -457,8 +464,8 @@ axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'
                     this.form.product_obj = this.template.products[0];
                 }
 
-                let html = document.getElementById("html");
-                html.style = `--bs-secondary: #f5d260;--bs-secondary-rgb: 245,210,96;--bs-primary: ${this.template.primary_color};--bs-primary-rgb: 183,194,38;`;
+                //let html = document.getElementById("html");
+                //html.style = `--bs-secondary: #f5d260;--bs-secondary-rgb: 245,210,96;--bs-primary: ${this.template.primary_color};--bs-primary-rgb: 183,194,38;`;
 
                 this.form.name = this.getCookie('name');
                 this.form.phone_number = this.getCookie('phonenumber');

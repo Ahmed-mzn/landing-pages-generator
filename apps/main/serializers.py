@@ -297,7 +297,8 @@ class BlankTemplateCreationSerializer(serializers.ModelSerializer):
 
         domain_obj = Domain.objects.create(name=domain_name, type=domain['type'])
 
-        template = Template.objects.create(domain=domain_obj, **validated_data)
+        template = Template.objects.create(domain=domain_obj, next_template_redirect_numbers=0, next_template=0,
+                                           template_redirect_numbers=0, **validated_data)
 
         return template
 
@@ -334,7 +335,7 @@ class TemplateCreationSerializer(serializers.ModelSerializer):
         fields = ('id', 'app', 'domain', 'template_code', 'template_name', 'description', 'meta_title',
                   'meta_description', 'meta_keywords', 'main_image', 'medals_image', 'second_image', 'feature_text',
                   'total_redirect_numbers', 'template_redirect_numbers', 'template_redirect_percentage',
-                  'review_text', 'customer_website', 'primary_color', 'is_child')
+                  'review_text', 'customer_website', 'primary_color', 'secondary_color', 'is_child')
         read_only_fields = (
             'domain',
             'total_redirect_numbers', 'template_redirect_numbers', 'template_redirect_percentage',

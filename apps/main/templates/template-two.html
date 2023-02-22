@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html id="html" lang="en" dir="rtl" style="--bs-secondary: #f5d260;--bs-secondary-rgb: 245,210,96;--bs-primary: {{template.primary_color}};--bs-primary-rgb: 183,194,38;">
+<html id="html" lang="en" dir="rtl" style="--bs-secondary: #f5d260;--bs-secondary-rgb: 245,210,96;--bs-primary: {{template.primary_color}};--bs-primary-rgb: 183,194,38;--bs-third:{{ template.secondary_color }};">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -99,7 +99,7 @@
             <div class="container">
                 <h3 style="font-size: 16px;font-weight: bold;" class="mb-4">العرض</h3>
                 <div class="mb-4">
-                    <div class="d-flex align-items-center py-1 px-0 horizontal-card mb-2" :class="getDivClass(index)" @click="selectProduct(product)" v-for="(product, index) in template.products" :key="product.id" style="position: relative;background: #F2F2F2;border-radius: 8px;border: 1px solid transparent;cursor: pointer;">
+                    <div class="d-flex align-items-center py-1 px-0 horizontal-card mb-2" :id="'product-'+[[product.id.toString()]]" :class="getDivClass(index)" @click="selectProduct(product)" v-for="(product, index) in template.products" :key="product.id" style="position: relative;background: #F2F2F2;border-radius: 8px;border: 1px solid transparent;cursor: pointer;">
                         <img class="ms-2 me-1" :src="product.image" style="width: 80px;border-radius: 4px;">
                         <div>
                             <p style="font-weight: bold;font-size: 12px;" class="mb-1">[[product.title]]</p>
@@ -189,7 +189,7 @@
         <section class="mt-5 pb-0" style="padding-bottom: 0px;">
             <div class="container-fluid px-0" style="position: relative;"><img style="width: 100%;max-width: 400px;" :src="template.second_image"></div>
         </section>
-        <section style="background: #FBF4EA;margin-top: -194px;padding-top: 196px;">
+        <section style="background: var(--bs-third);margin-top: -194px;padding-top: 196px;">
             <div class="container" style="padding-bottom: 38px;">
                 <h2 style="font-size: 40px;color: #343434;" class="mb-3 mt-5">[[template.feature_text]]</h2>
                 <!-- <p style="font-size: 16px;color: #343434;">لأننا نقدم منتج فاخر وعضوي ١٠٠٪ يعتني بجودة غذائكم وصحتكم.</p> -->
@@ -341,6 +341,13 @@ axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'
         selectProduct(product){
             this.form.product_obj = product;
             this.form.product = product.id;
+
+            const slides = document.querySelectorAll('.horizontal-card');
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            document.getElementById('product-'+product.id).classList.add('active');
         },
         decreaseQty(){
             this.form.quantity = this.form.quantity - 1;
@@ -460,8 +467,8 @@ axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'
                     this.form.product_obj = this.template.products[0];
                 }
 
-                let html = document.getElementById("html");
-                html.style = `--bs-secondary: #f5d260;--bs-secondary-rgb: 245,210,96;--bs-primary: ${this.template.primary_color};--bs-primary-rgb: 183,194,38;`;
+                //let html = document.getElementById("html");
+                //html.style = `--bs-secondary: #f5d260;--bs-secondary-rgb: 245,210,96;--bs-primary: ${this.template.primary_color};--bs-primary-rgb: 183,194,38;`;
 
                 this.form.name = this.getCookie('name');
                 this.form.phone_number = this.getCookie('phonenumber');

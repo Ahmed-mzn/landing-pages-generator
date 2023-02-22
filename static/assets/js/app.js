@@ -5,17 +5,17 @@ let slider = new Swiper("#swiperSlider", {
     slidesPerView: "auto",
 	spaceBetween: 10,
 });
-
-const slides = document.querySelectorAll('.swiper-slide');
-
-slides.forEach(slide => {
-   slide.addEventListener('click', function(event){
-        slides.forEach(slide => {
-            slide.classList.remove('active');
-        }) 
-        slide.classList.add('active');
-   }); 
-});
+//
+// const slides = document.querySelectorAll('.swiper-slide');
+//
+// slides.forEach(slide => {
+//    slide.addEventListener('click', function(event){
+//         slides.forEach(slide => {
+//             slide.classList.remove('active');
+//         })
+//         slide.classList.add('active');
+//    });
+// });
 
     const quantityText = document.getElementById('quantity-text');
 
@@ -41,13 +41,13 @@ slides.forEach(slide => {
 });
 
 
-const horizontalCards = document.querySelectorAll(".horizontal-card");
-
-horizontalCards.forEach(card => {
-   card.addEventListener('click', function(event){
-        horizontalCards.forEach(card => {
-            card.classList.remove('active');
-        })
-        card.classList.add('active');
-   });
-});
+// const horizontalCards = document.querySelectorAll(".horizontal-card");
+//
+// horizontalCards.forEach(card => {
+//    card.addEventListener('click', function(event){
+//         horizontalCards.forEach(card => {
+//             card.classList.remove('active');
+//         })
+//         card.classList.add('active');
+//    });
+// });

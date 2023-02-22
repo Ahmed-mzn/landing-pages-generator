@@ -70,7 +70,7 @@ class Template(SofDelete):
     review_text = models.CharField(max_length=200)
     feature_text = models.CharField(max_length=200)
     primary_color = models.CharField(max_length=20)
-    secondary_color = models.CharField(max_length=20, null=True, blank=True)
+    secondary_color = models.CharField(max_length=20, null=True, blank=True, default="#FBF4EA")
     created_at = models.DateTimeField(auto_now_add=True)
     customer_website = models.CharField(max_length=200)
     updated_at = models.DateTimeField(auto_now=True)
