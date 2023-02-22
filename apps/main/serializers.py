@@ -298,7 +298,7 @@ class BlankTemplateCreationSerializer(serializers.ModelSerializer):
         domain_obj = Domain.objects.create(name=domain_name, type=domain['type'])
 
         template = Template.objects.create(domain=domain_obj, next_template_redirect_numbers=0, next_template=0,
-                                           template_redirect_numbers=0, **validated_data)
+                                           template_redirect_numbers=10, total_redirect_numbers=10, **validated_data)
 
         return template
 
