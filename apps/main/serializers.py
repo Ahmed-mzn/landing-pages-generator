@@ -31,7 +31,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ('id', 'app', 'title', 'description', 'image', 'price', 'price_after_discount', 'created_at',
+        fields = ('id', 'app', 'title', 'description', 'label', 'image', 'price', 'price_after_discount', 'created_at',
                   'updated_at')
 
 
@@ -135,7 +135,7 @@ class TemplateSerializer(serializers.ModelSerializer):
         model = Template
         fields = ('id', 'app', 'template_code', 'template_name', 'domain', 'description', 'meta_title',
                   'meta_description', 'cities', 'meta_keywords', 'logo', 'main_image', 'medals_image', 'second_image',
-                  'review_text', 'primary_color', 'secondary_color', 'products', 'features', 'reviews',
+                  'review_text', 'primary_color', 'secondary_color', 'products', 'features', 'reviews', 'main_rating_title',
                   'customer_website', 'feature_text', 'total_redirect_numbers', 'template_redirect_numbers',
                   'template_redirect_percentage', 'is_child', 'is_deleted', 'created_at', 'updated_at')
 
@@ -320,7 +320,7 @@ class TemplateProductCreationSerializer(serializers.ModelSerializer):
 class ProductCreationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('id', 'app', 'title', 'description', 'image', 'price', 'price_after_discount')
+        fields = ('id', 'app', 'title', 'label', 'description', 'image', 'price', 'price_after_discount')
 
 
 class FeatureCreationSerializer(serializers.ModelSerializer):
@@ -342,7 +342,7 @@ class TemplateCreationSerializer(serializers.ModelSerializer):
         model = Template
         fields = ('id', 'app', 'domain', 'template_code', 'template_name', 'description', 'meta_title',
                   'meta_description', 'meta_keywords', 'main_image', 'medals_image', 'second_image', 'feature_text',
-                  'total_redirect_numbers', 'template_redirect_numbers', 'template_redirect_percentage',
+                  'total_redirect_numbers', 'template_redirect_numbers', 'template_redirect_percentage', 'main_rating_title',
                   'review_text', 'customer_website', 'primary_color', 'secondary_color', 'is_child')
         read_only_fields = (
             'domain',

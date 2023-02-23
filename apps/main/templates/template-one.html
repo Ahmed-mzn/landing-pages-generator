@@ -84,7 +84,7 @@
         <section>
             <div class="container">
                 <div class="d-flex justify-content-start align-items-end pt-0 mt-3">
-                    <div><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span></div><span class="d-flex text-muted me-1" style="font-size: 12px;">48,120</span>
+                    <div><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span></div><span class="d-flex text-muted me-1" style="font-size: 12px;">[[template.main_rating_title]]</span>
                 </div>
                 <h2 style="font-size: 30px;" class="mb-3">[[template.meta_title]]</h2>
                 <!-- <h3 style="font-size: 16px;color: #333;" class="mb-4">بكر ممتاز عصرة اولى</h3> -->
@@ -105,12 +105,12 @@
                             <template v-if="product.price_after_discount">
                                 <p style="color: #999A9A;text-decoration:  line-through;">[[product.price]] ر.س</p>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <p style="color: #E5423B;margin-top: 0px;margin-bottom: 6px;white-space: nowrap;">[[product.price_after_discount]] ر.س</p><span style="font-size: 9px;background: #EB6A64;color: #ffff;border-radius: 17px;padding: 3px 7px 3px;white-space: nowrap;">الاكثر توفيراً</span>
+                                    <p style="color: #E5423B;margin-top: 0px;margin-bottom: 6px;white-space: nowrap;">[[product.price_after_discount]] ر.س</p><span v-if="product.label" style="font-size: 9px;background: #EB6A64;color: #ffff;border-radius: 17px;padding: 3px 7px 3px;white-space: nowrap;">[[product.label]]</span>
                                 </div>
                             </template>
                             <template v-else>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <p style="color: #E5423B;margin-top: 0px;margin-bottom: 6px;white-space: nowrap;">[[product.price]] ر.س</p><span style="font-size: 9px;background: #EB6A64;color: #ffff;border-radius: 17px;padding: 3px 7px 3px;white-space: nowrap;">الاكثر توفيراً</span>
+                                    <p style="color: #E5423B;margin-top: 0px;margin-bottom: 6px;white-space: nowrap;">[[product.price]] ر.س</p><span v-if="product.label" style="font-size: 9px;background: #EB6A64;color: #ffff;border-radius: 17px;padding: 3px 7px 3px;white-space: nowrap;">[[product.label]]</span>
                                 </div>
                             </template>
                         </div>
@@ -266,6 +266,7 @@ axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'
                 template_code: '',
                 description: '',
                 meta_title: '',
+                main_rating_title: '',
                 meta_description: '',
                 meta_keywords: '',
                 logo: '',

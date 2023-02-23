@@ -88,7 +88,7 @@
         <section>
             <div class="container">
                 <div class="d-flex justify-content-start align-items-end pt-0 mt-3">
-                    <div><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span></div><span class="d-flex text-muted me-1" style="font-size: 12px;">48,120</span>
+                    <div><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span></div><span class="d-flex text-muted me-1" style="font-size: 12px;">[[template.main_rating_title]]</span>
                 </div>
                 <h2 style="font-size: 30px;" class="mb-3">[[template.meta_title]]</h2>
                 <!-- <h3 style="font-size: 16px;color: #333;" class="mb-4">بكر ممتاز عصرة اولى</h3> -->
@@ -116,7 +116,7 @@
                                 </p>
                             </template>
                         </div>
-                        <p class="nowrap" style="font-size: 9px;background: var(--bs-black);color: var(--bs-white);position: absolute;left: 0;top: 8px;padding: 2px 4px 2px 1px;border-radius: 0 20px 20px 0;">مثالي للمناسبات</p>
+                        <p v-if="product.label" class="nowrap" style="font-size: 9px;background: var(--bs-black);color: var(--bs-white);position: absolute;left: 0;top: 8px;padding: 2px 4px 2px 1px;border-radius: 0 20px 20px 0;">[[product.label]]</p>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
@@ -268,6 +268,7 @@ axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'
                 id: 0,
                 template_code: '',
                 description: '',
+                main_rating_title: '',
                 meta_title: '',
                 meta_description: '',
                 meta_keywords: '',
