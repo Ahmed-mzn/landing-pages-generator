@@ -67,7 +67,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'djoser',
-    # 'import_export'
+    'import_export'
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True

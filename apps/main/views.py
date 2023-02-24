@@ -6,8 +6,8 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 
-from rest_framework.decorators import api_view, permission_classes, authentication_classes
-
+from rest_framework.decorators import api_view, permission_classes, authentication_classes, action
+from django.http import HttpResponse
 from .models import Template, App, Product, FormsRecord, Feature, Review, Visit, Domain, TemplateProduct, City, \
     TemplateShare
 
@@ -16,6 +16,8 @@ from .serializers import TemplateSerializer, AppSerializer, AppCreationSerialize
     FormsRecordSerializer, TemplateProductCreationSerializer, DomainCreationSerializer, \
     BlankTemplateCreationSerializer, LeadSerializer, FormsRecordCreationSerializer, CitySerializer, \
     AppendTemplateChildSerializer, ProductSerializer, TemplateShareSerializer
+
+from .resources import OrderResource
 
 from decouple import config
 import openai
@@ -105,6 +107,14 @@ class TemplateViewSet(viewsets.ModelViewSet):
                 t.save()
             template.domain.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+    @action(detail=True, url_path='download_excel', methods=['get'])
+    def download_excel(self, request, pk):
+        orders = OrderResource(template_id=pk)
+        dataset = orders.export()
+        response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
+        response['Content-Disposition'] = 'attachment; filename="persons.xls"'
+        return response
 
 
 class ProductViewSet(viewsets.ModelViewSet):
