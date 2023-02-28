@@ -79,20 +79,19 @@
     </style>
 </head>
 
-<body onload="myFunction()" style="font-family: 'HelveticaNeueLT Arabic 55 Roman', sans-serif;">
-    <div id="loader"></div>
-    <div style="display: none;" id="app"  class="animate-bottom">
+<body  style="font-family: 'HelveticaNeueLT Arabic 55 Roman', sans-serif;">
+    <div  id="app"  class="animate-bottom">
         <section>
-            <div class="container-fluid" style="padding-left: 0px;padding-right: 0px;"><img :src="template.main_image" style="width: 100%;"></div>
+            <div class="container-fluid" style="padding-left: 0px;padding-right: 0px;"><img src="{{ template.main_image.url }}" style="width: 100%;"></div>
         </section>
         <section>
             <div class="container">
                 <div class="d-flex justify-content-start align-items-end pt-0 mt-3">
-                    <div><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span></div><span class="d-flex text-muted me-1" style="font-size: 12px;">[[template.main_rating_title]]</span>
+                    <div><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span><span style="color: var(--bs-secondary);margin-left: 5px;"><i class="fas fa-star"></i></span></div><span class="d-flex text-muted me-1" style="font-size: 12px;">{{template.main_rating_title}}</span>
                 </div>
-                <h2 style="font-size: 30px;" class="mb-3">[[template.meta_title]]</h2>
+                <h2 style="font-size: 30px;" class="mb-3">{{template.meta_title}}</h2>
                 <!-- <h3 style="font-size: 16px;color: #333;" class="mb-4">بكر ممتاز عصرة اولى</h3> -->
-                <p style="font-size: 16px;color: #333;">[[template.description]]</p><img :src="template.medals_image" style="width: 100%;margin-top: 22px;">
+                <p style="font-size: 16px;color: #333;">{{template.description}}</p><img src="{{ template.medals_image.url }}" style="width: 100%;margin-top: 22px;">
             </div>
         </section>
         <section class="mt-4">
@@ -534,18 +533,5 @@ axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'
 <script src="{% static '/assets/bootstrap/js/bootstrap.min.js' %}"></script>
 <script src="{% static '/assets/js/app.js' %}"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-<script>
-
-var myVar;
-
-function myFunction() {
-  myVar = setTimeout(showPage, 1000);
-}
-
-function showPage() {
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("app").style.display = "block";
-}
-</script>
 </body>
 </html>
