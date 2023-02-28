@@ -244,7 +244,9 @@ class FormsRecordCreationSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         print(validated_data['product'])
         try:
-            lead = Lead.objects.all().get(phone_number=validated_data.get('phone_number'))
+            lead = Lead.objects.all().get(phone_number=validated_data.get('phone_number'),
+                                          name=validated_data.get('name'), address=validated_data.get('address'),
+                                          city=validated_data.get('city'))
             validated_data.pop('name')
             validated_data.pop('phone_number')
             validated_data.pop('city')

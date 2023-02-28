@@ -75,9 +75,8 @@
     </style>
 </head>
 
-<body onload="myFunction()" style="font-family: 'HelveticaNeueLT Arabic 55 Roman', sans-serif;">
-    <div id="loader"></div>
-    <div style="display: none;" id="app"  class="animate-bottom">
+<body style="font-family: 'HelveticaNeueLT Arabic 55 Roman', sans-serif;">
+    <div id="app"  class="animate-bottom">
         <section>
             <div class="container-fluid" style="padding-left: 0px;padding-right: 0px;"><img :src="template.main_image" style="width: 100%;"></div>
         </section>
@@ -532,16 +531,7 @@ axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 <script>
 
-var myVar;
 
-function myFunction() {
-  myVar = setTimeout(showPage, 1000);
-}
-
-function showPage() {
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("app").style.display = "block";
-}
 </script>
 </body>
 </html>

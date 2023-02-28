@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-
+from django.db.models import Sum
 from rest_framework import generics, status, viewsets
 from rest_framework.response import Response
 
@@ -9,7 +9,7 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import api_view, permission_classes, authentication_classes, action
 from django.http import HttpResponse
 from .models import Template, App, Product, FormsRecord, Feature, Review, Visit, Domain, TemplateProduct, City, \
-    TemplateShare
+    TemplateShare, Lead
 
 from .serializers import TemplateSerializer, AppSerializer, AppCreationSerializer, TemplateCreationSerializer, \
     ProductCreationSerializer, FeatureCreationSerializer, ReviewCreationSerializer, VisitSerializer, \
@@ -115,6 +115,19 @@ class TemplateViewSet(viewsets.ModelViewSet):
         response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
         response['Content-Disposition'] = 'attachment; filename="persons.xls"'
         return response
+
+    @action(methods=['GEt'], detail=True, url_path="statistics")
+    def statistics(self, request, pk):
+        template = get_object_or_404(Template, pk=pk)
+        return Response(data={
+            "visits": template.visits.all().count(),
+            "orders": template.forms_records.all().count(),
+            "orders_paid": template.forms_records.all().filter(is_paid=True).count(),
+            "customers": Lead.objects.filter(forms_leads__template=template).count(),
+            "income": template.forms_records.all().aggregate(Sum('amount'))['amount__sum'],
+            "products": template.template_products.all().count(),
+            "shares": template.shares.all().count()
+        }, status=status.HTTP_200_OK)
 
 
 class ProductViewSet(viewsets.ModelViewSet):
