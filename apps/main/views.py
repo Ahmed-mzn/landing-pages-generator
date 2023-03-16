@@ -21,7 +21,35 @@ from .resources import OrderResource
 
 from decouple import config
 import openai
-import requests
+
+
+class DomainViewSet(viewsets.ModelViewSet):
+    queryset = Domain.objects.all()
+    serializer_class = DomainCreationSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        if self.request.user.is_staff:
+            return self.queryset
+        return self.queryset.filter(user=self.request.user)
+
+    def perform_create(self, serializer):
+        validated_data = self.request.data
+        if validated_data['type'] == 'normal':
+            domain_name = validated_data['name'] + '.sfhat.io'
+        else:
+            domain_name = validated_data['name']
+
+        serializer.save(user=self.request.user, name=domain_name)
+
+    @action(detail=True, url_path='check_template_name', methods=['post'])
+    def check_template_name(self, request, pk):
+        template_name = request.data.get('template_name', '')
+        domain = get_object_or_404(Domain, pk=pk)
+        template_exist = Template.objects.filter(domain=domain, template_name=template_name).exists()
+        if template_exist:
+            return Response({'result': True}, status=status.HTTP_200_OK)
+        return Response({'result': False}, status=status.HTTP_200_OK)
 
 
 class CityViewSet(viewsets.ModelViewSet):
@@ -86,14 +114,22 @@ class TemplateViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         if self.request.user.is_staff:
-            return self.queryset
+            return self.queryset.filter(app__user=self.request.user)
         return self.queryset.filter(app__user=self.request.user)
 
     def retrieve(self, request, pk=None):
-        queryset = Template.objects.all()
-        template = get_object_or_404(queryset, pk=pk)
+        template = get_object_or_404(self.get_queryset(), pk=pk)
         serializer = self.serializer_class(template)
         return Response(serializer.data)
+
+    def create(self, request, *args, **kwargs):
+        serializer = BlankTemplateCreationSerializer(data=request.data, context={'request': request})
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(data=serializer.data, status=status.HTTP_201_CREATED)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def destroy(self, request, *args, **kwargs):
         template = self.get_object()
@@ -116,7 +152,7 @@ class TemplateViewSet(viewsets.ModelViewSet):
         response['Content-Disposition'] = 'attachment; filename="persons.xls"'
         return response
 
-    @action(methods=['GEt'], detail=True, url_path="statistics")
+    @action(methods=['GET'], detail=True, url_path="statistics")
     def statistics(self, request, pk):
         template = get_object_or_404(Template, pk=pk)
         return Response(data={
@@ -128,6 +164,16 @@ class TemplateViewSet(viewsets.ModelViewSet):
             "products": template.template_products.all().count(),
             "shares": template.shares.all().count()
         }, status=status.HTTP_200_OK)
+
+    @action(detail=True, url_path='save_html', methods=['post'])
+    def save_html(self, request, pk):
+        template = get_object_or_404(Template, pk=pk)
+        template.html = request.data.get('html', '')
+        template.css = request.data.get('css', '')
+        template.js = request.data.get('js', '')
+        template.project_data = request.data.get('project_data', '')
+        template.save()
+        return Response(data={'mgs': 'success'}, status=status.HTTP_200_OK)
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -298,23 +344,6 @@ class AssignProductToTemplateView(generics.GenericAPIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-class UpdateDomainView(generics.GenericAPIView):
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
-    serializer_class = DomainCreationSerializer
-
-    def put(self, request, pk):
-
-        domain = get_object_or_404(Domain, pk=pk)
-
-        serializer = self.serializer_class(data=request.data, instance=domain)
-
-        if serializer.is_valid():
-            serializer.save()
-            return Response(data=serializer.data, status=status.HTTP_200_OK)
-
-        return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 class AppendTemplateChildView(generics.GenericAPIView):
     permission_classes = [IsAuthenticated]
@@ -326,9 +355,9 @@ class AppendTemplateChildView(generics.GenericAPIView):
             template_id = self.request.GET.get('template_id', '')
             template = get_object_or_404(Template, pk=template_id)
 
-            template_children = Template.objects.filter(is_child=True, domain=template.domain, is_deleted=False)
+            template_children = Template.objects.filter(app__user=request.user, is_child=True, domain=template.domain, is_deleted=False)
         else:
-            template_children = Template.objects.filter(is_child=True, is_deleted=False)
+            template_children = Template.objects.filter(app__user=request.user, is_child=True, is_deleted=False)
 
         serializer = TemplateSerializer(instance=template_children, many=True)
 

@@ -4,6 +4,8 @@ from decouple import config
 from django.conf import settings
 from .models import Template, App, Product, FormsRecord, Feature, Review, Domain, Visit, TemplateProduct, Lead, City, \
     TemplateShare
+
+from apps.themes.models import Theme
 from .threads import CreateDeployAppThread
 
 
@@ -267,49 +269,39 @@ class FormsRecordCreationSerializer(serializers.ModelSerializer):
 class DomainCreationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Domain
-        fields = ('id', 'name', 'type')
+        fields = ('id', 'user', 'name', 'type')
 
-    def create(self, validated_data):
-        if validated_data['type'] == 'normal':
-            domain_name = validated_data['name'] + '.sfhat.io'
-
-        domain = Domain.objects.create(name=domain_name, type=validated_data['type'])
-
-        return domain
-
-
-class BlankTemplateCreationSerializer(serializers.ModelSerializer):
-    domain = DomainCreationSerializer(many=False)
-
-    class Meta:
-        model = Template
-        fields = ('id', 'app', 'domain', 'template_code', 'template_name')
-
-    def validate_domain(self, value):
-        domain_name = value['name']
-        if value['type'] == 'normal':
-            domain_name = value['name']+'.sfhat.io'
+    def validate(self, attrs):
+        domain_name = attrs['name']
+        if attrs['type'] == 'normal':
+            domain_name = attrs['name']+'.sfhat.io'
 
         domain_exist = Domain.objects.filter(name=domain_name).exists()
 
         if domain_exist:
             raise serializers.ValidationError(detail="Domain already exists")
+        return attrs
 
-        return value
+
+class BlankTemplateCreationSerializer(serializers.ModelSerializer):
+
+    def _user(self, obj):
+        request = self.context.get('request', None)
+        if request:
+            return request.user
+
+    class Meta:
+        model = Template
+        fields = ('id', 'category', 'theme', 'domain', 'template_code', 'template_name')
 
     def create(self, validated_data):
+        theme = validated_data.pop('theme')
 
-        domain = validated_data.pop('domain')
-        domain_name = domain['name']
+        app = App.objects.filter(user=self._user(None)).first()
 
-        if domain['type'] == 'normal':
-            domain_name = domain['name']+'.sfhat.io'
-
-        domain_obj = Domain.objects.create(name=domain_name, type=domain['type'])
-
-        template = Template.objects.create(domain=domain_obj, next_template_redirect_numbers=0, next_template=0,
-                                           template_redirect_numbers=10, total_redirect_numbers=10, **validated_data)
-
+        template = Template.objects.create(next_template_redirect_numbers=0, next_template=0,
+                                           html=theme.content, theme=theme, app=app, template_redirect_numbers=10,
+                                           total_redirect_numbers=10, **validated_data)
         return template
 
 
@@ -338,7 +330,6 @@ class ReviewCreationSerializer(serializers.ModelSerializer):
 
 
 class TemplateCreationSerializer(serializers.ModelSerializer):
-    domain = DomainSerializer(many=False)
 
     class Meta:
         model = Template
@@ -346,11 +337,18 @@ class TemplateCreationSerializer(serializers.ModelSerializer):
                   'meta_description', 'meta_keywords', 'main_image', 'medals_image',
                   'second_image', 'feature_text', 'total_redirect_numbers', 'template_redirect_numbers',
                   'template_redirect_percentage', 'main_rating_title', 'extra_js',
+                  'html', 'css', 'js', 'project_data',
                   'review_text', 'customer_website', 'primary_color', 'secondary_color', 'is_child')
         read_only_fields = (
-            'domain',
             'total_redirect_numbers', 'template_redirect_numbers', 'template_redirect_percentage',
+            'html', 'css', 'js', 'project_data'
         )
+
+    def to_representation(self, instance):
+        representation = super(TemplateCreationSerializer, self).to_representation(instance)
+        representation['domain'] = DomainSerializer(instance.domain).data
+
+        return representation
 
 
 class AppCreationSerializer(serializers.ModelSerializer):

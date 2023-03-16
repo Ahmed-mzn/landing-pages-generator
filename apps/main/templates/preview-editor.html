@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static '/assets/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/assets/css/HelveticaNeueLT%20Arabic%2055%20Roman.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/assets/fonts/fontawesome-all.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/assets/fonts/fontawesome-all.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <link href="{% static '/assets/css/styles.css' %}" rel="stylesheet">
+    <title>{{ template.meta_title }}</title>
+    <style>
+        {{ template.css | safe}}
+    </style>
+</head>
+{% if template %}
+    {{ template.html | safe }}
+{% endif %}
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="http://localhost:8080/ProductsForm.js"></script>
+<script src="http://localhost:8080/ProductsForm2.js"></script>
+<script src="{% static '/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static '/assets/js/app.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+</html>

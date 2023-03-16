@@ -1,7 +1,7 @@
 from django.db import models
 
 from apps.authentication.models import User
-
+from apps.themes.models import Theme
 import uuid
 
 
@@ -37,6 +37,7 @@ class Domain(models.Model):
         ('normal', 'Normal')
     )
 
+    user = models.ForeignKey(User, related_name='domains', null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=100, unique=True)
     type = models.CharField(max_length=22, choices=DOMAIN_TYPE)
     record_id = models.CharField(max_length=222, null=True, blank=True)
@@ -50,6 +51,7 @@ class Domain(models.Model):
 class Template(SofDelete):
     app = models.ForeignKey(App, related_name='templates', on_delete=models.CASCADE)
     domain = models.ForeignKey(Domain, related_name='templates', on_delete=models.SET_NULL, null=True, blank=True)
+    theme = models.ForeignKey(Theme, related_name='templates', on_delete=models.SET_NULL, null=True, blank=True)
     parent = models.ForeignKey('self', related_name='child_templates', on_delete=models.SET_NULL, null=True, blank=True)
     is_child = models.BooleanField(default=False)
     next_template = models.IntegerField(default=0)
@@ -59,6 +61,11 @@ class Template(SofDelete):
     template_redirect_percentage = models.IntegerField(default=0)
     template_code = models.CharField(max_length=85)
     template_name = models.CharField(max_length=85)
+    category = models.CharField(max_length=85, null=True, blank=True)
+    html = models.TextField(null=True, blank=True)
+    css = models.TextField(null=True, blank=True)
+    js = models.TextField(null=True, blank=True)
+    project_data = models.TextField(null=True, blank=True)
     description = models.TextField()
     meta_title = models.CharField(max_length=200)
     main_rating_title = models.CharField(max_length=50)

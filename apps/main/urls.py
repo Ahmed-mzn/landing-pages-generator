@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 
 from .views import TemplateViewSet, AppRetrieveDeleteUpdateView, AppByIdView, AppCreationListView, ProductViewSet, \
     FeatureViewSet, ReviewViewSet, check_domain, VisitAPIView, create_visit, create_form, FormAPIView, \
-    get_template_one, get_template_two, get_app, get_template, AssignProductToTemplateView, UpdateDomainView, \
+    get_template_one, get_template_two, get_app, get_template, AssignProductToTemplateView, DomainViewSet, \
     create_blank_template, CityViewSet, AppendTemplateChildView, get_product_description, ArchiveTemplateView, \
     ArchiveProductView, TemplateShareViewSet, create_share, set_variant
 
@@ -14,6 +14,7 @@ router.register('features', FeatureViewSet, basename='features')
 router.register('reviews', ReviewViewSet, basename='reviews')
 router.register('cities', CityViewSet, basename='cities')
 router.register('shares', TemplateShareViewSet, basename='shares')
+router.register('domains', DomainViewSet, basename='domains')
 
 
 urlpatterns = [
@@ -25,7 +26,6 @@ urlpatterns = [
     path('templates/<int:template_id>/assign_product/<int:product_id>', AssignProductToTemplateView.as_view(),
          name='assign_product_to_template'),
     path('templates/create_blank_template', create_blank_template, name='create_blank_template'),
-    path('domains/<int:pk>', UpdateDomainView.as_view(), name='update_domain'),
     path('templates/children', AppendTemplateChildView.as_view(), name='append_child_template'),
     path('templates/archive', ArchiveTemplateView.as_view(), name='archie_templates'),
     path('get_app', get_app, name='get_app'),
