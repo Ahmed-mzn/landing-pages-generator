@@ -137,7 +137,7 @@ class TemplateViewSet(viewsets.ModelViewSet):
         template.template_name += '(' + template.domain.name.replace('.', '-') + ')'
         template.save()
         if not template.is_child:
-            for t in template.domain.templates.all().filter(is_deleted=False):
+            for t in Template.objects.filter(parent=template):
                 t.soft_delete()
                 t.template_name = t.template_name + '(' + t.domain.name.replace('.', '-') + ')'
                 t.save()
