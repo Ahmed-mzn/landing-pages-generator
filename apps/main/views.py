@@ -141,7 +141,6 @@ class TemplateViewSet(viewsets.ModelViewSet):
                 t.soft_delete()
                 t.template_name = t.template_name + '(' + t.domain.name.replace('.', '-') + ')'
                 t.save()
-            template.domain.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     @action(detail=True, url_path='download_excel', methods=['get'])
