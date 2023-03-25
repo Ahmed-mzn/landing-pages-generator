@@ -3,19 +3,21 @@ from rest_framework import serializers
 from .models import User
 from apps.main.models import App, Domain, Template, City
 
+from apps.main.openship import create_user
 import uuid
 
 
 class UserCreationSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(max_length=85)
     full_name = serializers.CharField(max_length=25)
+    business_name = serializers.CharField(max_length=25, default='')
     password = serializers.CharField(min_length=8, write_only=True)
 
     class Meta:
         model = User
-        fields = ['email', 'full_name', 'password']
+        fields = ['email', 'full_name', 'password', 'business_name']
         extra_kwargs = {
-            'password': {'write_only': True}
+            'password': {'write_only': True},
         }
 
     def validate(self, attrs):
@@ -28,6 +30,7 @@ class UserCreationSerializer(serializers.ModelSerializer):
         return super().validate(attrs)
 
     def create(self, validated_data):
+
         user = User.objects.create(
             email=validated_data['email'],
             username=validated_data['email'],
@@ -38,7 +41,10 @@ class UserCreationSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
 
-        app = App.objects.create(user=user)
+        create_user(validated_data['full_name'], validated_data['email'], validated_data['password'],
+                    validated_data['business_name'])
+
+        app = App.objects.create(user=user, business_name=validated_data['business_name'])
 
         domain_name = str(uuid.uuid4()) + '.sfhat.io'
         domain = Domain.objects.create(type='normal', name=domain_name)

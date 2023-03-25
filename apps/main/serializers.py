@@ -40,13 +40,25 @@ class TemplateShareSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TemplateShare
-        fields = ('id', 'template', 'product', 'phone_number', 'city', 'created_at', 'updated_at')
+        fields = ('id', 'template', 'phone_number', 'city', 'created_at', 'updated_at')
 
     def to_representation(self, instance):
         representation = super(TemplateShareSerializer, self).to_representation(instance)
         representation['product'] = ProductSerializer(instance.product).data
 
         return representation
+
+    def create(self, validated_data):
+        template = validated_data.pop('template')
+
+        products = Product.objects.all().filter(product_templates__template_id=template.pk, is_deleted=False)
+        if products.count() != 0:
+            product = products.first()
+        else:
+            product = None
+        share = TemplateShare.objects.create(template=template, product=product, **validated_data)
+
+        return share
 
 
 class LeadSerializer(serializers.ModelSerializer):
@@ -172,7 +184,7 @@ class AppendTemplateChildSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Template
-        fields = ('template', 'template_name', 'template_code', 'parent_template', 'is_copy')
+        fields = ('template', 'template_name', 'parent_template', 'is_copy')
 
     def validate_template(self, value):
         try:
@@ -207,8 +219,7 @@ class AppendTemplateChildSerializer(serializers.ModelSerializer):
             new_template.next_template = 0
             new_template.next_template_redirect_numbers = 0
             new_template.total_redirect_numbers = 0
-            new_template.template_name = template.template_name \
-                                         + '-copy(' + str(template.child_templates.count()+1) + ')'
+            new_template.template_name = template.template_name + '(نسخة)'
             new_template.save()
 
             # make copy of features
@@ -346,7 +357,10 @@ class TemplateCreationSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         representation = super(TemplateCreationSerializer, self).to_representation(instance)
-        representation['domain'] = DomainSerializer(instance.domain).data
+        if instance.domain:
+            representation['domain'] = DomainSerializer(instance.domain).data
+        else:
+            representation['domain'] = None
 
         return representation
 

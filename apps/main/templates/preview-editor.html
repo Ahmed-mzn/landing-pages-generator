@@ -13,6 +13,16 @@
     <title>{{ template.meta_title }}</title>
     <style>
         {{ template.css | safe}}
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            /* display: none; <- Crashes Chrome on hover */
+            -webkit-appearance: none;
+            margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+        }
+
+        input[type=number] {
+            -moz-appearance:textfield; /* Firefox */
+        }
     </style>
 </head>
 {% if template %}
@@ -20,8 +30,9 @@
 {% endif %}
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="http://localhost:8080/ProductsForm.js"></script>
-<script src="http://localhost:8080/ProductsForm2.js"></script>
+<script src="http://test.ahmedzeini.com/ProductsForm.js"></script>
+<script src="http://test.ahmedzeini.com/ProductsForm2.js"></script>
+<script src="http://test.ahmedzeini.com/shareButton.js"></script>
 <script src="{% static '/assets/bootstrap/js/bootstrap.min.js' %}"></script>
 <script src="{% static '/assets/js/app.js' %}"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>

@@ -175,6 +175,25 @@ class TemplateViewSet(viewsets.ModelViewSet):
         template.save()
         return Response(data={'mgs': 'success'}, status=status.HTTP_200_OK)
 
+    @action(detail=True, url_path='update_url', methods=['post'])
+    def update_url(self, request, pk):
+        domain_id = request.data.get('domain', '')
+        template_name = request.data.get('template_name', '')
+
+        template = get_object_or_404(Template, pk=pk)
+        domain = get_object_or_404(Domain, pk=domain_id)
+
+        if domain and template_name:
+            template.domain = domain
+            template.template_name = template_name
+            for child in template.child_templates.all():
+                child.domain = domain
+                child.save()
+            template.save()
+            return Response(data={'mgs': 'success'}, status=status.HTTP_200_OK)
+        else:
+            return Response(data={'errors': 'missing domain or template_name'}, status=status.HTTP_400_BAD_REQUEST)
+
 
 class ProductViewSet(viewsets.ModelViewSet):
     serializer_class = ProductCreationSerializer
@@ -344,7 +363,6 @@ class AssignProductToTemplateView(generics.GenericAPIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-
 class AppendTemplateChildView(generics.GenericAPIView):
     permission_classes = [IsAuthenticated]
     authentication_classes = [TokenAuthentication]
@@ -355,7 +373,8 @@ class AppendTemplateChildView(generics.GenericAPIView):
             template_id = self.request.GET.get('template_id', '')
             template = get_object_or_404(Template, pk=template_id)
 
-            template_children = Template.objects.filter(app__user=request.user, is_child=True, domain=template.domain, is_deleted=False)
+            template_children = Template.objects.filter(app__user=request.user, is_child=True, parent=template
+                                                        , is_deleted=False)
         else:
             template_children = Template.objects.filter(app__user=request.user, is_child=True, is_deleted=False)
 

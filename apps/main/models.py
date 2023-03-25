@@ -23,6 +23,7 @@ class SofDelete(models.Model):
 class App(models.Model):
     user = models.ForeignKey(User, related_name='apps', on_delete=models.CASCADE)
     app_id = models.CharField(max_length=200, unique=True, default=uuid.uuid4)
+    business_name = models.TextField(null=True, blank=True)
     next_template = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -149,9 +150,9 @@ class Review(SofDelete):
 
 class TemplateShare(models.Model):
     template = models.ForeignKey(Template, related_name='shares', on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, related_name='shares', on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, related_name='shares', on_delete=models.CASCADE, null=True, blank=True)
     phone_number = models.CharField(max_length=85)
-    city = models.CharField(max_length=85)
+    city = models.CharField(max_length=85, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

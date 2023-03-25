@@ -30,8 +30,8 @@ DEBUG = config('DEBUG', cast=bool)
 ALLOWED_DOMAINS = ['landing.socialbot.dev', '52.90.84.132', 'localhost:8000', 'test.ahmedzeini.com', 'localhost',
                    '127.0.0.1', '192.168.11.106:8000']
 ALLOWED_HOSTS = ['*']
-# WEBSITE_URL = 'https://landing.socialbot.dev'
-WEBSITE_URL = 'http://localhost:8000'
+WEBSITE_URL = 'https://landing.socialbot.dev'
+# WEBSITE_URL = 'http://localhost:8000'
 CSRF_TRUSTED_ORIGINS = ['https://landing.socialbot.dev']
 X_FRAME_OPTIONS = 'test.ahmedzeini.com'
 
@@ -163,11 +163,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static')
+# ]
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-# STATIC_ROOT = '/home/khaled/static/'
+STATIC_ROOT = '/home/khaled/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
