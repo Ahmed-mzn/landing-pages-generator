@@ -18,3 +18,70 @@ import requests
 # r = requests.post(endpoint, json={"query": query}, headers=headers)
 #
 # print(r.json())
+
+import json
+import os
+
+
+def search_ar(data, query):
+    for item in data:
+        if item["city_ar"] == query:
+            return item["city_en"]
+    return ""
+
+
+def search_en(data, query):
+    for item in data:
+        if item["city_en"] == query:
+            return item["city_ar"]
+    return ""
+
+
+def check(data, pk):
+    for item in data:
+        if item["id"] == pk:
+            return True
+    return False
+
+
+def best():
+    module_dir = os.path.dirname(__file__)
+
+    f_test = open(os.path.join(module_dir, "aymakan_test.json"), encoding='utf-8')
+    data_test = json.load(f_test)
+    i = 0
+    # for item in data_test:
+    #     if "success" in item:
+    #         i += 1
+    #         print(item["shipping"]["tracking_number"])
+    #         print("ok")
+    # print(i)
+    # f_main = open(os.path.join(module_dir, "main.json"), encoding='utf-8')
+    # data_main = json.load(f_main)
+    #
+    # f_salla = open(os.path.join(module_dir, "salla.json"), encoding='utf-8')
+    # data_salla = json.load(f_salla)
+    #
+    # f_aymakan = open(os.path.join(module_dir, "aymakan.json"), encoding='utf-8')
+    # data_aymakan = json.load(f_aymakan)
+
+    # for item in data_salla:
+    #     if item["aymakan_ar"] == "":
+    #         item["aymakan_ar"] = search_en(data_aymakan, item["name_en"])
+    #
+    # for item in data_salla:
+    #     if item["aymakan_en"] == "":
+    #         item["aymakan_en"] = search_ar(data_aymakan, item["name"])
+
+    # print(data_salla)
+    # with open('test.json', 'w', encoding='utf-8') as json_file:
+    #     json.dump(data_salla, json_file)
+    # new_data = []
+    # for item in data_salla:
+    #     is_here = check(data_main, item["id"])
+    #     if not is_here:
+    #         new_data.append(item)
+    #
+    # f_salla.close()
+    # f_aymakan.close()
+    # return new_data

@@ -1,0 +1,5306 @@
+[
+    {
+        "id": 1473353380,
+        "name": "الرياض",
+        "name_en": "Riyadh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 566146469,
+        "name": "جدة",
+        "name_en": "Jeddah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1939592358,
+        "name": "مكة",
+        "name_en": "Mecca",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1298199463,
+        "name": "المدينة المنورة",
+        "name_en": "Medina",
+        "country_id": 1473353380
+    },
+    {
+        "id": 525144736,
+        "name": "الدمام",
+        "name_en": "Dammam",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1764372897,
+        "name": "الأحساء",
+        "name_en": "Al Ahsa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 989286562,
+        "name": "القطيف",
+        "name_en": "Al Qatif",
+        "country_id": 1473353380
+    },
+    {
+        "id": 349994915,
+        "name": "خميس مشيط",
+        "name_en": "Khamis Mushait",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1723506348,
+        "name": "المظيلف",
+        "name_en": "Almuzaylif",
+        "country_id": 1473353380
+    },
+    {
+        "id": 814202285,
+        "name": "تبوك",
+        "name_en": "Tabuk",
+        "country_id": 1473353380
+    },
+    {
+        "id": 40688814,
+        "name": "الهفوف",
+        "name_en": "Al Hofuf",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1548352431,
+        "name": "المبرز",
+        "name_en": "Al Mubarraz",
+        "country_id": 1473353380
+    },
+    {
+        "id": 773200552,
+        "name": "نجران",
+        "name_en": "Najran",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2079537577,
+        "name": "حفر الباطن",
+        "name_en": "Hafar Al Batin",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1440241834,
+        "name": "الجبيل",
+        "name_en": "Al Jubail",
+        "country_id": 1473353380
+    },
+    {
+        "id": 665151403,
+        "name": "الطائف",
+        "name_en": "Taif",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1904445108,
+        "name": "ضبا",
+        "name_en": "Duba",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1130931637,
+        "name": "الخرج",
+        "name_en": "Al Kharj",
+        "country_id": 1473353380
+    },
+    {
+        "id": 490063030,
+        "name": "الثقبة",
+        "name_en": "Thuqbah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1863508919,
+        "name": "ينبع",
+        "name_en": "Yanbu",
+        "country_id": 1473353380
+    },
+    {
+        "id": 956236464,
+        "name": "عرعر",
+        "name_en": "Arar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 180625841,
+        "name": "الحوية (الطائف)",
+        "name_en": "Hawea/Taif",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1688289458,
+        "name": "عنيزة",
+        "name_en": "Unayzah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 915304371,
+        "name": "الخبر",
+        "name_en": "Al Khobar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 5541564,
+        "name": "سكاكا",
+        "name_en": "Sakaka",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1378987453,
+        "name": "جازان",
+        "name_en": "Jazan",
+        "country_id": 1473353380
+    },
+    {
+        "id": 740215998,
+        "name": "القريات",
+        "name_en": "Al Qurayyat",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2046553023,
+        "name": "الظهران",
+        "name_en": "Dhahran",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1270876856,
+        "name": "الزلفي",
+        "name_en": "Az Zulfi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 632105401,
+        "name": "الرس",
+        "name_en": "Ar Rass",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2005551290,
+        "name": "وادي الدواسر",
+        "name_en": "Wadi ad-Dawasir",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1096243131,
+        "name": "الباحة",
+        "name_en": "Al Bahah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 322729604,
+        "name": "بيشة",
+        "name_en": "Bishah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1830458757,
+        "name": "سيهات",
+        "name_en": "Saihat",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1055372422,
+        "name": "شرورة",
+        "name_en": "Sharorah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 147641223,
+        "name": "تاروت",
+        "name_en": "Tarout",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1521087104,
+        "name": "صبيا",
+        "name_en": "Sabya",
+        "country_id": 1473353380
+    },
+    {
+        "id": 880152961,
+        "name": "أحد رفيدة",
+        "name_en": "Ahad Rafidah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 106115202,
+        "name": "الفريش",
+        "name_en": "Al Furaysh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1345871747,
+        "name": "الدوادمي",
+        "name_en": "Al Duwadimi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 570785420,
+        "name": "بارق",
+        "name_en": "Bariq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2145623437,
+        "name": "الحوطة",
+        "name_en": "Howtat Bani Tamim",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1237892238,
+        "name": "الهدا",
+        "name_en": "Alhada",
+        "country_id": 1473353380
+    },
+    {
+        "id": 462805903,
+        "name": "بريدة",
+        "name_en": "Buraydah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1970469512,
+        "name": "المذنب",
+        "name_en": "Al Mithnab",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1197414793,
+        "name": "البكيرية",
+        "name_en": "Al Bukayriyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 287586442,
+        "name": "البدائع",
+        "name_en": "Al Badayea",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1661028235,
+        "name": "الهفوف والمبرز",
+        "name_en": "Al Hufuf and Al Mubarraz",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1022256788,
+        "name": "النبهانية",
+        "name_en": "An Nabhaniyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 246711701,
+        "name": "رياض الخبراء",
+        "name_en": "Riyadh Al Khabra",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1485939862,
+        "name": "الشماسية",
+        "name_en": "Ash Shimasiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 712950679,
+        "name": "الغاط",
+        "name_en": "Al Ghat",
+        "country_id": 1473353380
+    },
+    {
+        "id": 73130640,
+        "name": "عيون الجواء",
+        "name_en": "Uyun Al Jawa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1444938129,
+        "name": "سراة عبيدة",
+        "name_en": "Sarat Abidah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 537731218,
+        "name": "المجمعة",
+        "name_en": "Al Majmaah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2112507795,
+        "name": "عفيف",
+        "name_en": "Afif",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1337421468,
+        "name": "الدرعية",
+        "name_en": "DIRIYAH",
+        "country_id": 1473353380
+    },
+    {
+        "id": 429755805,
+        "name": "شقراء",
+        "name_en": "Shaqra",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1803201694,
+        "name": "حوطة بني تميم",
+        "name_en": "Howtat Bani Tamim",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1162333087,
+        "name": "ضرما",
+        "name_en": "Dhurma",
+        "country_id": 1473353380
+    },
+    {
+        "id": 388819608,
+        "name": "حريملاء",
+        "name_en": "Huraymila",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1627982233,
+        "name": "السليل",
+        "name_en": "As Sulayyil",
+        "country_id": 1473353380
+    },
+    {
+        "id": 852895898,
+        "name": "المزاحمية",
+        "name_en": "Al Muzahimiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 213071771,
+        "name": "رابغ",
+        "name_en": "Rabigh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1587042020,
+        "name": "ثول",
+        "name_en": "Thuwal",
+        "country_id": 1473353380
+    },
+    {
+        "id": 677737957,
+        "name": "القنفذة",
+        "name_en": "Al Qunfudhah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2051249382,
+        "name": "العلا",
+        "name_en": "Al Ula",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1411953639,
+        "name": "أبها",
+        "name_en": "Abha",
+        "country_id": 1473353380
+    },
+    {
+        "id": 569758432,
+        "name": "الليث",
+        "name_en": "Al Lith",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1943204321,
+        "name": "النماص",
+        "name_en": "Al Namas",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1304367330,
+        "name": "بلجرشي",
+        "name_en": "Baljurashi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 528760803,
+        "name": "المخواة",
+        "name_en": "Al Makhwah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1767988972,
+        "name": "تربة",
+        "name_en": "Turbah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 994999789,
+        "name": "أبو عريش",
+        "name_en": "Abu Arish",
+        "country_id": 1473353380
+    },
+    {
+        "id": 353672430,
+        "name": "العريش",
+        "name_en": "Arish",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1727118319,
+        "name": "الخفجي",
+        "name_en": "Khafji",
+        "country_id": 1473353380
+    },
+    {
+        "id": 819911400,
+        "name": "الخرمة",
+        "name_en": "Al Khurma",
+        "country_id": 1473353380
+    },
+    {
+        "id": 45873641,
+        "name": "حائل",
+        "name_en": "Hail",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1551898858,
+        "name": "خريص",
+        "name_en": "Khurais",
+        "country_id": 1473353380
+    },
+    {
+        "id": 778905579,
+        "name": "املج",
+        "name_en": "Umluj",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2018133748,
+        "name": "بدر",
+        "name_en": "Badr",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1243047413,
+        "name": "دومة الجندل",
+        "name_en": "Dumah Al Jandal",
+        "country_id": 1473353380
+    },
+    {
+        "id": 670926070,
+        "name": "ليلى",
+        "name_en": "Layla",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1135067888,
+        "name": "الجموم",
+        "name_en": "Al Jumum",
+        "country_id": 1473353380
+    },
+    {
+        "id": 495772145,
+        "name": "المندق",
+        "name_en": "Almandaq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1869152498,
+        "name": "خليص",
+        "name_en": "Khulais",
+        "country_id": 1473353380
+    },
+    {
+        "id": 959852531,
+        "name": "خيبر",
+        "name_en": "Khaybar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 185814780,
+        "name": "رأس تنورة",
+        "name_en": "Ras Tanura",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1694002685,
+        "name": "صامطة",
+        "name_en": "Samtah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 918981886,
+        "name": "رجال المع",
+        "name_en": "Rijal Almaa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 10726399,
+        "name": "رنية",
+        "name_en": "Ranyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1384696568,
+        "name": "ظهران الجنوب",
+        "name_en": "Dhahran Al Janub",
+        "country_id": 1473353380
+    },
+    {
+        "id": 743827961,
+        "name": "مهد الذهب",
+        "name_en": "Mahd Al Thahab",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2117208314,
+        "name": "جزيرة فرسان",
+        "name_en": "Farasan Island",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1209997307,
+        "name": "الدلم",
+        "name_en": "Ad Dilam",
+        "country_id": 1473353380
+    },
+    {
+        "id": 635713220,
+        "name": "صفوى",
+        "name_en": "Safwa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2009159109,
+        "name": "البديع الشمالي",
+        "name_en": "Al-Badie Al-Shamali",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1101952198,
+        "name": "البديع الجنوبي",
+        "name_en": "Al-Badie Al-Janobi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 326407111,
+        "name": "الهدار",
+        "name_en": "Al Haddar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1834070720,
+        "name": "الأرطاوية",
+        "name_en": "Al Artawiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1061081537,
+        "name": "الحاير",
+        "name_en": "Al Haeer",
+        "country_id": 1473353380
+    },
+    {
+        "id": 152826050,
+        "name": "الحريق",
+        "name_en": "Al Hariq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1524637635,
+        "name": "القويعية",
+        "name_en": "Al Quwaiiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 885866188,
+        "name": "الهياثم",
+        "name_en": "Al Hayathem",
+        "country_id": 1473353380
+    },
+    {
+        "id": 111828429,
+        "name": "تمير",
+        "name_en": "Tumair",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1350008014,
+        "name": "ثادق",
+        "name_en": "Thadiq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 576560079,
+        "name": "حوطة سدير",
+        "name_en": "Hautat Sudair",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2084223688,
+        "name": "رماح",
+        "name_en": "Rumah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1309137353,
+        "name": "ساجر",
+        "name_en": "Sajir",
+        "country_id": 1473353380
+    },
+    {
+        "id": 468515018,
+        "name": "مرات",
+        "name_en": "Marat",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1976109003,
+        "name": "العقيق",
+        "name_en": "Al Aqiq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 292767189,
+        "name": "قلوة",
+        "name_en": "Qilwah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1666737366,
+        "name": "صوير",
+        "name_en": "Suwayr",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1025934295,
+        "name": "طبرجل",
+        "name_en": "Tubarjal",
+        "country_id": 1473353380
+    },
+    {
+        "id": 251896528,
+        "name": "العويقيلة",
+        "name_en": "Al Uwayqilah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1491648977,
+        "name": "رفحاء",
+        "name_en": "Rafha",
+        "country_id": 1473353380
+    },
+    {
+        "id": 716562642,
+        "name": "طريف",
+        "name_en": "Turaif",
+        "country_id": 1473353380
+    },
+    {
+        "id": 76681171,
+        "name": "الخبراء",
+        "name_en": "Al Khabra",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1451175644,
+        "name": "الثمد",
+        "name_en": "Al Thamad",
+        "country_id": 1473353380
+    },
+    {
+        "id": 541347293,
+        "name": "الحناكية",
+        "name_en": "Al Henakiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1914793182,
+        "name": "العيص",
+        "name_en": "Al Ais",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1276087263,
+        "name": "المحفر",
+        "name_en": "Al Mahfar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 433367768,
+        "name": "البطحاء",
+        "name_en": "Al Batha",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1806813657,
+        "name": "بقيق",
+        "name_en": "Buqayq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1168042202,
+        "name": "الوجه",
+        "name_en": "Al Wajh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 394000347,
+        "name": "تيماء",
+        "name_en": "Tayma",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1631589924,
+        "name": "حقل",
+        "name_en": "Haql",
+        "country_id": 1473353380
+    },
+    {
+        "id": 858600741,
+        "name": "ابو السلع",
+        "name_en": "Alsilaa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 218780710,
+        "name": "أحد المسارحة",
+        "name_en": "Ahad Al Masarihah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1591178023,
+        "name": "البديع والقرفي",
+        "name_en": "Al Badi & Al Qarafi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 683512352,
+        "name": "الجرادية",
+        "name_en": "Al Jaradiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2056958241,
+        "name": "الحسيني",
+        "name_en": "Al Husayni",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1416089634,
+        "name": "الدائر",
+        "name_en": "Addayer",
+        "country_id": 1473353380
+    },
+    {
+        "id": 642580259,
+        "name": "الدرب",
+        "name_en": "Ad Darb",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1881742892,
+        "name": "الشقيري",
+        "name_en": "Alshuqayri",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1307983149,
+        "name": "الطوال",
+        "name_en": "Al Tuwal",
+        "country_id": 1473353380
+    },
+    {
+        "id": 533945390,
+        "name": "المضايا",
+        "name_en": "Al Madaya",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1773697839,
+        "name": "المطعن",
+        "name_en": "Al-Matan",
+        "country_id": 1473353380
+    },
+    {
+        "id": 998677032,
+        "name": "بيش",
+        "name_en": "Baish",
+        "country_id": 1473353380
+    },
+    {
+        "id": 358857001,
+        "name": "ضمد",
+        "name_en": "Damad",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1732827178,
+        "name": "مزهرة",
+        "name_en": "Mizhirah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 823519019,
+        "name": "مسلية",
+        "name_en": "Masliyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 49415732,
+        "name": "الحائط",
+        "name_en": "Al Hait",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1558127925,
+        "name": "الشنان",
+        "name_en": "Ash Shinan",
+        "country_id": 1473353380
+    },
+    {
+        "id": 782517302,
+        "name": "الاثنين",
+        "name_en": "Al-Iṯnayn",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2021745463,
+        "name": "المجاردة",
+        "name_en": "Almajaridah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1248821808,
+        "name": "تثليث",
+        "name_en": "Tathleeth",
+        "country_id": 1473353380
+    },
+    {
+        "id": 607428913,
+        "name": "تنومة (عسير)",
+        "name_en": "Tanomah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1980874802,
+        "name": "طريب",
+        "name_en": "Tereeb",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1140780851,
+        "name": "محايل عسير",
+        "name_en": "Muhayil",
+        "country_id": 1473353380
+    },
+    {
+        "id": 500895292,
+        "name": "القوز",
+        "name_en": "AlQouz",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1872768317,
+        "name": "عشيرة",
+        "name_en": "Ashayrah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 965561406,
+        "name": "مستورة",
+        "name_en": "Mastorah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 191523647,
+        "name": "المشعلية",
+        "name_en": "Al Mishaliah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1697679928,
+        "name": "حبونا",
+        "name_en": "Hubuna",
+        "country_id": 1473353380
+    },
+    {
+        "id": 924690745,
+        "name": "عنك",
+        "name_en": "Anak",
+        "country_id": 1473353380
+    },
+    {
+        "id": 16435258,
+        "name": "النعيرية",
+        "name_en": "Nairyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1388828475,
+        "name": "بحره",
+        "name_en": "Bahrah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 749532676,
+        "name": "وادي ابن هشبل",
+        "name_en": "Wadi Ibn Hashbal",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2122913029,
+        "name": "خيبر الجنوب",
+        "name_en": "Khaiber Al-Janoub",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1947759104,
+        "name": "المضة",
+        "name_en": "Al Madha",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1105629441,
+        "name": "سبت العلاية",
+        "name_en": "Sabt Alalayah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1839783683,
+        "name": "دخنة",
+        "name_en": "Duhknah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1064697356,
+        "name": "شواق",
+        "name_en": "Shuwaq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 156376333,
+        "name": "مدائن صالح",
+        "name_en": "Madain Saleh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1530870798,
+        "name": "فضلا",
+        "name_en": "Fadhla",
+        "country_id": 1473353380
+    },
+    {
+        "id": 889477903,
+        "name": "حزم الجلاميد",
+        "name_en": "Hazem Aljalamid",
+        "country_id": 1473353380
+    },
+    {
+        "id": 115440136,
+        "name": "ميقوع",
+        "name_en": "Meegowa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1355782409,
+        "name": "الرايس",
+        "name_en": "Ar Rayis",
+        "country_id": 1473353380
+    },
+    {
+        "id": 580171786,
+        "name": "أبيار علي",
+        "name_en": "Abyar 'Ali",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2087831307,
+        "name": "المويه الجديدة",
+        "name_en": "New Muwayh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1314842132,
+        "name": "يدمة",
+        "name_en": "Yadamah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 406521109,
+        "name": "الوديعة",
+        "name_en": "Al Wadiah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1778394134,
+        "name": "أم الملح",
+        "name_en": "Umm Al Melh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1206731543,
+        "name": "الخرخير",
+        "name_en": "Al Kharkhir",
+        "country_id": 1473353380
+    },
+    {
+        "id": 298476048,
+        "name": "ذعبلوتن",
+        "name_en": "Thabhloten",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1670414609,
+        "name": "الشلفا",
+        "name_en": "Ash Shalfa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1031643154,
+        "name": "الرين",
+        "name_en": "Ar Rayn",
+        "country_id": 1473353380
+    },
+    {
+        "id": 257609491,
+        "name": "الرويضة",
+        "name_en": "Ar Ruwaidhah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1495789084,
+        "name": "عقلة الصقور",
+        "name_en": "Uglat Asugour",
+        "country_id": 1473353380
+    },
+    {
+        "id": 722210077,
+        "name": "القيصومة",
+        "name_en": "Al Qaisumah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 82390046,
+        "name": "قبه",
+        "name_en": "Kouba",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1454787359,
+        "name": "لينه",
+        "name_en": "Linah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 546531864,
+        "name": "بقعاء",
+        "name_en": "Baqaa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1920567577,
+        "name": "القاعد",
+        "name_en": "Al Qaid",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1279698970,
+        "name": "الغزالة",
+        "name_en": "Al Ghazalah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 505657115,
+        "name": "أسبطر",
+        "name_en": "Asbtar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1745409636,
+        "name": "الشملي",
+        "name_en": "As Shamli",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1171649893,
+        "name": "الحليفة السفلى",
+        "name_en": "Al Hulayfah As Sufla",
+        "country_id": 1473353380
+    },
+    {
+        "id": 397546598,
+        "name": "العشاش",
+        "name_en": "`Ushash",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1637823335,
+        "name": "مدينة الملك عبدالله الاقتصادية",
+        "name_en": "King Abdullah Economic City",
+        "country_id": 1473353380
+    },
+    {
+        "id": 862212704,
+        "name": "ذهبان",
+        "name_en": "Dhahban",
+        "country_id": 1473353380
+    },
+    {
+        "id": 222392673,
+        "name": "عين قحطان",
+        "name_en": "Ayn Qahtan",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1596952674,
+        "name": "فيفاء",
+        "name_en": "Fayfa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 687128419,
+        "name": "السعدية",
+        "name_en": "As Sa'diyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2060574316,
+        "name": "الصبيخة",
+        "name_en": "Al Subaykhah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1421802861,
+        "name": "المرامية",
+        "name_en": "Al Marameh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 647699566,
+        "name": "رأس الخير",
+        "name_en": "Ras Al Khair",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1885354863,
+        "name": "سلوى",
+        "name_en": "Salwa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1112365672,
+        "name": "الشيحية",
+        "name_en": "Ash Shihyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 472545641,
+        "name": "رفائع الجمش",
+        "name_en": "Rvaya Aljamsh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1777375338,
+        "name": "جلاجل",
+        "name_en": "Jalajil",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1004382059,
+        "name": "قرية العليا",
+        "name_en": "Qaryat Al Ulya",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1736959349,
+        "name": "عشيرة سدير",
+        "name_en": "Ushairat Sudair",
+        "country_id": 1473353380
+    },
+    {
+        "id": 829162614,
+        "name": "عودة سدير",
+        "name_en": "Audat Sudair",
+        "country_id": 1473353380
+    },
+    {
+        "id": 55124855,
+        "name": "روضة سدير",
+        "name_en": "Raudat Sudair",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1561739888,
+        "name": "صلبوخ",
+        "name_en": "Salbukh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2027520114,
+        "name": "الذيبية",
+        "name_en": "Ath Thybiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1252437875,
+        "name": "العيون (الهفوف)",
+        "name_en": "Al Oyun",
+        "country_id": 1473353380
+    },
+    {
+        "id": 612617852,
+        "name": "الوزية",
+        "name_en": "Al Wozeyh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1986588029,
+        "name": "جواثا",
+        "name_en": "Juatha",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1077218430,
+        "name": "العمران",
+        "name_en": "Al Umran",
+        "country_id": 1473353380
+    },
+    {
+        "id": 303180671,
+        "name": "جليجلة",
+        "name_en": "Julayjilah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1879001720,
+        "name": "الطرف",
+        "name_en": "Al Taraf",
+        "country_id": 1473353380
+    },
+    {
+        "id": 969173369,
+        "name": "الجفر",
+        "name_en": "Al Jafr",
+        "country_id": 1473353380
+    },
+    {
+        "id": 195201146,
+        "name": "العضيلية",
+        "name_en": "Udhailiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1703909243,
+        "name": "البجادية",
+        "name_en": "Al Bijadyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 928298564,
+        "name": "خوعاء",
+        "name_en": "Khaw'a",
+        "country_id": 1473353380
+    },
+    {
+        "id": 20043077,
+        "name": "عذفاء",
+        "name_en": "Azfaa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1394537542,
+        "name": "زلوم",
+        "name_en": "Zalom",
+        "country_id": 1473353380
+    },
+    {
+        "id": 754651975,
+        "name": "الرفيعة",
+        "name_en": "Ar Rafi'ah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2126524992,
+        "name": "هديب",
+        "name_en": "Hedeb",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1219318081,
+        "name": "الجش",
+        "name_en": "Al Jesh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 445280322,
+        "name": "الشقيق",
+        "name_en": "Al Shuqaiq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1951440707,
+        "name": "العوامية",
+        "name_en": "Al Awamiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1178451532,
+        "name": "مدينة الملك خالد العسكرية",
+        "name_en": "King Khalid Military City",
+        "country_id": 1473353380
+    },
+    {
+        "id": 270196045,
+        "name": "أم الساهك",
+        "name_en": "Umm As Sahik",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1843919950,
+        "name": "الأحمر",
+        "name_en": "Al Ahmar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1070340943,
+        "name": "العارضة",
+        "name_en": "Al Aridhah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 162085448,
+        "name": "الحديثة",
+        "name_en": "Al Hadithah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1534482761,
+        "name": "المباركة",
+        "name_en": "Al Mubarakah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 894662730,
+        "name": "القصب",
+        "name_en": "Al Qasab",
+        "country_id": 1473353380
+    },
+    {
+        "id": 121210699,
+        "name": "العيينة",
+        "name_en": "Al Uyaynah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1359390292,
+        "name": "عين ابن فهيد",
+        "name_en": "Ayn Ibn Fuhayd",
+        "country_id": 1473353380
+    },
+    {
+        "id": 585352533,
+        "name": "غطي",
+        "name_en": "Ghtai",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2093540438,
+        "name": "مدينة جازان الإقتصادية",
+        "name_en": "Jazan Economic City",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1318388567,
+        "name": "المحلة",
+        "name_en": "Mahalah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 410133072,
+        "name": "ام سعد",
+        "name_en": "Um Saad",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1784627537,
+        "name": "عسفان",
+        "name_en": "asfan",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1143234642,
+        "name": "النابية",
+        "name_en": "An Nabiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 369266515,
+        "name": "الجميعة",
+        "name_en": "aljamieia",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1676652124,
+        "name": "الأوجام",
+        "name_en": "alawjam",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1035259229,
+        "name": "عين دار",
+        "name_en": "ain dar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 261221470,
+        "name": "الدغيمي",
+        "name_en": "aldighaimi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1501432671,
+        "name": "الشفا",
+        "name_en": "alshaffa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 727394904,
+        "name": "السيل الكبير",
+        "name_en": "alsayl alkabir",
+        "country_id": 1473353380
+    },
+    {
+        "id": 86002009,
+        "name": "السيل الصغير",
+        "name_en": "alsayl alsaghir",
+        "country_id": 1473353380
+    },
+    {
+        "id": 552236891,
+        "name": "الصرّار",
+        "name_en": "As Sarrar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1924175268,
+        "name": "أضم",
+        "name_en": "Adham",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1285403813,
+        "name": "العيدابي",
+        "name_en": "Al Edabi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 511366054,
+        "name": "نمرة",
+        "name_en": "Namerah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1749545639,
+        "name": "القوارة",
+        "name_en": "Al Quwarah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 975966624,
+        "name": "ضرية",
+        "name_en": "Dariyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 336146593,
+        "name": "بئر بن هرماس",
+        "name_en": "Bir Ibn Hirmas",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1641439138,
+        "name": "تندحة",
+        "name_en": "Tanda",
+        "country_id": 1473353380
+    },
+    {
+        "id": 867401379,
+        "name": "أبيار الماشي",
+        "name_en": "Abyar Al Mashi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 228171180,
+        "name": "الأسياح",
+        "name_en": "ASYAH",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1600568493,
+        "name": "الدليمية",
+        "name_en": "Al Dulaymiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 692313006,
+        "name": "الصمعورية",
+        "name_en": "As Samuriyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2066283183,
+        "name": "ضليع رشيد",
+        "name_en": "DULAY RASHID",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1425349032,
+        "name": "الخشيبي",
+        "name_en": "Al Khushaybi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 651311273,
+        "name": "الجعيمة",
+        "name_en": "Al Juaima'h",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1891583914,
+        "name": "مبهل",
+        "name_en": "Mubhel",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1115973291,
+        "name": "الخصيبة",
+        "name_en": "ALKHASIYBAH",
+        "country_id": 1473353380
+    },
+    {
+        "id": 476218804,
+        "name": "البصر",
+        "name_en": "AL BASR",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1850713269,
+        "name": "المليداء",
+        "name_en": "AL MALIDA",
+        "country_id": 1473353380
+    },
+    {
+        "id": 940884918,
+        "name": "القضيمة",
+        "name_en": "QADEIMAH",
+        "country_id": 1473353380
+    },
+    {
+        "id": 368173751,
+        "name": "حداء",
+        "name_en": "",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1742602672,
+        "name": "الصمد",
+        "name_en": "ALSAMAD",
+        "country_id": 1473353380
+    },
+    {
+        "id": 834347185,
+        "name": "المحمدية",
+        "name_en": "Al Mahabbah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 58740658,
+        "name": "الشعراء",
+        "name_en": "Ash Shuara",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1567452851,
+        "name": "اشيقر",
+        "name_en": "Ushaiqer",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2031135933,
+        "name": "الحفير",
+        "name_en": "Al Hufayr",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1258146750,
+        "name": "موقق",
+        "name_en": "Mawqaq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 618326719,
+        "name": "جبة",
+        "name_en": "Jubbah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1990658488,
+        "name": "الخطة",
+        "name_en": "Al Khitah\r\n",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1082927289,
+        "name": "الحجرة",
+        "name_en": "Hajrah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 308885434,
+        "name": "الأفلاج",
+        "name_en": "Al Aflaj",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1815500475,
+        "name": "الأطاولة",
+        "name_en": "Al Atawilah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1041462660,
+        "name": "القصيم",
+        "name_en": "Al Qassim",
+        "country_id": 1473353380
+    },
+    {
+        "id": 200905861,
+        "name": "الماوين",
+        "name_en": "Al Mawain",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1707520902,
+        "name": "الأبواء",
+        "name_en": "Al-Abwa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 933483143,
+        "name": "الكوت",
+        "name_en": "Al Khutt",
+        "country_id": 1473353380
+    },
+    {
+        "id": 25751936,
+        "name": "العمران",
+        "name_en": "Al Omran",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1398083713,
+        "name": "الزيمة",
+        "name_en": "Az Zaimah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 758267778,
+        "name": "بقا",
+        "name_en": "Buq A",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2132762243,
+        "name": "جميكا",
+        "name_en": "Gamika",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1222933900,
+        "name": "غطط",
+        "name_en": "Gatgat",
+        "country_id": 1473353380
+    },
+    {
+        "id": 448961677,
+        "name": "جرهاء",
+        "name_en": "Gerrha",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1957673870,
+        "name": "الحبلة",
+        "name_en": "Habala",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1182063247,
+        "name": "حرمة",
+        "name_en": "Harmah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 273807752,
+        "name": "جبل أم الرؤوس",
+        "name_en": "Jabal Umm al Ru'us",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1648236681,
+        "name": "الجوف",
+        "name_en": "Al Jowf",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1008412554,
+        "name": "مدينة المعرفة الإقتصادية",
+        "name_en": "Knowledge Economic City",
+        "country_id": 1473353380
+    },
+    {
+        "id": 165693067,
+        "name": "لحيان‎",
+        "name_en": "Lihyan",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1540187540,
+        "name": "قلعة بيشه",
+        "name_en": "Qalat Bishah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 900433045,
+        "name": "الرميلة",
+        "name_en": "Al Rumailah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 124822422,
+        "name": "الشيبة",
+        "name_en": "Shaybah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1365099159,
+        "name": "العقير",
+        "name_en": "Al Uqayr",
+        "country_id": 1473353380
+    },
+    {
+        "id": 591061392,
+        "name": "الفرشة",
+        "name_en": "Al Farshah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1234030289,
+        "name": "بللسمر",
+        "name_en": "Billasmar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 923389041,
+        "name": "أوثال",
+        "name_en": "UTHAL",
+        "country_id": 1473353380
+    },
+    {
+        "id": 457314824,
+        "name": "ثرمداء",
+        "name_en": "tharmda",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1015332117,
+        "name": "Ahad Al Masarhah",
+        "name_en": "Ahad Al Masarhah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 241294358,
+        "name": "Al Uraija",
+        "name_en": "Al Uraija",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1481571095,
+        "name": "Atawlah",
+        "name_en": "Atawlah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 707467792,
+        "name": "Bad",
+        "name_en": "Bad",
+        "country_id": 1473353380
+    },
+    {
+        "id": 133183761,
+        "name": "جسر الملك فهد",
+        "name_en": "Bahrain Causeway",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1373460498,
+        "name": "Dhalim",
+        "name_en": "Dhalim",
+        "country_id": 1473353380
+    },
+    {
+        "id": 599418643,
+        "name": "Dhuba",
+        "name_en": "Dhuba",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2105574940,
+        "name": "Duwadimi",
+        "name_en": "Duwadimi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1332585757,
+        "name": "Haditha",
+        "name_en": "Haditha",
+        "country_id": 1473353380
+    },
+    {
+        "id": 424330270,
+        "name": "Halat Ammar",
+        "name_en": "Halat Ammar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1796727583,
+        "name": "Halit Ammar",
+        "name_en": "Halit Ammar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1157366296,
+        "name": "Harad",
+        "name_en": "Harad",
+        "country_id": 1473353380
+    },
+    {
+        "id": 383328537,
+        "name": "Harjah",
+        "name_en": "Harjah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1621508122,
+        "name": "Jeddah Airport",
+        "name_en": "Jeddah Airport",
+        "country_id": 1473353380
+    },
+    {
+        "id": 847474459,
+        "name": "Khamasin",
+        "name_en": "Khamasin",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1580641637,
+        "name": "King Khalid City",
+        "name_en": "King Khalid City",
+        "country_id": 1473353380
+    },
+    {
+        "id": 672386150,
+        "name": "Mukhwah",
+        "name_en": "Mukhwah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 100199271,
+        "name": "Mulaija",
+        "name_en": "Mulaija",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1472531040,
+        "name": "Muwayh",
+        "name_en": "Muwayh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 564275553,
+        "name": "Noweirieh",
+        "name_en": "Noweirieh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1938770018,
+        "name": "Qarya Al Uliya",
+        "name_en": "Qarya Al Uliya",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1297373027,
+        "name": "Qaseem Airport",
+        "name_en": "Qaseem Airport",
+        "country_id": 1473353380
+    },
+    {
+        "id": 523335276,
+        "name": "Qaysumah",
+        "name_en": "Qaysumah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1763677549,
+        "name": "Quwayiyah",
+        "name_en": "Quwayiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 988066926,
+        "name": "Rafayaa Al Gimsh",
+        "name_en": "Rafayaa Al Gimsh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 348246895,
+        "name": "Rahima",
+        "name_en": "Rahima",
+        "country_id": 1473353380
+    },
+    {
+        "id": 814420329,
+        "name": "Riyadh Airport",
+        "name_en": "Riyadh Airport",
+        "country_id": 1473353380
+    },
+    {
+        "id": 38809706,
+        "name": "Sapt Al Alaya",
+        "name_en": "Sapt Al Alaya",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1547525995,
+        "name": "Sarrar",
+        "name_en": "Sarrar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 773488244,
+        "name": "Sayirah",
+        "name_en": "Sayirah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2078317941,
+        "name": "Tanajib",
+        "name_en": "Tanajib",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1439546486,
+        "name": "تنومه( القصيم)",
+        "name_en": "Tanumah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 665508727,
+        "name": "Tathlith",
+        "name_en": "Tathlith",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1903688304,
+        "name": "Thqbah",
+        "name_en": "Thqbah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1130109297,
+        "name": "Ula",
+        "name_en": "Ula",
+        "country_id": 1473353380
+    },
+    {
+        "id": 490289266,
+        "name": "العثمانية",
+        "name_en": "Uthmaniyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1862682483,
+        "name": "Wadeien",
+        "name_en": "Wadeien",
+        "country_id": 1473353380
+    },
+    {
+        "id": 954427004,
+        "name": "Aba Alworood",
+        "name_en": "Aba Alworood",
+        "country_id": 1473353380
+    },
+    {
+        "id": 180979069,
+        "name": "ابو عجرم",
+        "name_en": "Abu Ajram",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1687594110,
+        "name": "Ad Dahinah",
+        "name_en": "Ad Dahinah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 913556351,
+        "name": "Ad Dubaiyah",
+        "name_en": "Ad Dubaiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 5825144,
+        "name": "Al Adari",
+        "name_en": "Al Adari",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1378156921,
+        "name": "Al Ajfar",
+        "name_en": "Al Ajfar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 738336890,
+        "name": "Al Ammarah",
+        "name_en": "Al Ammarah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2045726587,
+        "name": "Al Arja",
+        "name_en": "Al Arja",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1270115908,
+        "name": "Al Asyah",
+        "name_en": "Al Asyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 630361413,
+        "name": "Al Bada",
+        "name_en": "Al Bada",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2004855878,
+        "name": "Al Batra",
+        "name_en": "Al Batra",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1095027527,
+        "name": "Al Fuwaileq",
+        "name_en": "Al Fuwaileq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 320989760,
+        "name": "Al hait",
+        "name_en": "Al hait",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1829636417,
+        "name": "Al Haith",
+        "name_en": "Al Haith",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1055598658,
+        "name": "Al Hufayyirah",
+        "name_en": "Al Hufayyirah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 145766211,
+        "name": "Al Idabi",
+        "name_en": "Al Idabi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1520260684,
+        "name": "Al Khishaybi",
+        "name_en": "Al Khishaybi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 880440653,
+        "name": "Al Khitah",
+        "name_en": "Al Khitah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 104895566,
+        "name": "Al Laqayit",
+        "name_en": "Al Laqayit",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1345172303,
+        "name": "Al Mada",
+        "name_en": "Al Mada",
+        "country_id": 1473353380
+    },
+    {
+        "id": 571134536,
+        "name": "Al Mahd",
+        "name_en": "Al Mahd",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2144858441,
+        "name": "Al Midrij",
+        "name_en": "Al Midrij",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1237061706,
+        "name": "Al Moya",
+        "name_en": "Al Moya",
+        "country_id": 1473353380
+    },
+    {
+        "id": 463028043,
+        "name": "Al Qarin",
+        "name_en": "Al Qarin",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1969643092,
+        "name": "Al Ruqi",
+        "name_en": "Al Ruqi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1195605333,
+        "name": "Al Wasayta",
+        "name_en": "Al Wasayta",
+        "country_id": 1473353380
+    },
+    {
+        "id": 287939670,
+        "name": "Al-Jsh",
+        "name_en": "Al-Jsh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1660336983,
+        "name": "Amaq",
+        "name_en": "Amaq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1020516944,
+        "name": "An Nabk Abu Qasr",
+        "name_en": "An Nabk Abu Qasr",
+        "country_id": 1473353380
+    },
+    {
+        "id": 247003473,
+        "name": "An Nafiah",
+        "name_en": "An Nafiah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1485117522,
+        "name": "An Nuqrah",
+        "name_en": "An Nuqrah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 711075667,
+        "name": "Ar Radifah",
+        "name_en": "Ar Radifah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 72304220,
+        "name": "Ar Rishawiyah",
+        "name_en": "Ar Rishawiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1444177245,
+        "name": "As Sulaimaniyah",
+        "name_en": "As Sulaimaniyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 603096158,
+        "name": "As Sulubiayh",
+        "name_en": "As Sulubiayh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2111808351,
+        "name": "Ash Shaara",
+        "name_en": "Ash Shaara",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1336197720,
+        "name": "Ash Shamli",
+        "name_en": "Ash Shamli",
+        "country_id": 1473353380
+    },
+    {
+        "id": 427942233,
+        "name": "Ash Shananah",
+        "name_en": "Ash Shananah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1802371162,
+        "name": "At Tuwayr",
+        "name_en": "At Tuwayr",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1162555227,
+        "name": "Badar Hunain",
+        "name_en": "Badar Hunain",
+        "country_id": 1473353380
+    },
+    {
+        "id": 386944420,
+        "name": "Badr Al Janoub",
+        "name_en": "Badr Al Janoub",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1627221157,
+        "name": "Bahrat Al Moujoud",
+        "name_en": "Bahrat Al Moujoud",
+        "country_id": 1473353380
+    },
+    {
+        "id": 853248934,
+        "name": "بللحمر",
+        "name_en": "Balahmar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 211856039,
+        "name": "Balasmar",
+        "name_en": "Balasmar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1586350496,
+        "name": "Balqarn",
+        "name_en": "Balqarn",
+        "country_id": 1473353380
+    },
+    {
+        "id": 678095009,
+        "name": "Bani Malek",
+        "name_en": "Bani Malek",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2050488226,
+        "name": "Baqa Ash Sharqiyah",
+        "name_en": "Baqa Ash Sharqiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1411126947,
+        "name": "Baqiq",
+        "name_en": "Baqiq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 569980332,
+        "name": "Bashayer",
+        "name_en": "Bashayer",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1942377645,
+        "name": "Birk",
+        "name_en": "Birk",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1302557614,
+        "name": "Dammam Airport",
+        "name_en": "Dammam Airport",
+        "country_id": 1473353380
+    },
+    {
+        "id": 529109679,
+        "name": "Deraab",
+        "name_en": "Deraab",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1767289256,
+        "name": "Dere'Iyeh",
+        "name_en": "Dere'Iyeh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 993251497,
+        "name": "Dukhnah",
+        "name_en": "Dukhnah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 353959850,
+        "name": "Dulay Rashid",
+        "name_en": "Dulay Rashid",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1726291627,
+        "name": "Hadeethah",
+        "name_en": "Hadeethah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 818036148,
+        "name": "Hawea/Taif",
+        "name_en": "Hawea/Taif",
+        "country_id": 1473353380
+    },
+    {
+        "id": 45046965,
+        "name": "Hayer",
+        "name_en": "Hayer",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1551137718,
+        "name": "Hazm Al Jalamid",
+        "name_en": "Hazm Al Jalamid",
+        "country_id": 1473353380
+    },
+    {
+        "id": 777165495,
+        "name": "Horaimal",
+        "name_en": "Horaimal",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2017442224,
+        "name": "Ja'Araneh",
+        "name_en": "Ja'Araneh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1241831601,
+        "name": "Jadidah Arar",
+        "name_en": "Jadidah Arar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 669116338,
+        "name": "Jafar",
+        "name_en": "Jafar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1909327539,
+        "name": "Kahlah",
+        "name_en": "Kahlah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1135289788,
+        "name": "Kamil",
+        "name_en": "Kamil",
+        "country_id": 1473353380
+    },
+    {
+        "id": 493896893,
+        "name": "Kara",
+        "name_en": "Kara",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1868391358,
+        "name": "Kara'A",
+        "name_en": "Kara'A",
+        "country_id": 1473353380
+    },
+    {
+        "id": 960201407,
+        "name": "Karboos",
+        "name_en": "Karboos",
+        "country_id": 1473353380
+    },
+    {
+        "id": 184590776,
+        "name": "Khairan",
+        "name_en": "Khairan",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1693302969,
+        "name": "Khamaseen",
+        "name_en": "Khamaseen",
+        "country_id": 1473353380
+    },
+    {
+        "id": 919269306,
+        "name": "Khasawyah",
+        "name_en": "Khasawyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 9899707,
+        "name": "Khodaria",
+        "name_en": "Khodaria",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1383869828,
+        "name": "Kubadah",
+        "name_en": "Kubadah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 744049797,
+        "name": "Midinhab",
+        "name_en": "Midinhab",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2116447110,
+        "name": "Moqaq",
+        "name_en": "Moqaq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1208781447,
+        "name": "Mubayid",
+        "name_en": "Mubayid",
+        "country_id": 1473353380
+    },
+    {
+        "id": 636070272,
+        "name": "Mulayh",
+        "name_en": "Mulayh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2008467585,
+        "name": "Muneefa",
+        "name_en": "Muneefa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1100208002,
+        "name": "Munifat Al Qaid",
+        "name_en": "Munifat Al Qaid",
+        "country_id": 1473353380
+    },
+    {
+        "id": 326694531,
+        "name": "Nabaniya",
+        "name_en": "Nabaniya",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1833244044,
+        "name": "النقييع",
+        "name_en": "Nakeea",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1059206285,
+        "name": "Nifi",
+        "name_en": "Nifi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 151999374,
+        "name": "Nisab",
+        "name_en": "Nisab",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1523872399,
+        "name": "Nwariah",
+        "name_en": "Nwariah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 884117896,
+        "name": "Ojam",
+        "name_en": "Ojam",
+        "country_id": 1473353380
+    },
+    {
+        "id": 111128713,
+        "name": "Othmanyah",
+        "name_en": "Othmanyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1348788106,
+        "name": "Qahmah",
+        "name_en": "Qahmah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 574750347,
+        "name": "Qarah",
+        "name_en": "Qarah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2083397012,
+        "name": "Qaysoomah",
+        "name_en": "Qaysoomah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1309359253,
+        "name": "Qbah",
+        "name_en": "Qbah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 466639766,
+        "name": "Qufar",
+        "name_en": "Qufar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1975351959,
+        "name": "Qusayba",
+        "name_en": "Qusayba",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1201379728,
+        "name": "Rawdat Habbas",
+        "name_en": "Rawdat Habbas",
+        "country_id": 1473353380
+    },
+    {
+        "id": 291551377,
+        "name": "Rayn",
+        "name_en": "Rayn",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1666041746,
+        "name": "Rvaya Aljamsh",
+        "name_en": "Rvaya Aljamsh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1026221715,
+        "name": "Sadyan",
+        "name_en": "Sadyan",
+        "country_id": 1473353380
+    },
+    {
+        "id": 251069852,
+        "name": "Safanyah",
+        "name_en": "Safanyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1490822301,
+        "name": "Sahna",
+        "name_en": "Sahna",
+        "country_id": 1473353380
+    },
+    {
+        "id": 716784542,
+        "name": "Saira",
+        "name_en": "Saira",
+        "country_id": 1473353380
+    },
+    {
+        "id": 75915935,
+        "name": "Saqf",
+        "name_en": "Saqf",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1449951640,
+        "name": "Sayl Al Kabir",
+        "name_en": "Sayl Al Kabir",
+        "country_id": 1473353380
+    },
+    {
+        "id": 541696153,
+        "name": "Shaibah",
+        "name_en": "Shaibah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1914097562,
+        "name": "Shari",
+        "name_en": "Shari",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1341386395,
+        "name": "Shedgum",
+        "name_en": "Shedgum",
+        "country_id": 1473353380
+    },
+    {
+        "id": 433589732,
+        "name": "Shoaiba",
+        "name_en": "Shoaiba",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1805987045,
+        "name": "Shraie'E",
+        "name_en": "Shraie'E",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1166167014,
+        "name": "Simira",
+        "name_en": "Simira",
+        "country_id": 1473353380
+    },
+    {
+        "id": 393177831,
+        "name": "Taiba",
+        "name_en": "Taiba",
+        "country_id": 1473353380
+    },
+    {
+        "id": 856860897,
+        "name": "Tanjeeb",
+        "name_en": "Tanjeeb",
+        "country_id": 1473353380
+    },
+    {
+        "id": 218085346,
+        "name": "Tebrak",
+        "name_en": "Tebrak",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1589958371,
+        "name": "Tharmada",
+        "name_en": "Tharmada",
+        "country_id": 1473353380
+    },
+    {
+        "id": 681702892,
+        "name": "Thebea",
+        "name_en": "Thebea",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2056131821,
+        "name": "THUWAL",
+        "name_en": "THUWAL",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1416311790,
+        "name": "Towal",
+        "name_en": "Towal",
+        "country_id": 1473353380
+    },
+    {
+        "id": 640701167,
+        "name": "Um Aljamajim",
+        "name_en": "Um Aljamajim",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1880977896,
+        "name": "Ushayqir",
+        "name_en": "Ushayqir",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1308332265,
+        "name": "Uyun",
+        "name_en": "Uyun",
+        "country_id": 1473353380
+    },
+    {
+        "id": 532725738,
+        "name": "Uyun Al Jiwa",
+        "name_en": "Uyun Al Jiwa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1773002475,
+        "name": "وادي بن حسبل",
+        "name_en": "Wadi Bin Hasbal",
+        "country_id": 1473353380
+    },
+    {
+        "id": 998964724,
+        "name": "Wadi Bin Hashbal",
+        "name_en": "Wadi Bin Hashbal",
+        "country_id": 1473353380
+    },
+    {
+        "id": 358030581,
+        "name": "Wadi Fatmah",
+        "name_en": "Wadi Fatmah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1732000758,
+        "name": "Wajeh (Al Wajh)",
+        "name_en": "Wajeh (Al Wajh)",
+        "country_id": 1473353380
+    },
+    {
+        "id": 823745271,
+        "name": "ينبع البحر",
+        "name_en": "Yanbu Al Baher",
+        "country_id": 1473353380
+    },
+    {
+        "id": 48658928,
+        "name": "Yanbu Nakhil",
+        "name_en": "Yanbu Nakhil",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1556912369,
+        "name": "Zallum",
+        "name_en": "Zallum",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1980048382,
+        "name": "ينبع النخل",
+        "name_en": "Yanbu Al Nakhal",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1138901759,
+        "name": "نفي",
+        "name_en": "Nifi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 500130296,
+        "name": "ينبع الصناعية",
+        "name_en": "Madinat Yanbu' as Sina'iyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1872068857,
+        "name": "البشاير",
+        "name_en": "Al Bashayer",
+        "country_id": 1473353380
+    },
+    {
+        "id": 963817466,
+        "name": "Al Dayer",
+        "name_en": "Al Dayer",
+        "country_id": 1473353380
+    },
+    {
+        "id": 190828283,
+        "name": "Ar Ruqi",
+        "name_en": "Ar Ruqi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1696918980,
+        "name": "Asuwayq",
+        "name_en": "Asuwayq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 922815685,
+        "name": "Ash Shuqayq",
+        "name_en": "Ash Shuqayq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 15608774,
+        "name": "Al Atawlah",
+        "name_en": "Al Atawlah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1389054663,
+        "name": "Ayn lbn Fuhayd",
+        "name_en": "Ayn lbn Fuhayd",
+        "country_id": 1473353380
+    },
+    {
+        "id": 747661760,
+        "name": "Al Ayun",
+        "name_en": "Al Ayun",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2122221761,
+        "name": "Al Bad",
+        "name_en": "Al Bad",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1213962178,
+        "name": "Bahah",
+        "name_en": "Bahah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 438351555,
+        "name": "Bani Malik",
+        "name_en": "Bani Malik",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1947063756,
+        "name": "Al Birk",
+        "name_en": "Al Birk",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1105917133,
+        "name": "Dhalm",
+        "name_en": "Dhalm",
+        "country_id": 1473353380
+    },
+    {
+        "id": 330765262,
+        "name": "Dahaban",
+        "name_en": "Dahaban",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1838953167,
+        "name": "Dirab",
+        "name_en": "Dirab",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1064915400,
+        "name": "Hadda",
+        "name_en": "Hadda",
+        "country_id": 1473353380
+    },
+    {
+        "id": 155611337,
+        "name": "Haradh",
+        "name_en": "Haradh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1529651146,
+        "name": "Al Huwaya",
+        "name_en": "Al Huwaya",
+        "country_id": 1473353380
+    },
+    {
+        "id": 889831115,
+        "name": "Jash",
+        "name_en": "Jash",
+        "country_id": 1473353380
+    },
+    {
+        "id": 114744788,
+        "name": "Al Kamil",
+        "name_en": "Al Kamil",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1353972949,
+        "name": "Al Laith",
+        "name_en": "Al Laith",
+        "country_id": 1473353380
+    },
+    {
+        "id": 580393942,
+        "name": "Manifah",
+        "name_en": "Manifah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2087008983,
+        "name": "Al Muwayh",
+        "name_en": "Al Muwayh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1312971216,
+        "name": "Mulayjah",
+        "name_en": "Mulayjah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 405764305,
+        "name": "Al Mushaytiyah",
+        "name_en": "Al Mushaytiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1979025362,
+        "name": "Al Nabah",
+        "name_en": "Al Nabah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1204987603,
+        "name": "Al Qahma",
+        "name_en": "Al Qahma",
+        "country_id": 1473353380
+    },
+    {
+        "id": 297780700,
+        "name": "Al Qalibah",
+        "name_en": "Al Qalibah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1669653725,
+        "name": "Al Qarah",
+        "name_en": "Al Qarah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1029768158,
+        "name": "Qina",
+        "name_en": "Qina",
+        "country_id": 1473353380
+    },
+    {
+        "id": 256778975,
+        "name": "Rijal Alma",
+        "name_en": "Rijal Alma",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1496007128,
+        "name": "Sabt Al Alayah",
+        "name_en": "Sabt Al Alayah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 720396505,
+        "name": "As Saffaniyah",
+        "name_en": "As Saffaniyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 81694682,
+        "name": "As Sahna",
+        "name_en": "As Sahna",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1455140571,
+        "name": "As Sail Al Kabeer",
+        "name_en": "As Sail Al Kabeer",
+        "country_id": 1473353380
+    },
+    {
+        "id": 545312036,
+        "name": "Ash Shifa",
+        "name_en": "Ash Shifa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1919806501,
+        "name": "Shigry",
+        "name_en": "Shigry",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1279920934,
+        "name": "Tala'at Naza",
+        "name_en": "Tala'at Naza",
+        "country_id": 1473353380
+    },
+    {
+        "id": 504834599,
+        "name": "Tarib",
+        "name_en": "Tarib",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1811695904,
+        "name": "Umm Al Jamajm",
+        "name_en": "Umm Al Jamajm",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1171875873,
+        "name": "Al Wadeen",
+        "name_en": "Al Wadeen",
+        "country_id": 1473353380
+    },
+    {
+        "id": 396785442,
+        "name": "Wadi Ibn Hasbal",
+        "name_en": "Wadi Ibn Hasbal",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1636603427,
+        "name": "Hawea Taif",
+        "name_en": "Hawea Taif",
+        "country_id": 1473353380
+    },
+    {
+        "id": 862565676,
+        "name": "Haweyah Dha",
+        "name_en": "Haweyah Dha",
+        "country_id": 1473353380
+    },
+    {
+        "id": 221697069,
+        "name": "Ardah",
+        "name_en": "Ardah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1595142958,
+        "name": "Arja",
+        "name_en": "Arja",
+        "country_id": 1473353380
+    },
+    {
+        "id": 687346223,
+        "name": "Al Wusayta",
+        "name_en": "Al Wusayta",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2059743528,
+        "name": "Ash Shara'i`",
+        "name_en": "Ash Shara'i`",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1419923497,
+        "name": "AlShinana",
+        "name_en": "AlShinana",
+        "country_id": 1473353380
+    },
+    {
+        "id": 646938410,
+        "name": "Al Ju'ranah",
+        "name_en": "Al Ju'ranah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1884659243,
+        "name": "Kara'a",
+        "name_en": "Kara'a",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1110621492,
+        "name": "الكربوس",
+        "name_en": "Al Karbus",
+        "country_id": 1473353380
+    },
+    {
+        "id": 471850037,
+        "name": "Satorp Jubail Ind",
+        "name_en": "Satorp Jubail Ind",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1776614198,
+        "name": "Al-Shemaysi",
+        "name_en": "Al-Shemaysi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1002510903,
+        "name": "Tayba",
+        "name_en": "Tayba",
+        "country_id": 1473353380
+    },
+    {
+        "id": 363739440,
+        "name": "Tharmda",
+        "name_en": "Tharmda",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1737185329,
+        "name": "At Taniem",
+        "name_en": "At Taniem",
+        "country_id": 1473353380
+    },
+    {
+        "id": 54429235,
+        "name": "بدر الجنوب",
+        "name_en": "Badr Al Janoub",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1562092860,
+        "name": "البرك",
+        "name_en": "Al Birk",
+        "country_id": 1473353380
+    },
+    {
+        "id": 786482237,
+        "name": "حالة عمار",
+        "name_en": "Halat Ammar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1985757241,
+        "name": "وادي الحلي",
+        "name_en": "wadi alhali",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1077505850,
+        "name": "الحوية (الظهران)",
+        "name_en": "Haweyah/Dha",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1877781764,
+        "name": "الكامل",
+        "name_en": "Al Kamil",
+        "country_id": 1473353380
+    },
+    {
+        "id": 928524544,
+        "name": "الحرجة",
+        "name_en": "Harajah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 19220481,
+        "name": "المعبوج",
+        "name_en": "Al-Maabuj",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1392662274,
+        "name": "الاسامله",
+        "name_en": "Al-Asameliah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 753890819,
+        "name": "الوحله",
+        "name_en": "Al-Wahla",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2125829388,
+        "name": "بخشه",
+        "name_en": "Bakhsha",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1217573901,
+        "name": "الفقهاء",
+        "name_en": "al fuqaha",
+        "country_id": 1473353380
+    },
+    {
+        "id": 444584718,
+        "name": "الواصلي",
+        "name_en": "Al-Wasli",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1950675471,
+        "name": "الريان",
+        "name_en": "Al-Rayyan",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1176572168,
+        "name": "الخشابيه",
+        "name_en": "Al-Khashabeya",
+        "country_id": 1473353380
+    },
+    {
+        "id": 269365257,
+        "name": "الشواجره",
+        "name_en": "Shawajrah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1844141834,
+        "name": "محليه",
+        "name_en": "muhalih",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1068531211,
+        "name": "الكوامله",
+        "name_en": "al kawamilih",
+        "country_id": 1473353380
+    },
+    {
+        "id": 161389844,
+        "name": "العشوه",
+        "name_en": "Al-Ashwah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1534835733,
+        "name": "الظبيه",
+        "name_en": "Al Dhabi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 893442838,
+        "name": "صنبه",
+        "name_en": "Sanabah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 120453655,
+        "name": "الطاهريه",
+        "name_en": "Taheria",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1359616272,
+        "name": "الحلوة",
+        "name_en": "Al Hulwah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 584529937,
+        "name": "القديح",
+        "name_en": "AlQudaih",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1318675987,
+        "name": "ملهم",
+        "name_en": "malham",
+        "country_id": 1473353380
+    },
+    {
+        "id": 301392415,
+        "name": "الفقير",
+        "name_en": "alfaqir",
+        "country_id": 1473353380
+    },
+    {
+        "id": 726175076,
+        "name": "Abqaiq 2",
+        "name_en": "Abqaiq 2",
+        "country_id": 1473353380
+    },
+    {
+        "id": 85306469,
+        "name": "Abu Arish Governorate",
+        "name_en": "Abu Arish Governorate",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1458752358,
+        "name": "Al-Amoah",
+        "name_en": "Al-Amoah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 551545447,
+        "name": "Al Araq",
+        "name_en": "Al Araq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1923352928,
+        "name": "Al Ardah 2",
+        "name_en": "Al Ardah 2",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1283532897,
+        "name": "Al Ashamiyah",
+        "name_en": "Al Ashamiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 510539618,
+        "name": "Al Awjam",
+        "name_en": "Al Awjam",
+        "country_id": 1473353380
+    },
+    {
+        "id": 402560109,
+        "name": "الواديين",
+        "name_en": "Al Wadeen",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1641788270,
+        "name": "البدع",
+        "name_en": "albadae",
+        "country_id": 1473353380
+    },
+    {
+        "id": 866177647,
+        "name": "ولي العهد",
+        "name_en": "wali_aleahd",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1600786537,
+        "name": "الامواه",
+        "name_en": "alamwah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 691486570,
+        "name": "سميراء",
+        "name_en": "Sumaira",
+        "country_id": 1473353380
+    },
+    {
+        "id": 650615925,
+        "name": "القحمة",
+        "name_en": "alqahma",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1890368374,
+        "name": "Al Bada 2",
+        "name_en": "Al Bada 2",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1116330615,
+        "name": "Alhada 2",
+        "name_en": "Alhada 2",
+        "country_id": 1473353380
+    },
+    {
+        "id": 475462000,
+        "name": "Al-Hadba",
+        "name_en": "Al-Hadba",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1848842353,
+        "name": "Al Hudud Al Shamaliyah",
+        "name_en": "Al Hudud Al Shamaliyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 941107058,
+        "name": "Al Jawf region",
+        "name_en": "Al Jawf region",
+        "country_id": 1473353380
+    },
+    {
+        "id": 367347315,
+        "name": "Al Khaledah",
+        "name_en": "Al Khaledah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1740793212,
+        "name": "Al-Khobh",
+        "name_en": "Al-Khobh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 833127549,
+        "name": "Al Madinah Province",
+        "name_en": "Al Madinah Province",
+        "country_id": 1473353380
+    },
+    {
+        "id": 58041214,
+        "name": "Al Malida",
+        "name_en": "Al Malida",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1565704831,
+        "name": "Al-Minkhali",
+        "name_en": "Al-Minkhali",
+        "country_id": 1473353380
+    },
+    {
+        "id": 792715640,
+        "name": "Al-Mishaliah",
+        "name_en": "Al-Mishaliah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2030305401,
+        "name": "Al Mundfin",
+        "name_en": "Al Mundfin",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1256271738,
+        "name": "Al Nasim23",
+        "name_en": "Al Nasim23",
+        "country_id": 1473353380
+    },
+    {
+        "id": 617500283,
+        "name": "Al Qahma 2",
+        "name_en": "Al Qahma 2",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1990946116,
+        "name": "Al-Reeth",
+        "name_en": "Al-Reeth",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1081183301,
+        "name": "Al-Shuqaiq",
+        "name_en": "Al-Shuqaiq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 308194118,
+        "name": "Al-Wadiah",
+        "name_en": "Al-Wadiah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1815857735,
+        "name": "Al Butayn",
+        "name_en": "Al Butayn",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1040247104,
+        "name": "القرعاء",
+        "name_en": "Al Qaraa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 200083521,
+        "name": "Al Rabiyah",
+        "name_en": "Al Rabiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1707743042,
+        "name": "Amaq 2",
+        "name_en": "Amaq 2",
+        "country_id": 1473353380
+    },
+    {
+        "id": 932656707,
+        "name": "Anabqiyyah",
+        "name_en": "Anabqiyyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 24925516,
+        "name": "Aseer Province",
+        "name_en": "Aseer Province",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1398371405,
+        "name": "Asfan 2",
+        "name_en": "Asfan 2",
+        "country_id": 1473353380
+    },
+    {
+        "id": 757568334,
+        "name": "Assiyah",
+        "name_en": "Assiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2131538511,
+        "name": "At Taniem 2",
+        "name_en": "At Taniem 2",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1223283016,
+        "name": "الطرفية الشرقية",
+        "name_en": "At Tarafiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 448196681,
+        "name": "At Tarif Al Jadid",
+        "name_en": "At Tarif Al Jadid",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1955798858,
+        "name": "At Tiraq",
+        "name_en": "At Tiraq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1182285387,
+        "name": "Ayn Fuhayd",
+        "name_en": "Ayn Fuhayd",
+        "country_id": 1473353380
+    },
+    {
+        "id": 272981332,
+        "name": "Dereiyeh",
+        "name_en": "Dereiyeh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1646427221,
+        "name": "Dilam",
+        "name_en": "Dilam",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1007197014,
+        "name": "Doos",
+        "name_en": "Doos",
+        "country_id": 1473353380
+    },
+    {
+        "id": 165001815,
+        "name": "Eastern Province",
+        "name_en": "Eastern Province",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1538447696,
+        "name": "Hadithah",
+        "name_en": "Hadithah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 899676241,
+        "name": "Hail Province",
+        "name_en": "Hail Province",
+        "country_id": 1473353380
+    },
+    {
+        "id": 123995986,
+        "name": "Hawaya",
+        "name_en": "Hawaya",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1363224147,
+        "name": "Haweyah",
+        "name_en": "Haweyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 590234972,
+        "name": "Ja'araneh",
+        "name_en": "Ja'araneh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2097898589,
+        "name": "Jarab",
+        "name_en": "Jarab",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1322353502,
+        "name": "Jizan",
+        "name_en": "Jizan",
+        "country_id": 1473353380
+    },
+    {
+        "id": 415146591,
+        "name": "Jouf al Alshoat",
+        "name_en": "Jouf al Alshoat",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1788592472,
+        "name": "Khbash",
+        "name_en": "Khbash",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1147199577,
+        "name": "Khulays",
+        "name_en": "Khulays",
+        "country_id": 1473353380
+    },
+    {
+        "id": 374148954,
+        "name": "Makkah Province",
+        "name_en": "Makkah Province",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1613377115,
+        "name": "Muwassam",
+        "name_en": "Muwassam",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1039617188,
+        "name": "Najran Region",
+        "name_en": "Najran Region",
+        "country_id": 1473353380
+    },
+    {
+        "id": 266103717,
+        "name": "New Ain Dar",
+        "name_en": "New Ain Dar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1505397414,
+        "name": "Nimran",
+        "name_en": "Nimran",
+        "country_id": 1473353380
+    },
+    {
+        "id": 730311079,
+        "name": "Qariya A; Olaya",
+        "name_en": "Qariya A; Olaya",
+        "country_id": 1473353380
+    },
+    {
+        "id": 91015328,
+        "name": "Qusaiba",
+        "name_en": "Qusaiba",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1464457121,
+        "name": "Quwei'ieh",
+        "name_en": "Quwei'ieh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 555153058,
+        "name": "Riyadh Province",
+        "name_en": "Riyadh Province",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1928533411,
+        "name": "Samakh",
+        "name_en": "Samakh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1289237676,
+        "name": "Sharurah",
+        "name_en": "Sharurah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 514151341,
+        "name": "Shifa",
+        "name_en": "Shifa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1753379502,
+        "name": "Tabuk Province",
+        "name_en": "Tabuk Province",
+        "country_id": 1473353380
+    },
+    {
+        "id": 979931567,
+        "name": "Thajir",
+        "name_en": "Thajir",
+        "country_id": 1473353380
+    },
+    {
+        "id": 339062952,
+        "name": "Tibrak",
+        "name_en": "Tibrak",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1712512937,
+        "name": "Umm Lajj",
+        "name_en": "Umm Lajj",
+        "country_id": 1473353380
+    },
+    {
+        "id": 872414890,
+        "name": "Unknown",
+        "name_en": "Unknown",
+        "country_id": 1473353380
+    },
+    {
+        "id": 230956459,
+        "name": "Uthal",
+        "name_en": "Uthal",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1604402356,
+        "name": "Wadi Ad Dawasir",
+        "name_en": "Wadi Ad Dawasir",
+        "country_id": 1473353380
+    },
+    {
+        "id": 697195445,
+        "name": "Yanbu Al Bahar",
+        "name_en": "Yanbu Al Bahar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1895548849,
+        "name": "ثار نجران",
+        "name_en": "Thar Najran",
+        "country_id": 1473353380
+    },
+    {
+        "id": 481101235,
+        "name": "ابو راكة",
+        "name_en": "ابو راكة",
+        "country_id": 1473353380
+    },
+    {
+        "id": 945243069,
+        "name": "خميس البحر",
+        "name_en": "KHAMIS ALBAHR",
+        "country_id": 1473353380
+    },
+    {
+        "id": 171729598,
+        "name": "القرى الشرقيه",
+        "name_en": "القرى الشرقيه",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1679458751,
+        "name": "Darin",
+        "name_en": "Darin",
+        "country_id": 1473353380
+    },
+    {
+        "id": 837263544,
+        "name": "Al Jubail Industrial",
+        "name_en": "Al Jubail Industrial",
+        "country_id": 1473353380
+    },
+    {
+        "id": 63754169,
+        "name": "الجوية",
+        "name_en": "الجوية",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1571417786,
+        "name": "حرض",
+        "name_en": "Haradh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 796265915,
+        "name": "جودة",
+        "name_en": "جودة",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2035494020,
+        "name": "الغويبة",
+        "name_en": "الغويبة",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1261980549,
+        "name": "انباك",
+        "name_en": "انباك",
+        "country_id": 1473353380
+    },
+    {
+        "id": 621111942,
+        "name": "العديد دقم",
+        "name_en": "العديد دقم",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1994623367,
+        "name": "مريبطة",
+        "name_en": "مريبطة",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1086892160,
+        "name": "الثليماء",
+        "name_en": "الثليماء",
+        "country_id": 1473353380
+    },
+    {
+        "id": 311801729,
+        "name": "الجافورة",
+        "name_en": "الجافورة",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1819465346,
+        "name": "أبو طينية",
+        "name_en": "أبو طينية",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1046476163,
+        "name": "عريعرة",
+        "name_en": "عريعرة",
+        "country_id": 1473353380
+    },
+    {
+        "id": 136582284,
+        "name": "الطويلة",
+        "name_en": "الطويلة",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1510028173,
+        "name": "فضيلة",
+        "name_en": "فضيلة",
+        "country_id": 1473353380
+    },
+    {
+        "id": 938365582,
+        "name": "الحني",
+        "name_en": "الحني",
+        "country_id": 1473353380
+    },
+    {
+        "id": 30110095,
+        "name": "السودة",
+        "name_en": "السودة",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1402048648,
+        "name": "السيح",
+        "name_en": "السيح",
+        "country_id": 1473353380
+    },
+    {
+        "id": 763281289,
+        "name": "الشجعة",
+        "name_en": "الشجعة",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2136727178,
+        "name": "Silaa",
+        "name_en": "Silaa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1328066457,
+        "name": "ثريبان",
+        "name_en": "Thurayban",
+        "country_id": 1473353380
+    },
+    {
+        "id": 418762394,
+        "name": "AlBaha",
+        "name_en": "AlBaha",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1792208283,
+        "name": "AlMakhwah",
+        "name_en": "AlMakhwah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1153371364,
+        "name": "AlAflaj",
+        "name_en": "AlAflaj",
+        "country_id": 1473353380
+    },
+    {
+        "id": 377760741,
+        "name": "Dumat alJandal",
+        "name_en": "Dumat alJandal",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1616988902,
+        "name": "zalom",
+        "name_en": "zalom",
+        "country_id": 1473353380
+    },
+    {
+        "id": 843999719,
+        "name": "Sakakah",
+        "name_en": "Sakakah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 202672352,
+        "name": "Abo Ajram",
+        "name_en": "Abo Ajram",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1509005281,
+        "name": "Uyun al jawa",
+        "name_en": "Uyun al jawa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 736016098,
+        "name": "Athuqbah",
+        "name_en": "Athuqbah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 96196067,
+        "name": "AlAwamiyah",
+        "name_en": "AlAwamiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1468069100,
+        "name": "AlQatif",
+        "name_en": "AlQatif",
+        "country_id": 1473353380
+    },
+    {
+        "id": 560796653,
+        "name": "Afïf",
+        "name_en": "Afïf",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1934242542,
+        "name": "AbuAreesh",
+        "name_en": "AbuAreesh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1293373935,
+        "name": "Ahad AlMasarihah",
+        "name_en": "Ahad AlMasarihah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 519860456,
+        "name": "Ḍamad",
+        "name_en": "Ḍamad",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1759158249,
+        "name": "Hali AlQunfudhah",
+        "name_en": "Hali AlQunfudhah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 984071914,
+        "name": "hail",
+        "name_en": "hail",
+        "country_id": 1473353380
+    },
+    {
+        "id": 344776171,
+        "name": "Qaisumah",
+        "name_en": "Qaisumah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1718222068,
+        "name": "hafar alBatin",
+        "name_en": "hafar alBatin",
+        "country_id": 1473353380
+    },
+    {
+        "id": 808852469,
+        "name": "Udhayliyah",
+        "name_en": "Udhayliyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 34814710,
+        "name": "AlUyun",
+        "name_en": "AlUyun",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1610111479,
+        "name": "AlMubarraz",
+        "name_en": "AlMubarraz",
+        "country_id": 1473353380
+    },
+    {
+        "id": 700807408,
+        "name": "Hassa",
+        "name_en": "Hassa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2074314737,
+        "name": "AlJumoom",
+        "name_en": "AlJumoom",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1435018994,
+        "name": "Thwal",
+        "name_en": "Thwal",
+        "country_id": 1473353380
+    },
+    {
+        "id": 659932659,
+        "name": "Nairiyah",
+        "name_en": "Nairiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1899160828,
+        "name": "AlKhafji",
+        "name_en": "AlKhafji",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1126106109,
+        "name": "Sabt AlUlayah",
+        "name_en": "Sabt AlUlayah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 484713214,
+        "name": "Mahail",
+        "name_en": "Mahail",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1858159103,
+        "name": "Majardah",
+        "name_en": "Majardah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 950952184,
+        "name": "Darb/abha",
+        "name_en": "Darb/abha",
+        "country_id": 1473353380
+    },
+    {
+        "id": 175411193,
+        "name": "Sarat Abideh",
+        "name_en": "Sarat Abideh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1683074810,
+        "name": "AlKharj",
+        "name_en": "AlKharj",
+        "country_id": 1473353380
+    },
+    {
+        "id": 910085627,
+        "name": "AdDilam",
+        "name_en": "AdDilam",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1830084,
+        "name": "Hotat Bani Tamim",
+        "name_en": "Hotat Bani Tamim",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1574964165,
+        "name": "AlMajmaah",
+        "name_en": "AlMajmaah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 801974982,
+        "name": "Ghat",
+        "name_en": "Ghat",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2041203143,
+        "name": "Hawtat Sudayr",
+        "name_en": "Hawtat Sudayr",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1266116800,
+        "name": "AlUla",
+        "name_en": "AlUla",
+        "country_id": 1473353380
+    },
+    {
+        "id": 626816961,
+        "name": "AlBadai",
+        "name_en": "AlBadai",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2000328386,
+        "name": "AlBukayriyah",
+        "name_en": "AlBukayriyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1091024323,
+        "name": "AlKhabra",
+        "name_en": "AlKhabra",
+        "country_id": 1473353380
+    },
+    {
+        "id": 317510860,
+        "name": "AlMidhnab",
+        "name_en": "AlMidhnab",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1825174477,
+        "name": "Riyadh AlKhabra",
+        "name_en": "Riyadh AlKhabra",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1050022606,
+        "name": "Unaizah",
+        "name_en": "Unaizah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 141767119,
+        "name": "AlQuz",
+        "name_en": "AlQuz",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1515737288,
+        "name": "Uqlat As Suqur",
+        "name_en": "Uqlat As Suqur",
+        "country_id": 1473353380
+    },
+    {
+        "id": 874872777,
+        "name": "AdDiriyah",
+        "name_en": "AdDiriyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 100900554,
+        "name": "AlQuwayiyah",
+        "name_en": "AlQuwayiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1407761867,
+        "name": "AlMuzahimiyah",
+        "name_en": "AlMuzahimiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 766893268,
+        "name": "Shaqraa",
+        "name_en": "Shaqraa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2140339157,
+        "name": "Alhawiyah",
+        "name_en": "Alhawiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1233066710,
+        "name": "Turabah",
+        "name_en": "Turabah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1965119696,
+        "name": "haql",
+        "name_en": "haql",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1192126417,
+        "name": "Ḍuba",
+        "name_en": "Ḍuba",
+        "country_id": 1473353380
+    },
+    {
+        "id": 282363602,
+        "name": "AlQurayyat",
+        "name_en": "AlQurayyat",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1655809491,
+        "name": "tabarjal",
+        "name_en": "tabarjal",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1017038044,
+        "name": "Taraf",
+        "name_en": "Taraf",
+        "country_id": 1473353380
+    },
+    {
+        "id": 243000285,
+        "name": "Wadi adDawasir",
+        "name_en": "Wadi adDawasir",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1480590046,
+        "name": "Ummluj",
+        "name_en": "Ummluj",
+        "country_id": 1473353380
+    },
+    {
+        "id": 707600863,
+        "name": "AlWajh",
+        "name_en": "AlWajh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1373073369,
+        "name": "محافظة بني حسن",
+        "name_en": "banni hassan",
+        "country_id": 1473353380
+    },
+    {
+        "id": 599625434,
+        "name": "الدغارير",
+        "name_en": "AL DAGHARER",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2107289051,
+        "name": "Mubarraz",
+        "name_en": "Mubarraz",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1332202532,
+        "name": "Qassim",
+        "name_en": "Qassim",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1797851686,
+        "name": "قرية الصفراء",
+        "name_en": "Qaryat alsafra",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1156983079,
+        "name": "قرية مرغان",
+        "name_en": "Qaryat marghan",
+        "country_id": 1473353380
+    },
+    {
+        "id": 382945312,
+        "name": "قرية المعرش",
+        "name_en": "Qaryat almaerish",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1622693665,
+        "name": "قرية روض بن هادي",
+        "name_en": "Qaryat rud bin hadi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 847607330,
+        "name": "قرية مرحب",
+        "name_en": "Qaryat murahab",
+        "country_id": 1473353380
+    },
+    {
+        "id": 207852835,
+        "name": "قرية الخفيج",
+        "name_en": "Qaryat alkhafij",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1581823020,
+        "name": "قرية العرادية",
+        "name_en": "Qaryat aleiradia",
+        "country_id": 1473353380
+    },
+    {
+        "id": 672518957,
+        "name": "قرية الرقب",
+        "name_en": "Qaryat alraqab",
+        "country_id": 1473353380
+    },
+    {
+        "id": 99807790,
+        "name": "قرية الوسيطاء",
+        "name_en": "Qaryat alwasita",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1474236719,
+        "name": "قرية المغار",
+        "name_en": "Qaryat almaghar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 564408360,
+        "name": "الحليفة العليا",
+        "name_en": "alhalifat aleulya",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1937858345,
+        "name": "﻿قرية المخروق",
+        "name_en": "qaryat almakhruq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1299086890,
+        "name": "﻿قرية البركة",
+        "name_en": "qaryat albarika",
+        "country_id": 1473353380
+    },
+    {
+        "id": 523541803,
+        "name": "﻿قرية ام روشن",
+        "name_en": "qaryat 'am rwshn",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1762769972,
+        "name": "﻿قرية الصفيط",
+        "name_en": "qaryat alsafit",
+        "country_id": 1473353380
+    },
+    {
+        "id": 989780789,
+        "name": "﻿قرية وسعة الرس",
+        "name_en": "qaryat wasaeat alrasi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 349960758,
+        "name": "﻿قرية فيضة اثقب",
+        "name_en": "qaryat fidat athqab",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1547134514,
+        "name": "Safoa",
+        "name_en": "Safoa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 773686579,
+        "name": "Baqaiq",
+        "name_en": "Baqaiq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2080023612,
+        "name": "Madinatal Umran",
+        "name_en": "Madinatal Umran",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1439155005,
+        "name": "Madinat Al Jafr",
+        "name_en": "Madinat Al Jafr",
+        "country_id": 1473353380
+    },
+    {
+        "id": 665641534,
+        "name": "Al-Oyoon",
+        "name_en": "Al-Oyoon",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1904804159,
+        "name": "Al Bujiri",
+        "name_en": "Al Bujiri",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1129717816,
+        "name": "Al Diriyah",
+        "name_en": "Al Diriyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 489901881,
+        "name": "الثماميه",
+        "name_en": "Al Thimamiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 954633531,
+        "name": "الشقة",
+        "name_en": "الشقة",
+        "country_id": 1473353380
+    },
+    {
+        "id": 180595716,
+        "name": "الربيعية",
+        "name_en": "Rubayiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1688783621,
+        "name": "الطرفية الغربية",
+        "name_en": "Turfiyah al Gharbiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 913697286,
+        "name": "النبقية",
+        "name_en": "النبقية",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2044810754,
+        "name": "قرية الصلصله",
+        "name_en": "qaryat alsalsalih",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1271821571,
+        "name": "قرية رحبة الحسني",
+        "name_en": "qaryat rahbat alhasni",
+        "country_id": 1473353380
+    },
+    {
+        "id": 630494220,
+        "name": "قرية زبران",
+        "name_en": "qaryat zubran",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2003940109,
+        "name": "الضلفعة",
+        "name_en": "dalfah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1828720648,
+        "name": "السنابس",
+        "name_en": "Sanabis",
+        "country_id": 1473353380
+    },
+    {
+        "id": 106609429,
+        "name": "مكة المكرمة",
+        "name_en": "Makkah al Mukarramah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1344789014,
+        "name": "al Madinah al Munawwarah",
+        "name_en": "al Madinah al Munawwarah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 571275543,
+        "name": "al Jumum",
+        "name_en": "al Jumum",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2145982480,
+        "name": "Jubail Al Balad",
+        "name_en": "Jubail Al Balad",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1236674321,
+        "name": "Jubail Industrial",
+        "name_en": "Jubail Industrial",
+        "country_id": 1473353380
+    },
+    {
+        "id": 462636562,
+        "name": "Umm Al Sahek",
+        "name_en": "Umm Al Sahek",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1970824467,
+        "name": "Al-Kharj",
+        "name_en": "Al-Kharj",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1195803676,
+        "name": "Majma'ah",
+        "name_en": "Majma'ah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 287548189,
+        "name": "Al-Artawiyah",
+        "name_en": "Al-Artawiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1661518366,
+        "name": "Al-Muzahimiyah",
+        "name_en": "Al-Muzahimiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1020649759,
+        "name": "Al-Dahna",
+        "name_en": "Al-Dahna",
+        "country_id": 1473353380
+    },
+    {
+        "id": 246546456,
+        "name": "Rawdat Sudair",
+        "name_en": "Rawdat Sudair",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1486827289,
+        "name": "Sudair clan",
+        "name_en": "Sudair clan",
+        "country_id": 1473353380
+    },
+    {
+        "id": 711216666,
+        "name": "Umm Sidra",
+        "name_en": "Umm Sidra",
+        "country_id": 1473353380
+    },
+    {
+        "id": 71396635,
+        "name": "Uhud Al-Masarha",
+        "name_en": "Uhud Al-Masarha",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1445956708,
+        "name": "Uhud Rafidah",
+        "name_en": "Uhud Rafidah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 603237221,
+        "name": "Baysh",
+        "name_en": "Baysh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2110900838,
+        "name": "Al-Shaqiq",
+        "name_en": "Al-Shaqiq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1337911655,
+        "name": "Al-Darb",
+        "name_en": "Al-Darb",
+        "country_id": 1473353380
+    },
+    {
+        "id": 429590624,
+        "name": "Sarat Obaid",
+        "name_en": "Sarat Obaid",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1801459553,
+        "name": "Al-Bada\\’i",
+        "name_en": "Al-Bada\\’i",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1162688098,
+        "name": "Al-Bukairiyah",
+        "name_en": "Al-Bukairiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 388650339,
+        "name": "Al-Khubra",
+        "name_en": "Al-Khubra",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1626829932,
+        "name": "Riyadh Al-Khubra",
+        "name_en": "Riyadh Al-Khubra",
+        "country_id": 1473353380
+    },
+    {
+        "id": 853381997,
+        "name": "Al-Rass",
+        "name_en": "Al-Rass",
+        "country_id": 1473353380
+    },
+    {
+        "id": 213561966,
+        "name": "Al-Nabhaniyah",
+        "name_en": "Al-Nabhaniyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1585959279,
+        "name": "Al-Shamsiyah",
+        "name_en": "Al-Shamsiyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 678228072,
+        "name": "Al-Mathnb",
+        "name_en": "Al-Mathnb",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2051612521,
+        "name": "Oyoun Al-Jawa",
+        "name_en": "Oyoun Al-Jawa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1302764405,
+        "name": "الراذيا",
+        "name_en": "Rathaya",
+        "country_id": 1473353380
+    },
+    {
+        "id": 528726646,
+        "name": "الصويدرة",
+        "name_en": "Suwaidhrah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1768479095,
+        "name": "الشقرة",
+        "name_en": "Sheqran",
+        "country_id": 1473353380
+    },
+    {
+        "id": 993392752,
+        "name": "المندسة",
+        "name_en": "Mindassah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 353503089,
+        "name": "المليلح",
+        "name_en": "Mulaylih",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1727997554,
+        "name": "الصلصلة",
+        "name_en": "Selselah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 818169203,
+        "name": "ابيار الماشي",
+        "name_en": "Bir Al Mashi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 44131452,
+        "name": "العشيرة",
+        "name_en": "Ushyrah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1552909181,
+        "name": "وادي ريم",
+        "name_en": "Wadi Reem",
+        "country_id": 1473353380
+    },
+    {
+        "id": 777298558,
+        "name": "اليتمه",
+        "name_en": "Alyutamah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2016526719,
+        "name": "وادي الفرع",
+        "name_en": "Wadi Al Fora",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1243537528,
+        "name": "الاكحل",
+        "name_en": "Al Akhal",
+        "country_id": 1473353380
+    },
+    {
+        "id": 670764921,
+        "name": "المسيجيد",
+        "name_en": "Al Musayjid",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1908420218,
+        "name": "الضميريه",
+        "name_en": "Ad Dumayriyah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1135431035,
+        "name": "الهرارة",
+        "name_en": "Al Harara",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1139042694,
+        "name": "الجبيل الصناعية",
+        "name_en": "Jubail Industrial",
+        "country_id": 1473353380
+    },
+    {
+        "id": 499288199,
+        "name": "قنا",
+        "name_en": "Qena",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1873778560,
+        "name": "المجصه",
+        "name_en": "almujasuh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 963950209,
+        "name": "ام شعاري",
+        "name_en": "am shieari",
+        "country_id": 1473353380
+    },
+    {
+        "id": 189912450,
+        "name": "الاشقر",
+        "name_en": "alashqur",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1698624643,
+        "name": "ابو سهيلات",
+        "name_en": "Abu suhailat",
+        "country_id": 1473353380
+    },
+    {
+        "id": 924521356,
+        "name": "بجيله",
+        "name_en": "Bujilh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 14693005,
+        "name": "بدع بن خلف",
+        "name_en": "Bada Bin Khalf",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1389187470,
+        "name": "الشويمس",
+        "name_en": "Alshuwayms",
+        "country_id": 1473353380
+    },
+    {
+        "id": 749367439,
+        "name": "البرقه",
+        "name_en": "Albarqh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2121310088,
+        "name": "الوسعه",
+        "name_en": "Alwaseah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1214103177,
+        "name": "العراديه",
+        "name_en": "Al Aradiah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 440065418,
+        "name": "حمه",
+        "name_en": "Himah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1946680459,
+        "name": "الحليفه السفلى",
+        "name_en": "Alhalifh Alsufla",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1105992596,
+        "name": "الحليفه العليا",
+        "name_en": "Alhalifh Alalya",
+        "country_id": 1473353380
+    },
+    {
+        "id": 331954837,
+        "name": "بدائع البادية",
+        "name_en": "Badayie Albadia",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1838569878,
+        "name": "ابو سويسات",
+        "name_en": "Abu Suwysat",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1064532119,
+        "name": "الدابية",
+        "name_en": "Al dabia",
+        "country_id": 1473353380
+    },
+    {
+        "id": 156862352,
+        "name": "قرية الباحة",
+        "name_en": "Qaryat you Albaha",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1529259665,
+        "name": "عدوة اثقب",
+        "name_en": "Adowat Athqub",
+        "country_id": 1473353380
+    },
+    {
+        "id": 889439634,
+        "name": "شعيب القرن",
+        "name_en": "Shueayb Alqarn",
+        "country_id": 1473353380
+    },
+    {
+        "id": 115926163,
+        "name": "الرقعي",
+        "name_en": "Al Raqi",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1354040220,
+        "name": "بني مالك",
+        "name_en": "Bani Malik",
+        "country_id": 1473353380
+    },
+    {
+        "id": 580002461,
+        "name": "دوس",
+        "name_en": "Dos",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1671302116,
+        "name": "محافظة الريث",
+        "name_en": "الريث",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1031482085,
+        "name": "ال سلمة",
+        "name_en": "Al Salamah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1496148199,
+        "name": "العيساوية",
+        "name_en": "Alaysaoia",
+        "country_id": 1473353380
+    },
+    {
+        "id": 722106336,
+        "name": "قليب خضر",
+        "name_en": "Qlayyb Khedr",
+        "country_id": 1473353380
+    },
+    {
+        "id": 80778977,
+        "name": "قرية انبوان",
+        "name_en": "inboun",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1455273442,
+        "name": "قرية الشق",
+        "name_en": "Shaq",
+        "country_id": 1473353380
+    },
+    {
+        "id": 547017955,
+        "name": "قرية عمائر المرير",
+        "name_en": "amaeer almrir",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1919415276,
+        "name": "قرية المزكاء",
+        "name_en": "Almzka",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1280053997,
+        "name": "قرية الغريسة",
+        "name_en": "Alqrysah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 506016238,
+        "name": "قرية ضرغط",
+        "name_en": "darqat",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1811304687,
+        "name": "قرية ام حرامل",
+        "name_en": "Oum hrameel",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1171488744,
+        "name": "قرية المناخ",
+        "name_en": "Almank",
+        "country_id": 1473353380
+    },
+    {
+        "id": 398040809,
+        "name": "الحويط",
+        "name_en": "Al hoyt",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1636220394,
+        "name": "الضروة",
+        "name_en": "Al through",
+        "country_id": 1473353380
+    },
+    {
+        "id": 862182635,
+        "name": "ابله",
+        "name_en": "Abla",
+        "country_id": 1473353380
+    },
+    {
+        "id": 222886900,
+        "name": "الضحايا",
+        "name_en": "althahaya",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1595218677,
+        "name": "الكرشافة",
+        "name_en": "karshafa",
+        "country_id": 1473353380
+    },
+    {
+        "id": 686963190,
+        "name": "ابو دويحات",
+        "name_en": "Abu Dweiha",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2061457655,
+        "name": "النجيل",
+        "name_en": "Al najeeal",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1420060656,
+        "name": "المحنا",
+        "name_en": "AL MAHANA",
+        "country_id": 1473353380
+    },
+    {
+        "id": 646088433,
+        "name": "للخين",
+        "name_en": "lelkhen",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1886365170,
+        "name": "ثويليل",
+        "name_en": "Thuleil",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1110754547,
+        "name": "الصخيرا الجنوبيه",
+        "name_en": "North Sukhira",
+        "country_id": 1473353380
+    },
+    {
+        "id": 470934524,
+        "name": "الصخيرا الشمالية",
+        "name_en": "south sakira",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1778254589,
+        "name": "الحجليه",
+        "name_en": "alhajalayh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1004216830,
+        "name": "الدغيبجه",
+        "name_en": "lidghibjih",
+        "country_id": 1473353380
+    },
+    {
+        "id": 362823935,
+        "name": "الناصفه",
+        "name_en": "alnaasifuh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1737322488,
+        "name": "المريغه",
+        "name_en": "almarighuh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 829132537,
+        "name": "الحويان",
+        "name_en": "alhuayan",
+        "country_id": 1473353380
+    },
+    {
+        "id": 53521914,
+        "name": "ضريغط",
+        "name_en": "Thergad",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1562234107,
+        "name": "ضليع الصوان",
+        "name_en": "thlea al soan",
+        "country_id": 1473353380
+    },
+    {
+        "id": 788196292,
+        "name": "المقارن",
+        "name_en": "almuqaran",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2026310341,
+        "name": "كرانيف",
+        "name_en": "kranif",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1252796870,
+        "name": "الغريسة الغربيه",
+        "name_en": "alghirisat algharbiah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 612976839,
+        "name": "خفيج فرحان",
+        "name_en": "khafij farhan",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1985370048,
+        "name": "الضليع الرفدي",
+        "name_en": "aldalie alrafdiu",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1077114561,
+        "name": "الخفج",
+        "name_en": "al qafj",
+        "country_id": 1473353380
+    },
+    {
+        "id": 303666626,
+        "name": "الحليلة",
+        "name_en": "Al-Halila,",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1877390531,
+        "name": "الكلابية",
+        "name_en": "Al-Kalabieh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 969135052,
+        "name": "الأسكان",
+        "name_en": "Al-Iskan",
+        "country_id": 1473353380
+    },
+    {
+        "id": 195621581,
+        "name": "المقدام",
+        "name_en": "Al-Miqdam",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1702171086,
+        "name": "المنصورة",
+        "name_en": "Al-Mansoura",
+        "country_id": 1473353380
+    },
+    {
+        "id": 928133327,
+        "name": "القارة",
+        "name_en": "Al-Qarah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 20930504,
+        "name": "التويثير",
+        "name_en": "Al-Tuwaither",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1392803529,
+        "name": "المركز",
+        "name_en": "Al-Markaz",
+        "country_id": 1473353380
+    },
+    {
+        "id": 753049034,
+        "name": "الشعبة",
+        "name_en": "Al-Shu’bah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1217715156,
+        "name": "الاجفر",
+        "name_en": "Alajfar",
+        "country_id": 1473353380
+    },
+    {
+        "id": 443677397,
+        "name": "الخوير",
+        "name_en": "Alkuir",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1952324054,
+        "name": "الزبيرة",
+        "name_en": "Alzbyryah",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1178286295,
+        "name": "الكهفة",
+        "name_en": "Alkhfh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 268453840,
+        "name": "الشعلانية",
+        "name_en": "Alshalanih",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1844274897,
+        "name": "الارشاوية",
+        "name_en": "Alrshawih",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1070302674,
+        "name": "المهينية",
+        "name_en": "Almhynyh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 160474323,
+        "name": "السعيرة",
+        "name_en": "Alsayrh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1534968796,
+        "name": "شري",
+        "name_en": "Shry",
+        "country_id": 1473353380
+    },
+    {
+        "id": 895148765,
+        "name": "الرديفة",
+        "name_en": "Alrdifh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 119996894,
+        "name": "الكهيفية",
+        "name_en": "Alkhyfyh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1359749343,
+        "name": "القرين",
+        "name_en": "alqreen",
+        "country_id": 1473353380
+    },
+    {
+        "id": 585715672,
+        "name": "البطالية",
+        "name_en": "albtalyh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 2092330713,
+        "name": "المنيزلة",
+        "name_en": "Almnyzlh",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1318882778,
+        "name": "الفضول",
+        "name_en": "Alfdol",
+        "country_id": 1473353380
+    },
+    {
+        "id": 410627291,
+        "name": "الشهارين",
+        "name_en": "Alshahryn",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1783024420,
+        "name": "المزاوي",
+        "name_en": "Almzawy",
+        "country_id": 1473353380
+    },
+    {
+        "id": 1143204389,
+        "name": "شرما",
+        "name_en": "Sharma",
+        "country_id": 1473353380
+    }
+]

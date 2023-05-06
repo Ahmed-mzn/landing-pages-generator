@@ -8,14 +8,19 @@ from rest_framework.authentication import TokenAuthentication
 
 from rest_framework.decorators import api_view, permission_classes, authentication_classes, action
 from django.http import HttpResponse
-from .models import Template, App, Product, FormsRecord, Feature, Review, Visit, Domain, TemplateProduct, City, \
-    TemplateShare, Lead
+from .models import Template, App, Product, Feature, Review, Visit, Domain, TemplateProduct, City, \
+    TemplateShare, Lead, MainCity
+
 
 from .serializers import TemplateSerializer, AppSerializer, AppCreationSerializer, TemplateCreationSerializer, \
     ProductCreationSerializer, FeatureCreationSerializer, ReviewCreationSerializer, VisitSerializer, \
-    FormsRecordSerializer, TemplateProductCreationSerializer, DomainCreationSerializer, \
-    BlankTemplateCreationSerializer, LeadSerializer, FormsRecordCreationSerializer, CitySerializer, \
-    AppendTemplateChildSerializer, ProductSerializer, TemplateShareSerializer
+    TemplateProductCreationSerializer, DomainCreationSerializer, \
+    BlankTemplateCreationSerializer, LeadSerializer, OrderCreationSerializer, CitySerializer, \
+    AppendTemplateChildSerializer, ProductSerializer, TemplateShareSerializer, MainCitySerializer
+
+from apps.ship.models import Order, OrderItem
+from apps.ship.serializers import OrderSerializer, OrderItemSerializer
+
 
 from .resources import OrderResource
 
@@ -62,6 +67,20 @@ class CityViewSet(viewsets.ModelViewSet):
             return self.queryset
         return self.queryset.filter(app__user=self.request.user)
 
+    @action(detail=False, url_path='main', methods=['get'])
+    def get_main_cities(self, request):
+        data = MainCity.objects.all()
+        serializer = MainCitySerializer(instance=data, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    @action(detail=False, url_path='bulk', methods=['post'])
+    def bulk_cities(self, request):
+        data = request.data
+        app = self.request.user.apps.first()
+        for item in data:
+            City.objects.create(main_city_id=item['id'], app=app)
+        return Response({"status": "ok"}, status=status.HTTP_200_OK)
+
 
 class TemplateShareViewSet(viewsets.ModelViewSet):
     queryset = TemplateShare.objects.all()
@@ -89,21 +108,6 @@ class VisitAPIView(generics.GenericAPIView):
             visits = Visit.objects.all().filter(template__app__user=request.user)
 
         serializer = VisitSerializer(visits, many=True)
-        return Response(data=serializer.data, status=status.HTTP_200_OK)
-
-
-class FormAPIView(generics.GenericAPIView):
-    serializer_class = FormsRecordSerializer
-    permission_classes = [IsAuthenticated]
-
-    def get(self, request):
-        if self.request.GET.get('template_id', ''):
-            template_id = self.request.GET.get('template_id', '')
-            forms = FormsRecord.objects.all().filter(template__app__user=request.user, template_id=template_id)
-        else:
-            forms = FormsRecord.objects.all().filter(template__app__user=request.user)
-
-        serializer = FormsRecordSerializer(forms, many=True)
         return Response(data=serializer.data, status=status.HTTP_200_OK)
 
 
@@ -618,7 +622,7 @@ def create_visit(request):
 def create_form(request):
     data = request.data
 
-    serializer = FormsRecordCreationSerializer(data=data)
+    serializer = OrderCreationSerializer(data=data)
 
     if serializer.is_valid():
         serializer.save()

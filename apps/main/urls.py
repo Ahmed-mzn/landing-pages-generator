@@ -2,7 +2,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
 from .views import TemplateViewSet, AppRetrieveDeleteUpdateView, AppByIdView, AppCreationListView, ProductViewSet, \
-    FeatureViewSet, ReviewViewSet, check_domain, VisitAPIView, create_visit, create_form, FormAPIView, \
+    FeatureViewSet, ReviewViewSet, check_domain, VisitAPIView, create_visit, create_form, \
     get_template_one, get_template_two, get_app, get_template, AssignProductToTemplateView, DomainViewSet, \
     create_blank_template, CityViewSet, AppendTemplateChildView, get_product_description, ArchiveTemplateView, \
     ArchiveProductView, TemplateShareViewSet, create_share, set_variant
@@ -20,7 +20,7 @@ router.register('domains', DomainViewSet, basename='domains')
 urlpatterns = [
     path('', include(router.urls)),
     path('visits', VisitAPIView.as_view(), name='visits'),
-    path('forms', FormAPIView.as_view(), name='forms'),
+    # path('forms', FormAPIView.as_view(), name='forms'),
     path('apps/<str:app_id>', AppRetrieveDeleteUpdateView.as_view(), name='apps'),
     path('create_app', AppCreationListView.as_view(), name='apps_create'),
     path('templates/<int:template_id>/assign_product/<int:product_id>', AssignProductToTemplateView.as_view(),

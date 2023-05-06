@@ -1,18 +1,26 @@
 from rest_framework import serializers
-import requests, random
-from decouple import config
+
 from django.conf import settings
-from .models import Template, App, Product, FormsRecord, Feature, Review, Domain, Visit, TemplateProduct, Lead, City, \
-    TemplateShare
+from .models import Template, App, Product, Feature, Review, Domain, Visit, TemplateProduct, Lead, City, \
+    TemplateShare, MainCity
 
 from apps.themes.models import Theme
+from apps.ship.models import Order, OrderItem
 from .threads import CreateDeployAppThread
 
 
+class MainCitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MainCity
+        fields = ('id', 'name_ar', 'name_en')
+
+
 class CitySerializer(serializers.ModelSerializer):
+    main_city = MainCitySerializer(many=False, read_only=True)
+
     class Meta:
         model = City
-        fields = ('id', 'app', 'name', 'created_at', 'updated_at')
+        fields = ('id', 'app', 'main_city', 'created_at', 'updated_at')
 
 
 class VisitSerializer(serializers.ModelSerializer):
@@ -67,15 +75,6 @@ class LeadSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'phone_number', 'city', 'address', 'created_at', 'updated_at')
 
 
-class FormsRecordSerializer(serializers.ModelSerializer):
-    lead = LeadSerializer(many=False, read_only=True)
-    product = ProductSerializer(many=False, read_only=True)
-
-    class Meta:
-        model = FormsRecord
-        fields = ('id', 'lead', 'template', 'product', 'quantity', 'created_at', 'updated_at')
-
-
 class DomainSerializer(serializers.ModelSerializer):
     class Meta:
         model = Domain
@@ -105,6 +104,7 @@ class TemplateSerializer(serializers.ModelSerializer):
     main_image = serializers.SerializerMethodField('get_main_image_url')
     medals_image = serializers.SerializerMethodField('get_medals_image_url')
     second_image = serializers.SerializerMethodField('get_second_image_url')
+    preview_image = serializers.SerializerMethodField('get_preview_image')
 
     # def get_template_children(self, obj):
     #     data = Template.objects.all().filter(domain=obj.domain, is_child=True)
@@ -117,6 +117,9 @@ class TemplateSerializer(serializers.ModelSerializer):
 
         cities = CitySerializer(data, many=True)
         return cities.data
+
+    def get_preview_image(self, obj):
+        return settings.WEBSITE_URL + settings.MEDIA_URL + f"/screenshots/screenshot-{obj.id}.png"
 
     def get_logo_url(self, obj):
         if obj.logo:
@@ -147,9 +150,9 @@ class TemplateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Template
         fields = ('id', 'app', 'template_code', 'template_name', 'domain', 'description', 'meta_title',
-                  'meta_description', 'cities', 'meta_keywords', 'logo', 'main_image',
+                  'meta_description', 'cities', 'meta_keywords', 'logo', 'main_image', 'html',
                   'medals_image', 'second_image', 'review_text', 'primary_color', 'secondary_color',
-                  'products', 'features', 'reviews', 'main_rating_title', 'extra_js',
+                  'products', 'features', 'reviews', 'main_rating_title', 'extra_js', 'preview_image',
                   'customer_website', 'feature_text', 'total_redirect_numbers', 'template_redirect_numbers',
                   'template_redirect_percentage', 'is_child', 'is_deleted', 'created_at', 'updated_at')
 
@@ -241,7 +244,7 @@ class AppendTemplateChildSerializer(serializers.ModelSerializer):
         return new_template
 
 
-class FormsRecordCreationSerializer(serializers.ModelSerializer):
+class OrderCreationSerializer(serializers.ModelSerializer):
     lead = LeadSerializer(many=False, read_only=True)
     quantity = serializers.IntegerField()
     name = serializers.CharField()
@@ -250,7 +253,7 @@ class FormsRecordCreationSerializer(serializers.ModelSerializer):
     address = serializers.CharField()
 
     class Meta:
-        model = FormsRecord
+        model = Order
         fields = ('id', 'lead', 'template', 'product', 'quantity', 'name', 'phone_number', 'city', 'address',
                   'created_at', 'updated_at')
 
@@ -272,7 +275,7 @@ class FormsRecordCreationSerializer(serializers.ModelSerializer):
             amount = validated_data['quantity'] * product.price_after_discount
         else:
             amount = validated_data['quantity'] * product.price
-        form = FormsRecord.objects.create(lead=lead, amount=amount, **validated_data)
+        form = Order.objects.create(lead=lead, amount=amount, **validated_data)
 
         return form
 
@@ -341,18 +344,22 @@ class ReviewCreationSerializer(serializers.ModelSerializer):
 
 
 class TemplateCreationSerializer(serializers.ModelSerializer):
+    preview_image = serializers.SerializerMethodField('get_preview_image')
+
+    def get_preview_image(self, obj):
+        return settings.WEBSITE_URL + settings.MEDIA_URL + f"/screenshots/screenshot-{obj.id}.png"
 
     class Meta:
         model = Template
         fields = ('id', 'app', 'domain', 'template_code', 'template_name', 'description', 'meta_title',
-                  'meta_description', 'meta_keywords', 'main_image', 'medals_image',
+                  'meta_description', 'meta_keywords', 'main_image', 'medals_image', 'preview_image',
                   'second_image', 'feature_text', 'total_redirect_numbers', 'template_redirect_numbers',
                   'template_redirect_percentage', 'main_rating_title', 'extra_js',
                   'html', 'css', 'js', 'project_data',
                   'review_text', 'customer_website', 'primary_color', 'secondary_color', 'is_child')
         read_only_fields = (
             'total_redirect_numbers', 'template_redirect_numbers', 'template_redirect_percentage',
-            'html', 'css', 'js', 'project_data'
+            'html', 'css', 'js', 'project_data', 'preview_image'
         )
 
     def to_representation(self, instance):

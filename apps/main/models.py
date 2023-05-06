@@ -1,8 +1,20 @@
+import os
+
 from django.db import models
 
 from apps.authentication.models import User
 from apps.themes.models import Theme
+
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+from django.conf import settings
+
+from selenium import webdriver
+
+import time
 import uuid
+import threading
 
 
 class SofDelete(models.Model):
@@ -67,22 +79,22 @@ class Template(SofDelete):
     css = models.TextField(null=True, blank=True)
     js = models.TextField(null=True, blank=True)
     project_data = models.TextField(null=True, blank=True)
-    description = models.TextField()
-    meta_title = models.CharField(max_length=200)
-    main_rating_title = models.CharField(max_length=50)
+    description = models.TextField(null=True, blank=True)
+    meta_title = models.CharField(max_length=200, null=True, blank=True)
+    main_rating_title = models.CharField(max_length=50, null=True, blank=True)
     meta_description = models.CharField(max_length=200, null=True, blank=True)
     meta_keywords = models.CharField(max_length=200, null=True, blank=True)
     logo = models.FileField(upload_to='uploads/%Y/%m/%d', null=True, blank=True)
-    main_image = models.FileField(upload_to='uploads/%Y/%m/%d')
-    medals_image = models.FileField(upload_to='uploads/%Y/%m/%d')
-    second_image = models.FileField(upload_to='uploads/%Y/%m/%d')
-    review_text = models.CharField(max_length=200)
-    feature_text = models.CharField(max_length=200)
-    primary_color = models.CharField(max_length=20)
+    main_image = models.FileField(upload_to='uploads/%Y/%m/%d', null=True, blank=True)
+    medals_image = models.FileField(upload_to='uploads/%Y/%m/%d', null=True, blank=True)
+    second_image = models.FileField(upload_to='uploads/%Y/%m/%d', null=True, blank=True)
+    review_text = models.CharField(max_length=200, null=True, blank=True)
+    feature_text = models.CharField(max_length=200, null=True, blank=True)
+    primary_color = models.CharField(max_length=20, null=True, blank=True)
     secondary_color = models.CharField(max_length=20, null=True, blank=True, default="#FBF4EA")
     extra_js = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    customer_website = models.CharField(max_length=200)
+    customer_website = models.CharField(max_length=200, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -148,9 +160,24 @@ class Review(SofDelete):
         return f'{self.username} - {self.rating} stars'
 
 
+class Affiliate(models.Model):
+    app = models.ForeignKey(App, related_name='affiliates', on_delete=models.CASCADE)
+    affiliate_identifier = models.CharField(max_length=200, default=uuid.uuid4)
+    affiliate_secret = models.CharField(max_length=200, default=uuid.uuid4)
+    email = models.EmailField()
+    phone_number = models.CharField(max_length=20, null=True, blank=True)
+    full_name = models.CharField(max_length=50, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'<AFFILIATE {self.email}/>'
+
+
 class TemplateShare(models.Model):
     template = models.ForeignKey(Template, related_name='shares', on_delete=models.CASCADE)
     product = models.ForeignKey(Product, related_name='shares', on_delete=models.CASCADE, null=True, blank=True)
+    affiliate = models.ForeignKey(Affiliate, related_name='shares', on_delete=models.SET_NULL, null=True, blank=True)
     phone_number = models.CharField(max_length=85)
     city = models.CharField(max_length=85, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -159,6 +186,7 @@ class TemplateShare(models.Model):
 
 class Visit(models.Model):
     template = models.ForeignKey(Template, related_name='visits', on_delete=models.CASCADE)
+    affiliate = models.ForeignKey(Affiliate, related_name='visits', on_delete=models.SET_NULL, null=True, blank=True)
     city = models.CharField(max_length=85)
     region = models.CharField(max_length=85)
     country = models.CharField(max_length=85)
@@ -185,44 +213,53 @@ class Lead(SofDelete):
         return f"<Lead {self.name} / {self.phone_number}>"
 
 
-class FormsRecord(models.Model):
-    PENDING = 'pending'
-    CONFIRMED = 'confirmed'
-    PROGRESS = 'progress'
-    INDELIVERY = 'indelivery'
-    DELIVERED = 'delivered'
-    UNDELIVERED = 'undelivered'
-
-    STATUS_CHOICES = (
-        (PENDING, 'pending'),
-        (CONFIRMED, 'confirmed'),
-        (PROGRESS, 'progress'),
-        (INDELIVERY, 'indelivery'),
-        (DELIVERED, 'delivered'),
-        (UNDELIVERED, 'undelivered'),
-    )
-    template = models.ForeignKey(Template, related_name='forms_records', on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, related_name='forms_templates', on_delete=models.CASCADE)
-    lead = models.ForeignKey(Lead, related_name='forms_leads', on_delete=models.CASCADE)
-    quantity = models.IntegerField()
-    is_paid = models.BooleanField(default=False)
-    status = models.CharField(max_length=100, choices=STATUS_CHOICES, default='pending')
-    amount = models.DecimalField(max_digits=60, decimal_places=2)
+class MainCity(models.Model):
+    name_ar = models.CharField(max_length=40)
+    name_en = models.CharField(max_length=40)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.lead.name} / {self.lead.city} / {self.template.template_code}"
+        return f"<MainCity {self.name_en}>"
+
+    class Meta:
+        verbose_name_plural = 'MainCities'
 
 
 class City(models.Model):
     app = models.ForeignKey(App, related_name='cities', on_delete=models.CASCADE)
-    name = models.CharField(max_length=255)
+    main_city = models.ForeignKey(MainCity, related_name='main_cities', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"<City {self.name}>"
+        return f"<City {self.main_city}>"
 
     class Meta:
         verbose_name_plural = 'Cities'
+
+
+@receiver(post_save, sender=Template)
+def create_profile(sender, instance, created, **kwargs):
+    thread = threading.Thread(target=make_screenshot, args=(instance,))
+    thread.start()
+
+
+def make_screenshot(instance):
+    print("[+] Screenshot for template " + str(instance.id) + " start")
+    url = settings.WEBSITE_URL + f"/templates/preview-editor/{instance.id}"
+
+    drive_path = f"{settings.STATICFILES_DIRS[0]}/chromedriver.exe"
+    options = webdriver.ChromeOptions()
+    options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    options.add_argument("--headless")
+    options.add_argument("--hide-scrollbars")
+
+    driver = webdriver.Chrome(executable_path=drive_path, options=options)
+    driver.get(url)
+    # driver.execute_script("document.body.style.overflow = 'hidden';")
+    driver.set_window_size(1920, 1200)
+
+    time.sleep(3)
+    driver.save_screenshot(f'{settings.MEDIA_ROOT}/screenshots/screenshot-{instance.id}.png')
+    print("[+] End screenshot for template " + str(instance.id))

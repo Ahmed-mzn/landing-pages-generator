@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'apps.authentication',
     'apps.main',
     'apps.themes',
+    'apps.ship',
 
     #libs
     'rest_framework',

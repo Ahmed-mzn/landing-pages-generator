@@ -3,7 +3,6 @@ from rest_framework import serializers
 from .models import User
 from apps.main.models import App, Domain, Template, City
 
-from apps.main.openship import create_user
 import uuid
 
 
@@ -41,9 +40,6 @@ class UserCreationSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
 
-        create_user(validated_data['full_name'], validated_data['email'], validated_data['password'],
-                    validated_data['business_name'])
-
         app = App.objects.create(user=user, business_name=validated_data['business_name'])
 
         domain_name = str(uuid.uuid4()) + '.sfhat.io'
@@ -52,12 +48,12 @@ class UserCreationSerializer(serializers.ModelSerializer):
         template = Template.objects.create(domain=domain, template_name='main', app=app, template_code='template_one',
                                            template_redirect_numbers=10, total_redirect_numbers=10)
 
-        City.objects.create(app=app, name='الرياض')
-        City.objects.create(app=app, name='مكة المكرمة')
-        City.objects.create(app=app, name='المدينة المنورة')
-        City.objects.create(app=app, name='الدمام')
-        City.objects.create(app=app, name='تبوك')
-        City.objects.create(app=app, name='جدة')
+        # City.objects.create(app=app, name='الرياض')
+        # City.objects.create(app=app, name='مكة المكرمة')
+        # City.objects.create(app=app, name='المدينة المنورة')
+        # City.objects.create(app=app, name='الدمام')
+        # City.objects.create(app=app, name='تبوك')
+        # City.objects.create(app=app, name='جدة')
 
         return user
 

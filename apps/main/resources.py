@@ -1,7 +1,7 @@
 from import_export import resources
 from import_export.fields import Field
 
-from .models import FormsRecord
+from apps.ship.models import Order
 
 
 class OrderResource(resources.ModelResource):
@@ -16,6 +16,6 @@ class OrderResource(resources.ModelResource):
     id = Field(attribute='lead__name', column_name='معرف الطلب')
 
     class Meta:
-        model = FormsRecord
+        model = Order
         fields = ('id', 'lead__name', 'lead__phone_number', 'lead__city', 'lead__address', 'product__id',
                   'product__title', 'quantity', 'created_at')

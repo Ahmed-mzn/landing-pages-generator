@@ -1,0 +1,6037 @@
+[
+    {
+        "id": 2,
+        "city_en": "Riyadh",
+        "city_ar": "الرياض"
+    },
+    {
+        "id": 4,
+        "city_en": "Alghat",
+        "city_ar": "الغاط"
+    },
+    {
+        "id": 5,
+        "city_en": "AlRass",
+        "city_ar": "الرس"
+    },
+    {
+        "id": 6,
+        "city_en": "Assiyah",
+        "city_ar": "الأسياح"
+    },
+    {
+        "id": 7,
+        "city_en": "Ayn Fuhayd",
+        "city_ar": "عين ابن فهيد"
+    },
+    {
+        "id": 8,
+        "city_en": "Badaya",
+        "city_ar": "البدايع"
+    },
+    {
+        "id": 9,
+        "city_en": "Bukeiriah",
+        "city_ar": "البكيرية"
+    },
+    {
+        "id": 10,
+        "city_en": "Buraidah",
+        "city_ar": "بريدة"
+    },
+    {
+        "id": 11,
+        "city_en": "Daelim",
+        "city_ar": "الدلم"
+    },
+    {
+        "id": 12,
+        "city_en": "Deraab",
+        "city_ar": "ديراب"
+    },
+    {
+        "id": 13,
+        "city_en": "Dere'iyeh",
+        "city_ar": "الدرعية"
+    },
+    {
+        "id": 14,
+        "city_en": "Dhurma",
+        "city_ar": "ضرما"
+    },
+    {
+        "id": 15,
+        "city_en": "Hareeq",
+        "city_ar": "الحريق"
+    },
+    {
+        "id": 16,
+        "city_en": "Hawtat Bani Tamim",
+        "city_ar": "حوطة بني تميم"
+    },
+    {
+        "id": 18,
+        "city_en": "Horaimal",
+        "city_ar": "حريملاء"
+    },
+    {
+        "id": 19,
+        "city_en": "Hotat Sudair",
+        "city_ar": "حوطة سدير"
+    },
+    {
+        "id": 20,
+        "city_en": "Kharj",
+        "city_ar": "الخرج"
+    },
+    {
+        "id": 21,
+        "city_en": "Majma",
+        "city_ar": "المجمعة"
+    },
+    {
+        "id": 22,
+        "city_en": "Muzahmiah",
+        "city_ar": "المزاحمية"
+    },
+    {
+        "id": 23,
+        "city_en": "Onaiza",
+        "city_ar": "عنيزة"
+    },
+    {
+        "id": 24,
+        "city_en": "Oyaynah",
+        "city_ar": "العيينة"
+    },
+    {
+        "id": 25,
+        "city_en": "Qasab",
+        "city_ar": "القصب"
+    },
+    {
+        "id": 26,
+        "city_en": "Qassim",
+        "city_ar": "القصيم"
+    },
+    {
+        "id": 28,
+        "city_en": "Riyadh Al Khabra",
+        "city_ar": "رياض الخبراء"
+    },
+    {
+        "id": 31,
+        "city_en": "Shaqra",
+        "city_ar": "شقراء"
+    },
+    {
+        "id": 34,
+        "city_en": "Zulfi",
+        "city_ar": "الزلفي"
+    },
+    {
+        "id": 35,
+        "city_en": "Midinhab",
+        "city_ar": "المذنب"
+    },
+    {
+        "id": 36,
+        "city_en": "Jeddah",
+        "city_ar": "جدة"
+    },
+    {
+        "id": 37,
+        "city_en": "Ushayqer",
+        "city_ar": "اشيقر"
+    },
+    {
+        "id": 38,
+        "city_en": "Tharmada`a",
+        "city_ar": "ثرمداء"
+    },
+    {
+        "id": 39,
+        "city_en": "Al Qareenah",
+        "city_ar": "القرينية"
+    },
+    {
+        "id": 40,
+        "city_en": "Al Jubailah",
+        "city_ar": "الجبيلة"
+    },
+    {
+        "id": 41,
+        "city_en": "Qusor almoqbel",
+        "city_ar": "قصور المقبل"
+    },
+    {
+        "id": 43,
+        "city_en": "Al Dhabe`ah",
+        "city_ar": "الضبيعة"
+    },
+    {
+        "id": 45,
+        "city_en": "Al Amajiyah",
+        "city_ar": "العمجية"
+    },
+    {
+        "id": 46,
+        "city_en": "Na`am",
+        "city_ar": "نعام"
+    },
+    {
+        "id": 47,
+        "city_en": "Al Helwah",
+        "city_ar": "الحلوة"
+    },
+    {
+        "id": 48,
+        "city_en": "Benban",
+        "city_ar": "بنبان"
+    },
+    {
+        "id": 49,
+        "city_en": "Mulhem",
+        "city_ar": "ملهم"
+    },
+    {
+        "id": 50,
+        "city_en": "Al Hasi",
+        "city_ar": "الحسي"
+    },
+    {
+        "id": 51,
+        "city_en": "Sudayer",
+        "city_ar": "سدير"
+    },
+    {
+        "id": 52,
+        "city_en": "Tameer",
+        "city_ar": "تمير"
+    },
+    {
+        "id": 53,
+        "city_en": "Temeriyah",
+        "city_ar": "تميرية"
+    },
+    {
+        "id": 54,
+        "city_en": "Jalajil",
+        "city_ar": "جلاجل"
+    },
+    {
+        "id": 57,
+        "city_en": "Hermah",
+        "city_ar": "حرمة"
+    },
+    {
+        "id": 58,
+        "city_en": "Maleeh",
+        "city_ar": "مليح"
+    },
+    {
+        "id": 60,
+        "city_en": "Roudhah Sudayer",
+        "city_ar": "روضة سدير"
+    },
+    {
+        "id": 62,
+        "city_en": "Asheerah Sudayer",
+        "city_ar": "عشيرة سدير"
+    },
+    {
+        "id": 63,
+        "city_en": "Awdah Sudayer",
+        "city_ar": "عودة سدير"
+    },
+    {
+        "id": 64,
+        "city_en": "Al Ma`ashabah",
+        "city_ar": "المعشبة"
+    },
+    {
+        "id": 65,
+        "city_en": "Salbokh",
+        "city_ar": "صلبوخ"
+    },
+    {
+        "id": 66,
+        "city_en": "Thadeq",
+        "city_ar": "ثادق"
+    },
+    {
+        "id": 67,
+        "city_en": "Uyun Al Jiwa",
+        "city_ar": "عيون الجواء"
+    },
+    {
+        "id": 68,
+        "city_en": "Al Qawarah",
+        "city_ar": "القوارة"
+    },
+    {
+        "id": 69,
+        "city_en": "Al Shamasiyah",
+        "city_ar": "الشماسية"
+    },
+    {
+        "id": 70,
+        "city_en": "Qusayba'a",
+        "city_ar": "قصيباء"
+    },
+    {
+        "id": 71,
+        "city_en": "AlButayn",
+        "city_ar": "البطين"
+    },
+    {
+        "id": 72,
+        "city_en": "Aba Al Woroud",
+        "city_ar": "أبا الورود"
+    },
+    {
+        "id": 74,
+        "city_en": "Al Khabra",
+        "city_ar": "الخبراء"
+    },
+    {
+        "id": 75,
+        "city_en": "Al Basar",
+        "city_ar": "البصر"
+    },
+    {
+        "id": 76,
+        "city_en": "Al Nab'haniyah",
+        "city_ar": "النبهانية"
+    },
+    {
+        "id": 78,
+        "city_en": "Al Fuwaileq",
+        "city_ar": "الفويلق"
+    },
+    {
+        "id": 79,
+        "city_en": "Bin Aqeel Palace",
+        "city_ar": "قصر بن عقيل"
+    },
+    {
+        "id": 81,
+        "city_en": "Al Dulymiyah",
+        "city_ar": "الدليمية"
+    },
+    {
+        "id": 84,
+        "city_en": "Al Shehiyah",
+        "city_ar": "الشيحية"
+    },
+    {
+        "id": 86,
+        "city_en": "Khobar",
+        "city_ar": "الخبر"
+    },
+    {
+        "id": 87,
+        "city_en": "Dammam",
+        "city_ar": "الدمام"
+    },
+    {
+        "id": 100,
+        "city_en": "Anak",
+        "city_ar": "عنك"
+    },
+    {
+        "id": 106,
+        "city_en": "Awamiah",
+        "city_ar": "العوامية"
+    },
+    {
+        "id": 121,
+        "city_en": "Dhahran",
+        "city_ar": "الظهران"
+    },
+    {
+        "id": 165,
+        "city_en": "Qatif",
+        "city_ar": "القطيف"
+    },
+    {
+        "id": 175,
+        "city_en": "Ras Tanura",
+        "city_ar": "رأس تنورة"
+    },
+    {
+        "id": 181,
+        "city_en": "Safwa",
+        "city_ar": "صفوى"
+    },
+    {
+        "id": 227,
+        "city_en": "Jubail",
+        "city_ar": "الجبيل"
+    },
+    {
+        "id": 228,
+        "city_en": "Makkah",
+        "city_ar": "مكة المكرمة"
+    },
+    {
+        "id": 229,
+        "city_en": "Al Thaniah",
+        "city_ar": "الثانية"
+    },
+    {
+        "id": 230,
+        "city_en": "Al Ogam",
+        "city_ar": "الاوجام"
+    },
+    {
+        "id": 233,
+        "city_en": "Khamis Mushait",
+        "city_ar": "خميس مشيط"
+    },
+    {
+        "id": 234,
+        "city_en": "Abha",
+        "city_ar": "أبها"
+    },
+    {
+        "id": 235,
+        "city_en": "Ahad Rafidah",
+        "city_ar": "أحد رفيدة"
+    },
+    {
+        "id": 236,
+        "city_en": "Rejal Alma'a",
+        "city_ar": "رجال ألمع"
+    },
+    {
+        "id": 238,
+        "city_en": "Balasmar",
+        "city_ar": "بللسمر"
+    },
+    {
+        "id": 239,
+        "city_en": "Balahmar",
+        "city_ar": "بللحمر"
+    },
+    {
+        "id": 240,
+        "city_en": "Sarat Abidah",
+        "city_ar": "سراة عبيدة"
+    },
+    {
+        "id": 241,
+        "city_en": "Tendaha",
+        "city_ar": "تندحة"
+    },
+    {
+        "id": 242,
+        "city_en": "Tanuma",
+        "city_ar": "تنومة"
+    },
+    {
+        "id": 243,
+        "city_en": "Mohayel Aseer",
+        "city_ar": "محايل عسير"
+    },
+    {
+        "id": 244,
+        "city_en": "Saihat",
+        "city_ar": "سيهات"
+    },
+    {
+        "id": 245,
+        "city_en": "Taif",
+        "city_ar": "الطائف"
+    },
+    {
+        "id": 246,
+        "city_en": "Khulais",
+        "city_ar": "خليص"
+    },
+    {
+        "id": 247,
+        "city_en": "Thuwal",
+        "city_ar": "ثول"
+    },
+    {
+        "id": 248,
+        "city_en": "Asfan",
+        "city_ar": "عسفان"
+    },
+    {
+        "id": 249,
+        "city_en": "King Abdullah Economic City",
+        "city_ar": "مدينة الملك عبدالله الأقتصادية"
+    },
+    {
+        "id": 250,
+        "city_en": "Dahaban",
+        "city_ar": "ذهبان"
+    },
+    {
+        "id": 251,
+        "city_en": "As Sail Al Kabeer",
+        "city_ar": "السيل الكبير"
+    },
+    {
+        "id": 252,
+        "city_en": "As Sail Al Sager",
+        "city_ar": "السيل الصغير"
+    },
+    {
+        "id": 253,
+        "city_en": "Al quwaiiyah",
+        "city_ar": "القويعية"
+    },
+    {
+        "id": 254,
+        "city_en": "Jilah",
+        "city_ar": "جله"
+    },
+    {
+        "id": 255,
+        "city_en": "Alhada",
+        "city_ar": "الهدا"
+    },
+    {
+        "id": 256,
+        "city_en": "Alshafa",
+        "city_ar": "الشفاء"
+    },
+    {
+        "id": 257,
+        "city_en": "Abqyq",
+        "city_ar": "ابقيق"
+    },
+    {
+        "id": 258,
+        "city_en": "Eayan dar aljadida",
+        "city_ar": "عين دار الجديدة"
+    },
+    {
+        "id": 259,
+        "city_en": "Eayan dar alqadima",
+        "city_ar": "عين دار القديمة"
+    },
+    {
+        "id": 261,
+        "city_en": "Fawada",
+        "city_ar": "فودة"
+    },
+    {
+        "id": 262,
+        "city_en": "Alshahili",
+        "city_ar": "الشهيلي"
+    },
+    {
+        "id": 263,
+        "city_en": "Aldaghimia",
+        "city_ar": "الدغيمية"
+    },
+    {
+        "id": 264,
+        "city_en": "Aleuyun",
+        "city_ar": "العيون"
+    },
+    {
+        "id": 265,
+        "city_en": "Alhufuf",
+        "city_ar": "الهفوف"
+    },
+    {
+        "id": 266,
+        "city_en": "Alwazia",
+        "city_ar": "الوزية"
+    },
+    {
+        "id": 267,
+        "city_en": "Almubriz",
+        "city_ar": "المبرز"
+    },
+    {
+        "id": 268,
+        "city_en": "Alqurra",
+        "city_ar": "القراء"
+    },
+    {
+        "id": 269,
+        "city_en": "Alsulmania",
+        "city_ar": "السلمانية"
+    },
+    {
+        "id": 270,
+        "city_en": "Salasil",
+        "city_ar": "صلاصل"
+    },
+    {
+        "id": 271,
+        "city_en": "Aleumran",
+        "city_ar": "العمران"
+    },
+    {
+        "id": 272,
+        "city_en": "Aleaqir",
+        "city_ar": "العقير"
+    },
+    {
+        "id": 273,
+        "city_en": "Aljafr",
+        "city_ar": "الجفر"
+    },
+    {
+        "id": 274,
+        "city_en": "Industrial 3",
+        "city_ar": "الصناعية الثالثة"
+    },
+    {
+        "id": 275,
+        "city_en": "Alihsa",
+        "city_ar": "الأحساء"
+    },
+    {
+        "id": 276,
+        "city_en": "Heet",
+        "city_ar": "هيت"
+    },
+    {
+        "id": 277,
+        "city_en": "Alhazim",
+        "city_ar": "الحزم"
+    },
+    {
+        "id": 278,
+        "city_en": "ad dalfaah",
+        "city_ar": "الضلفعة"
+    },
+    {
+        "id": 280,
+        "city_en": "alkhasiybah",
+        "city_ar": "الخشيبية"
+    },
+    {
+        "id": 281,
+        "city_en": "dayida",
+        "city_ar": "ضيده"
+    },
+    {
+        "id": 282,
+        "city_en": "aljialah",
+        "city_ar": "الجيله"
+    },
+    {
+        "id": 283,
+        "city_en": "tarif qassim",
+        "city_ar": "طريف القصيم"
+    },
+    {
+        "id": 284,
+        "city_en": "at turfiyah",
+        "city_ar": "الطرفية"
+    },
+    {
+        "id": 285,
+        "city_en": "Uglat Asugour",
+        "city_ar": "عقلة الصقور"
+    },
+    {
+        "id": 286,
+        "city_en": "Al Amaar",
+        "city_ar": "العمار"
+    },
+    {
+        "id": 287,
+        "city_en": "Al Petra",
+        "city_ar": "البتراء"
+    },
+    {
+        "id": 288,
+        "city_en": "Thadij",
+        "city_ar": "ثادج"
+    },
+    {
+        "id": 289,
+        "city_en": "Al Khasiybah",
+        "city_ar": "الخشيبي"
+    },
+    {
+        "id": 290,
+        "city_en": "Al Fawwarah",
+        "city_ar": "الفوارة"
+    },
+    {
+        "id": 291,
+        "city_en": "Wadi bin Hashbal",
+        "city_ar": "وادي بن هشبل"
+    },
+    {
+        "id": 292,
+        "city_en": "Al Waddean",
+        "city_ar": "الوديين"
+    },
+    {
+        "id": 293,
+        "city_en": "Khamis Mushayt Military City",
+        "city_ar": "سكن المدينة العسكرية خميس مشيط"
+    },
+    {
+        "id": 294,
+        "city_en": "Al Reesh",
+        "city_ar": "الريش"
+    },
+    {
+        "id": 296,
+        "city_en": "Hinakeya",
+        "city_ar": "الحناكية"
+    },
+    {
+        "id": 297,
+        "city_en": "Rathaya",
+        "city_ar": "الراذيا"
+    },
+    {
+        "id": 298,
+        "city_en": "Suwaidhrah",
+        "city_ar": "الصويدرة"
+    },
+    {
+        "id": 299,
+        "city_en": "Sheqran",
+        "city_ar": "الشقرة"
+    },
+    {
+        "id": 300,
+        "city_en": "Mindassah",
+        "city_ar": "المندسة"
+    },
+    {
+        "id": 301,
+        "city_en": "Mulaylih",
+        "city_ar": "المليلح"
+    },
+    {
+        "id": 302,
+        "city_en": "Selselah",
+        "city_ar": "الصلصلة"
+    },
+    {
+        "id": 303,
+        "city_en": "Al Thamad",
+        "city_ar": "الثمد"
+    },
+    {
+        "id": 304,
+        "city_en": "Khaybar",
+        "city_ar": "خيبر"
+    },
+    {
+        "id": 306,
+        "city_en": "Ushyrah",
+        "city_ar": "العشيرة"
+    },
+    {
+        "id": 307,
+        "city_en": "Wadi Reem",
+        "city_ar": "وادي ريم"
+    },
+    {
+        "id": 308,
+        "city_en": "Alyutamah",
+        "city_ar": "اليتمه"
+    },
+    {
+        "id": 309,
+        "city_en": "Wadi Al Fora",
+        "city_ar": "وادي الفرع"
+    },
+    {
+        "id": 310,
+        "city_en": "Al Akhal",
+        "city_ar": "الاكحل"
+    },
+    {
+        "id": 311,
+        "city_en": "Al Furaysh",
+        "city_ar": "الفريش"
+    },
+    {
+        "id": 312,
+        "city_en": "Al Musayjid",
+        "city_ar": "المسيجيد"
+    },
+    {
+        "id": 313,
+        "city_en": "Badr",
+        "city_ar": "بدر"
+    },
+    {
+        "id": 314,
+        "city_en": "Yanbu",
+        "city_ar": "ينبع"
+    },
+    {
+        "id": 315,
+        "city_en": "Ad Dumayriyah",
+        "city_ar": "الضميريه"
+    },
+    {
+        "id": 316,
+        "city_en": "Al Harara",
+        "city_ar": "الهرارة"
+    },
+    {
+        "id": 317,
+        "city_en": "Mahd Dahab",
+        "city_ar": "مهد الذهب"
+    },
+    {
+        "id": 318,
+        "city_en": "Madinah Monawarah",
+        "city_ar": "المدينة المنورة"
+    },
+    {
+        "id": 319,
+        "city_en": "Jazan",
+        "city_ar": "جازان"
+    },
+    {
+        "id": 320,
+        "city_en": "Abu Arish",
+        "city_ar": "أبو عريش"
+    },
+    {
+        "id": 321,
+        "city_en": "Sabya",
+        "city_ar": "صبيا"
+    },
+    {
+        "id": 322,
+        "city_en": "Damad",
+        "city_ar": "ضمد"
+    },
+    {
+        "id": 323,
+        "city_en": "Ahad Al Masarihah",
+        "city_ar": "أحد المسارحة"
+    },
+    {
+        "id": 324,
+        "city_en": "Samtah",
+        "city_ar": "صامطة"
+    },
+    {
+        "id": 325,
+        "city_en": "Baish",
+        "city_ar": "بيش"
+    },
+    {
+        "id": 333,
+        "city_en": "Dere'iyeh",
+        "city_ar": "Dere'iyeh"
+    },
+    {
+        "id": 335,
+        "city_en": "Duba",
+        "city_ar": "ضبا‎"
+    },
+    {
+        "id": 337,
+        "city_en": "Tabuk",
+        "city_ar": "تبوك"
+    },
+    {
+        "id": 343,
+        "city_en": "Shigry",
+        "city_ar": "شقري"
+    },
+    {
+        "id": 344,
+        "city_en": "Al Muwaileh",
+        "city_ar": "المويلح"
+    },
+    {
+        "id": 345,
+        "city_en": "Sharma",
+        "city_ar": "شرما"
+    },
+    {
+        "id": 346,
+        "city_en": "Gayal",
+        "city_ar": "قيال"
+    },
+    {
+        "id": 347,
+        "city_en": "Hail",
+        "city_ar": "حائل"
+    },
+    {
+        "id": 348,
+        "city_en": "Baqaa",
+        "city_ar": "بقعاء"
+    },
+    {
+        "id": 349,
+        "city_en": "Al Ghazalah",
+        "city_ar": "الغزالة"
+    },
+    {
+        "id": 350,
+        "city_en": "Al Sulaimi",
+        "city_ar": "السليمي"
+    },
+    {
+        "id": 351,
+        "city_en": "Mawqaq",
+        "city_ar": "موقق"
+    },
+    {
+        "id": 352,
+        "city_en": "As Silayyil",
+        "city_ar": "السليل"
+    },
+    {
+        "id": 353,
+        "city_en": "Fayd",
+        "city_ar": "فيد"
+    },
+    {
+        "id": 354,
+        "city_en": "Al Shenan",
+        "city_ar": "الشنان"
+    },
+    {
+        "id": 355,
+        "city_en": "Jubbah",
+        "city_ar": "جبة"
+    },
+    {
+        "id": 356,
+        "city_en": "BAHRAH",
+        "city_ar": "بحره"
+    },
+    {
+        "id": 357,
+        "city_en": "Tarout",
+        "city_ar": "تاروت"
+    },
+    {
+        "id": 358,
+        "city_en": "Sumaira'a",
+        "city_ar": "سميراء"
+    },
+    {
+        "id": 359,
+        "city_en": "Al Jithamiyah",
+        "city_ar": "الجثامية"
+    },
+    {
+        "id": 360,
+        "city_en": "Al Qaid",
+        "city_ar": "القايد"
+    },
+    {
+        "id": 361,
+        "city_en": "Ithmur",
+        "city_ar": "عثمر"
+    },
+    {
+        "id": 362,
+        "city_en": "THOGBAH",
+        "city_ar": "ثقبة"
+    },
+    {
+        "id": 363,
+        "city_en": "Al Jumum",
+        "city_ar": "الجموم"
+    },
+    {
+        "id": 364,
+        "city_en": "Hawiyah",
+        "city_ar": "الحوية"
+    },
+    {
+        "id": 870,
+        "city_en": "Zawral Harith",
+        "city_ar": ""
+    },
+    {
+        "id": 871,
+        "city_en": "Zalom",
+        "city_ar": "زلوم"
+    },
+    {
+        "id": 872,
+        "city_en": "Yalamlam",
+        "city_ar": "يلملم"
+    },
+    {
+        "id": 873,
+        "city_en": "Yadamah",
+        "city_ar": "يدمة"
+    },
+    {
+        "id": 874,
+        "city_en": "Yabreen",
+        "city_ar": "يبرين"
+    },
+    {
+        "id": 875,
+        "city_en": "Yaara",
+        "city_ar": "يعرى"
+    },
+    {
+        "id": 876,
+        "city_en": "Wushai",
+        "city_ar": "وشي"
+    },
+    {
+        "id": 877,
+        "city_en": "Waset",
+        "city_ar": "واسط"
+    },
+    {
+        "id": 878,
+        "city_en": "Wadi Shora",
+        "city_ar": "وادي شرى"
+    },
+    {
+        "id": 879,
+        "city_en": "Wadi Bishah",
+        "city_ar": "وادي بيشة"
+    },
+    {
+        "id": 880,
+        "city_en": "Wadi Badhan",
+        "city_ar": "وادي ببيضان"
+    },
+    {
+        "id": 881,
+        "city_en": "Wadi Amoud",
+        "city_ar": "وادي عمود"
+    },
+    {
+        "id": 882,
+        "city_en": "Wadi Al Hayat",
+        "city_ar": "وادي الحياة"
+    },
+    {
+        "id": 883,
+        "city_en": "Wadi Al Dawasir",
+        "city_ar": "وادي الدواسر"
+    },
+    {
+        "id": 884,
+        "city_en": "Wabrah",
+        "city_ar": "وابرة"
+    },
+    {
+        "id": 885,
+        "city_en": "Waaer",
+        "city_ar": "واعر"
+    },
+    {
+        "id": 886,
+        "city_en": "Waad Al Shaamaal",
+        "city_ar": "وعد الشمال"
+    },
+    {
+        "id": 887,
+        "city_en": "Uthmaniyah",
+        "city_ar": "العثمانية"
+    },
+    {
+        "id": 888,
+        "city_en": "Uthal",
+        "city_ar": "اوثال"
+    },
+    {
+        "id": 889,
+        "city_en": "Utayiq",
+        "city_ar": "عتيق"
+    },
+    {
+        "id": 890,
+        "city_en": "Urayarah",
+        "city_ar": "عريرة"
+    },
+    {
+        "id": 891,
+        "city_en": "Umm Rujoum",
+        "city_ar": "أم رجوم"
+    },
+    {
+        "id": 892,
+        "city_en": "Umm Hazim",
+        "city_ar": "ام حزم"
+    },
+    {
+        "id": 893,
+        "city_en": "Umm Aldoom",
+        "city_ar": "أم الدوم"
+    },
+    {
+        "id": 894,
+        "city_en": "Umm Al Jamajm",
+        "city_ar": "ام الجماجم"
+    },
+    {
+        "id": 895,
+        "city_en": "Umm al Jamajim",
+        "city_ar": "ام الجماجم"
+    },
+    {
+        "id": 896,
+        "city_en": "Umluj",
+        "city_ar": "املج"
+    },
+    {
+        "id": 897,
+        "city_en": "Um Ash Shifallah",
+        "city_ar": "ام الشفلح"
+    },
+    {
+        "id": 898,
+        "city_en": "Um Aljerem",
+        "city_ar": "ام الجرم"
+    },
+    {
+        "id": 899,
+        "city_en": "Um Alerrad",
+        "city_ar": "ام العراد"
+    },
+    {
+        "id": 900,
+        "city_en": "Udhailiyah Hofuf",
+        "city_ar": "ادهيله الهفوف"
+    },
+    {
+        "id": 901,
+        "city_en": "Udhailiyah",
+        "city_ar": "العضيلية"
+    },
+    {
+        "id": 902,
+        "city_en": "Ubayrah",
+        "city_ar": "أبيرة"
+    },
+    {
+        "id": 903,
+        "city_en": "Turbah",
+        "city_ar": "تربة"
+    },
+    {
+        "id": 904,
+        "city_en": "Turaif",
+        "city_ar": "طريف"
+    },
+    {
+        "id": 905,
+        "city_en": "Tuhayyi",
+        "city_ar": "طحي"
+    },
+    {
+        "id": 906,
+        "city_en": "Tubarjal",
+        "city_ar": "طبرجل"
+    },
+    {
+        "id": 907,
+        "city_en": "Trubah",
+        "city_ar": "تربه"
+    },
+    {
+        "id": 908,
+        "city_en": "Tirah",
+        "city_ar": "ترعة"
+    },
+    {
+        "id": 909,
+        "city_en": "Thloth Al Mandhar",
+        "city_ar": "ثلوث المنظر"
+    },
+    {
+        "id": 910,
+        "city_en": "Thar",
+        "city_ar": "ثار"
+    },
+    {
+        "id": 911,
+        "city_en": "Thaj",
+        "city_ar": "ثاج"
+    },
+    {
+        "id": 913,
+        "city_en": "Tebrak",
+        "city_ar": "تبراك"
+    },
+    {
+        "id": 914,
+        "city_en": "Tawala",
+        "city_ar": "الطوالة"
+    },
+    {
+        "id": 915,
+        "city_en": "Tathleeth",
+        "city_ar": "تثليث"
+    },
+    {
+        "id": 916,
+        "city_en": "Tareeb",
+        "city_ar": "طريب"
+    },
+    {
+        "id": 917,
+        "city_en": "Tara'ah",
+        "city_ar": "ترعة"
+    },
+    {
+        "id": 918,
+        "city_en": "AlTanumah",
+        "city_ar": "التنومه"
+    },
+    {
+        "id": 919,
+        "city_en": "Tanajib",
+        "city_ar": "تناجيب"
+    },
+    {
+        "id": 920,
+        "city_en": "Tamniah",
+        "city_ar": "تمنية"
+    },
+    {
+        "id": 921,
+        "city_en": "Tallan",
+        "city_ar": "طلان"
+    },
+    {
+        "id": 922,
+        "city_en": "Tala'at Naza",
+        "city_ar": "تلعة نزا"
+    },
+    {
+        "id": 923,
+        "city_en": "Tabrjal",
+        "city_ar": "طبرجل"
+    },
+    {
+        "id": 924,
+        "city_en": "Tabashah",
+        "city_ar": "تباشعة"
+    },
+    {
+        "id": 925,
+        "city_en": "Tabarjal",
+        "city_ar": "طبرجل"
+    },
+    {
+        "id": 926,
+        "city_en": "Tabalah",
+        "city_ar": "تبالة"
+    },
+    {
+        "id": 927,
+        "city_en": "Tabab",
+        "city_ar": "طبب"
+    },
+    {
+        "id": 928,
+        "city_en": "Suwayr",
+        "city_ar": "صوير"
+    },
+    {
+        "id": 929,
+        "city_en": "Sumaira'a",
+        "city_ar": "سميراء"
+    },
+    {
+        "id": 930,
+        "city_en": "Sulailah Juhainah",
+        "city_ar": "سليلة جهينة"
+    },
+    {
+        "id": 931,
+        "city_en": "Suhailah",
+        "city_ar": "سحيلة"
+    },
+    {
+        "id": 932,
+        "city_en": "Sude'a",
+        "city_ar": "صديع"
+    },
+    {
+        "id": 933,
+        "city_en": "Starah",
+        "city_ar": "ستارة"
+    },
+    {
+        "id": 934,
+        "city_en": "Shuwaq",
+        "city_ar": "شواق"
+    },
+    {
+        "id": 935,
+        "city_en": "Shumran",
+        "city_ar": "شمران"
+    },
+    {
+        "id": 936,
+        "city_en": "Shoqsan",
+        "city_ar": "شقصان"
+    },
+    {
+        "id": 937,
+        "city_en": "Shoaiba",
+        "city_ar": "الشعيبة"
+    },
+    {
+        "id": 938,
+        "city_en": "Shifiyah",
+        "city_ar": "شفية"
+    },
+    {
+        "id": 939,
+        "city_en": "Shedgum Gas Plant",
+        "city_ar": "سدقم"
+    },
+    {
+        "id": 940,
+        "city_en": "Shedgum",
+        "city_ar": "شدقم"
+    },
+    {
+        "id": 941,
+        "city_en": "Shaybah",
+        "city_ar": "الشيبة"
+    },
+    {
+        "id": 942,
+        "city_en": "Shawyah",
+        "city_ar": "شوية"
+    },
+    {
+        "id": 943,
+        "city_en": "Sharorah",
+        "city_ar": "شرورة"
+    },
+    {
+        "id": 944,
+        "city_en": "Shari",
+        "city_ar": "شاري"
+    },
+    {
+        "id": 945,
+        "city_en": "Shaghab",
+        "city_ar": "شغب"
+    },
+    {
+        "id": 946,
+        "city_en": "Sayyabah",
+        "city_ar": "الصيابة"
+    },
+    {
+        "id": 947,
+        "city_en": "Sayadah",
+        "city_ar": "صيادة"
+    },
+    {
+        "id": 948,
+        "city_en": "Sayaa",
+        "city_ar": "سعيا"
+    },
+    {
+        "id": 949,
+        "city_en": "Satorp",
+        "city_ar": "ساتورب"
+    },
+    {
+        "id": 950,
+        "city_en": "Saq",
+        "city_ar": "ساق"
+    },
+    {
+        "id": 951,
+        "city_en": "Samrat Al Jed",
+        "city_ar": "سمرة الجد"
+    },
+    {
+        "id": 952,
+        "city_en": "Sammed",
+        "city_ar": "الصمد"
+    },
+    {
+        "id": 953,
+        "city_en": "Samhah",
+        "city_ar": "سمحة"
+    },
+    {
+        "id": 954,
+        "city_en": "Samakh",
+        "city_ar": "صمخ"
+    },
+    {
+        "id": 955,
+        "city_en": "Salwa",
+        "city_ar": "سلوى"
+    },
+    {
+        "id": 956,
+        "city_en": "Salm Alzwaher",
+        "city_ar": "سلم الزواهر"
+    },
+    {
+        "id": 957,
+        "city_en": "Sakaka",
+        "city_ar": "سكاكا"
+    },
+    {
+        "id": 958,
+        "city_en": "Sajir",
+        "city_ar": "ساجر"
+    },
+    {
+        "id": 959,
+        "city_en": "Safinah",
+        "city_ar": "صفينة"
+    },
+    {
+        "id": 960,
+        "city_en": "Sabt Aljarah",
+        "city_ar": "سبت الجارة"
+    },
+    {
+        "id": 961,
+        "city_en": "Sabbath Shumran",
+        "city_ar": "سبت شمران"
+    },
+    {
+        "id": 962,
+        "city_en": "Saabar",
+        "city_ar": "صعبر"
+    },
+    {
+        "id": 963,
+        "city_en": "Sa'Ad",
+        "city_ar": "سعّد"
+    },
+    {
+        "id": 964,
+        "city_en": "Ruwayghib",
+        "city_ar": "رويغب"
+    },
+    {
+        "id": 965,
+        "city_en": "Ruqayqah",
+        "city_ar": "الرقيطاء"
+    },
+    {
+        "id": 966,
+        "city_en": "Rojal",
+        "city_ar": "رجال ألمع"
+    },
+    {
+        "id": 967,
+        "city_en": "Reghawah",
+        "city_ar": "رغوة"
+    },
+    {
+        "id": 968,
+        "city_en": "Rawdat Habbas",
+        "city_ar": "روضة هباس"
+    },
+    {
+        "id": 969,
+        "city_en": "Ranyah",
+        "city_ar": "رنية"
+    },
+    {
+        "id": 970,
+        "city_en": "Rahima",
+        "city_ar": "رحيمة"
+    },
+    {
+        "id": 971,
+        "city_en": "Rahat",
+        "city_ar": "رهاط"
+    },
+    {
+        "id": 972,
+        "city_en": "Rafha",
+        "city_ar": "رفحاء"
+    },
+    {
+        "id": 973,
+        "city_en": "Rafaya Al Jemsh",
+        "city_ar": "رفائع الجمش"
+    },
+    {
+        "id": 974,
+        "city_en": "Rafaya Al Jamsh",
+        "city_ar": "رفائع الجمش"
+    },
+    {
+        "id": 975,
+        "city_en": "Radwan",
+        "city_ar": "رضوان"
+    },
+    {
+        "id": 976,
+        "city_en": "Radifah",
+        "city_ar": "الرديفة"
+    },
+    {
+        "id": 977,
+        "city_en": "Qudaid",
+        "city_ar": "قديد"
+    },
+    {
+        "id": 978,
+        "city_en": "Qlayyb Khedr",
+        "city_ar": "قليّب خضر"
+    },
+    {
+        "id": 979,
+        "city_en": "Qina",
+        "city_ar": "قناء"
+    },
+    {
+        "id": 980,
+        "city_en": "Qilwah",
+        "city_ar": "قلوة"
+    },
+    {
+        "id": 981,
+        "city_en": "Qia",
+        "city_ar": "قيا"
+    },
+    {
+        "id": 982,
+        "city_en": "Qbah",
+        "city_ar": "قبة"
+    },
+    {
+        "id": 983,
+        "city_en": "Qaryat Al Ulya",
+        "city_ar": "قرية العليا"
+    },
+    {
+        "id": 984,
+        "city_en": "Qara",
+        "city_ar": "قارا"
+    },
+    {
+        "id": 985,
+        "city_en": "Qana",
+        "city_ar": "قانا"
+    },
+    {
+        "id": 986,
+        "city_en": "Osran",
+        "city_ar": "العسران"
+    },
+    {
+        "id": 987,
+        "city_en": "Nubayha",
+        "city_ar": "نبيها"
+    },
+    {
+        "id": 988,
+        "city_en": "Nkheelan",
+        "city_ar": "نخيلان"
+    },
+    {
+        "id": 989,
+        "city_en": "Nita",
+        "city_ar": "نطاع"
+    },
+    {
+        "id": 990,
+        "city_en": "Nisab",
+        "city_ar": "نصاب"
+    },
+    {
+        "id": 991,
+        "city_en": "Nimran",
+        "city_ar": "نمران"
+    },
+    {
+        "id": 992,
+        "city_en": "Nifi",
+        "city_ar": "نفي"
+    },
+    {
+        "id": 993,
+        "city_en": "New Muwayh",
+        "city_ar": "المويه الجديد"
+    },
+    {
+        "id": 994,
+        "city_en": "Nebak",
+        "city_ar": "نباك"
+    },
+    {
+        "id": 995,
+        "city_en": "Namerah",
+        "city_ar": "نمرة"
+    },
+    {
+        "id": 996,
+        "city_en": "Najran",
+        "city_ar": "نجران"
+    },
+    {
+        "id": 997,
+        "city_en": "Nairyah",
+        "city_ar": "النعيرية"
+    },
+    {
+        "id": 998,
+        "city_en": "Nabat",
+        "city_ar": "نبط"
+    },
+    {
+        "id": 999,
+        "city_en": "Naajan",
+        "city_ar": "نعجان"
+    },
+    {
+        "id": 1000,
+        "city_en": "Musaylah",
+        "city_ar": "موسيله"
+    },
+    {
+        "id": 1001,
+        "city_en": "Musaddah",
+        "city_ar": "مصدة"
+    },
+    {
+        "id": 1002,
+        "city_en": "Munifah",
+        "city_ar": "منيفة"
+    },
+    {
+        "id": 1003,
+        "city_en": "Mulayjah",
+        "city_ar": "مليجة"
+    },
+    {
+        "id": 1004,
+        "city_en": "Mulayh",
+        "city_ar": "مليح"
+    },
+    {
+        "id": 1005,
+        "city_en": "Muhayriqah",
+        "city_ar": "محيرقة"
+    },
+    {
+        "id": 1006,
+        "city_en": "Mudaysis",
+        "city_ar": "مديسيس"
+    },
+    {
+        "id": 1007,
+        "city_en": "Mudarraj",
+        "city_ar": "المدرج"
+    },
+    {
+        "id": 1008,
+        "city_en": "Mubhel",
+        "city_ar": "مبهل"
+    },
+    {
+        "id": 1009,
+        "city_en": "Mubayid",
+        "city_ar": "مبيض"
+    },
+    {
+        "id": 1010,
+        "city_en": "Mu'fija",
+        "city_ar": "معفيجة"
+    },
+    {
+        "id": 1011,
+        "city_en": "Mu fija",
+        "city_ar": "نجران"
+    },
+    {
+        "id": 1012,
+        "city_en": "Morighan",
+        "city_ar": "مريغان"
+    },
+    {
+        "id": 1013,
+        "city_en": "Mogayra",
+        "city_ar": "مغيراء"
+    },
+    {
+        "id": 1014,
+        "city_en": "Mishash Jurud",
+        "city_ar": "مشاش جرود"
+    },
+    {
+        "id": 1015,
+        "city_en": "Mishalah",
+        "city_ar": "مشلة"
+    },
+    {
+        "id": 1016,
+        "city_en": "Minwa",
+        "city_ar": "منوى"
+    },
+    {
+        "id": 1017,
+        "city_en": "Mighati",
+        "city_ar": "حنيذ"
+    },
+    {
+        "id": 1018,
+        "city_en": "Mehr Bisha Center",
+        "city_ar": "الغفرات"
+    },
+    {
+        "id": 1019,
+        "city_en": "Meegowa",
+        "city_ar": "ميقوع"
+    },
+    {
+        "id": 1020,
+        "city_en": "Maysaan",
+        "city_ar": "ميسان"
+    },
+    {
+        "id": 1021,
+        "city_en": "Mastorah",
+        "city_ar": "مستورة"
+    },
+    {
+        "id": 1022,
+        "city_en": "Masader",
+        "city_ar": "مصادر"
+    },
+    {
+        "id": 1023,
+        "city_en": "Marj Allsoban",
+        "city_ar": "معرج السوبان"
+    },
+    {
+        "id": 1024,
+        "city_en": "Marabah",
+        "city_ar": "مربة"
+    },
+    {
+        "id": 1025,
+        "city_en": "Maqra",
+        "city_ar": "مقرة"
+    },
+    {
+        "id": 1026,
+        "city_en": "Manshabah",
+        "city_ar": "منشبة"
+    },
+    {
+        "id": 1027,
+        "city_en": "Manifah",
+        "city_ar": "النعيرية"
+    },
+    {
+        "id": 1028,
+        "city_en": "Malakan",
+        "city_ar": "ملكان"
+    },
+    {
+        "id": 1029,
+        "city_en": "Makshosh",
+        "city_ar": "مخشوش"
+    },
+    {
+        "id": 1030,
+        "city_en": "Madrakah",
+        "city_ar": "مدركة"
+    },
+    {
+        "id": 1031,
+        "city_en": "Madain Saleh",
+        "city_ar": "مدائن صالح"
+    },
+    {
+        "id": 1032,
+        "city_en": "Linah",
+        "city_ar": "لينه"
+    },
+    {
+        "id": 1033,
+        "city_en": "Layla",
+        "city_ar": "ليلى"
+    },
+    {
+        "id": 1034,
+        "city_en": "Lahumah",
+        "city_ar": "لاهومة"
+    },
+    {
+        "id": 1035,
+        "city_en": "Kumdah",
+        "city_ar": "كومدة"
+    },
+    {
+        "id": 1036,
+        "city_en": "King Khalid Military City",
+        "city_ar": "مدينة الملك خالد العسكرية"
+    },
+    {
+        "id": 1037,
+        "city_en": "Khursaniyah",
+        "city_ar": "الخرسانية"
+    },
+    {
+        "id": 1038,
+        "city_en": "Khurais",
+        "city_ar": "خريص"
+    },
+    {
+        "id": 1039,
+        "city_en": "Khuff",
+        "city_ar": "خف"
+    },
+    {
+        "id": 1040,
+        "city_en": "Khef Hussain",
+        "city_ar": "خيف حسين"
+    },
+    {
+        "id": 1041,
+        "city_en": "Khbash",
+        "city_ar": "خباش"
+    },
+    {
+        "id": 1042,
+        "city_en": "Khathaam",
+        "city_ar": "خثعم"
+    },
+    {
+        "id": 1043,
+        "city_en": "Khamis Mutair",
+        "city_ar": "خميس مطير"
+    },
+    {
+        "id": 1044,
+        "city_en": "Khamis Harb",
+        "city_ar": "خميس حرب"
+    },
+    {
+        "id": 1045,
+        "city_en": "Khamaseen",
+        "city_ar": "الخماسين"
+    },
+    {
+        "id": 1046,
+        "city_en": "Khairan",
+        "city_ar": "الخيران"
+    },
+    {
+        "id": 1047,
+        "city_en": "Khaiber Al Janoub",
+        "city_ar": "خيبر الجنوب"
+    },
+    {
+        "id": 1048,
+        "city_en": "Khafji",
+        "city_ar": "الخفجي"
+    },
+    {
+        "id": 1049,
+        "city_en": "Keyad",
+        "city_ar": "كياد"
+    },
+    {
+        "id": 1050,
+        "city_en": "Kahlah",
+        "city_ar": "كحلة"
+    },
+    {
+        "id": 1051,
+        "city_en": "Judah",
+        "city_ar": "جودة"
+    },
+    {
+        "id": 1052,
+        "city_en": "Jubbah",
+        "city_ar": "جبة"
+    },
+    {
+        "id": 1053,
+        "city_en": "Jibal Khuraibah",
+        "city_ar": "الذيبية"
+    },
+    {
+        "id": 1054,
+        "city_en": "Jefin",
+        "city_ar": "جفن"
+    },
+    {
+        "id": 1055,
+        "city_en": "Jash",
+        "city_ar": "جاش"
+    },
+    {
+        "id": 1056,
+        "city_en": "Jarab",
+        "city_ar": "جرب"
+    },
+    {
+        "id": 1057,
+        "city_en": "Jamajm",
+        "city_ar": "جماجم"
+    },
+    {
+        "id": 1058,
+        "city_en": "Ithrah",
+        "city_ar": "إثرة"
+    },
+    {
+        "id": 1059,
+        "city_en": "Isharah",
+        "city_ar": "عشرة"
+    },
+    {
+        "id": 1060,
+        "city_en": "Husnah",
+        "city_ar": "حصنه"
+    },
+    {
+        "id": 1061,
+        "city_en": "Hubuna",
+        "city_ar": "حبونا"
+    },
+    {
+        "id": 1062,
+        "city_en": "Hijrat Fadila",
+        "city_ar": "هجرة فضيلة"
+    },
+    {
+        "id": 1063,
+        "city_en": "Hijrat Al Harah",
+        "city_ar": "هجرة الحارة"
+    },
+    {
+        "id": 1064,
+        "city_en": "Hibran",
+        "city_ar": "حبران"
+    },
+    {
+        "id": 1065,
+        "city_en": "Hefar",
+        "city_ar": "حفار"
+    },
+    {
+        "id": 1066,
+        "city_en": "Hedeb",
+        "city_ar": "هديب"
+    },
+    {
+        "id": 1067,
+        "city_en": "Hazwa",
+        "city_ar": "حزوى"
+    },
+    {
+        "id": 1068,
+        "city_en": "Hazem Aljalamid",
+        "city_ar": "حازم الجلاميد"
+    },
+    {
+        "id": 1069,
+        "city_en": "Hawiyah",
+        "city_ar": "الحوية"
+    },
+    {
+        "id": 1070,
+        "city_en": "Harub",
+        "city_ar": "هروب"
+    },
+    {
+        "id": 1071,
+        "city_en": "Haradh",
+        "city_ar": "حرض"
+    },
+    {
+        "id": 1072,
+        "city_en": "Harad",
+        "city_ar": "حرض"
+    },
+    {
+        "id": 1073,
+        "city_en": "Hanidh",
+        "city_ar": "حنيذ"
+    },
+    {
+        "id": 1074,
+        "city_en": "Hanak",
+        "city_ar": "حنك"
+    },
+    {
+        "id": 1075,
+        "city_en": "Halban",
+        "city_ar": "حلبان"
+    },
+    {
+        "id": 1076,
+        "city_en": "Halaba",
+        "city_ar": "حلبا"
+    },
+    {
+        "id": 1077,
+        "city_en": "Hajrah",
+        "city_ar": "الهجرة"
+    },
+    {
+        "id": 1078,
+        "city_en": "Hajar",
+        "city_ar": "هجر"
+    },
+    {
+        "id": 1079,
+        "city_en": "Hafr Al Atk",
+        "city_ar": "حفر العتش"
+    },
+    {
+        "id": 1080,
+        "city_en": "Hafirat Nisah",
+        "city_ar": "حفيرة نساح"
+    },
+    {
+        "id": 1081,
+        "city_en": "Hafir Kishb",
+        "city_ar": "حفر كشب"
+    },
+    {
+        "id": 1082,
+        "city_en": "Hafar Al Batin",
+        "city_ar": "حفر الباطن"
+    },
+    {
+        "id": 1083,
+        "city_en": "Hadri",
+        "city_ar": "حدري"
+    },
+    {
+        "id": 1084,
+        "city_en": "Haddat Ash Sham",
+        "city_ar": "هدى الشام"
+    },
+    {
+        "id": 1085,
+        "city_en": "Haddadah",
+        "city_ar": "هدادة"
+    },
+    {
+        "id": 1086,
+        "city_en": "HADCO-Almarai",
+        "city_ar": "الحويض"
+    },
+    {
+        "id": 1087,
+        "city_en": "Hadban",
+        "city_ar": "هدبان"
+    },
+    {
+        "id": 1088,
+        "city_en": "Hadaad Bani Malek",
+        "city_ar": "حداد بني مالك"
+    },
+    {
+        "id": 1089,
+        "city_en": "Habil",
+        "city_ar": "الحبيل"
+    },
+    {
+        "id": 1090,
+        "city_en": "Habeel",
+        "city_ar": "الحبيل"
+    },
+    {
+        "id": 1091,
+        "city_en": "Habbes",
+        "city_ar": "حبس"
+    },
+    {
+        "id": 1092,
+        "city_en": "Ghtai",
+        "city_ar": "غطي"
+    },
+    {
+        "id": 1093,
+        "city_en": "Ghran",
+        "city_ar": "غران"
+    },
+    {
+        "id": 1094,
+        "city_en": "Ghomygah",
+        "city_ar": "غميقة"
+    },
+    {
+        "id": 1095,
+        "city_en": "Ghizlan",
+        "city_ar": "غزلان"
+    },
+    {
+        "id": 1096,
+        "city_en": "Ghazaial",
+        "city_ar": "غزايل"
+    },
+    {
+        "id": 1097,
+        "city_en": "Ghanwa",
+        "city_ar": "غنوى"
+    },
+    {
+        "id": 1098,
+        "city_en": "Ghamrah",
+        "city_ar": "غمرة"
+    },
+    {
+        "id": 1099,
+        "city_en": "Gaabah",
+        "city_ar": "جرب"
+    },
+    {
+        "id": 1100,
+        "city_en": "Feyadh Tabrjal",
+        "city_ar": "فياض طبرجل"
+    },
+    {
+        "id": 1101,
+        "city_en": "Fayfa",
+        "city_ar": "فيفا"
+    },
+    {
+        "id": 1102,
+        "city_en": "Farasan Island",
+        "city_ar": "جزيرة فرسان"
+    },
+    {
+        "id": 1103,
+        "city_en": "Farasan",
+        "city_ar": "فرسان"
+    },
+    {
+        "id": 1104,
+        "city_en": "Fadhla",
+        "city_ar": "فضلا"
+    },
+    {
+        "id": 1105,
+        "city_en": "Enaker",
+        "city_ar": "عنيكر"
+    },
+    {
+        "id": 1106,
+        "city_en": "Either",
+        "city_ar": "عثر"
+    },
+    {
+        "id": 1107,
+        "city_en": "Ein As Suwaine",
+        "city_ar": "عين الصوينع"
+    },
+    {
+        "id": 1108,
+        "city_en": "Dumah Al Jandal",
+        "city_ar": "دومة الجندل"
+    },
+    {
+        "id": 1109,
+        "city_en": "Dulayhan",
+        "city_ar": "دليهان"
+    },
+    {
+        "id": 1110,
+        "city_en": "Dulay Rasheed",
+        "city_ar": "النبهانية"
+    },
+    {
+        "id": 1111,
+        "city_en": "Duhknah",
+        "city_ar": "دخنة"
+    },
+    {
+        "id": 1112,
+        "city_en": "Dubay'ah",
+        "city_ar": "ضبيعة"
+    },
+    {
+        "id": 1113,
+        "city_en": "Dremeha",
+        "city_ar": "دريميحة"
+    },
+    {
+        "id": 1114,
+        "city_en": "Doqah",
+        "city_ar": "دوقه"
+    },
+    {
+        "id": 1115,
+        "city_en": "Doos",
+        "city_ar": "دوس"
+    },
+    {
+        "id": 1116,
+        "city_en": "Dhubaya Jumah",
+        "city_ar": "الضبية و الجمعة"
+    },
+    {
+        "id": 1117,
+        "city_en": "Dhalm",
+        "city_ar": "ظلم"
+    },
+    {
+        "id": 1118,
+        "city_en": "Dhahran Al Janub",
+        "city_ar": "ظهران الجنوب"
+    },
+    {
+        "id": 1119,
+        "city_en": "Dhahran Al Janoob",
+        "city_ar": "بدر الجنوب"
+    },
+    {
+        "id": 1120,
+        "city_en": "Deli Rashid",
+        "city_ar": "ضليع رشيد"
+    },
+    {
+        "id": 1121,
+        "city_en": "Dariyah",
+        "city_ar": "ضرية"
+    },
+    {
+        "id": 1122,
+        "city_en": "Dahu",
+        "city_ar": "بيشة"
+    },
+    {
+        "id": 1123,
+        "city_en": "Dabir",
+        "city_ar": "دبير"
+    },
+    {
+        "id": 1124,
+        "city_en": "Da'a",
+        "city_ar": "ضاعا"
+    },
+    {
+        "id": 1125,
+        "city_en": "Burudan",
+        "city_ar": "برودان"
+    },
+    {
+        "id": 1126,
+        "city_en": "Buqayq",
+        "city_ar": "بقيق"
+    },
+    {
+        "id": 1127,
+        "city_en": "Bny Yazed",
+        "city_ar": "بني يزيد"
+    },
+    {
+        "id": 1128,
+        "city_en": "Bishah",
+        "city_ar": "بيشة"
+    },
+    {
+        "id": 1129,
+        "city_en": "Bisha",
+        "city_ar": "بيشة"
+    },
+    {
+        "id": 1130,
+        "city_en": "Bir ibn Harmas",
+        "city_ar": "حالة عمار"
+    },
+    {
+        "id": 1131,
+        "city_en": "Bir Askar",
+        "city_ar": "بئر عسكر"
+    },
+    {
+        "id": 1132,
+        "city_en": "Biljurashi",
+        "city_ar": "بلجرشي"
+    },
+    {
+        "id": 1133,
+        "city_en": "Bilad Biny Suhaim",
+        "city_ar": "بلاد بني سحيم"
+    },
+    {
+        "id": 1134,
+        "city_en": "Bidah Valley",
+        "city_ar": "وادي بيده"
+    },
+    {
+        "id": 1135,
+        "city_en": "Beda'a Ben Khalaf",
+        "city_ar": "بدع بن خلف"
+    },
+    {
+        "id": 1136,
+        "city_en": "Baynah",
+        "city_ar": "البهيم"
+    },
+    {
+        "id": 1137,
+        "city_en": "Bashout",
+        "city_ar": "باشوت"
+    },
+    {
+        "id": 1138,
+        "city_en": "Bariq",
+        "city_ar": "بارق"
+    },
+    {
+        "id": 1139,
+        "city_en": "Bani Saad",
+        "city_ar": "بني سعد"
+    },
+    {
+        "id": 1140,
+        "city_en": "Bani Mouhamad",
+        "city_ar": "بني محمد"
+    },
+    {
+        "id": 1141,
+        "city_en": "Bani Mazin",
+        "city_ar": "بني مازن"
+    },
+    {
+        "id": 1142,
+        "city_en": "Bani Malik",
+        "city_ar": "جدة"
+    },
+    {
+        "id": 1143,
+        "city_en": "Bani Kabir",
+        "city_ar": "بني كبير"
+    },
+    {
+        "id": 1144,
+        "city_en": "Bani Horairah",
+        "city_ar": "بني حريرة"
+    },
+    {
+        "id": 1145,
+        "city_en": "Bani Hasan",
+        "city_ar": "بني حسن"
+    },
+    {
+        "id": 1146,
+        "city_en": "Bani Hamim",
+        "city_ar": "بني هميم"
+    },
+    {
+        "id": 1147,
+        "city_en": "Bani Amr",
+        "city_ar": "بني عمرو"
+    },
+    {
+        "id": 1148,
+        "city_en": "Balqarn",
+        "city_ar": "محافظة بلقرن"
+    },
+    {
+        "id": 1149,
+        "city_en": "Baljurashi",
+        "city_ar": "بلجرشي"
+    },
+    {
+        "id": 1150,
+        "city_en": "Badr Al Janoub",
+        "city_ar": "بدر الجنوب"
+    },
+    {
+        "id": 1151,
+        "city_en": "Bada",
+        "city_ar": "البدع"
+    },
+    {
+        "id": 1152,
+        "city_en": "Az Zughayn",
+        "city_ar": "الزغين"
+    },
+    {
+        "id": 1153,
+        "city_en": "Az Zemah",
+        "city_ar": "الزيمه"
+    },
+    {
+        "id": 1154,
+        "city_en": "Az Zalal",
+        "city_ar": "الزَّلال"
+    },
+    {
+        "id": 1155,
+        "city_en": "Az Zafir",
+        "city_ar": "الزفير"
+    },
+    {
+        "id": 1156,
+        "city_en": "Awirah",
+        "city_ar": "عويره"
+    },
+    {
+        "id": 1157,
+        "city_en": "Ath Thybiyah",
+        "city_ar": "الذيبية"
+    },
+    {
+        "id": 1158,
+        "city_en": "Ateef",
+        "city_ar": "عطيف"
+    },
+    {
+        "id": 1159,
+        "city_en": "Atawleh",
+        "city_ar": "الأطاوله"
+    },
+    {
+        "id": 1160,
+        "city_en": "At Tuwayr",
+        "city_ar": "الطوير"
+    },
+    {
+        "id": 1161,
+        "city_en": "At Tuwalah",
+        "city_ar": "الطوالة"
+    },
+    {
+        "id": 1162,
+        "city_en": "At Tuwaim",
+        "city_ar": "التويم"
+    },
+    {
+        "id": 1163,
+        "city_en": "At Tawdihiyah",
+        "city_ar": "التوضيحية"
+    },
+    {
+        "id": 1164,
+        "city_en": "Asuwayq",
+        "city_ar": "السٌويق"
+    },
+    {
+        "id": 1165,
+        "city_en": "Ashayrah",
+        "city_ar": "عشيرة"
+    },
+    {
+        "id": 1166,
+        "city_en": "Ash Shuqayq",
+        "city_ar": "الشقيق"
+    },
+    {
+        "id": 1167,
+        "city_en": "Ash Shubaykiyah",
+        "city_ar": "الشبيكية"
+    },
+    {
+        "id": 1168,
+        "city_en": "Ash Shubah",
+        "city_ar": "الشعبة"
+    },
+    {
+        "id": 1169,
+        "city_en": "Ash Shu'ara",
+        "city_ar": "الشعراء"
+    },
+    {
+        "id": 1170,
+        "city_en": "Ash Shamlul",
+        "city_ar": "الشملول"
+    },
+    {
+        "id": 1171,
+        "city_en": "Ash Shamli",
+        "city_ar": "الشملي"
+    },
+    {
+        "id": 1172,
+        "city_en": "Ash Shahmah",
+        "city_ar": "الشحمة"
+    },
+    {
+        "id": 1173,
+        "city_en": "Asbtar",
+        "city_ar": "اسبطر"
+    },
+    {
+        "id": 1174,
+        "city_en": "As Sumayrah",
+        "city_ar": "السميرة"
+    },
+    {
+        "id": 1175,
+        "city_en": "As Sulubiayh",
+        "city_ar": "الصلبيه"
+    },
+    {
+        "id": 1176,
+        "city_en": "As Sulaimaniyah",
+        "city_ar": "السليمانية"
+    },
+    {
+        "id": 1177,
+        "city_en": "As Suh",
+        "city_ar": "الصوح"
+    },
+    {
+        "id": 1178,
+        "city_en": "As Sufayri",
+        "city_ar": "الصفيري"
+    },
+    {
+        "id": 1179,
+        "city_en": "As Sudayrah",
+        "city_ar": "السديرة"
+    },
+    {
+        "id": 1180,
+        "city_en": "As Suairah",
+        "city_ar": "السعيرة"
+    },
+    {
+        "id": 1181,
+        "city_en": "As Sihaf",
+        "city_ar": "الصحاف"
+    },
+    {
+        "id": 1182,
+        "city_en": "As Siayyirah",
+        "city_ar": "كما سيئيره"
+    },
+    {
+        "id": 1183,
+        "city_en": "As Sarrar",
+        "city_ar": "الصرّار"
+    },
+    {
+        "id": 1184,
+        "city_en": "As Sam'uriyah",
+        "city_ar": "الصمعورية"
+    },
+    {
+        "id": 1185,
+        "city_en": "As Salmanyah",
+        "city_ar": "السلمانية"
+    },
+    {
+        "id": 1186,
+        "city_en": "As Saffaniyah",
+        "city_ar": "السفانية"
+    },
+    {
+        "id": 1187,
+        "city_en": "As Saddain Balharith",
+        "city_ar": "السدين بالحارث"
+    },
+    {
+        "id": 1188,
+        "city_en": "As Saddain",
+        "city_ar": "السدين"
+    },
+    {
+        "id": 1189,
+        "city_en": "As Sadawi",
+        "city_ar": "الصداوي"
+    },
+    {
+        "id": 1190,
+        "city_en": "Arya",
+        "city_ar": "بقران"
+    },
+    {
+        "id": 1191,
+        "city_en": "Artawiah",
+        "city_ar": "الأرطاوية"
+    },
+    {
+        "id": 1192,
+        "city_en": "Arman",
+        "city_ar": "عرمان"
+    },
+    {
+        "id": 1193,
+        "city_en": "Arja",
+        "city_ar": "عرجاء"
+    },
+    {
+        "id": 1194,
+        "city_en": "Arar",
+        "city_ar": "عرعر"
+    },
+    {
+        "id": 1195,
+        "city_en": "Ar Ruwaidhah",
+        "city_ar": "الرويضة"
+    },
+    {
+        "id": 1196,
+        "city_en": "Ar Ruwaidah",
+        "city_ar": "الرويضة"
+    },
+    {
+        "id": 1197,
+        "city_en": "Ar Ruqi",
+        "city_ar": "الرقعي"
+    },
+    {
+        "id": 1198,
+        "city_en": "Ar Rayn",
+        "city_ar": "الرين"
+    },
+    {
+        "id": 1199,
+        "city_en": "Ar Rayis",
+        "city_ar": "الرايس"
+    },
+    {
+        "id": 1200,
+        "city_en": "Ar Rawdah",
+        "city_ar": "الروضة"
+    },
+    {
+        "id": 1201,
+        "city_en": "Ar Rafiah",
+        "city_ar": "الرفيعة"
+    },
+    {
+        "id": 1202,
+        "city_en": "Ar Rafi'ah",
+        "city_ar": "الرفيعة"
+    },
+    {
+        "id": 1203,
+        "city_en": "An Nughayq",
+        "city_ar": "النقيق"
+    },
+    {
+        "id": 1204,
+        "city_en": "An Nazim",
+        "city_ar": "ناظم"
+    },
+    {
+        "id": 1205,
+        "city_en": "An Nazayim",
+        "city_ar": "صوير"
+    },
+    {
+        "id": 1206,
+        "city_en": "An Nafiah",
+        "city_ar": "الــنــايــفــيــة"
+    },
+    {
+        "id": 1207,
+        "city_en": "An Nabk Abu Qasr",
+        "city_ar": "النبك أبو قصر"
+    },
+    {
+        "id": 1208,
+        "city_en": "Amaq",
+        "city_ar": "عمق"
+    },
+    {
+        "id": 1209,
+        "city_en": "Amaaer Ben Sana'a",
+        "city_ar": "عمائر بن صنعاء"
+    },
+    {
+        "id": 1210,
+        "city_en": "Alwasqah",
+        "city_ar": "الوسقة"
+    },
+    {
+        "id": 1211,
+        "city_en": "Alshwaaq",
+        "city_ar": "الشواق"
+    },
+    {
+        "id": 1212,
+        "city_en": "Alsalhiya",
+        "city_ar": "الصالحية"
+    },
+    {
+        "id": 1213,
+        "city_en": "Alsadyah",
+        "city_ar": "السعدية"
+    },
+    {
+        "id": 1214,
+        "city_en": "Alquaba",
+        "city_ar": "القعبة"
+    },
+    {
+        "id": 1215,
+        "city_en": "Alqarei",
+        "city_ar": "القريع"
+    },
+    {
+        "id": 1216,
+        "city_en": "Alqalh",
+        "city_ar": "الغالة"
+    },
+    {
+        "id": 1217,
+        "city_en": "Almuzayri",
+        "city_ar": "المزيرع"
+    },
+    {
+        "id": 1218,
+        "city_en": "Almuzaylif",
+        "city_ar": "المظيلف"
+    },
+    {
+        "id": 1219,
+        "city_en": "AlMu'tadil",
+        "city_ar": "المعتدل"
+    },
+    {
+        "id": 1220,
+        "city_en": "Almorshediah",
+        "city_ar": "المرشدية"
+    },
+    {
+        "id": 1221,
+        "city_en": "Almnadh",
+        "city_ar": "المناضح"
+    },
+    {
+        "id": 1222,
+        "city_en": "Almihdar",
+        "city_ar": "المحدار"
+    },
+    {
+        "id": 1223,
+        "city_en": "Almandaq",
+        "city_ar": "المندق"
+    },
+    {
+        "id": 1224,
+        "city_en": "Almajaridah",
+        "city_ar": "المجاردة"
+    },
+    {
+        "id": 1225,
+        "city_en": "Allaghamees",
+        "city_ar": "اللغاميس"
+    },
+    {
+        "id": 1226,
+        "city_en": "Alkwifriah",
+        "city_ar": "الكويفرية"
+    },
+    {
+        "id": 1227,
+        "city_en": "Alkhuraybah",
+        "city_ar": "الخريبة"
+    },
+    {
+        "id": 1228,
+        "city_en": "AlKhhafah",
+        "city_ar": "الكهفة"
+    },
+    {
+        "id": 1229,
+        "city_en": "Alkhazzan",
+        "city_ar": "الخزان"
+    },
+    {
+        "id": 1230,
+        "city_en": "Aljfarah",
+        "city_ar": "الجفارة"
+    },
+    {
+        "id": 1231,
+        "city_en": "Aljanadriyah",
+        "city_ar": "الجنادرية"
+    },
+    {
+        "id": 1232,
+        "city_en": "Alhumaimah",
+        "city_ar": "الحميمة"
+    },
+    {
+        "id": 1233,
+        "city_en": "Alhumaid",
+        "city_ar": "الحميد"
+    },
+    {
+        "id": 1234,
+        "city_en": "Alhrateem",
+        "city_ar": "الحراتيم"
+    },
+    {
+        "id": 1235,
+        "city_en": "Alfera",
+        "city_ar": "الفرع"
+    },
+    {
+        "id": 1236,
+        "city_en": "AlFareeq",
+        "city_ar": "الفريق"
+    },
+    {
+        "id": 1237,
+        "city_en": "Alduwaid",
+        "city_ar": "الدويد"
+    },
+    {
+        "id": 1238,
+        "city_en": "Albarek",
+        "city_ar": "البارك"
+    },
+    {
+        "id": 1239,
+        "city_en": "Al-Radefah",
+        "city_ar": "الرديفة"
+    },
+    {
+        "id": 1240,
+        "city_en": "Al-Nasifa",
+        "city_ar": "الناصفة"
+    },
+    {
+        "id": 1241,
+        "city_en": "Al-Nasfah",
+        "city_ar": "الناصفة"
+    },
+    {
+        "id": 1242,
+        "city_en": "Al-Badie Al-Shamali",
+        "city_ar": "البديع الشمالي"
+    },
+    {
+        "id": 1243,
+        "city_en": "Al-Ahmar",
+        "city_ar": "الاحمر"
+    },
+    {
+        "id": 1244,
+        "city_en": "Al Wusayyiah",
+        "city_ar": "الوسيعة"
+    },
+    {
+        "id": 1245,
+        "city_en": "Al Wuhait",
+        "city_ar": "الوهيط"
+    },
+    {
+        "id": 1246,
+        "city_en": "Al Wastah",
+        "city_ar": "الواسطة"
+    },
+    {
+        "id": 1247,
+        "city_en": "Al Wannan",
+        "city_ar": "الونان"
+    },
+    {
+        "id": 1248,
+        "city_en": "Al Wadiah",
+        "city_ar": "الوديعة"
+    },
+    {
+        "id": 1249,
+        "city_en": "Al Uwayqilah",
+        "city_ar": "العويقيلة"
+    },
+    {
+        "id": 1250,
+        "city_en": "Al Uqlah",
+        "city_ar": "العقلة"
+    },
+    {
+        "id": 1251,
+        "city_en": "Al Ulu",
+        "city_ar": "الولا"
+    },
+    {
+        "id": 1252,
+        "city_en": "Al Ula",
+        "city_ar": "العلا"
+    },
+    {
+        "id": 1253,
+        "city_en": "Al Uferiah",
+        "city_ar": "العفيرية"
+    },
+    {
+        "id": 1254,
+        "city_en": "Al Torkiyah",
+        "city_ar": "الطرقية"
+    },
+    {
+        "id": 1255,
+        "city_en": "Al Tiraq",
+        "city_ar": "الطراق"
+    },
+    {
+        "id": 1256,
+        "city_en": "Al Theniah",
+        "city_ar": "الثنية"
+    },
+    {
+        "id": 1257,
+        "city_en": "Al Tarafayh Al Sharqiyah",
+        "city_ar": "الطرفية الشرقية"
+    },
+    {
+        "id": 1258,
+        "city_en": "Al Taraf",
+        "city_ar": "الطرف"
+    },
+    {
+        "id": 1259,
+        "city_en": "Al Sufah",
+        "city_ar": "الصفاح"
+    },
+    {
+        "id": 1260,
+        "city_en": "Al Subaykhah",
+        "city_ar": "الصبيخة"
+    },
+    {
+        "id": 1261,
+        "city_en": "Al Sir",
+        "city_ar": "السر"
+    },
+    {
+        "id": 1262,
+        "city_en": "Al Shlayil",
+        "city_ar": "الشلايل"
+    },
+    {
+        "id": 1263,
+        "city_en": "Al Shfeah",
+        "city_ar": "الشفية"
+    },
+    {
+        "id": 1264,
+        "city_en": "Al Sheqiqah",
+        "city_ar": "الشقيقة"
+    },
+    {
+        "id": 1265,
+        "city_en": "Al Shatt",
+        "city_ar": "الشط"
+    },
+    {
+        "id": 1266,
+        "city_en": "Al Sharjah",
+        "city_ar": "الشرجة"
+    },
+    {
+        "id": 1267,
+        "city_en": "Al Shadakh",
+        "city_ar": "الشدخ"
+    },
+    {
+        "id": 1268,
+        "city_en": "Al Shabitah",
+        "city_ar": "الشابطة"
+    },
+    {
+        "id": 1269,
+        "city_en": "Al Shabhah",
+        "city_ar": "الشبحة"
+    },
+    {
+        "id": 1270,
+        "city_en": "Al Shaaf",
+        "city_ar": "الشعف"
+    },
+    {
+        "id": 1271,
+        "city_en": "Al Sedr",
+        "city_ar": "السدر"
+    },
+    {
+        "id": 1272,
+        "city_en": "Al Salhaniyah",
+        "city_ar": "الصلحانية"
+    },
+    {
+        "id": 1273,
+        "city_en": "Al Reeth",
+        "city_ar": "الريث"
+    },
+    {
+        "id": 1274,
+        "city_en": "Al Ramdhah",
+        "city_ar": "الرمضه"
+    },
+    {
+        "id": 1275,
+        "city_en": "Al Rafaie",
+        "city_ar": "الرفائع"
+    },
+    {
+        "id": 1276,
+        "city_en": "Al Radha",
+        "city_ar": "الردحة"
+    },
+    {
+        "id": 1277,
+        "city_en": "Al Qurayyat",
+        "city_ar": "القريات"
+    },
+    {
+        "id": 1278,
+        "city_en": "Al Qurayyah",
+        "city_ar": "القرية"
+    },
+    {
+        "id": 1279,
+        "city_en": "Al Qurayn",
+        "city_ar": "القرين"
+    },
+    {
+        "id": 1280,
+        "city_en": "Al Qunfudhah",
+        "city_ar": "القنفذة"
+    },
+    {
+        "id": 1281,
+        "city_en": "Al Qulayyib",
+        "city_ar": "القليب"
+    },
+    {
+        "id": 1282,
+        "city_en": "Al Quamah",
+        "city_ar": "القوامة"
+    },
+    {
+        "id": 1283,
+        "city_en": "Al Qrash",
+        "city_ar": "القراصة"
+    },
+    {
+        "id": 1284,
+        "city_en": "Al Qouz",
+        "city_ar": "القوز"
+    },
+    {
+        "id": 1285,
+        "city_en": "Al Qirah",
+        "city_ar": "القيرة"
+    },
+    {
+        "id": 1286,
+        "city_en": "Al Qeddeh",
+        "city_ar": "القديح"
+    },
+    {
+        "id": 1287,
+        "city_en": "Al Qaraa",
+        "city_ar": "القرعاء"
+    },
+    {
+        "id": 1288,
+        "city_en": "Al Qanboor",
+        "city_ar": "القنبور"
+    },
+    {
+        "id": 1289,
+        "city_en": "Al Qaiyah",
+        "city_ar": "القاعية"
+    },
+    {
+        "id": 1290,
+        "city_en": "Al Qaisumah",
+        "city_ar": "القيصومة"
+    },
+    {
+        "id": 1291,
+        "city_en": "Al Qahma",
+        "city_ar": "القحمة"
+    },
+    {
+        "id": 1292,
+        "city_en": "Al Qadeimah",
+        "city_ar": "القضيمة"
+    },
+    {
+        "id": 1293,
+        "city_en": "Al Qaa",
+        "city_ar": "القاع"
+    },
+    {
+        "id": 1294,
+        "city_en": "Al Qa'",
+        "city_ar": "القاع"
+    },
+    {
+        "id": 1295,
+        "city_en": "Al Ous",
+        "city_ar": "العوص"
+    },
+    {
+        "id": 1296,
+        "city_en": "Al Omaq",
+        "city_ar": "العمق"
+    },
+    {
+        "id": 1297,
+        "city_en": "Al Nuaibea'a",
+        "city_ar": "النويبع"
+    },
+    {
+        "id": 1298,
+        "city_en": "Al Nasfah",
+        "city_ar": "الناصفة"
+    },
+    {
+        "id": 1299,
+        "city_en": "Al Namas",
+        "city_ar": "النماص"
+    },
+    {
+        "id": 1300,
+        "city_en": "Al Nagaf",
+        "city_ar": "النجف"
+    },
+    {
+        "id": 1301,
+        "city_en": "Al Nabah",
+        "city_ar": "النباه"
+    },
+    {
+        "id": 1302,
+        "city_en": "Al Muwayh",
+        "city_ar": "الموية"
+    },
+    {
+        "id": 1303,
+        "city_en": "Al Muraba'a",
+        "city_ar": "المربع"
+    },
+    {
+        "id": 1304,
+        "city_en": "Al Mukaily",
+        "city_ar": "المكيلي"
+    },
+    {
+        "id": 1305,
+        "city_en": "Al Mufrihat",
+        "city_ar": "المفرحات"
+    },
+    {
+        "id": 1306,
+        "city_en": "Al Mudhaylif",
+        "city_ar": "المظيلف"
+    },
+    {
+        "id": 1307,
+        "city_en": "Al Mudayyih",
+        "city_ar": "المضيح"
+    },
+    {
+        "id": 1308,
+        "city_en": "Al Mubarak",
+        "city_ar": "المبارك"
+    },
+    {
+        "id": 1309,
+        "city_en": "Al Mothalath",
+        "city_ar": "المثلث"
+    },
+    {
+        "id": 1310,
+        "city_en": "Al Mishaliah",
+        "city_ar": "المشعلية"
+    },
+    {
+        "id": 1311,
+        "city_en": "Al Mayyah",
+        "city_ar": "المياه"
+    },
+    {
+        "id": 1312,
+        "city_en": "Al Mawarid",
+        "city_ar": "المواريد"
+    },
+    {
+        "id": 1313,
+        "city_en": "Al Massamah",
+        "city_ar": "المسماة"
+    },
+    {
+        "id": 1314,
+        "city_en": "Al Marameh",
+        "city_ar": "المرامية"
+    },
+    {
+        "id": 1315,
+        "city_en": "Al Maqrah",
+        "city_ar": "المقرح"
+    },
+    {
+        "id": 1316,
+        "city_en": "Al Maqnah",
+        "city_ar": "المقنا"
+    },
+    {
+        "id": 1317,
+        "city_en": "Al Makhwah",
+        "city_ar": "المخواة"
+    },
+    {
+        "id": 1318,
+        "city_en": "Al Mahdam",
+        "city_ar": "المدام"
+    },
+    {
+        "id": 1319,
+        "city_en": "Al Mahani",
+        "city_ar": "المحاني"
+    },
+    {
+        "id": 1320,
+        "city_en": "Al Madha",
+        "city_ar": "المضة"
+    },
+    {
+        "id": 1321,
+        "city_en": "Al Madeed",
+        "city_ar": "المديد"
+    },
+    {
+        "id": 1322,
+        "city_en": "Al Lsawiyah",
+        "city_ar": "العيساوية"
+    },
+    {
+        "id": 1323,
+        "city_en": "Al Lith",
+        "city_ar": "الليث"
+    },
+    {
+        "id": 1324,
+        "city_en": "Al Laqayit",
+        "city_ar": "اللقائط"
+    },
+    {
+        "id": 1325,
+        "city_en": "Al Lahabah",
+        "city_ar": "اللهابة"
+    },
+    {
+        "id": 1326,
+        "city_en": "Al Khuznah",
+        "city_ar": "الخزنة"
+    },
+    {
+        "id": 1327,
+        "city_en": "Al Khurma",
+        "city_ar": "الخرمة"
+    },
+    {
+        "id": 1328,
+        "city_en": "Al Khuraytah",
+        "city_ar": "الخريبة"
+    },
+    {
+        "id": 1329,
+        "city_en": "Al Khuffiyah",
+        "city_ar": "الخفية"
+    },
+    {
+        "id": 1330,
+        "city_en": "Al Khitah",
+        "city_ar": "الخطة"
+    },
+    {
+        "id": 1331,
+        "city_en": "Al Khasrah",
+        "city_ar": "الخاصرة"
+    },
+    {
+        "id": 1332,
+        "city_en": "Al Khasiybah",
+        "city_ar": "الخصيبة"
+    },
+    {
+        "id": 1333,
+        "city_en": "Al Khashah",
+        "city_ar": "الخشعة"
+    },
+    {
+        "id": 1334,
+        "city_en": "Al Kharma",
+        "city_ar": "الخرماء"
+    },
+    {
+        "id": 1335,
+        "city_en": "Al Kharkhir",
+        "city_ar": "الخرخير"
+    },
+    {
+        "id": 1336,
+        "city_en": "Al Khaniq",
+        "city_ar": "الخانق"
+    },
+    {
+        "id": 1337,
+        "city_en": "Al Khalas",
+        "city_ar": "الخلاص"
+    },
+    {
+        "id": 1338,
+        "city_en": "Al Karra",
+        "city_ar": "الكراء"
+    },
+    {
+        "id": 1339,
+        "city_en": "Al Kamil",
+        "city_ar": "الكامل"
+    },
+    {
+        "id": 1340,
+        "city_en": "Al Kadis",
+        "city_ar": "الكديس"
+    },
+    {
+        "id": 1341,
+        "city_en": "Al Kadarah",
+        "city_ar": "الكدره"
+    },
+    {
+        "id": 1342,
+        "city_en": "Al Jurayfah",
+        "city_ar": "الجريفه"
+    },
+    {
+        "id": 1343,
+        "city_en": "Al Judaida",
+        "city_ar": "الجديدة"
+    },
+    {
+        "id": 1344,
+        "city_en": "Al Jsh",
+        "city_ar": "Al Jsh"
+    },
+    {
+        "id": 1345,
+        "city_en": "Al Jihfah",
+        "city_ar": "الجحفة"
+    },
+    {
+        "id": 1346,
+        "city_en": "Al Jifah",
+        "city_ar": "الجفة"
+    },
+    {
+        "id": 1347,
+        "city_en": "Al Jialah",
+        "city_ar": "الجعلة"
+    },
+    {
+        "id": 1348,
+        "city_en": "Al Jernafh",
+        "city_ar": "الجرنافه"
+    },
+    {
+        "id": 1349,
+        "city_en": "Al Jawshan",
+        "city_ar": "الجوشن"
+    },
+    {
+        "id": 1350,
+        "city_en": "Al Jawah",
+        "city_ar": "الجوة"
+    },
+    {
+        "id": 1351,
+        "city_en": "Al Jaizah",
+        "city_ar": "الجيزه"
+    },
+    {
+        "id": 1352,
+        "city_en": "Al Jadid",
+        "city_ar": "الجديد"
+    },
+    {
+        "id": 1353,
+        "city_en": "Al Jabriyah",
+        "city_ar": "الجابرية"
+    },
+    {
+        "id": 1354,
+        "city_en": "Al Ijliyah",
+        "city_ar": "العجلية"
+    },
+    {
+        "id": 1355,
+        "city_en": "Al Husayy",
+        "city_ar": "الحسي"
+    },
+    {
+        "id": 1356,
+        "city_en": "Al Husayniyah",
+        "city_ar": "الحصينية"
+    },
+    {
+        "id": 1357,
+        "city_en": "Al Hunayy",
+        "city_ar": "الحني"
+    },
+    {
+        "id": 1358,
+        "city_en": "Al Humiyat",
+        "city_ar": "الحوميات"
+    },
+    {
+        "id": 1359,
+        "city_en": "Al Humaimah",
+        "city_ar": "الحميمة"
+    },
+    {
+        "id": 1360,
+        "city_en": "Al Hulayfah As Sufla",
+        "city_ar": "الحليفة السفلى"
+    },
+    {
+        "id": 1361,
+        "city_en": "Al Hufayr",
+        "city_ar": "الحفير"
+    },
+    {
+        "id": 1362,
+        "city_en": "Al Hinnah",
+        "city_ar": "الحناة"
+    },
+    {
+        "id": 1363,
+        "city_en": "Al Hijf",
+        "city_ar": "الحجف"
+    },
+    {
+        "id": 1364,
+        "city_en": "Al Hifah",
+        "city_ar": "الحيفة"
+    },
+    {
+        "id": 1365,
+        "city_en": "Al Hendeyah",
+        "city_ar": "الهندية"
+    },
+    {
+        "id": 1366,
+        "city_en": "Al Henayah",
+        "city_ar": "الحناية"
+    },
+    {
+        "id": 1367,
+        "city_en": "Al Hefnah",
+        "city_ar": "الحفنة"
+    },
+    {
+        "id": 1368,
+        "city_en": "Al Hazmi",
+        "city_ar": "الحازمي"
+    },
+    {
+        "id": 1369,
+        "city_en": "Al Hayyaniyah",
+        "city_ar": "الحيانية"
+    },
+    {
+        "id": 1370,
+        "city_en": "Al Hayathem",
+        "city_ar": "الهياثم"
+    },
+    {
+        "id": 1371,
+        "city_en": "Al Hati",
+        "city_ar": "الحطي"
+    },
+    {
+        "id": 1372,
+        "city_en": "Al Hathera",
+        "city_ar": "الحثيرة"
+    },
+    {
+        "id": 1373,
+        "city_en": "Al Hasuniyyah",
+        "city_ar": "الحيسونية"
+    },
+    {
+        "id": 1374,
+        "city_en": "Al Haridhah",
+        "city_ar": "الحريضة"
+    },
+    {
+        "id": 1375,
+        "city_en": "Al Harajah",
+        "city_ar": "الحراجه"
+    },
+    {
+        "id": 1376,
+        "city_en": "Al Haqu",
+        "city_ar": "الحقو"
+    },
+    {
+        "id": 1377,
+        "city_en": "Al Hamad",
+        "city_ar": "الحماد"
+    },
+    {
+        "id": 1378,
+        "city_en": "Al Hajrah",
+        "city_ar": "الحجرة‎"
+    },
+    {
+        "id": 1379,
+        "city_en": "Al Hait",
+        "city_ar": "الحائط"
+    },
+    {
+        "id": 1380,
+        "city_en": "Al Hafayer",
+        "city_ar": "الحفاير"
+    },
+    {
+        "id": 1381,
+        "city_en": "Al Hadithah",
+        "city_ar": "الحديثه"
+    },
+    {
+        "id": 1382,
+        "city_en": "Al Hadidiyah",
+        "city_ar": "الحديدية"
+    },
+    {
+        "id": 1383,
+        "city_en": "Al Haddar",
+        "city_ar": "الهدار"
+    },
+    {
+        "id": 1384,
+        "city_en": "Al Habala",
+        "city_ar": "الحبلة"
+    },
+    {
+        "id": 1385,
+        "city_en": "Al Ghurabah",
+        "city_ar": "الغرابه"
+    },
+    {
+        "id": 1386,
+        "city_en": "Al Ghulah",
+        "city_ar": "الغلة"
+    },
+    {
+        "id": 1387,
+        "city_en": "Al Ghayl",
+        "city_ar": "الغيل"
+    },
+    {
+        "id": 1388,
+        "city_en": "Al Gawamshah",
+        "city_ar": "القوامشة"
+    },
+    {
+        "id": 1389,
+        "city_en": "Al Gafrat",
+        "city_ar": "الغفرات"
+    },
+    {
+        "id": 1390,
+        "city_en": "Al Furuthi",
+        "city_ar": "الفروثي"
+    },
+    {
+        "id": 1391,
+        "city_en": "Al Fuqayyir",
+        "city_ar": "الفقير"
+    },
+    {
+        "id": 1392,
+        "city_en": "Al Figrah",
+        "city_ar": "الفقرة"
+    },
+    {
+        "id": 1393,
+        "city_en": "Al Fatiha",
+        "city_ar": "الفطيحة"
+    },
+    {
+        "id": 1394,
+        "city_en": "Al Farshah",
+        "city_ar": "الفرشة"
+    },
+    {
+        "id": 1395,
+        "city_en": "Al Farridah",
+        "city_ar": "الفريدة"
+    },
+    {
+        "id": 1396,
+        "city_en": "Al Faraah",
+        "city_ar": "الفارعه"
+    },
+    {
+        "id": 1397,
+        "city_en": "Al Faqa'ali",
+        "city_ar": "الفقعلي"
+    },
+    {
+        "id": 1398,
+        "city_en": "Al Faarah",
+        "city_ar": "الفارعة"
+    },
+    {
+        "id": 1399,
+        "city_en": "Al Eshash",
+        "city_ar": "العشاش"
+    },
+    {
+        "id": 1400,
+        "city_en": "Al Edabi",
+        "city_ar": "العيدابي"
+    },
+    {
+        "id": 1401,
+        "city_en": "Al Duwadimi",
+        "city_ar": "الدوادمي"
+    },
+    {
+        "id": 1402,
+        "city_en": "Al Disah",
+        "city_ar": "الديسة"
+    },
+    {
+        "id": 1403,
+        "city_en": "Al Dhahreyah",
+        "city_ar": "الظاهرية"
+    },
+    {
+        "id": 1404,
+        "city_en": "Al Braber",
+        "city_ar": "البرابر"
+    },
+    {
+        "id": 1405,
+        "city_en": "Al Birk",
+        "city_ar": "البرك"
+    },
+    {
+        "id": 1406,
+        "city_en": "Al Bir",
+        "city_ar": "البير"
+    },
+    {
+        "id": 1407,
+        "city_en": "Al Bijadyah",
+        "city_ar": "البجادية"
+    },
+    {
+        "id": 1408,
+        "city_en": "Al Batilah",
+        "city_ar": "البتيلة"
+    },
+    {
+        "id": 1409,
+        "city_en": "Al Batha",
+        "city_ar": "البطحاء"
+    },
+    {
+        "id": 1410,
+        "city_en": "Al Bashayer",
+        "city_ar": "البشاير"
+    },
+    {
+        "id": 1411,
+        "city_en": "Al Bashair",
+        "city_ar": "البشائر"
+    },
+    {
+        "id": 1412,
+        "city_en": "Al Barzah",
+        "city_ar": "البرزة"
+    },
+    {
+        "id": 1413,
+        "city_en": "Al Baheem",
+        "city_ar": "البهيم"
+    },
+    {
+        "id": 1414,
+        "city_en": "Al Bahah",
+        "city_ar": "الباحة"
+    },
+    {
+        "id": 1415,
+        "city_en": "Al Baha",
+        "city_ar": "الباحة"
+    },
+    {
+        "id": 1416,
+        "city_en": "Al Badie Al Shamali",
+        "city_ar": "البديع الشمالي"
+    },
+    {
+        "id": 1417,
+        "city_en": "Al Badie Al Janobi",
+        "city_ar": "البديع الجنوبي"
+    },
+    {
+        "id": 1418,
+        "city_en": "Al Bad'",
+        "city_ar": "البدع"
+    },
+    {
+        "id": 1419,
+        "city_en": "Al Azzah",
+        "city_ar": "ال عزة"
+    },
+    {
+        "id": 1420,
+        "city_en": "Al Azaherah",
+        "city_ar": "الأزاهرة"
+    },
+    {
+        "id": 1421,
+        "city_en": "Al Awamer",
+        "city_ar": "العوامر"
+    },
+    {
+        "id": 1422,
+        "city_en": "Al Atheeb",
+        "city_ar": "العذيب"
+    },
+    {
+        "id": 1423,
+        "city_en": "Al Atawilah",
+        "city_ar": "العطاولة"
+    },
+    {
+        "id": 1424,
+        "city_en": "Al Artawiyah",
+        "city_ar": "الأرطاوية"
+    },
+    {
+        "id": 1425,
+        "city_en": "Al Artawi",
+        "city_ar": "الأرطاوي"
+    },
+    {
+        "id": 1426,
+        "city_en": "Al Aroos",
+        "city_ar": "العروس"
+    },
+    {
+        "id": 1427,
+        "city_en": "Al Araq",
+        "city_ar": "عتود"
+    },
+    {
+        "id": 1428,
+        "city_en": "Al Aqiq",
+        "city_ar": "العقيق"
+    },
+    {
+        "id": 1429,
+        "city_en": "Al An Nanisah",
+        "city_ar": "الننيسة"
+    },
+    {
+        "id": 1430,
+        "city_en": "Al Amoah",
+        "city_ar": "الامواه"
+    },
+    {
+        "id": 1431,
+        "city_en": "Al Amlah",
+        "city_ar": "الأملح"
+    },
+    {
+        "id": 1432,
+        "city_en": "Al Ama ir",
+        "city_ar": "العمير"
+    },
+    {
+        "id": 1433,
+        "city_en": "Al Ajfar",
+        "city_ar": "الأجفر"
+    },
+    {
+        "id": 1434,
+        "city_en": "Al Aithmah",
+        "city_ar": "العيثمة"
+    },
+    {
+        "id": 1435,
+        "city_en": "Al Ais",
+        "city_ar": "العيص"
+    },
+    {
+        "id": 1436,
+        "city_en": "Al Aflaj",
+        "city_ar": ""
+    },
+    {
+        "id": 1437,
+        "city_en": "Al Aflag",
+        "city_ar": ""
+    },
+    {
+        "id": 1438,
+        "city_en": "Al Adari",
+        "city_ar": "الأضارع"
+    },
+    {
+        "id": 1439,
+        "city_en": "Al Abyar",
+        "city_ar": "الأبيار"
+    },
+    {
+        "id": 1440,
+        "city_en": "Al Abwa",
+        "city_ar": "الأبواء"
+    },
+    {
+        "id": 1441,
+        "city_en": "Al Abar",
+        "city_ar": "العبار"
+    },
+    {
+        "id": 1442,
+        "city_en": "Al 'Uwainid",
+        "city_ar": "العويند"
+    },
+    {
+        "id": 1443,
+        "city_en": "Al 'Adhiriyah",
+        "city_ar": "العاذرية"
+    },
+    {
+        "id": 1444,
+        "city_en": "Airj",
+        "city_ar": "عرج"
+    },
+    {
+        "id": 1445,
+        "city_en": "Ahad Bani Zayd",
+        "city_ar": "احد بني زيد"
+    },
+    {
+        "id": 1446,
+        "city_en": "Afraa",
+        "city_ar": "عفراء"
+    },
+    {
+        "id": 1447,
+        "city_en": "Afqara",
+        "city_ar": "أفقراء"
+    },
+    {
+        "id": 1448,
+        "city_en": "Aflaj",
+        "city_ar": "الافلاج"
+    },
+    {
+        "id": 1449,
+        "city_en": "Afifh",
+        "city_ar": "عفيفة"
+    },
+    {
+        "id": 1450,
+        "city_en": "Afif",
+        "city_ar": "عفيف"
+    },
+    {
+        "id": 1451,
+        "city_en": "Adham",
+        "city_ar": "أضم"
+    },
+    {
+        "id": 1452,
+        "city_en": "Addayer",
+        "city_ar": "الدائر"
+    },
+    {
+        "id": 1453,
+        "city_en": "Ad Darb",
+        "city_ar": "الدرب"
+    },
+    {
+        "id": 1454,
+        "city_en": "Abu Sidayrah",
+        "city_ar": "أبو سديرة"
+    },
+    {
+        "id": 1455,
+        "city_en": "Abu Shakeyr",
+        "city_ar": "أبو شكير"
+    },
+    {
+        "id": 1456,
+        "city_en": "Abu Salama",
+        "city_ar": "ابو سلامة"
+    },
+    {
+        "id": 1457,
+        "city_en": "Abu Rakh",
+        "city_ar": "ابو راكة"
+    },
+    {
+        "id": 1458,
+        "city_en": "Abu Muloh",
+        "city_ar": "أبو ملوح"
+    },
+    {
+        "id": 1459,
+        "city_en": "Abu Haramel",
+        "city_ar": "أبو حرامل"
+    },
+    {
+        "id": 1460,
+        "city_en": "Abu Hadriyah",
+        "city_ar": ""
+    },
+    {
+        "id": 1461,
+        "city_en": "Abu Dhiba",
+        "city_ar": "ابو ضباع"
+    },
+    {
+        "id": 1462,
+        "city_en": "Abu Arradeef",
+        "city_ar": "أبو الرديف"
+    },
+    {
+        "id": 1463,
+        "city_en": "Abu Ajram",
+        "city_ar": "ابو عجرم"
+    },
+    {
+        "id": 1464,
+        "city_en": "Abo Halaefa",
+        "city_ar": "ابو حليفاء"
+    },
+    {
+        "id": 1465,
+        "city_en": "Abayt",
+        "city_ar": "ابيط"
+    },
+    {
+        "id": 1466,
+        "city_en": "Al Khashabiyah",
+        "city_ar": "الخشابية"
+    },
+    {
+        "id": 1467,
+        "city_en": "An Nabiayh",
+        "city_ar": "النابية"
+    },
+    {
+        "id": 1468,
+        "city_en": "Rabigh",
+        "city_ar": "رابغ"
+    },
+    {
+        "id": 1469,
+        "city_en": "Tayma",
+        "city_ar": "تيماء"
+    },
+    {
+        "id": 1470,
+        "city_en": "Al Aridhah",
+        "city_ar": "العارضة"
+    },
+    {
+        "id": 1471,
+        "city_en": "Al Ajfar",
+        "city_ar": "الاجفر"
+    },
+    {
+        "id": 1472,
+        "city_en": "AlGhazalah",
+        "city_ar": "الغزالة"
+    },
+    {
+        "id": 1473,
+        "city_en": "Al Rawdah",
+        "city_ar": "الروضة"
+    },
+    {
+        "id": 1474,
+        "city_en": "Ashshamli",
+        "city_ar": "الشملي"
+    },
+    {
+        "id": 1475,
+        "city_en": "Al Hait",
+        "city_ar": "الحائط"
+    },
+    {
+        "id": 1476,
+        "city_en": "Hulayfah Sufla",
+        "city_ar": "الحليفة السفلي"
+    },
+    {
+        "id": 1477,
+        "city_en": "Al Birkah",
+        "city_ar": "البركة"
+    },
+    {
+        "id": 1478,
+        "city_en": "Al Khaitah",
+        "city_ar": "الخطة"
+    },
+    {
+        "id": 1479,
+        "city_en": "Qina",
+        "city_ar": "قناء"
+    },
+    {
+        "id": 1480,
+        "city_en": "As Sufun",
+        "city_ar": "السفن"
+    },
+    {
+        "id": 1481,
+        "city_en": "At Turbiyah",
+        "city_ar": "التربية"
+    },
+    {
+        "id": 1482,
+        "city_en": "Ash Shamli",
+        "city_ar": "الشملي"
+    },
+    {
+        "id": 1483,
+        "city_en": "Al Qalibah",
+        "city_ar": "القليبة"
+    },
+    {
+        "id": 1484,
+        "city_en": "Bir ibn Hirmas",
+        "city_ar": "بئر ابن هرماس"
+    },
+    {
+        "id": 1485,
+        "city_en": "Halat Ammar",
+        "city_ar": "حالة عمار"
+    },
+    {
+        "id": 1486,
+        "city_en": "Haql",
+        "city_ar": "حقل"
+    },
+    {
+        "id": 1487,
+        "city_en": "Al Bad",
+        "city_ar": "البد"
+    },
+    {
+        "id": 1488,
+        "city_en": "Magna",
+        "city_ar": "ماجنا"
+    },
+    {
+        "id": 1489,
+        "city_en": "Al Hijaziyah",
+        "city_ar": "الحجازية"
+    },
+    {
+        "id": 1490,
+        "city_en": "Al Seeh",
+        "city_ar": "السيح"
+    },
+    {
+        "id": 1491,
+        "city_en": "Quraytah",
+        "city_ar": "قريطة"
+    },
+    {
+        "id": 1492,
+        "city_en": "Subaih",
+        "city_ar": "صبيح"
+    },
+    {
+        "id": 1493,
+        "city_en": "Rawdat Gradan",
+        "city_ar": "روضة قردان"
+    },
+    {
+        "id": 1494,
+        "city_en": "Maraghan",
+        "city_ar": "مرغان"
+    },
+    {
+        "id": 1495,
+        "city_en": "Al Qurayn",
+        "city_ar": "القرين"
+    },
+    {
+        "id": 1496,
+        "city_en": "Rawd Al Jawa",
+        "city_ar": "روض الجواء"
+    },
+    {
+        "id": 1497,
+        "city_en": "Ghaf Al Jawa",
+        "city_ar": "غاف الجواء"
+    },
+    {
+        "id": 1498,
+        "city_en": "Al Qaraa",
+        "city_ar": "القرعاء"
+    },
+    {
+        "id": 1499,
+        "city_en": "Ar Rubayiyah",
+        "city_ar": "الربيعية"
+    },
+    {
+        "id": 1500,
+        "city_en": "Al Nabqiyyah",
+        "city_ar": "النبقية"
+    },
+    {
+        "id": 1501,
+        "city_en": "Albandariyah",
+        "city_ar": "البندرية"
+    },
+    {
+        "id": 1502,
+        "city_en": "Qasr aleabdallah",
+        "city_ar": "قصر العبدالله"
+    },
+    {
+        "id": 1503,
+        "city_en": "Tarif Alasyah",
+        "city_ar": "طريف الاسياح"
+    },
+    {
+        "id": 1504,
+        "city_en": "Al Brood",
+        "city_ar": "البرود"
+    },
+    {
+        "id": 1505,
+        "city_en": "Hunaydhl",
+        "city_ar": "حنيظل"
+    },
+    {
+        "id": 1506,
+        "city_en": "Al Siq",
+        "city_ar": "السيق"
+    },
+    {
+        "id": 1507,
+        "city_en": "MARAT",
+        "city_ar": "مرات"
+    },
+    {
+        "id": 1508,
+        "city_en": "Al shabain",
+        "city_ar": "الشعبين"
+    },
+    {
+        "id": 1509,
+        "city_en": "ِAl jarf",
+        "city_ar": "الجرف"
+    },
+    {
+        "id": 1510,
+        "city_en": "Bahr Abu Sukaynah",
+        "city_ar": "بحر أبو سكينة"
+    },
+    {
+        "id": 1511,
+        "city_en": "Al Sarhan",
+        "city_ar": "ال سرحان"
+    },
+    {
+        "id": 1512,
+        "city_en": "Al faraaien",
+        "city_ar": "الفرعين"
+    },
+    {
+        "id": 1513,
+        "city_en": "Abu alqaaid",
+        "city_ar": "ابو القعايد"
+    },
+    {
+        "id": 1514,
+        "city_en": "Abu Alsela",
+        "city_ar": "أبو السلع"
+    },
+    {
+        "id": 1515,
+        "city_en": "Aal Ateef",
+        "city_ar": "ال عطيف"
+    },
+    {
+        "id": 1516,
+        "city_en": "Ababh",
+        "city_ar": "عببه"
+    },
+    {
+        "id": 1517,
+        "city_en": "Ahl Sufran",
+        "city_ar": "وادي محلاة"
+    },
+    {
+        "id": 1518,
+        "city_en": "Alqararah",
+        "city_ar": "القرارة"
+    },
+    {
+        "id": 1519,
+        "city_en": "Ajama",
+        "city_ar": "الجماء"
+    },
+    {
+        "id": 1520,
+        "city_en": "Al at Tafilah",
+        "city_ar": "تفله "
+    },
+    {
+        "id": 1521,
+        "city_en": "Abla Alyemna",
+        "city_ar": "عبلة اليمنى"
+    },
+    {
+        "id": 1522,
+        "city_en": "Abla Matraba",
+        "city_ar": "عبلة المتربة"
+    },
+    {
+        "id": 1523,
+        "city_en": "Abo Maraj",
+        "city_ar": "قريه أبو العرج بعبس"
+    },
+    {
+        "id": 1524,
+        "city_en": "Abu Addarbh",
+        "city_ar": "أبو الضربة"
+    },
+    {
+        "id": 1525,
+        "city_en": "Abu At Tuyur",
+        "city_ar": "ابو الطيور"
+    },
+    {
+        "id": 1526,
+        "city_en": "Abu Hajar",
+        "city_ar": "ابو حجر"
+    },
+    {
+        "id": 1527,
+        "city_en": "Abu mdh",
+        "city_ar": "ابو مدة"
+    },
+    {
+        "id": 1528,
+        "city_en": "Abwa",
+        "city_ar": "الابواء"
+    },
+    {
+        "id": 1529,
+        "city_en": "Ad Dahinah",
+        "city_ar": "الداهنة"
+    },
+    {
+        "id": 1530,
+        "city_en": "Ad Dahis",
+        "city_ar": "ال الداحس"
+    },
+    {
+        "id": 1531,
+        "city_en": "Ad Dakhilah",
+        "city_ar": "الداخلة"
+    },
+    {
+        "id": 1532,
+        "city_en": "Ad Digayik",
+        "city_ar": "حلباء"
+    },
+    {
+        "id": 1533,
+        "city_en": "Aglat Iben Jabreen",
+        "city_ar": "عقلة ابن جبرين"
+    },
+    {
+        "id": 1534,
+        "city_en": "Ahad Al Musarihah",
+        "city_ar": "احد المسارحة"
+    },
+    {
+        "id": 1535,
+        "city_en": "Alaboog",
+        "city_ar": "العبوج"
+    },
+    {
+        "id": 1536,
+        "city_en": "Alain Alhara",
+        "city_ar": "العين الحارة"
+    },
+    {
+        "id": 1537,
+        "city_en": "Alaliya",
+        "city_ar": "العالية"
+    },
+    {
+        "id": 1538,
+        "city_en": "Alarjain",
+        "city_ar": "العرجين"
+    },
+    {
+        "id": 1539,
+        "city_en": "Alarooj",
+        "city_ar": "العروج"
+    },
+    {
+        "id": 1540,
+        "city_en": "Alartawiyah",
+        "city_ar": "الارطاوية"
+    },
+    {
+        "id": 1541,
+        "city_en": "Alasamlah",
+        "city_ar": "الأساملة"
+    },
+    {
+        "id": 1542,
+        "city_en": "Alaseelh",
+        "city_ar": "العسيلة"
+    },
+    {
+        "id": 1543,
+        "city_en": "Alashah",
+        "city_ar": "العشة"
+    },
+    {
+        "id": 1544,
+        "city_en": "Alatawi",
+        "city_ar": "العطاوي"
+    },
+    {
+        "id": 1545,
+        "city_en": "Alaziziyah",
+        "city_ar": "العزيزية"
+    },
+    {
+        "id": 1546,
+        "city_en": "Albadawi",
+        "city_ar": "البدوي"
+    },
+    {
+        "id": 1547,
+        "city_en": "Albadia",
+        "city_ar": "البادية"
+    },
+    {
+        "id": 1548,
+        "city_en": "Albahir",
+        "city_ar": "الباحر "
+    },
+    {
+        "id": 1549,
+        "city_en": "Albardiyah",
+        "city_ar": "البردياح"
+    },
+    {
+        "id": 1550,
+        "city_en": "Albasiri",
+        "city_ar": "البصري"
+    },
+    {
+        "id": 1551,
+        "city_en": "Albatna",
+        "city_ar": "البطنة"
+    },
+    {
+        "id": 1552,
+        "city_en": "Albkhtah South",
+        "city_ar": "البختة الجنوبية "
+    },
+    {
+        "id": 1553,
+        "city_en": "Albouq",
+        "city_ar": "البوق"
+    },
+    {
+        "id": 1554,
+        "city_en": "Aldagharir",
+        "city_ar": "الدغارير"
+    },
+    {
+        "id": 1555,
+        "city_en": "Aldahrah",
+        "city_ar": "الظاهرة"
+    },
+    {
+        "id": 1556,
+        "city_en": "Alduraeah",
+        "city_ar": "الدريعية"
+    },
+    {
+        "id": 1557,
+        "city_en": "AlfAlfaijah",
+        "city_ar": "الفائجة"
+    },
+    {
+        "id": 1558,
+        "city_en": "Alfara",
+        "city_ar": "الفرعاء"
+    },
+    {
+        "id": 1559,
+        "city_en": "alfaraa Belgamsh",
+        "city_ar": "الفرعة"
+    },
+    {
+        "id": 1560,
+        "city_en": "Alfarhaniyah",
+        "city_ar": "الفرحانية"
+    },
+    {
+        "id": 1561,
+        "city_en": "Alfawaleqah",
+        "city_ar": "الفوالقة"
+    },
+    {
+        "id": 1562,
+        "city_en": "Alfaysaliya",
+        "city_ar": "الفيصلية"
+    },
+    {
+        "id": 1563,
+        "city_en": "Alfoqaha",
+        "city_ar": "الفقهاء"
+    },
+    {
+        "id": 1564,
+        "city_en": "Algamri",
+        "city_ar": "القمري"
+    },
+    {
+        "id": 1565,
+        "city_en": "Algaraa",
+        "city_ar": "روضة سمحان"
+    },
+    {
+        "id": 1566,
+        "city_en": "Algharib",
+        "city_ar": "الغريب"
+    },
+    {
+        "id": 1567,
+        "city_en": "Algofol",
+        "city_ar": "القفل"
+    },
+    {
+        "id": 1568,
+        "city_en": "Alhadan",
+        "city_ar": "الحَضَن"
+    },
+    {
+        "id": 1569,
+        "city_en": "Alhaditha",
+        "city_ar": "الحديثة"
+    },
+    {
+        "id": 1570,
+        "city_en": "Alhadror",
+        "city_ar": "الحضرور"
+    },
+    {
+        "id": 1571,
+        "city_en": "Alhafirah",
+        "city_ar": "الحفیره"
+    },
+    {
+        "id": 1572,
+        "city_en": "Alhair",
+        "city_ar": "الحائر"
+    },
+    {
+        "id": 1573,
+        "city_en": "Alhajara",
+        "city_ar": "الهجر"
+    },
+    {
+        "id": 1574,
+        "city_en": "Alhashr",
+        "city_ar": "الحشر"
+    },
+    {
+        "id": 1575,
+        "city_en": "Alhawt",
+        "city_ar": "الحوت"
+    },
+    {
+        "id": 1576,
+        "city_en": "Alhijfar",
+        "city_ar": "الحجفار"
+    },
+    {
+        "id": 1577,
+        "city_en": "Alhumayra",
+        "city_ar": "الحميرة"
+    },
+    {
+        "id": 1578,
+        "city_en": "Alhusayni",
+        "city_ar": "الحسيني"
+    },
+    {
+        "id": 1579,
+        "city_en": "Alhuwaydi",
+        "city_ar": "الهويدي"
+    },
+    {
+        "id": 1580,
+        "city_en": "Aljahow",
+        "city_ar": "الجهو"
+    },
+    {
+        "id": 1581,
+        "city_en": "Aljarad",
+        "city_ar": "الجرد"
+    },
+    {
+        "id": 1582,
+        "city_en": "Aljashiah East",
+        "city_ar": "الجيشية"
+    },
+    {
+        "id": 1583,
+        "city_en": "Aljoroof",
+        "city_ar": "الجروف"
+    },
+    {
+        "id": 1584,
+        "city_en": "Alkanabish",
+        "city_ar": "الكنابيش"
+    },
+    {
+        "id": 1585,
+        "city_en": "Alkasib",
+        "city_ar": "الكاسب"
+    },
+    {
+        "id": 1586,
+        "city_en": "Alkhabbah",
+        "city_ar": "الخبة"
+    },
+    {
+        "id": 1587,
+        "city_en": "Alkhadhra",
+        "city_ar": "الخضراء"
+    },
+    {
+        "id": 1588,
+        "city_en": "Alkhaldiyah",
+        "city_ar": "الخالدية"
+    },
+    {
+        "id": 1589,
+        "city_en": "Alkhelfh",
+        "city_ar": "الخلفة"
+    },
+    {
+        "id": 1590,
+        "city_en": "Alkhoms",
+        "city_ar": "الخمس"
+    },
+    {
+        "id": 1591,
+        "city_en": "Alkhutamah",
+        "city_ar": "الخطامة"
+    },
+    {
+        "id": 1592,
+        "city_en": "Allaqiya",
+        "city_ar": "اللقية"
+    },
+    {
+        "id": 1593,
+        "city_en": "Almaaqas",
+        "city_ar": "المعقص"
+    },
+    {
+        "id": 1594,
+        "city_en": "Almabda",
+        "city_ar": "المبادع"
+    },
+    {
+        "id": 1595,
+        "city_en": "Almadaya",
+        "city_ar": "المضايا"
+    },
+    {
+        "id": 1596,
+        "city_en": "Almahalani",
+        "city_ar": "المحلاني"
+    },
+    {
+        "id": 1597,
+        "city_en": "Almahash",
+        "city_ar": "المهاش"
+    },
+    {
+        "id": 1598,
+        "city_en": "Almansoria",
+        "city_ar": "المنصورية"
+    },
+    {
+        "id": 1599,
+        "city_en": "Almarkh",
+        "city_ar": "المرخ"
+    },
+    {
+        "id": 1600,
+        "city_en": "Almarkuz",
+        "city_ar": "المركوز"
+    },
+    {
+        "id": 1601,
+        "city_en": "Almarrekheiah",
+        "city_ar": "المريخية"
+    },
+    {
+        "id": 1602,
+        "city_en": "Almatan",
+        "city_ar": "المطعن"
+    },
+    {
+        "id": 1603,
+        "city_en": "Almawshit North",
+        "city_ar": "الموشت الشمالية"
+    },
+    {
+        "id": 1604,
+        "city_en": "Almawshit South",
+        "city_ar": "الموشت الجنوبية"
+    },
+    {
+        "id": 1605,
+        "city_en": "Almehalhala",
+        "city_ar": "المحلحلة"
+    },
+    {
+        "id": 1606,
+        "city_en": "Almehtash",
+        "city_ar": "المهتش"
+    },
+    {
+        "id": 1607,
+        "city_en": "Almejammah",
+        "city_ar": "المجامة"
+    },
+    {
+        "id": 1608,
+        "city_en": "Almejannah",
+        "city_ar": "المجنة"
+    },
+    {
+        "id": 1609,
+        "city_en": "Almekhashaleia",
+        "city_ar": "المخشلية"
+    },
+    {
+        "id": 1610,
+        "city_en": "Almeqarqam",
+        "city_ar": "المقرقم"
+    },
+    {
+        "id": 1611,
+        "city_en": "Almesaidah",
+        "city_ar": "المصايدة"
+    },
+    {
+        "id": 1612,
+        "city_en": "Alminjarh",
+        "city_ar": "المنجارة"
+    },
+    {
+        "id": 1613,
+        "city_en": "Almish ab",
+        "city_ar": "المش أب"
+    },
+    {
+        "id": 1614,
+        "city_en": "Almishillasah",
+        "city_ar": "مشلحة"
+    },
+    {
+        "id": 1615,
+        "city_en": "Almleda",
+        "city_ar": "المليداء"
+    },
+    {
+        "id": 1616,
+        "city_en": "Almogali",
+        "city_ar": "المقالي"
+    },
+    {
+        "id": 1617,
+        "city_en": "Almohamadiya",
+        "city_ar": "المحمدية"
+    },
+    {
+        "id": 1618,
+        "city_en": "Almokambal",
+        "city_ar": "المكمبل"
+    },
+    {
+        "id": 1619,
+        "city_en": "Almshash",
+        "city_ar": "المشاش"
+    },
+    {
+        "id": 1620,
+        "city_en": "Almuayqilat",
+        "city_ar": "المعيقلات"
+    },
+    {
+        "id": 1621,
+        "city_en": "Almulaylih",
+        "city_ar": "المليليح"
+    },
+    {
+        "id": 1622,
+        "city_en": "Almuthab",
+        "city_ar": "قرية مثاب"
+    },
+    {
+        "id": 1623,
+        "city_en": "Almutrrifiyah",
+        "city_ar": "المطرفية "
+    },
+    {
+        "id": 1624,
+        "city_en": "Almwassam",
+        "city_ar": "الموسم"
+    },
+    {
+        "id": 1625,
+        "city_en": "Alnafei North",
+        "city_ar": "النافعي الشمالية"
+    },
+    {
+        "id": 1626,
+        "city_en": "Alnafei South",
+        "city_ar": "النافعي الجنوبية"
+    },
+    {
+        "id": 1627,
+        "city_en": "Alnajameiah",
+        "city_ar": "النجامية"
+    },
+    {
+        "id": 1628,
+        "city_en": "Alnesaya",
+        "city_ar": "النيصية"
+    },
+    {
+        "id": 1629,
+        "city_en": "Alnoaimat",
+        "city_ar": "النعيمات"
+    },
+    {
+        "id": 1630,
+        "city_en": "Alqa",
+        "city_ar": "القع"
+    },
+    {
+        "id": 1631,
+        "city_en": "Alqadab",
+        "city_ar": "القضب"
+    },
+    {
+        "id": 1632,
+        "city_en": "Alqaid",
+        "city_ar": "القاعد"
+    },
+    {
+        "id": 1633,
+        "city_en": "Alqarafi",
+        "city_ar": "البديع والقرفي"
+    },
+    {
+        "id": 1634,
+        "city_en": "Alramhiya",
+        "city_ar": "الرمضة"
+    },
+    {
+        "id": 1635,
+        "city_en": "Alrawna",
+        "city_ar": "الرونه"
+    },
+    {
+        "id": 1636,
+        "city_en": "Alrayyan",
+        "city_ar": "الريان"
+    },
+    {
+        "id": 1637,
+        "city_en": "Alreem Race track",
+        "city_ar": "حلبة الريم الدولية"
+    },
+    {
+        "id": 1638,
+        "city_en": "Alrweas",
+        "city_ar": "الرويس"
+    },
+    {
+        "id": 1639,
+        "city_en": "Alsadliyah",
+        "city_ar": "السادلية"
+    },
+    {
+        "id": 1640,
+        "city_en": "Alsalama & Alfareeq",
+        "city_ar": "مخطط الفريق والسلامة"
+    },
+    {
+        "id": 1641,
+        "city_en": "Alsawadi",
+        "city_ar": "السودي"
+    },
+    {
+        "id": 1642,
+        "city_en": "Alsefah",
+        "city_ar": "الصفة"
+    },
+    {
+        "id": 1643,
+        "city_en": "Alsehi",
+        "city_ar": "السهي"
+    },
+    {
+        "id": 1644,
+        "city_en": "Alshaafoleiah",
+        "city_ar": "الشعفولية"
+    },
+    {
+        "id": 1645,
+        "city_en": "alshamiah",
+        "city_ar": "الشامية"
+    },
+    {
+        "id": 1646,
+        "city_en": "Alsharaf",
+        "city_ar": "الشرف"
+    },
+    {
+        "id": 1647,
+        "city_en": "Alsharia",
+        "city_ar": "الشريعة"
+    },
+    {
+        "id": 1648,
+        "city_en": "Alshebaikah",
+        "city_ar": "الشبيكه"
+    },
+    {
+        "id": 1649,
+        "city_en": "Alshifa North",
+        "city_ar": "الشفا الشمالية"
+    },
+    {
+        "id": 1650,
+        "city_en": "Alshifa South",
+        "city_ar": "الشفا الجنوبية"
+    },
+    {
+        "id": 1651,
+        "city_en": "Alsibaihiya",
+        "city_ar": "الصبيحية"
+    },
+    {
+        "id": 1652,
+        "city_en": "Alsoudah",
+        "city_ar": "السودة"
+    },
+    {
+        "id": 1653,
+        "city_en": "Alsourah",
+        "city_ar": "الصورة"
+    },
+    {
+        "id": 1654,
+        "city_en": "Altuwal",
+        "city_ar": "الطوال"
+    },
+    {
+        "id": 1655,
+        "city_en": "Alulya",
+        "city_ar": "العليا"
+    },
+    {
+        "id": 1656,
+        "city_en": "Alushayr",
+        "city_ar": "قرية آل سعد الحتار"
+    },
+    {
+        "id": 1657,
+        "city_en": "Aluwayqilah",
+        "city_ar": "العويقيلية"
+    },
+    {
+        "id": 1658,
+        "city_en": "Alwahabah",
+        "city_ar": "الوهابة"
+    },
+    {
+        "id": 1659,
+        "city_en": "Alwahmah",
+        "city_ar": "قرية آل رحمة"
+    },
+    {
+        "id": 1660,
+        "city_en": "Alwaseah",
+        "city_ar": "الوسعه"
+    },
+    {
+        "id": 1661,
+        "city_en": "Alwasit",
+        "city_ar": "الواسط"
+    },
+    {
+        "id": 1662,
+        "city_en": "Alwasli",
+        "city_ar": "الواصلي"
+    },
+    {
+        "id": 1663,
+        "city_en": "Alweted",
+        "city_ar": "الوتد"
+    },
+    {
+        "id": 1664,
+        "city_en": "Alwuday",
+        "city_ar": "الودي"
+    },
+    {
+        "id": 1665,
+        "city_en": "Alzabedah",
+        "city_ar": "الزبيدة"
+    },
+    {
+        "id": 1666,
+        "city_en": "Amaaria",
+        "city_ar": "العمارية"
+    },
+    {
+        "id": 1667,
+        "city_en": "An Nibaj",
+        "city_ar": "النباج"
+    },
+    {
+        "id": 1668,
+        "city_en": "Anqa",
+        "city_ar": "عنقة"
+    },
+    {
+        "id": 1669,
+        "city_en": "Antutah",
+        "city_ar": "عنطوطة"
+    },
+    {
+        "id": 1670,
+        "city_en": "Aom Alturab",
+        "city_ar": "أم التراب"
+    },
+    {
+        "id": 1671,
+        "city_en": "Aqim",
+        "city_ar": "عقيم"
+    },
+    {
+        "id": 1672,
+        "city_en": "Arabwah",
+        "city_ar": "الربوة"
+    },
+    {
+        "id": 1673,
+        "city_en": "Areesh",
+        "city_ar": "العريش"
+    },
+    {
+        "id": 1674,
+        "city_en": "Aridah",
+        "city_ar": "عردة"
+    },
+    {
+        "id": 1675,
+        "city_en": "Arrzha",
+        "city_ar": "الرزح"
+    },
+    {
+        "id": 1676,
+        "city_en": "As Sadayir",
+        "city_ar": "السدارة"
+    },
+    {
+        "id": 1677,
+        "city_en": "As Sahwah",
+        "city_ar": "الصهوة"
+    },
+    {
+        "id": 1678,
+        "city_en": "As Sufay",
+        "city_ar": "صفي"
+    },
+    {
+        "id": 1679,
+        "city_en": "As Sufurrat",
+        "city_ar": "الصفرات"
+    },
+    {
+        "id": 1680,
+        "city_en": "As Sulubiyah",
+        "city_ar": "الصلبية"
+    },
+    {
+        "id": 1681,
+        "city_en": "As Sunayna",
+        "city_ar": "الصنيناء"
+    },
+    {
+        "id": 1682,
+        "city_en": "Ash Sha'laniyah",
+        "city_ar": "الشعلانية"
+    },
+    {
+        "id": 1683,
+        "city_en": "At Tahiriyah",
+        "city_ar": "الطاهرية"
+    },
+    {
+        "id": 1684,
+        "city_en": "Badai Idyan",
+        "city_ar": "بدائع العضيان 17256"
+    },
+    {
+        "id": 1685,
+        "city_en": "Bahrh",
+        "city_ar": "بحرة"
+    },
+    {
+        "id": 1686,
+        "city_en": "Bani Esa North",
+        "city_ar": "بني عيسى"
+    },
+    {
+        "id": 1687,
+        "city_en": "Beach Alogair",
+        "city_ar": "شاطئ العقير "
+    },
+    {
+        "id": 1688,
+        "city_en": "Bilad Mashwal",
+        "city_ar": "ال مشول "
+    },
+    {
+        "id": 1689,
+        "city_en": "Bir Ad Dibba East",
+        "city_ar": "بير الدبا"
+    },
+    {
+        "id": 1690,
+        "city_en": "Bir Almashi",
+        "city_ar": "ابيار الماشي"
+    },
+    {
+        "id": 1691,
+        "city_en": "Birlijah",
+        "city_ar": "لجعة"
+    },
+    {
+        "id": 1692,
+        "city_en": "Buwatah",
+        "city_ar": "بواتة"
+    },
+    {
+        "id": 1693,
+        "city_en": "Dibaa Port",
+        "city_ar": "ميناء ضبا"
+    },
+    {
+        "id": 1694,
+        "city_en": "Duqm",
+        "city_ar": "الدقم"
+    },
+    {
+        "id": 1695,
+        "city_en": "Esialh",
+        "city_ar": "عسيلة"
+    },
+    {
+        "id": 1696,
+        "city_en": "Faya",
+        "city_ar": "الفية"
+    },
+    {
+        "id": 1697,
+        "city_en": "Fayda Ibn Siwailim",
+        "city_ar": "فيضة ابن سويلم"
+    },
+    {
+        "id": 1698,
+        "city_en": "Fayda Salam",
+        "city_ar": "فيضة سلام"
+    },
+    {
+        "id": 1699,
+        "city_en": "Ghamr Wadi beesh",
+        "city_ar": "سد وادي بيش"
+    },
+    {
+        "id": 1700,
+        "city_en": "Ghilanah",
+        "city_ar": "غيلانة"
+    },
+    {
+        "id": 1701,
+        "city_en": "Guntan",
+        "city_ar": "قنطان"
+    },
+    {
+        "id": 1702,
+        "city_en": "Hadabah",
+        "city_ar": "هدبة"
+    },
+    {
+        "id": 1703,
+        "city_en": "Hajambar",
+        "city_ar": "الهجنبة"
+    },
+    {
+        "id": 1704,
+        "city_en": "Hajrufah",
+        "city_ar": "حجرفة"
+    },
+    {
+        "id": 1705,
+        "city_en": "Hakimat Abu Arish",
+        "city_ar": "حاكمة أبو عريش"
+    },
+    {
+        "id": 1706,
+        "city_en": "Harshaf",
+        "city_ar": "الحرشف"
+    },
+    {
+        "id": 1707,
+        "city_en": "Hayjah Muraqqah",
+        "city_ar": "هيجة مرقة"
+    },
+    {
+        "id": 1708,
+        "city_en": "Ibn Suayyid",
+        "city_ar": "ابن سعيد"
+    },
+    {
+        "id": 1709,
+        "city_en": "Industrial Area Abu Arish",
+        "city_ar": "المنطقة الصناعية أبو عريش"
+    },
+    {
+        "id": 1710,
+        "city_en": "Jaww",
+        "city_ar": "جو"
+    },
+    {
+        "id": 1711,
+        "city_en": "Jazan Alolya",
+        "city_ar": "جازان العليا "
+    },
+    {
+        "id": 1712,
+        "city_en": "Jeham",
+        "city_ar": "جهام"
+    },
+    {
+        "id": 1713,
+        "city_en": "Jidanah",
+        "city_ar": "قذانة"
+    },
+    {
+        "id": 1714,
+        "city_en": "Joribah",
+        "city_ar": "جريبة الشقيري"
+    },
+    {
+        "id": 1715,
+        "city_en": "Juwai",
+        "city_ar": "جوي"
+    },
+    {
+        "id": 1716,
+        "city_en": "kabshan",
+        "city_ar": "كبشان"
+    },
+    {
+        "id": 1717,
+        "city_en": "kadara",
+        "city_ar": "الكدرة"
+    },
+    {
+        "id": 1718,
+        "city_en": "Kalul",
+        "city_ar": "كعلول"
+    },
+    {
+        "id": 1719,
+        "city_en": "Khabt Saeed",
+        "city_ar": "خبت سعيد"
+    },
+    {
+        "id": 1720,
+        "city_en": "kers Ayash",
+        "city_ar": "كرس عياش"
+    },
+    {
+        "id": 1721,
+        "city_en": "Khaitan valley dam",
+        "city_ar": "سد وادي خيطان"
+    },
+    {
+        "id": 1722,
+        "city_en": "khathirah",
+        "city_ar": "خضيرة"
+    },
+    {
+        "id": 1723,
+        "city_en": "Khatwat Alain",
+        "city_ar": "خطوة العين"
+    },
+    {
+        "id": 1724,
+        "city_en": "Khef Khozami",
+        "city_ar": "خيف الحزامي"
+    },
+    {
+        "id": 1725,
+        "city_en": "Khojarah",
+        "city_ar": "الخوجرة"
+    },
+    {
+        "id": 1726,
+        "city_en": "Khudair",
+        "city_ar": "خضير"
+    },
+    {
+        "id": 1727,
+        "city_en": "Khudayrat Ayash",
+        "city_ar": "خضيرة عياش"
+    },
+    {
+        "id": 1728,
+        "city_en": "Ljzala",
+        "city_ar": "اجزالا"
+    },
+    {
+        "id": 1729,
+        "city_en": "Khumayah",
+        "city_ar": "خميعة"
+    },
+    {
+        "id": 1730,
+        "city_en": "Mansiyah",
+        "city_ar": "منسية"
+    },
+    {
+        "id": 1731,
+        "city_en": "Malgocta",
+        "city_ar": "ملقوطة"
+    },
+    {
+        "id": 1732,
+        "city_en": "Masfag",
+        "city_ar": "المصفق"
+    },
+    {
+        "id": 1733,
+        "city_en": "Masliyah",
+        "city_ar": "مسلية"
+    },
+    {
+        "id": 1734,
+        "city_en": "Mishash as Suhul",
+        "city_ar": "مشاش السهول"
+    },
+    {
+        "id": 1735,
+        "city_en": "Mizail",
+        "city_ar": "مزعل "
+    },
+    {
+        "id": 1736,
+        "city_en": "Mizhirah",
+        "city_ar": "مزهرة"
+    },
+    {
+        "id": 1737,
+        "city_en": "Musabis",
+        "city_ar": "المصبح"
+    },
+    {
+        "id": 1738,
+        "city_en": "Munifat Alqaid",
+        "city_ar": "اللغفية"
+    },
+    {
+        "id": 1739,
+        "city_en": "Musaykah",
+        "city_ar": "مسيكة"
+    },
+    {
+        "id": 1740,
+        "city_en": "Ogla Ibn Dani",
+        "city_ar": "عقلة إبن داني"
+    },
+    {
+        "id": 1741,
+        "city_en": "Nakhel Hanakiah",
+        "city_ar": "النخيل الحناكية"
+    },
+    {
+        "id": 1742,
+        "city_en": "Qazalah",
+        "city_ar": "غزالة"
+    },
+    {
+        "id": 1743,
+        "city_en": "Qurayyah Combined Cycle Power Plant",
+        "city_ar": "محطة القرية"
+    },
+    {
+        "id": 1744,
+        "city_en": "Radis Alasfal",
+        "city_ar": "رديس الأسفل "
+    },
+    {
+        "id": 1745,
+        "city_en": "Radis Alaly",
+        "city_ar": "رديس الأعلى"
+    },
+    {
+        "id": 1746,
+        "city_en": "Ramlan",
+        "city_ar": "رملان"
+    },
+    {
+        "id": 1747,
+        "city_en": "Remah",
+        "city_ar": "رماح"
+    },
+    {
+        "id": 1748,
+        "city_en": "Salamh Aldarraj",
+        "city_ar": "سلامة الدراج"
+    },
+    {
+        "id": 1749,
+        "city_en": "Sadus",
+        "city_ar": "سدوس"
+    },
+    {
+        "id": 1750,
+        "city_en": "Seddeqah",
+        "city_ar": "صديقة"
+    },
+    {
+        "id": 1751,
+        "city_en": "Samoda",
+        "city_ar": "سامودة"
+    },
+    {
+        "id": 1752,
+        "city_en": "Shaab Altheeb",
+        "city_ar": "شعب الذيب"
+    },
+    {
+        "id": 1753,
+        "city_en": "Sharma North",
+        "city_ar": "شرما الشمالية"
+    },
+    {
+        "id": 1754,
+        "city_en": "Sharma South",
+        "city_ar": "شرما الجنوبية"
+    },
+    {
+        "id": 1755,
+        "city_en": "Shifa",
+        "city_ar": "الشفا"
+    },
+    {
+        "id": 1756,
+        "city_en": "shatifiyah",
+        "city_ar": "الشطيفية"
+    },
+    {
+        "id": 1757,
+        "city_en": "Shnan",
+        "city_ar": "شنان"
+    },
+    {
+        "id": 1758,
+        "city_en": "Shuaiha",
+        "city_ar": "شويهة"
+    },
+    {
+        "id": 1759,
+        "city_en": "Shuqayri",
+        "city_ar": "الشقيري"
+    },
+    {
+        "id": 1760,
+        "city_en": "Siabh",
+        "city_ar": "صيابة"
+    },
+    {
+        "id": 1761,
+        "city_en": "Suq Alsabt",
+        "city_ar": "سوق السبت"
+    },
+    {
+        "id": 1762,
+        "city_en": "Souq Allail",
+        "city_ar": "سوق الليل"
+    },
+    {
+        "id": 1763,
+        "city_en": "Sirdah",
+        "city_ar": "السرداح"
+    },
+    {
+        "id": 1764,
+        "city_en": "Swanah",
+        "city_ar": "صوانة"
+    },
+    {
+        "id": 1765,
+        "city_en": "Tahnomah",
+        "city_ar": "تنومة‎"
+    },
+    {
+        "id": 1766,
+        "city_en": "Turfiyah Alghabiyah",
+        "city_ar": "الطرفية الغربية "
+    },
+    {
+        "id": 1767,
+        "city_en": "Um As Salam",
+        "city_ar": "أم السلام"
+    },
+    {
+        "id": 1768,
+        "city_en": "Um Kedad",
+        "city_ar": "أم كداد"
+    },
+    {
+        "id": 1769,
+        "city_en": "Um Oshar",
+        "city_ar": "أم عشر "
+    },
+    {
+        "id": 1770,
+        "city_en": "Umm Kharaq",
+        "city_ar": "آل حبيب"
+    },
+    {
+        "id": 1771,
+        "city_en": "Uthaithiah",
+        "city_ar": "أثيثية"
+    },
+    {
+        "id": 1772,
+        "city_en": "Uqair",
+        "city_ar": "ميناء العقير"
+    },
+    {
+        "id": 1773,
+        "city_en": "Yabbu Alnakhal",
+        "city_ar": "ينبع النخل"
+    },
+    {
+        "id": 1774,
+        "city_en": "Wajh",
+        "city_ar": "الوجه"
+    },
+    {
+        "id": 1775,
+        "city_en": "Wadi Marabah",
+        "city_ar": "وادي مربة"
+    },
+    {
+        "id": 1776,
+        "city_en": "Wadi Jazan",
+        "city_ar": "وادي جازان"
+    },
+    {
+        "id": 1777,
+        "city_en": "Zahbain",
+        "city_ar": "الذهبين"
+    },
+    {
+        "id": 1778,
+        "city_en": "Zibala",
+        "city_ar": "زبالا"
+    },
+    {
+        "id": 1779,
+        "city_en": "Zarghat South",
+        "city_ar": "ضرغط"
+    },
+    {
+        "id": 1780,
+        "city_en": "Zamzam",
+        "city_ar": "زمزم"
+    },
+    {
+        "id": 1781,
+        "city_en": "Rawdat Al Hisu",
+        "city_ar": "روضة الحسو"
+    },
+    {
+        "id": 1782,
+        "city_en": "Thumair",
+        "city_ar": "ثمير"
+    },
+    {
+        "id": 1783,
+        "city_en": "Al Qirawan",
+        "city_ar": "القيروان "
+    },
+    {
+        "id": 1784,
+        "city_en": "Julayjilah",
+        "city_ar": "جليجلة"
+    },
+    {
+        "id": 1785,
+        "city_en": "Hullatal Ahwass",
+        "city_ar": "حلة الأحوس"
+    },
+    {
+        "id": 1786,
+        "city_en": "Al Turshiah",
+        "city_ar": "الطرشية "
+    },
+    {
+        "id": 1787,
+        "city_en": "Mojour",
+        "city_ar": "قرية مجعر"
+    },
+    {
+        "id": 1788,
+        "city_en": "Al Marooj",
+        "city_ar": "المروج"
+    },
+    {
+        "id": 1789,
+        "city_en": "Almahalah",
+        "city_ar": "المحالة"
+    },
+    {
+        "id": 1790,
+        "city_en": "Al Mozvin",
+        "city_ar": "الموظفين"
+    },
+    {
+        "id": 1791,
+        "city_en": "Al Haeer",
+        "city_ar": "الحاير"
+    },
+    {
+        "id": 1792,
+        "city_en": "Husayniyah",
+        "city_ar": "الحسينية"
+    },
+    {
+        "id": 1793,
+        "city_en": "Al Mahfar",
+        "city_ar": "المحفر"
+    },
+    {
+        "id": 1794,
+        "city_en": "Al-Iṯnayn",
+        "city_ar": "الاثنين"
+    },
+    {
+        "id": 1795,
+        "city_en": "Abyar 'Ali",
+        "city_ar": "أبيار علي"
+    },
+    {
+        "id": 1796,
+        "city_en": "Umm Al Melh",
+        "city_ar": "أم الملح"
+    },
+    {
+        "id": 1797,
+        "city_en": "Thabhloten",
+        "city_ar": "ذعبلوتن"
+    },
+    {
+        "id": 1798,
+        "city_en": "Ash Shalfa",
+        "city_ar": "الشلفا"
+    },
+    {
+        "id": 1799,
+        "city_en": "Kouba",
+        "city_ar": "قبه"
+    },
+    {
+        "id": 1800,
+        "city_en": "Ayn Qahtan",
+        "city_ar": "عين قحطان"
+    },
+    {
+        "id": 1801,
+        "city_en": "Azfaa",
+        "city_ar": "عذفاء"
+    },
+    {
+        "id": 1802,
+        "city_en": "Umm As Sahik",
+        "city_ar": "أم الساهك"
+    },
+    {
+        "id": 1803,
+        "city_en": "Abanat",
+        "city_ar": "أبانات"
+    },
+    {
+        "id": 1804,
+        "city_en": "Al Juaima'h",
+        "city_ar": "الجعيمة"
+    },
+    {
+        "id": 1805,
+        "city_en": "Sahna",
+        "city_ar": "الصحنة"
+    },
+    {
+        "id": 1806,
+        "city_en": "Hesey",
+        "city_ar": "الحسي - ثادق"
+    },
+    {
+        "id": 1807,
+        "city_en": "Khasawyah",
+        "city_ar": "العشوة"
+    },
+    {
+        "id": 1808,
+        "city_en": "Aloweqaliya",
+        "city_ar": "العويقلية"
+    },
+    {
+        "id": 1809,
+        "city_en": "Karboos",
+        "city_ar": "الكربوس"
+    },
+    {
+        "id": 1810,
+        "city_en": "Al Halaliyah",
+        "city_ar": "الهلالية"
+    },
+    {
+        "id": 1811,
+        "city_en": "Nakeea",
+        "city_ar": "النقيع"
+    },
+    {
+        "id": 1812,
+        "city_en": "An Nuqrah",
+        "city_ar": "النقرة"
+    },
+    {
+        "id": 1813,
+        "city_en": "Al Wasayta",
+        "city_ar": "الوسيطاء"
+    },
+    {
+        "id": 1814,
+        "city_en": "Baqa Ash Sharqiyah",
+        "city_ar": "بقعاء الشرقية"
+    },
+    {
+        "id": 1815,
+        "city_en": "Tarut (Darin)",
+        "city_ar": "دارين"
+    },
+    {
+        "id": 1816,
+        "city_en": "Saqf",
+        "city_ar": "سقف"
+    },
+    {
+        "id": 1817,
+        "city_en": "Al Uraija",
+        "city_ar": "عريجاء"
+    },
+    {
+        "id": 1818,
+        "city_en": "Sadyan",
+        "city_ar": "صديان"
+    },
+    {
+        "id": 1819,
+        "city_en": "Shenanh",
+        "city_ar": "شينانة"
+    },
+    {
+        "id": 1820,
+        "city_en": "Snabs",
+        "city_ar": "سنابس"
+    },
+    {
+        "id": 1821,
+        "city_en": "Qufar",
+        "city_ar": "قفار"
+    },
+    {
+        "id": 1822,
+        "city_en": "Ar Rishawiyah",
+        "city_ar": "الرشاوية"
+    },
+    {
+        "id": 1823,
+        "city_en": "Na'am",
+        "city_ar": "نعام - الحريق"
+    },
+    {
+        "id": 1824,
+        "city_en": "Al Assim",
+        "city_ar": "قرى ال عاصم"
+    },
+    {
+        "id": 1825,
+        "city_en": "Sirr ad Ghalidh",
+        "city_ar": "قرى آل غليظ"
+    },
+    {
+        "id": 1826,
+        "city_en": "Edadh",
+        "city_ar": "عضاضة"
+    },
+    {
+        "id": 1827,
+        "city_en": "Al Runah",
+        "city_ar": "الرونة"
+    },
+    {
+        "id": 1828,
+        "city_en": "Al Masgi",
+        "city_ar": "المسقي"
+    },
+    {
+        "id": 1829,
+        "city_en": "Sunbah",
+        "city_ar": "صنبة"
+    },
+    {
+        "id": 1830,
+        "city_en": "Almajdirah",
+        "city_ar": "المجديرة"
+    },
+    {
+        "id": 1831,
+        "city_en": "Al Kadami",
+        "city_ar": "الكدمي"
+    },
+    {
+        "id": 1832,
+        "city_en": "Al-Mnsala",
+        "city_ar": "المنزالة"
+    },
+    {
+        "id": 1833,
+        "city_en": "Al Umrah Al Jadidah",
+        "city_ar": "العمرة الجديدة"
+    },
+    {
+        "id": 1834,
+        "city_en": "Al Ghuzlani",
+        "city_ar": "الغزلاني"
+    },
+    {
+        "id": 1835,
+        "city_en": "AlSewideiah",
+        "city_ar": "السويدية"
+    },
+    {
+        "id": 1836,
+        "city_en": "AlUzaym",
+        "city_ar": "العظيم"
+    },
+    {
+        "id": 1837,
+        "city_en": "AlWadeen",
+        "city_ar": "الواديين"
+    },
+    {
+        "id": 1838,
+        "city_en": "AlZabira",
+        "city_ar": "الزبيرة"
+    },
+    {
+        "id": 1839,
+        "city_en": "Alabadilah",
+        "city_ar": "العبادلة"
+    },
+    {
+        "id": 1840,
+        "city_en": "Aldhabyah",
+        "city_ar": "الظبية"
+    },
+    {
+        "id": 1841,
+        "city_en": "Albakhtah North",
+        "city_ar": "البختة الشمالية"
+    },
+    {
+        "id": 1842,
+        "city_en": "Aloqdah",
+        "city_ar": "العقدة"
+    },
+    {
+        "id": 1843,
+        "city_en": "Alsawarimah",
+        "city_ar": "الصوارمة"
+    },
+    {
+        "id": 1844,
+        "city_en": "Alwahlah",
+        "city_ar": "الوحلة"
+    },
+    {
+        "id": 1845,
+        "city_en": "An Nawwariyyah",
+        "city_ar": "النوارية"
+    },
+    {
+        "id": 1846,
+        "city_en": "Arab",
+        "city_ar": "عراب"
+    },
+    {
+        "id": 1847,
+        "city_en": "As Saban",
+        "city_ar": "السبعان"
+    },
+    {
+        "id": 1848,
+        "city_en": "As Shwimes",
+        "city_ar": "الشويمس"
+    },
+    {
+        "id": 1849,
+        "city_en": "Asuwayriqyah",
+        "city_ar": "السويرقيه"
+    },
+    {
+        "id": 1850,
+        "city_en": "As hShumaysi",
+        "city_ar": "الشميسي"
+    },
+    {
+        "id": 1851,
+        "city_en": "AthThamiriyah",
+        "city_ar": "الثامرية"
+    },
+    {
+        "id": 1852,
+        "city_en": "Badaa'I Alsadiah",
+        "city_ar": "بدائع الصداعية"
+    },
+    {
+        "id": 1853,
+        "city_en": "Baishal olia",
+        "city_ar": "بيش العليا"
+    },
+    {
+        "id": 1854,
+        "city_en": "Dayhamah",
+        "city_ar": "ديحمة"
+    },
+    {
+        "id": 1855,
+        "city_en": "Blhamr",
+        "city_ar": "بلحمر"
+    },
+    {
+        "id": 1856,
+        "city_en": "Ghezlanh",
+        "city_ar": "غزلانة"
+    },
+    {
+        "id": 1857,
+        "city_en": "Faydat Athqab",
+        "city_ar": "فيضة اثقب"
+    },
+    {
+        "id": 1858,
+        "city_en": "Hadda",
+        "city_ar": "حدة"
+    },
+    {
+        "id": 1859,
+        "city_en": "Haly",
+        "city_ar": "وادي حلي"
+    },
+    {
+        "id": 1860,
+        "city_en": "Hulayfa",
+        "city_ar": "الحليفه"
+    },
+    {
+        "id": 1861,
+        "city_en": "Juatha",
+        "city_ar": "جواثا"
+    },
+    {
+        "id": 1862,
+        "city_en": "Jazan Economic City",
+        "city_ar": "المدينة الاقتصادية"
+    },
+    {
+        "id": 1863,
+        "city_en": "Jamalah",
+        "city_ar": "الجمالة"
+    },
+    {
+        "id": 1864,
+        "city_en": "KingA bdullah EconomicCity",
+        "city_ar": "مدينة الملك عبد الله الاقتصادية"
+    },
+    {
+        "id": 1865,
+        "city_en": "Khawarah",
+        "city_ar": "الخواره"
+    },
+    {
+        "id": 1866,
+        "city_en": "Madrak",
+        "city_ar": "المدرك"
+    },
+    {
+        "id": 1867,
+        "city_en": "Malha",
+        "city_ar": "الملحاء"
+    },
+    {
+        "id": 1868,
+        "city_en": "NewAinDar",
+        "city_ar": "عين الدار الجديدة"
+    },
+    {
+        "id": 1869,
+        "city_en": "Naylat",
+        "city_ar": "نايلات"
+    },
+    {
+        "id": 1870,
+        "city_en": "Al Wajh",
+        "city_ar": "الوجه"
+    },
+    {
+        "id": 1871,
+        "city_en": "OldAinDar",
+        "city_ar": "عين الدار القديمة"
+    },
+    {
+        "id": 1872,
+        "city_en": "Ottoman fortress",
+        "city_ar": "قلعة عسفان العثمانية"
+    },
+    {
+        "id": 1873,
+        "city_en": "QaimAldash",
+        "city_ar": "قائم الدش"
+    },
+    {
+        "id": 1874,
+        "city_en": "Rahib",
+        "city_ar": "رحيب"
+    },
+    {
+        "id": 1875,
+        "city_en": "Ras AlKhair",
+        "city_ar": "رأس الخير"
+    },
+    {
+        "id": 1876,
+        "city_en": "RawdI bnHadi",
+        "city_ar": "روضة ابن هادي"
+    },
+    {
+        "id": 1877,
+        "city_en": "Sabt Alalayah",
+        "city_ar": "سبت العلايه"
+    },
+    {
+        "id": 1878,
+        "city_en": "Riaa Albekr",
+        "city_ar": "ريع البكر"
+    },
+    {
+        "id": 1879,
+        "city_en": "Tabah",
+        "city_ar": "طابة"
+    },
+    {
+        "id": 1880,
+        "city_en": "Su'aydan",
+        "city_ar": "سعيدان"
+    },
+    {
+        "id": 1881,
+        "city_en": "Takhayil",
+        "city_ar": "تخاييل"
+    },
+    {
+        "id": 1882,
+        "city_en": "UmSaad",
+        "city_ar": "أم سعد"
+    },
+    {
+        "id": 1883,
+        "city_en": "UqlatIbnTwalah",
+        "city_ar": "عقلة ابن طوالة"
+    },
+    {
+        "id": 1884,
+        "city_en": "Yanbu Al Bahr",
+        "city_ar": "ينبع البحر"
+    },
+    {
+        "id": 1887,
+        "city_en": "AlShinana",
+        "city_ar": "الشنانة"
+    },
+    {
+        "id": 1888,
+        "city_en": "Al Qurayn",
+        "city_ar": "القرين"
+    },
+    {
+        "id": 1889,
+        "city_en": "Al Jowf",
+        "city_ar": "الجوف"
+    }
+]

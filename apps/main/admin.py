@@ -10,6 +10,13 @@ from .models import *
 # admin.site.register(Feature)
 # admin.site.register(Review)
 
+
+@admin.register(MainCity)
+class MainCityAdmin(admin.ModelAdmin):
+    list_display = ['name_ar', 'name_en']
+    list_filter = ['name_ar', 'name_en']
+
+
 @admin.register(Visit)
 class VisitAdmin(admin.ModelAdmin):
     list_display = ['city', 'region', 'country']
@@ -54,12 +61,6 @@ class ReviewAdmin(admin.ModelAdmin):
     list_filter = ['username', 'template']
 
 
-@admin.register(FormsRecord)
-class FormsRecordAdmin(admin.ModelAdmin):
-    list_display = ['template', 'lead']
-    list_filter = ['lead', 'template']
-
-
 @admin.register(Lead)
 class LeadAdmin(admin.ModelAdmin):
     list_display = ['name', 'phone_number', 'city']
@@ -74,11 +75,11 @@ class TemplateProductAdmin(admin.ModelAdmin):
 
 @admin.register(City)
 class CityAdmin(admin.ModelAdmin):
-    list_display = ['app', 'name']
-    list_filter = ['app', 'name']
+    list_display = ['app', 'main_city']
+    list_filter = ['app', 'main_city']
 
 
 @admin.register(TemplateShare)
-class CityAdmin(admin.ModelAdmin):
+class TemplateShareAdmin(admin.ModelAdmin):
     list_display = ['phone_number', 'template', 'city']
     list_filter = []
