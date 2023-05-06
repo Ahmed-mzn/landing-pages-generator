@@ -59,7 +59,7 @@ const productsForm = {
         };
     },
     created(){
-      axios.defaults.baseURL = 'http://localhost:8000/api/v1'
+      axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1'
         window.setInterval(() => {
             this.setDuration();
         }, 1000)
@@ -238,7 +238,7 @@ const productsForm = {
         },
         leaving(){
             this.session.template = this.id
-            fetch('http://localhost:8000/api/v1/public/create_visit', {
+            fetch('https://landing.socialbot.dev/api/v1/public/create_visit', {
                 method: 'POST',
                 body: JSON.stringify(this.session),
                 credentials: "same-origin",
@@ -350,7 +350,7 @@ const productsForm = {
                   </div>
                   <div class="mb-2" style="position: relative;">
                       <input @keyup="checkPhoneNumberSize('form')" class="form-control py-3" maxlength="9" id="formPhone" type="number" pattern="[0-9]*" inputmode="numeric" v-model="form.phone_number" placeholder="5x xxx xxxx" style="background: #f2f2f2;border-style: none;padding-left: 83px;direction: ltr;">
-                      <div id="formPhoneFlag" class="d-flex align-items-center" style="position: absolute;top: 50%;transform: translateY(-50%);left: 20px;"><span>966&nbsp;&nbsp;</span><img src="http://localhost:8000/static/assets/img/saudi-arabia-flag-icon.png" style="width: 20px;"></div>
+                      <div id="formPhoneFlag" class="d-flex align-items-center" style="position: absolute;top: 50%;transform: translateY(-50%);left: 20px;"><span>966&nbsp;&nbsp;</span><img src="https://landing.socialbot.dev/static/assets/img/saudi-arabia-flag-icon.png" style="width: 20px;"></div>
                       <div id="formPhoneError" style="color: var(--bs-primary)" class="invalid-feedback"></div>
                   </div>
                   <div class="mb-2" style="position: relative;"><select v-model="form.city" class="form-select py-3" style="padding-right: 12px;padding-left: 34px;border-style: none;background: #f2f2f2;">
