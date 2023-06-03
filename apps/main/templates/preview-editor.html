@@ -4,11 +4,27 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta charset="UTF-8">
+    <meta name="description" content="{{ template.meta_description }}">
+    <meta name="keywords" content="{{ template.meta_keywords }}">
+    <meta property="og:description" content="{{ template.meta_description }}">
+    <meta property="og:image" content="{{ template.get_preview_image_url }}">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="436">
+    <meta property="og:image:height" content="228">
+    <link rel="icon" href="/media/{{ template.logo }}" type="image/x-icon">
     <link rel="stylesheet" href="{% static '/assets/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static '/assets/css/HelveticaNeueLT%20Arabic%2055%20Roman.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="{% static '/assets/fonts/fontawesome-all.min.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="{% static '/assets/fonts/fontawesome-all.min.css' %}" rel="stylesheet">
+{#    <link rel="stylesheet" href="{% static '/assets/fonts/fontawesome-all.min.css' %}" rel="stylesheet">#}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+
+    <!-- Moyasar Styles -->
+    <link rel="stylesheet" href="https://cdn.moyasar.com/mpf/1.7.3/moyasar.css">
+
+    <!-- Moyasar Scripts -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=fetch"></script>
+    <script src="https://cdn.moyasar.com/mpf/1.7.3/moyasar.js"></script>
+
     <link href="{% static '/assets/css/styles.css' %}" rel="stylesheet">
     <title>{{ template.meta_title }}</title>
     <style>
@@ -30,13 +46,11 @@
 {% endif %}
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-{#<script src="https://sfhat.io/ProductsForm.js"></script>#}
-{#<script src="https://sfhat.io/ProductsForm2.js"></script>#}
-{#<script src="https://sfhat.io/shareButton.js"></script>#}
 <script src="{% static '/assets/js/ProductsForm.js' %}"></script>
 <script src="{% static '/assets/js/ProductsForm2.js' %}"></script>
 <script src="{% static '/assets/js/shareButton.js' %}"></script>
 <script src="{% static '/assets/bootstrap/js/bootstrap.min.js' %}"></script>
 <script src="{% static '/assets/js/app.js' %}"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </html>

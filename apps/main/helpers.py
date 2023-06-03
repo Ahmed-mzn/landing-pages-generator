@@ -85,3 +85,30 @@ def best():
     # f_salla.close()
     # f_aymakan.close()
     # return new_data
+
+
+import zeep
+
+# wsdl = 'https://track.smsaexpress.com/SECOM/SMSAwebService.asmx?wsdl'
+# client = zeep.Client(wsdl=wsdl)
+# res = client.service.cancelShipment('290442697317', 'Testing2', 'delete')
+# res = client.service.getTracking('290442697317', 'Testing2')['_value_1']['_value_1']
+
+# res = client.service.getPDF('290442697317', 'Testing2')
+# print(res)
+
+
+
+# track
+# wsdl = 'https://track.smsaexpress.com/SECOM/SMSAwebService.asmx?wsdl'
+# client = zeep.Client(wsdl=wsdl)
+#
+# response = client.service.getTracking(self.order.shipping_tracking_id, self.pass_key)
+# print(response)
+
+# for item in response['_value_1']['_value_1']:
+#     tracking_info.append({
+#         'code': 'cancelled' if item['Tracking']['Activity'] == 'CANCELLED ON CLIENTS REQUEST' else item['Tracking']['Activity'],
+#         'description': item['Tracking']['Details'],
+#         'created_at': item['Tracking']['Date']
+#     })

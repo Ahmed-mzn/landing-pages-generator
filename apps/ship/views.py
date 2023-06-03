@@ -1,4 +1,8 @@
-from django.shortcuts import render
+import base64
+import time
+
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse
 
 from rest_framework import status, viewsets
 from rest_framework.response import Response
@@ -8,20 +12,28 @@ from rest_framework.authentication import TokenAuthentication
 
 from .models import Channel, ConstantChannel, Order, OrderItem, Coupon, Warehouse
 from .serializers import ChannelSerializer, ConstantChannelSerializer, OrderItemSerializer, OrderSerializer, \
-    CouponSerializer, AffiliateSerializer, WarehouseSerializer
+    CouponSerializer, AffiliateSerializer, WarehouseSerializer, OrderCreationSerializer
 
 
 from .scripts.aymakan import Aymakan
 from .scripts.jonex import Jonex
+from .scripts.smsa import Smsa
 
 from apps.main.helpers import best
 from apps.main.models import Affiliate
 
+from .utils import create_ship, delete_temps
+from pypdf import PdfMerger
+
+from decouple import config
+
+import threading
 import requests
 import json
 import os
 import uuid
 import datetime
+import tempfile
 
 
 class ChannelAPI(viewsets.ModelViewSet):
@@ -76,10 +88,98 @@ class OrderViewSet(viewsets.ModelViewSet):
             return self.queryset.filter(template__app__user=self.request.user, template_id=template_id)
         return self.queryset.filter(template__app__user=self.request.user)
 
+    @action(methods=["GET"], detail=True, url_path="tracking")
+    def tracking(self, request, pk):
+        order = get_object_or_404(Order, pk=pk)
+        tracking_info = []
+        if order.shipping_company:
+            if order.shipping_company.type == 'aymakan':
+                tracking_info = Aymakan(order).tracking()
+            elif order.shipping_company.type == 'jonex':
+                tracking_info = Jonex(order).tracking()
+            elif order.shipping_company.type == 'smsa':
+                tracking_info = Smsa(order).tracking()
+        return Response(tracking_info, status=status.HTTP_200_OK)
+
+    @action(methods=["POST"], detail=True, url_path="place_order")
+    def place_order(self, request, pk):
+        order = get_object_or_404(Order, pk=pk)
+        ship_created = create_ship(order)
+        if ship_created:
+            return Response({'msg': 'sucess'}, status=status.HTTP_200_OK)
+        return Response({'msg': 'error'}, status=status.HTTP_400_BAD_REQUEST)
+
+    @action(methods=["POST"], detail=True, url_path="cancel_order")
+    def cancel_order(self, request, pk):
+        order = get_object_or_404(Order, pk=pk)
+        if order.shipping_company:
+            if order.shipping_company.type == 'jonex':
+                Jonex(order).cancel()
+            if order.shipping_company.type == 'aymakan':
+                Aymakan(order).cancel()
+            if order.shipping_company.type == 'smsa':
+                Smsa(order).cancel()
+        return Response({'msg': 'sucess'}, status=status.HTTP_200_OK)
+
+    @action(methods=["POST"], detail=False, url_path="bulk_awb")
+    def bulk_awb(self, request):
+        merger = PdfMerger()
+        orders = request.data.get('orders', [])
+        tmp = tempfile.NamedTemporaryFile(delete=False)
+        for order_id in orders:
+            order = Order.objects.get(pk=order_id)
+            if order.shipping_awb:
+                response = requests.get(order.shipping_awb)
+                if response.status_code != 400 and response.status_code != 500:
+                    with open(tmp.name, 'wb') as f1:
+                        f1.write(response.content)
+                    merger.append(open(tmp.name, 'rb'))
+            elif order.shipping_company.type == 'smsa':
+                data = Smsa(order).get_awb()
+                with open(tmp.name, 'wb') as f1:
+                    f1.write(base64.decodebytes(data))
+                merger.append(open(tmp.name, 'rb'))
+
+        tmp2 = tempfile.NamedTemporaryFile(delete=False)
+        merger.write(tmp2.name)
+        response = HttpResponse(open(tmp2.name, 'rb'), content_type='application/pdf')
+        response['Content-Disposition'] = 'attachment; filename="orders.pdf"'
+
+        # close files
+        merger.close()
+        tmp.close()
+        tmp2.close()
+
+        # delete files
+        thread = threading.Thread(target=delete_temps, args=([tmp2, tmp],))
+        thread.start()
+
+        return response
+
+    @action(methods=["POST"], detail=False, url_path="payment_webhook", authentication_classes=[], permission_classes=[])
+    def payment_webhook(self, request):
+        print(request.data)
+        secret_token = request.data.get("secret_token")
+        data = request.data.get("data")
+        event = data["status"]
+        payment_id = data["id"]
+        if secret_token == config('MOYASAR_SECRET_VERYFI') and event == 'paid':
+            try:
+                order = Order.objects.get(payment_id=payment_id)
+                order.is_paid = True
+                order.status = order.CONFIRMED
+                order.save()
+                if order.template.app.auto_ship_cc:
+                    thread = threading.Thread(target=create_ship, args=(order,))
+                    thread.start()
+            except:
+                print("order payment id not found")
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
     @action(methods=["POST"], detail=False, url_path="public", authentication_classes=[], permission_classes=[])
     def create_public(self, request):
         data = self.request.data
-        serializer = self.serializer_class(data=data)
+        serializer = OrderCreationSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)

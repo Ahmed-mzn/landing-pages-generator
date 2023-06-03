@@ -9,10 +9,16 @@ from apps.ship.models import Order, OrderItem
 from .threads import CreateDeployAppThread
 
 
+class AppShipSettingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = App
+        fields = ('id', 'auto_ship_cod', 'auto_ship_cc')
+
+
 class MainCitySerializer(serializers.ModelSerializer):
     class Meta:
         model = MainCity
-        fields = ('id', 'name_ar', 'name_en')
+        fields = ('id', 'name_ar', 'name_en', 'aymakan', 'aramex', 'jonex', 'smsa')
 
 
 class CitySerializer(serializers.ModelSerializer):
@@ -70,6 +76,14 @@ class TemplateShareSerializer(serializers.ModelSerializer):
 
 
 class LeadSerializer(serializers.ModelSerializer):
+    city = CitySerializer(many=False, read_only=True)
+
+    class Meta:
+        model = Lead
+        fields = ('id', 'name', 'phone_number', 'city', 'address', 'created_at', 'updated_at')
+
+
+class LeadCreationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lead
         fields = ('id', 'name', 'phone_number', 'city', 'address', 'created_at', 'updated_at')
@@ -104,7 +118,7 @@ class TemplateSerializer(serializers.ModelSerializer):
     main_image = serializers.SerializerMethodField('get_main_image_url')
     medals_image = serializers.SerializerMethodField('get_medals_image_url')
     second_image = serializers.SerializerMethodField('get_second_image_url')
-    preview_image = serializers.SerializerMethodField('get_preview_image')
+    preview_image_url = serializers.SerializerMethodField('get_preview_image_url')
 
     # def get_template_children(self, obj):
     #     data = Template.objects.all().filter(domain=obj.domain, is_child=True)
@@ -118,13 +132,16 @@ class TemplateSerializer(serializers.ModelSerializer):
         cities = CitySerializer(data, many=True)
         return cities.data
 
-    def get_preview_image(self, obj):
-        return settings.WEBSITE_URL + settings.MEDIA_URL + f"/screenshots/screenshot-{obj.id}.png"
+    def get_preview_image_url(self, obj):
+        # return settings.WEBSITE_URL + settings.MEDIA_URL + f"/screenshots/screenshot-{obj.id}.png"
+        if obj.preview_image:
+            return settings.WEBSITE_URL + obj.preview_image.url
+        return ''
 
     def get_logo_url(self, obj):
         if obj.logo:
             return settings.WEBSITE_URL + obj.logo.url
-        return  ''
+        return ''
 
     def get_main_image_url(self, obj):
         if obj.main_image :
@@ -154,7 +171,8 @@ class TemplateSerializer(serializers.ModelSerializer):
                   'medals_image', 'second_image', 'review_text', 'primary_color', 'secondary_color',
                   'products', 'features', 'reviews', 'main_rating_title', 'extra_js', 'preview_image',
                   'customer_website', 'feature_text', 'total_redirect_numbers', 'template_redirect_numbers',
-                  'template_redirect_percentage', 'is_child', 'is_deleted', 'created_at', 'updated_at')
+                  'cod_payment', 'card_payment', 'template_redirect_percentage', 'is_child', 'is_deleted',
+                  'preview_image_url', 'created_at', 'updated_at')
 
 
 class AppSerializer(serializers.ModelSerializer):
@@ -344,19 +362,21 @@ class ReviewCreationSerializer(serializers.ModelSerializer):
 
 
 class TemplateCreationSerializer(serializers.ModelSerializer):
-    preview_image = serializers.SerializerMethodField('get_preview_image')
+    preview_image_url = serializers.SerializerMethodField('get_preview_image_url')
 
-    def get_preview_image(self, obj):
-        return settings.WEBSITE_URL + settings.MEDIA_URL + f"/screenshots/screenshot-{obj.id}.png"
+    def get_preview_image_url(self, obj):
+        if obj.preview_image:
+            return settings.WEBSITE_URL + obj.preview_image.url
+        return ''
 
     class Meta:
         model = Template
-        fields = ('id', 'app', 'domain', 'template_code', 'template_name', 'description', 'meta_title',
-                  'meta_description', 'meta_keywords', 'main_image', 'medals_image', 'preview_image',
-                  'second_image', 'feature_text', 'total_redirect_numbers', 'template_redirect_numbers',
-                  'template_redirect_percentage', 'main_rating_title', 'extra_js',
-                  'html', 'css', 'js', 'project_data',
-                  'review_text', 'customer_website', 'primary_color', 'secondary_color', 'is_child')
+        fields = ('id', 'app', 'domain', 'template_code', 'template_name', 'description', 'meta_title', 'logo',
+                  'meta_description', 'meta_keywords', 'main_image', 'medals_image', 'preview_image', 'second_image',
+                  'feature_text', 'total_redirect_numbers', 'template_redirect_numbers', 'template_redirect_percentage',
+                  'main_rating_title', 'extra_js', 'html', 'css', 'js', 'project_data', 'cod_payment', 'card_payment',
+                  'preview_image_url', 'review_text', 'customer_website', 'primary_color', 'secondary_color',
+                  'is_child')
         read_only_fields = (
             'total_redirect_numbers', 'template_redirect_numbers', 'template_redirect_percentage',
             'html', 'css', 'js', 'project_data', 'preview_image'
@@ -441,3 +461,19 @@ class AppCreationSerializer(serializers.ModelSerializer):
         CreateDeployAppThread('domain.name', app.app_id).start()
 
         return app
+
+
+class TemplateMainDetailsSerializer(serializers.ModelSerializer):
+    preview_image_url = serializers.SerializerMethodField('get_preview_image_url')
+    domain = DomainSerializer(many=False)
+
+    def get_preview_image_url(self, obj):
+        if obj.preview_image:
+            return settings.WEBSITE_URL + obj.preview_image.url
+        return ''
+
+    class Meta:
+        model = Template
+        fields = ('id', 'template_code', 'template_name', 'preview_image', 'domain', 'is_child', 'cod_payment', 'logo',
+                  'meta_title', 'meta_description', 'meta_keywords', 'logo', 'card_payment', 'preview_image_url',
+                  'created_at', 'updated_at')

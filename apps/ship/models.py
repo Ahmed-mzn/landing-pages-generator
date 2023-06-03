@@ -12,6 +12,7 @@ class Channel(models.Model):
         ('torod', 'Torod'),
         ('aramex', 'Aramex'),
         ('jonex', 'Jonex'),
+        ('smsa', 'Smsa'),
     )
 
     app = models.ForeignKey(App, related_name='channels', on_delete=models.CASCADE)
@@ -42,6 +43,7 @@ class ConstantChannel(models.Model):
         ('torod', 'Torod'),
         ('aramex', 'Aramex'),
         ('jonex', 'Jonex'),
+        ('smsa', 'Smsa'),
     )
 
     name = models.CharField(max_length=50, null=True, blank=True)
@@ -113,7 +115,8 @@ class Order(models.Model):
     PROGRESS = 'progress'
     INDELIVERY = 'indelivery'
     DELIVERED = 'delivered'
-    UNDELIVERED = 'undelivered'
+    # UNDELIVERED = 'undelivered'
+    CANCELED = 'canceled'
 
     STATUS_CHOICES = (
         (PENDING, 'pending'),
@@ -121,7 +124,16 @@ class Order(models.Model):
         (PROGRESS, 'progress'),
         (INDELIVERY, 'indelivery'),
         (DELIVERED, 'delivered'),
-        (UNDELIVERED, 'undelivered'),
+        # (UNDELIVERED, 'undelivered'),
+        (CANCELED, 'canceled'),
+    )
+
+    COD = 'cod'
+    CARD = 'card'
+
+    PAYMENT_CHOICES = (
+        (COD, 'cod'),
+        (CARD, 'card'),
     )
 
     template = models.ForeignKey(Template, related_name='orders', on_delete=models.CASCADE)
@@ -130,11 +142,14 @@ class Order(models.Model):
     affiliate = models.ForeignKey(Affiliate, related_name='orders', on_delete=models.SET_NULL, null=True, blank=True)
     shipping_company = models.ForeignKey(Channel, related_name='orders', on_delete=models.SET_NULL,
                                          null=True, blank=True)
-    is_paid = models.BooleanField(default=False)
+    warehouse = models.ForeignKey(Warehouse, related_name='orders', on_delete=models.SET_NULL, null=True, blank=True)
     shipping_tracking_id = models.CharField(max_length=100, null=True, blank=True)
     shipping_awb = models.TextField(null=True, blank=True)
     status = models.CharField(max_length=100, choices=STATUS_CHOICES, default='pending')
     amount = models.DecimalField(max_digits=60, decimal_places=2)
+    payment_type = models.CharField(max_length=100, choices=PAYMENT_CHOICES, default=CARD)
+    payment_id = models.CharField(max_length=200, null=True, blank=True)
+    is_paid = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

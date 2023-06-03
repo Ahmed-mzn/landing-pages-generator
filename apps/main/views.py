@@ -16,7 +16,8 @@ from .serializers import TemplateSerializer, AppSerializer, AppCreationSerialize
     ProductCreationSerializer, FeatureCreationSerializer, ReviewCreationSerializer, VisitSerializer, \
     TemplateProductCreationSerializer, DomainCreationSerializer, \
     BlankTemplateCreationSerializer, LeadSerializer, OrderCreationSerializer, CitySerializer, \
-    AppendTemplateChildSerializer, ProductSerializer, TemplateShareSerializer, MainCitySerializer
+    AppendTemplateChildSerializer, ProductSerializer, TemplateShareSerializer, MainCitySerializer, \
+    AppShipSettingSerializer, TemplateMainDetailsSerializer
 
 from apps.ship.models import Order, OrderItem
 from apps.ship.serializers import OrderSerializer, OrderItemSerializer
@@ -26,6 +27,8 @@ from .resources import OrderResource
 
 from decouple import config
 import openai
+import requests
+import threading
 
 
 class DomainViewSet(viewsets.ModelViewSet):
@@ -122,7 +125,7 @@ class TemplateViewSet(viewsets.ModelViewSet):
         return self.queryset.filter(app__user=self.request.user)
 
     def retrieve(self, request, pk=None):
-        template = get_object_or_404(self.get_queryset(), pk=pk)
+        template = get_object_or_404(self.get_queryset().filter(app__user=request.user), pk=pk)
         serializer = self.serializer_class(template)
         return Response(serializer.data)
 
@@ -131,6 +134,8 @@ class TemplateViewSet(viewsets.ModelViewSet):
 
         if serializer.is_valid():
             serializer.save()
+            thread = threading.Thread(target=serializer.instance.make_screenshot(), args=())
+            thread.start()
             return Response(data=serializer.data, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -146,6 +151,18 @@ class TemplateViewSet(viewsets.ModelViewSet):
                 t.template_name = t.template_name + '(' + t.domain.name.replace('.', '-') + ')'
                 t.save()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+    @action(detail=False, url_path='short', methods=['get'])
+    def short(self, request):
+        templates = Template.objects.filter(is_deleted=False, app__user=request.user)
+        serializer = TemplateMainDetailsSerializer(templates, many=True)
+        return Response(serializer.data)
+
+    @action(detail=True, url_path='short_details', methods=['get'])
+    def short_details(self, request, pk):
+        template = get_object_or_404(Template, pk=pk)
+        serializer = TemplateMainDetailsSerializer(template, many=False, context={"request":request})
+        return Response(serializer.data)
 
     @action(detail=True, url_path='download_excel', methods=['get'])
     def download_excel(self, request, pk):
@@ -176,6 +193,8 @@ class TemplateViewSet(viewsets.ModelViewSet):
         template.js = request.data.get('js', '')
         template.project_data = request.data.get('project_data', '')
         template.save()
+        thread = threading.Thread(target=template.make_screenshot(), args=())
+        thread.start()
         return Response(data={'mgs': 'success'}, status=status.HTTP_200_OK)
 
     @action(detail=True, url_path='update_url', methods=['post'])
@@ -196,6 +215,13 @@ class TemplateViewSet(viewsets.ModelViewSet):
             return Response(data={'mgs': 'success'}, status=status.HTTP_200_OK)
         else:
             return Response(data={'errors': 'missing domain or template_name'}, status=status.HTTP_400_BAD_REQUEST)
+
+    @action(detail=False, url_path="scarp_page", methods=['post'])
+    def scarp_page(self, request):
+        website_url = request.data.get('website_url', '')
+        response = requests.get(website_url)
+        text = response.text
+        return Response(data={'content': text}, status=status.HTTP_200_OK)
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -246,21 +272,23 @@ class ReviewViewSet(viewsets.ModelViewSet):
 
 
 class AppRetrieveDeleteUpdateView(generics.GenericAPIView):
-    serializer_class = AppCreationSerializer
+    serializer_class = AppShipSettingSerializer
     permission_classes = [IsAuthenticated]
 
-    def get(self, request, app_id):
+    def get(self, request):
 
-        app = get_object_or_404(App, app_id=app_id)
+        # app = get_object_or_404(App, app_id=app_id)
+        app = App.objects.filter(user=request.user).first()
 
         serializer = self.serializer_class(instance=app)
 
         return Response(data=serializer.data, status=status.HTTP_200_OK)
 
-    def put(self, request, app_id):
+    def put(self, request):
         data = request.data
 
-        app = get_object_or_404(App, app_id=app_id)
+        # app = get_object_or_404(App, app_id=app_id)
+        app = App.objects.filter(user=request.user).first()
 
         serializer = self.serializer_class(data=data, instance=app)
 
@@ -280,7 +308,7 @@ class AppRetrieveDeleteUpdateView(generics.GenericAPIView):
         #     headers = {"Authorization": f"Bearer {config('CLOUDFLARE_API_KEY')}"}
         #     result = requests.delete(url=url, headers=headers).json()
 
-        app.delete()
+        # app.delete()
 
         return Response(status=status.HTTP_204_NO_CONTENT)
 

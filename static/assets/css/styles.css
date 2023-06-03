@@ -11,3 +11,10 @@
   color: #D4D7B3!important;
 }
 
+#mysr-cc-number{
+  direction: ltr;
+}
+
+.mysr-form-footer{
+  display: none !important;
+}

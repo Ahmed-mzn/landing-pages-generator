@@ -3,6 +3,7 @@ const productsForm2 = {
     delimiters: ['[[', ']]'],
     data() {
         return {
+            route: 'form',
             success: false,
             showWhatsappBnt: true,
             showWhatsappSendSuccessBtn: false,
@@ -17,7 +18,9 @@ const productsForm2 = {
                 name: '',
                 phone_number: '',
                 city: '',
-                address: ''
+                address: '',
+                payment_type: 'card',
+                payment_id: ''
             },
             session: {
                 template: 0,
@@ -59,7 +62,7 @@ const productsForm2 = {
         };
     },
     created(){
-      axios.defaults.baseURL = 'http://localhost:8000/api/v1/public'
+      axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1'
         window.setInterval(() => {
             this.setDuration();
         }, 1000)
@@ -68,7 +71,48 @@ const productsForm2 = {
     mounted() {
         this.getTemplate();
         this.getIpInfo();
-        // this.startTracking();
+        console.log(window.location.href)
+        function parse_query_string(query) {
+          var vars = query.split("&");
+          var query_string = {};
+          for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            var key = decodeURIComponent(pair.shift());
+            var value = decodeURIComponent(pair.join("="));
+            // If first entry with this name
+            if (typeof query_string[key] === "undefined") {
+              query_string[key] = value;
+              // If second entry with this name
+            } else if (typeof query_string[key] === "string") {
+              var arr = [query_string[key], value];
+              query_string[key] = arr;
+              // If third or later entry with this name
+            } else {
+              query_string[key].push(value);
+            }
+          }
+          return query_string;
+        }
+
+        var qs = parse_query_string(window.location.search.substring(1))
+
+        if (qs.status == 'success' || qs.status == 'paid'){
+            Swal.fire({
+              icon: 'success',
+              title: 'شكرًا',
+              text: 'تم الدفع بنجاح',
+              confirmButtonText: 'تمام'
+            })
+        }
+        if (qs.status == 'failed'){
+            Swal.fire({
+              icon: 'error',
+              title: 'نعتذر',
+              text: 'هناك خطأ في الدفع',
+              confirmButtonText: 'تمام'
+            })
+        }
+        window.history.replaceState(null, '', window.location.pathname);
     },
     computed:{
       unitPrice(){
@@ -107,7 +151,7 @@ const productsForm2 = {
             } */
             if(valid) {
                 this.share.product = this.form.product
-                axios.post("/create_share", this.share)
+                axios.post("/public/create_share", this.share)
                     .then(res => {
                         console.log(res)
                         this.showWhatsappBnt = true
@@ -134,10 +178,14 @@ const productsForm2 = {
             document.getElementById('product-'+product.id).classList.add('active');
         },
         decreaseQty(){
-            this.form.quantity = this.form.quantity - 1;
+            if (this.route == 'form' && this.form.quantity > 1) {
+                this.form.quantity = this.form.quantity - 1;
+            }
         },
         increaseQty(){
-            this.form.quantity = this.form.quantity + 1;
+            if (this.route == 'form') {
+                this.form.quantity = this.form.quantity + 1;
+            }
         },
         getDivClass(index){
             if(index == 0){
@@ -206,24 +254,75 @@ const productsForm2 = {
             }
 
             if(valid){
-                this.form.template = this.template.id
-                axios.post("/create_form", this.form)
-                .then((response) => {
-                    document.cookie = 'name='+this.form.name+'; expires=Thu, 01 Jan 9999 00:00:00 UTC';
-                    document.cookie = `phonenumber=${this.form.phone_number}; expires=Thu, 01 Jan 9999 00:00:00 UTC`;
-                    document.cookie = `city=${this.form.city}; expires=Thu, 01 Jan 9999 00:00:00 UTC`;
-                    document.cookie = `address=${this.form.address}; expires=Thu, 01 Jan 9999 00:00:00 UTC`;
-
-                    this.success = true;
-                })
-                .catch((error) => {
-                    console.log(JSON.stringify(error));
-                });
+                console.log(this.form.payment_type)
+                if (this.form.payment_type == 'card'){
+                    this.route = 'payment'
+                    console.log(this.totalAmount)
+                    Moyasar.init({
+                        element: '.mysr-form',
+                        // Amount in the smallest currency unit.
+                        // For example:
+                        // 10 SAR = 10 * 100 Halalas
+                        // 10 KWD = 10 * 1000 Fils
+                        // 10 JPY = 10 JPY (Japanese Yen does not have fractions)
+                        amount: this.totalAmount * 100,
+                        currency: 'SAR',
+                        description: 'Coffee Order #1',
+                        language: 'ar',
+                        publishable_api_key: 'pk_test_37qqSidenDWUMRKRE6pEE41BmizEyzozete7RRX7',
+                        callback_url: 'http://'+window.location.host + window.location.pathname,
+                        on_completed: (payment) => {
+                            console.log(payment)
+                            console.log(this.form)
+                            this.form.payment_id = payment.id
+                            axios.post('https://webhook.site/9a931dfe-3f67-4885-b951-5cce2defa35c', {pay: this.form})
+                            this.createOrder()
+                            return Promise.resolve({});
+                          },
+                        methods: ['stcpay', 'creditcard'],
+                    });
+                } else {
+                    this.createOrder()
+                    this.route = 'success'
+                }
             }
+        },
+        createOrder(){
+            this.form.template = this.template.id
+            const data = {
+                template: this.form.template,
+                lead: {
+                    name: this.form.name,
+                    phone_number: this.form.phone_number,
+                    city: this.form.city,
+                    address: this.form.address
+                },
+                input_items: [
+                    {
+                        "id": this.form.product,
+                        "quantity": this.form.quantity
+                    }
+                ],
+                payment_type: this.form.payment_type,
+                payment_id: this.form.payment_id
+            }
+            console.log(data)
+            axios.post("https://landing.socialbot.dev/api/v1/orders/public/", data)
+            .then((response) => {
+                document.cookie = 'name='+this.form.name+'; expires=Thu, 01 Jan 9999 00:00:00 UTC';
+                document.cookie = `phonenumber=${this.form.phone_number}; expires=Thu, 01 Jan 9999 00:00:00 UTC`;
+                document.cookie = `city=${this.form.city}; expires=Thu, 01 Jan 9999 00:00:00 UTC`;
+                document.cookie = `address=${this.form.address}; expires=Thu, 01 Jan 9999 00:00:00 UTC`;
+
+                this.success = true;
+            })
+            .catch((error) => {
+                console.log(JSON.stringify(error));
+            });
         },
         leaving(){
             this.session.template = this.id
-            fetch('http://localhost:8000/api/v1/public/create_visit', {
+            fetch('https://landing.socialbot.dev/api/v1/public/create_visit', {
                 method: 'POST',
                 body: JSON.stringify(this.session),
                 credentials: "same-origin",
@@ -238,7 +337,7 @@ const productsForm2 = {
         getTemplate(){
             axios
             .get(
-                `/apps/templates/${this.id}`
+                `/public/apps/templates/${this.id}`
             )
             .then((response) => {
                 console.log(response);
@@ -253,6 +352,12 @@ const productsForm2 = {
                     this.form.product_obj = this.template.products[0];
                 }
 
+                if (response.data.card_payment){
+                    this.form.payment_type = 'card'
+                } else {
+                    this.form.payment_type = 'cod'
+                }
+
                 this.form.name = this.getCookie('name');
                 this.form.phone_number = this.getCookie('phonenumber');
                 this.form.city = this.getCookie('city') ? this.getCookie('city') : this.template.cities[0].name;
@@ -263,7 +368,7 @@ const productsForm2 = {
             });
         },
         createVisit(){
-            axios.post("/create_visit", this.session)
+            axios.post("/public/create_visit", this.session)
             .then((res) => {
                 console.log(res);
             })
@@ -291,84 +396,111 @@ const productsForm2 = {
     template: `
     <div>
         <section class="mt-4">
-        <div class="container">
-            <h3 style="font-size: 16px;font-weight: bold;" class="mb-4">2العرض</h3>
-            <div class="mb-4">
-                <div class="d-flex align-items-center py-1 px-0 horizontal-card mb-2" :id="'product-'+[[product.id.toString()]]" :class="getDivClass(index)" @click="selectProduct(product)" v-for="(product, index) in template.products" :key="product.id" style="position: relative;background: #F2F2F2;border-radius: 8px;border: 1px solid transparent;cursor: pointer;">
-                    <img class="ms-2 me-1" :src="product.image" style="width: 80px;border-radius: 4px;">
-                    <div>
-                        <p style="font-weight: bold;font-size: 12px;" class="mb-1">[[product.title]]</p>
-                        <p style="font-size: 12px;line-height: 14px;" class="mb-2 pb-0">[[product.description]]</p>
-                        <template v-if="product.price_after_discount">
-                            <p style="font-size: 12px;line-height: 14px;">
-                                <span class="ps-0 ms-2" style="color: var(--bs-gray-500);text-decoration: line-through;">[[product.price]] ر.س</span>
-                                <span style="color: var(--bs-danger);">[[product.price_after_discount]] ر.س</span>
-                            </p>
-                        </template>
-                        <template v-else>
-                            <p style="font-size: 12px;line-height: 14px;">
-                                <span style="color: var(--bs-danger);">[[product.price]] ر.س</span>
-                            </p>
-                        </template>
+            <div class="container">
+                <h3 style="font-size: 16px;font-weight: bold;" class="mb-4">العرض</h3>
+                <div class="mb-4">
+                    <div class="d-flex align-items-center py-1 px-0 horizontal-card mb-2" :id="'product-'+[[product.id.toString()]]" :class="getDivClass(index)" @click="selectProduct(product)" v-for="(product, index) in template.products" :key="product.id" style="position: relative;background: #F2F2F2;border-radius: 8px;border: 1px solid transparent;cursor: pointer;">
+                        <img class="ms-2 me-1" :src="product.image" style="width: 80px;border-radius: 4px;">
+                        <div>
+                            <p style="font-weight: bold;font-size: 12px;" class="mb-1">[[product.title]]</p>
+                            <p style="font-size: 12px;line-height: 14px;" class="mb-2 pb-0">[[product.description]]</p>
+                            <template v-if="product.price_after_discount">
+                                <p style="font-size: 12px;line-height: 14px;">
+                                    <span class="ps-0 ms-2" style="color: var(--bs-gray-500);text-decoration: line-through;">[[product.price]] ر.س</span>
+                                    <span style="color: var(--bs-danger);">[[product.price_after_discount]] ر.س</span>
+                                </p>
+                            </template>
+                            <template v-else>
+                                <p style="font-size: 12px;line-height: 14px;">
+                                    <span style="color: var(--bs-danger);">[[product.price]] ر.س</span>
+                                </p>
+                            </template>
+                        </div>
+                        <p v-if="product.label" class="nowrap" style="font-size: 9px;background: var(--bs-black);color: var(--bs-white);position: absolute;left: 0;top: 8px;padding: 2px 4px 2px 1px;border-radius: 0 20px 20px 0;">[[product.label]]</p>
                     </div>
-                    <p v-if="product.label" class="nowrap" style="font-size: 9px;background: var(--bs-black);color: var(--bs-white);position: absolute;left: 0;top: 8px;padding: 2px 4px 2px 1px;border-radius: 0 20px 20px 0;">[[product.label]]</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <h3 style="font-size: 16px;font-weight: bold;">الكمية</h3>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 250px;padding: 10px 25px;border-radius: 5px;color: rgb(0,0,0);border: 1px solid #F2F2F2 ;"><i @click="decreaseQty()" class="fas fa-minus" :class="form.quantity == 1 ? 'disabled':''" id="quantity-minus" style="color: var(--bs-primary);"></i><span id="quantity-text" style="font-size: 18px;">[[form.quantity]]</span><i @click="increaseQty()" class="fas fa-plus" id="quantity-plus" style="color: var(--bs-primary);"></i></div>
+                </div>
+                <div id="order_now" style="border-bottom: 1px solid #F2F2F2;margin-top: 25px;margin-bottom: 15px;" class="mb-4"></div>
+            </div>
+        </section>
+        <section v-show="route == 'form'" >
+          <div class="container">
+              <div style="box-shadow: 0px 5px 12px #f2f2f2;border: 1px solid #f2f2f2;border-radius: 8px;" class="px-2 pb-3">
+                  <h1 style="font-size: 30px;text-align: center;" class="mb-4 mt-3">اطلبه الآن</h1>
+                  <form>
+                      <div class="mb-2">
+                          <input v-model="form.name" id="formName" class="form-control py-3" type="text" placeholder="الاسم" style="background: #f2f2f2;border-style: none;">
+                          <div id="formNameError" style="color: var(--bs-primary)" class="invalid-feedback"></div>
+                      </div>
+                      <div class="mb-2" style="position: relative;">
+                          <input @keyup="checkPhoneNumberSize('form')" class="form-control py-3" maxlength="9" id="formPhone" type="number" pattern="[0-9]*" inputmode="numeric" v-model="form.phone_number" placeholder="5x xxx xxxx" style="background: #f2f2f2;border-style: none;padding-left: 83px;direction: ltr;">
+                          <div id="formPhoneFlag" class="d-flex align-items-center" style="position: absolute;top: 50%;transform: translateY(-50%);left: 20px;"><span>966&nbsp;&nbsp;</span><img src="https://landing.socialbot.dev/static/assets/img/saudi-arabia-flag-icon.png" style="width: 20px;"></div>
+                          <div id="formPhoneError" style="color: var(--bs-primary)" class="invalid-feedback"></div>
+                      </div>
+                      <div class="mb-2" style="position: relative;"><select v-model="form.city" class="form-select py-3" style="padding-right: 12px;padding-left: 34px;border-style: none;background: #f2f2f2;">
+                              <option v-for="city in template.cities" :key="city.id" :value="city.id">[[city.main_city.name_ar]]</option>
+                          </select><i class="fas fa-chevron-down" style="position: absolute;top: 50%;transform: translateY(-50%);left: 20px;"></i></div>
+                      <div class="mb-2">
+                          <input id="formAddress" v-model="form.address" class="form-control py-3" type="text" placeholder="العنوان (الحي، الشارع)" style="background: #f2f2f2;border-style: none;">
+                          <div id="formAddressError" style="color: var(--bs-primary)" class="invalid-feedback"></div>
+                      </div>
+    <!--                  <div class="mb-2" style="position: relative;">-->
+    <!--                      <select v-model="form.payment_type" class="form-select py-3" style="padding-right: 12px;padding-left: 34px;border-style: none;background: #f2f2f2;">-->
+    <!--                          <option value="cod">COD</option>-->
+    <!--                          <option value="card">Credit Card</option>-->
+    <!--                      </select><i class="fas fa-chevron-down" style="position: absolute;top: 50%;transform: translateY(-50%);left: 20px;"></i>-->
+    <!--                  </div>-->
+                      <div class="mb-2" style="position: relative;">
+                        <!-- Credit card form tabs -->
+                        <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3" style="padding-right: 0;">
+                            <li v-show="template.card_payment" class="nav-item" @click="form.payment_type='card'">
+                                <a :style="form.payment_type=='card' ? 'color:white;background-color:var(--bs-primary);':'color:var(--bs-primary)'" data-toggle="pill" href="javascript:void(0);" class="nav-link"> <i class="fas fa-credit-card mr-2"></i> الدفع الالكتروني </a>
+                            </li>
+                            <li v-show="template.cod_payment" class="nav-item" @click="form.payment_type='cod'">
+                                <a :style="form.payment_type=='cod' ? 'color:white;background-color:var(--bs-primary);':'color:var(--bs-primary)'" data-toggle="pill" href="javascript:void(0);" class="nav-link"> <i class="fa fa-hand-holding-usd mr-2"></i> الدفع عند الاستلام </a>
+                            </li>
+                        </ul>
+                      </div>
+                      <div class="d-flex justify-content-between mt-3" style="color: #343434;"><span>[[form.product_obj.title]]</span><span>x[[form.quantity]]</span></div>
+                      <div class="d-flex justify-content-between mt-2" style="color: #343434;"><span>السعر شامل الضريبة</span><span>[[unitPrice]] ر.س</span></div>
+                      <div class="d-flex justify-content-between mt-2" style="color: #343434;"><span>الشحن السريع</span><span>مجاني</span></div>
+                      <div style="border-bottom: 1px solid #F2F2F2;margin-top: 25px;margin-bottom: 15px;" class="mb-0"></div>
+                      <div class="d-flex justify-content-between mt-2" style="color: #343434;"><span style="font-weight: bold;">الاجمالي</span><span style="font-weight: bold;">[[totalAmount]] ر.س</span></div>
+    
+                      <a @click="submitForm()" class="btn btn-primary py-3 mt-4" role="button" style="width: 100%;background: var(--bs-primary);border-style: none;border-radius: 4px;margin-top: 34px;">شراء</a>
+                  </form>
+              </div>
+          </div>
+        </section>
+        <section v-show="route == 'success'" >
+            <div class="container">
+                <div style="box-shadow: 0px 5px 12px #f2f2f2;border: 1px solid #f2f2f2;border-radius: 8px;" class="px-2 pb-3">
+                    <!-- <h1 style="font-size: 30px;text-align: center;" class="mb-4 mt-3">اطلبه الآن</h1> -->
+                    <div class="text-center p-5">
+                        <span class="display-4" style="color: var(--bs-primary);margin-left: 5px;"><i class="fas fa-check-circle"></i></span>
+                        <h1>شكرا لك</h1>
+                        <p style="font-size: 30px">تم استقبال طلبك بنجاح</p>
+    
+                        <p>سنقوم بأكيد طلبك عبر الواتس اب</p>
+                        <p style="color: var(--bs-primary);">[[this.form.phone_number]]</p>
+                    </div>
+    
+                    <a class="btn btn-primary py-3 mt-4" role="button" style="width: 100%;background: var(--bs-primary);border-style: none;border-radius: 4px;margin-top: 34px;">شارك العرض مع صديق</a>
                 </div>
             </div>
-            <div class="d-flex justify-content-between align-items-center">
-                <h3 style="font-size: 16px;font-weight: bold;">الكمية</h3>
-                <div class="d-flex justify-content-between align-items-center" style="width: 250px;padding: 10px 25px;border-radius: 5px;color: rgb(0,0,0);border: 1px solid #F2F2F2 ;"><i @click="decreaseQty()" class="fas fa-minus disabled" id="quantity-minus" style="color: var(--bs-primary);"></i><span id="quantity-text" style="font-size: 18px;">1</span><i @click="increaseQty()" class="fas fa-plus" id="quantity-plus" style="color: var(--bs-primary);"></i></div>
-            </div>
-            <div id="order_now" style="border-bottom: 1px solid #F2F2F2;margin-top: 25px;margin-bottom: 15px;" class="mb-4"></div>
-        </div>
-    </section>
-    <section v-if="!success" >
-        <div class="container">
-            <div style="box-shadow: 0px 5px 12px #f2f2f2;border: 1px solid #f2f2f2;border-radius: 8px;" class="px-2 pb-3">
-                <h1 style="font-size: 30px;text-align: center;" class="mb-4 mt-3">اطلبه الآن</h1>
-                <form>
-                    <div class="mb-2">
-                        <input v-model="form.name" id="formName" class="form-control py-3" type="text" placeholder="الاسم" style="background: #f2f2f2;border-style: none;">
-                        <div id="formNameError" style="color: var(--bs-primary)" class="invalid-feedback"></div>
-                    </div>
-                    <div class="mb-2" style="position: relative;">
-                        <input @keyup="checkPhoneNumberSize('form')" class="form-control py-3" id="formPhone" type="number" pattern="[0-9]*" inputmode="numeric" v-model="form.phone_number" placeholder="5x xxx xxxx" style="background: #f2f2f2;border-style: none;padding-left: 83px;direction: ltr;">
-                        <div id="formPhoneFlag" class="d-flex align-items-center" style="position: absolute;top: 50%;transform: translateY(-50%);left: 20px;"><span>966&nbsp;&nbsp;</span><img src="http://localhost:8000/static/assets/img/saudi-arabia-flag-icon.png" style="width: 20px;"></div>
-                        <div id="formPhoneError" style="color: var(--bs-primary)" class="invalid-feedback"></div>
-                    </div>
-                    <div class="mb-2" style="position: relative;"><select v-model="form.city" class="form-select py-3" style="padding-right: 12px;padding-left: 34px;border-style: none;background: #f2f2f2;">
-                            <option v-for="city in template.cities" :key="city.id" :value="city.name">[[city.name]]</option>
-                        </select><i class="fas fa-chevron-down" style="position: absolute;top: 50%;transform: translateY(-50%);left: 20px;"></i></div>
-                    <div class="mb-2">
-                        <input id="formAddress" v-model="form.address" class="form-control py-3" type="text" placeholder="العنوان (الحي، الشارع)" style="background: #f2f2f2;border-style: none;">
-                        <div id="formAddressError" style="color: var(--bs-primary)" class="invalid-feedback"></div>
-                    </div>
-                    <div class="d-flex justify-content-between mt-3" style="color: #343434;"><span>[[form.product_obj.title]]</span><span>x[[form.quantity]]</span></div>
-                    <div class="d-flex justify-content-between mt-2" style="color: #343434;"><span>السعر شامل الضريبة</span><span>[[unitPrice]] ر.س</span></div>
-                    <div class="d-flex justify-content-between mt-2" style="color: #343434;"><span>الشحن السريع</span><span>مجاني</span></div>
-                    <div style="border-bottom: 1px solid #F2F2F2;margin-top: 25px;margin-bottom: 15px;" class="mb-0"></div>
-                    <div class="d-flex justify-content-between mt-2" style="color: #343434;"><span style="font-weight: bold;">الاجمالي</span><span style="font-weight: bold;">[[totalAmount]] ر.س</span></div>
-                    <a @click="submitForm()" class="btn btn-primary py-3 mt-4" role="button" style="width: 100%;background: var(--bs-primary);border-style: none;border-radius: 4px;margin-top: 34px;">شراء</a>
-                </form>
-            </div>
-        </div>
-    </section>
-    <section v-else>
-        <div class="container">
-            <div style="box-shadow: 0px 5px 12px #f2f2f2;border: 1px solid #f2f2f2;border-radius: 8px;" class="px-2 pb-3">
-                <!-- <h1 style="font-size: 30px;text-align: center;" class="mb-4 mt-3">اطلبه الآن</h1> -->
-                <div class="text-center p-5">
-                    <span class="display-4" style="color: var(--bs-primary);margin-left: 5px;"><i class="fas fa-check-circle"></i></span>
-                    <h1>شكرا لك</h1>
-                    <p style="font-size: 30px">تم استقبال طلبك بنجاح</p>
-
-                    <p>سنقوم بأكيد طلبك عبر الواتس اب</p>
-                    <p style="color: var(--bs-primary);">[[this.form.phone_number]]</p>
+        </section>
+        <section v-show="route == 'payment'">
+            <div class="container mb-1 mt-2">
+                <div style="box-shadow: 0px 5px 12px #f2f2f2;border: 1px solid #f2f2f2;border-radius: 8px;" class="px-2 pb-3">
+                    <a @click="route='form'" style="color: var(--bs-primary)" href="javascript:void(0);" class="link-underline-opacity-0 px-2"> <i class="fas fa-arrow-right mr-2"></i> العودة إلى عربة التسوق </a>
+    <!--                <h4 @click="route='form'" style="color: var(&#45;&#45;bs-primary)">العودة إلى عربة التسوق</h4>-->
+                    <div class="mysr-form" style="margin-top: 25px;"></div>
                 </div>
-
-                <a class="btn btn-primary py-3 mt-4" role="button" style="width: 100%;background: var(--bs-primary);border-style: none;border-radius: 4px;margin-top: 34px;">شارك العرض مع صديق</a>
             </div>
-        </div>
-    </section>
-  </div>
+        </section>
+    </div>
     `
 }

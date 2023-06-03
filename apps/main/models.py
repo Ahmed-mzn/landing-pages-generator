@@ -1,7 +1,7 @@
 import os
 
 from django.db import models
-
+from django.core.files import File
 from apps.authentication.models import User
 from apps.themes.models import Theme
 
@@ -15,6 +15,7 @@ from selenium import webdriver
 import time
 import uuid
 import threading
+import tempfile
 
 
 class SofDelete(models.Model):
@@ -37,6 +38,9 @@ class App(models.Model):
     app_id = models.CharField(max_length=200, unique=True, default=uuid.uuid4)
     business_name = models.TextField(null=True, blank=True)
     next_template = models.IntegerField(default=0)
+    auto_ship_cod = models.BooleanField(default=False)
+    auto_ship_cc = models.BooleanField(default=True)
+    next_ship_channel = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -84,7 +88,8 @@ class Template(SofDelete):
     main_rating_title = models.CharField(max_length=50, null=True, blank=True)
     meta_description = models.CharField(max_length=200, null=True, blank=True)
     meta_keywords = models.CharField(max_length=200, null=True, blank=True)
-    logo = models.FileField(upload_to='uploads/%Y/%m/%d', null=True, blank=True)
+    logo = models.ImageField(upload_to='uploads/%Y/%m/%d', null=True, blank=True)
+    preview_image = models.ImageField(upload_to='screenshots/%Y/%m/%d', null=True, blank=True)
     main_image = models.FileField(upload_to='uploads/%Y/%m/%d', null=True, blank=True)
     medals_image = models.FileField(upload_to='uploads/%Y/%m/%d', null=True, blank=True)
     second_image = models.FileField(upload_to='uploads/%Y/%m/%d', null=True, blank=True)
@@ -93,12 +98,40 @@ class Template(SofDelete):
     primary_color = models.CharField(max_length=20, null=True, blank=True)
     secondary_color = models.CharField(max_length=20, null=True, blank=True, default="#FBF4EA")
     extra_js = models.TextField(null=True, blank=True)
+    cod_payment = models.BooleanField(default=True)
+    card_payment = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     customer_website = models.CharField(max_length=200, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"<Template {self.template_code} - {self.template_name} / {self.app.user}>"
+
+    def get_preview_image_url(self):
+        if self.preview_image:
+            return settings.WEBSITE_URL + self.preview_image.url
+        return ''
+
+    def make_screenshot(self):
+        print("[+] Screenshot for template " + str(self.id) + " start")
+        url = settings.WEBSITE_URL + f"/templates/preview-editor/{self.id}"
+
+        drive_path = f"{settings.STATICFILES_DIRS[0]}/chromedriver.exe"
+        options = webdriver.ChromeOptions()
+        options.add_experimental_option('excludeSwitches', ['enable-logging'])
+        options.add_argument("--headless")
+        options.add_argument("--hide-scrollbars")
+
+        driver = webdriver.Chrome(executable_path=drive_path, options=options)
+        driver.get(url)
+        driver.set_window_size(1920, 1200)
+
+        time.sleep(3)
+        driver.save_screenshot(f'{settings.MEDIA_ROOT}/screenshots/screenshot-{self.id}.png')
+
+        self.preview_image.save(f"screenshot-{self.id}.png",
+                                File(open(f'{settings.MEDIA_ROOT}/screenshots/screenshot-{self.id}.png', 'rb')))
+        print("[+] End screenshot for template " + str(self.id))
 
     class Meta:
         ordering = ('pk', )
@@ -201,21 +234,13 @@ class Visit(models.Model):
         return f"<Visit {self.city}>"
 
 
-class Lead(SofDelete):
-    name = models.CharField(max_length=85)
-    phone_number = models.CharField(max_length=85)
-    city = models.CharField(max_length=85)
-    address = models.CharField(max_length=100)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return f"<Lead {self.name} / {self.phone_number}>"
-
-
 class MainCity(models.Model):
     name_ar = models.CharField(max_length=40)
     name_en = models.CharField(max_length=40)
+    aymakan = models.CharField(max_length=40)
+    aramex = models.CharField(max_length=40)
+    jonex = models.CharField(max_length=40)
+    smsa = models.CharField(max_length=40)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -239,27 +264,44 @@ class City(models.Model):
         verbose_name_plural = 'Cities'
 
 
-@receiver(post_save, sender=Template)
-def create_profile(sender, instance, created, **kwargs):
-    thread = threading.Thread(target=make_screenshot, args=(instance,))
-    thread.start()
+class Lead(SofDelete):
+    name = models.CharField(max_length=85)
+    phone_number = models.CharField(max_length=85)
+    city = models.ForeignKey(City, related_name='leads', on_delete=models.SET_NULL, null=True, blank=True)
+    address = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"<Lead {self.name} / {self.phone_number}>"
 
 
-def make_screenshot(instance):
-    print("[+] Screenshot for template " + str(instance.id) + " start")
-    url = settings.WEBSITE_URL + f"/templates/preview-editor/{instance.id}"
+# @receiver(post_save, sender=Template)
+# def create_profile(sender, instance, created, **kwargs):
+#     thread = threading.Thread(target=make_screenshot, args=(instance,))
+#     thread.start()
 
-    drive_path = f"{settings.STATICFILES_DIRS[0]}/chromedriver.exe"
-    options = webdriver.ChromeOptions()
-    options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    options.add_argument("--headless")
-    options.add_argument("--hide-scrollbars")
 
-    driver = webdriver.Chrome(executable_path=drive_path, options=options)
-    driver.get(url)
-    # driver.execute_script("document.body.style.overflow = 'hidden';")
-    driver.set_window_size(1920, 1200)
-
-    time.sleep(3)
-    driver.save_screenshot(f'{settings.MEDIA_ROOT}/screenshots/screenshot-{instance.id}.png')
-    print("[+] End screenshot for template " + str(instance.id))
+# def make_screenshot(instance):
+#     print("[+] Screenshot for template " + str(instance.id) + " start")
+#     url = settings.WEBSITE_URL + f"/templates/preview-editor/{instance.id}"
+#
+#     drive_path = f"{settings.STATICFILES_DIRS[0]}/chromedriver.exe"
+#     options = webdriver.ChromeOptions()
+#     options.add_experimental_option('excludeSwitches', ['enable-logging'])
+#     options.add_argument("--headless")
+#     options.add_argument("--hide-scrollbars")
+#
+#     driver = webdriver.Chrome(executable_path=drive_path, options=options)
+#     driver.get(url)
+#     # driver.execute_script("document.body.style.overflow = 'hidden';")
+#     driver.set_window_size(1920, 1200)
+#
+#     time.sleep(3)
+#     driver.save_screenshot(f'{settings.MEDIA_ROOT}/screenshots/screenshot-{instance.id}.png')
+#
+#     # tmp = tempfile.NamedTemporaryFile(delete=False)
+#     # driver.save_screenshot(tmp.name)
+#     instance.preview_image.save(f"screenshots/screenshot-{instance.id}.png",
+#                                 File(open(f'{settings.MEDIA_ROOT}/screenshots/screenshot-{instance.id}.png', 'rb')))
+#     print("[+] End screenshot for template " + str(instance.id))

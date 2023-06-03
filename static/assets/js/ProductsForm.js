@@ -3,6 +3,7 @@ const productsForm = {
     delimiters: ['[[', ']]'],
     data() {
         return {
+            route: 'form',
             success: false,
             showWhatsappBnt: true,
             showWhatsappSendSuccessBtn: false,
@@ -17,7 +18,9 @@ const productsForm = {
                 name: '',
                 phone_number: '',
                 city: '',
-                address: ''
+                address: '',
+                payment_type: 'card',
+                payment_id: ''
             },
             session: {
                 template: 0,
@@ -68,7 +71,48 @@ const productsForm = {
     mounted() {
         this.getTemplate();
         this.getIpInfo();
-        // this.startTracking();
+        console.log(window.location.href)
+        function parse_query_string(query) {
+          var vars = query.split("&");
+          var query_string = {};
+          for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            var key = decodeURIComponent(pair.shift());
+            var value = decodeURIComponent(pair.join("="));
+            // If first entry with this name
+            if (typeof query_string[key] === "undefined") {
+              query_string[key] = value;
+              // If second entry with this name
+            } else if (typeof query_string[key] === "string") {
+              var arr = [query_string[key], value];
+              query_string[key] = arr;
+              // If third or later entry with this name
+            } else {
+              query_string[key].push(value);
+            }
+          }
+          return query_string;
+        }
+
+        var qs = parse_query_string(window.location.search.substring(1))
+
+        if (qs.status == 'success' || qs.status == 'paid'){
+            Swal.fire({
+              icon: 'success',
+              title: 'شكرًا',
+              text: 'تم الدفع بنجاح',
+              confirmButtonText: 'تمام'
+            })
+        }
+        if (qs.status == 'failed'){
+            Swal.fire({
+              icon: 'error',
+              title: 'نعتذر',
+              text: 'هناك خطأ في الدفع',
+              confirmButtonText: 'تمام'
+            })
+        }
+        window.history.replaceState(null, '', window.location.pathname);
     },
     computed:{
       unitPrice(){
@@ -134,10 +178,14 @@ const productsForm = {
             document.getElementById('product-'+product.id).classList.add('active');
         },
         decreaseQty(){
-            this.form.quantity = this.form.quantity - 1;
+            if (this.route == 'form' && this.form.quantity > 1) {
+                this.form.quantity = this.form.quantity - 1;
+            }
         },
         increaseQty(){
-            this.form.quantity = this.form.quantity + 1;
+            if (this.route == 'form') {
+                this.form.quantity = this.form.quantity + 1;
+            }
         },
         getDivClass(index){
             if(index == 0){
@@ -206,35 +254,71 @@ const productsForm = {
             }
 
             if(valid){
-                this.form.template = this.template.id
-                const data = {
-                    template: this.form.template,
-                    lead: {
-                        name: this.form.name,
-                        phone_number: this.form.phone_number,
-                        city: this.form.city,
-                        address: this.form.address
-                    },
-                    input_items: [
-                        {
-                            "id": this.form.product,
-                            "quantity": this.form.quantity
-                        }
-                    ]
+                console.log(this.form.payment_type)
+                if (this.form.payment_type == 'card'){
+                    this.route = 'payment'
+                    console.log(this.totalAmount)
+                    Moyasar.init({
+                        element: '.mysr-form',
+                        // Amount in the smallest currency unit.
+                        // For example:
+                        // 10 SAR = 10 * 100 Halalas
+                        // 10 KWD = 10 * 1000 Fils
+                        // 10 JPY = 10 JPY (Japanese Yen does not have fractions)
+                        amount: this.totalAmount * 100,
+                        currency: 'SAR',
+                        description: 'Coffee Order #1',
+                        language: 'ar',
+                        publishable_api_key: 'pk_test_37qqSidenDWUMRKRE6pEE41BmizEyzozete7RRX7',
+                        callback_url: 'http://'+window.location.host + window.location.pathname,
+                        on_completed: (payment) => {
+                            console.log(payment)
+                            console.log(this.form)
+                            this.form.payment_id = payment.id
+                            axios.post('https://webhook.site/9a931dfe-3f67-4885-b951-5cce2defa35c', {pay: this.form})
+                            this.createOrder()
+                            return Promise.resolve({});
+                          },
+                        methods: ['stcpay', 'creditcard'],
+                    });
+                } else {
+                    this.createOrder()
+                    this.route = 'success'
                 }
-                axios.post("/orders/public/", data)
-                .then((response) => {
-                    document.cookie = 'name='+this.form.name+'; expires=Thu, 01 Jan 9999 00:00:00 UTC';
-                    document.cookie = `phonenumber=${this.form.phone_number}; expires=Thu, 01 Jan 9999 00:00:00 UTC`;
-                    document.cookie = `city=${this.form.city}; expires=Thu, 01 Jan 9999 00:00:00 UTC`;
-                    document.cookie = `address=${this.form.address}; expires=Thu, 01 Jan 9999 00:00:00 UTC`;
-
-                    this.success = true;
-                })
-                .catch((error) => {
-                    console.log(JSON.stringify(error));
-                });
             }
+        },
+        createOrder(){
+            this.form.template = this.template.id
+            const data = {
+                template: this.form.template,
+                lead: {
+                    name: this.form.name,
+                    phone_number: this.form.phone_number,
+                    city: this.form.city,
+                    address: this.form.address
+                },
+                input_items: [
+                    {
+                        "id": this.form.product,
+                        "quantity": this.form.quantity
+                    }
+                ],
+                payment_type: this.form.payment_type,
+                payment_id: this.form.payment_id
+            }
+            console.log(data)
+            axios.post("https://landing.socialbot.dev/api/v1/orders/public/", data)
+            .then((response) => {
+                document.cookie = 'name='+this.form.name+'; expires=Thu, 01 Jan 9999 00:00:00 UTC';
+                document.cookie = `phonenumber=${this.form.phone_number}; expires=Thu, 01 Jan 9999 00:00:00 UTC`;
+                document.cookie = `city=${this.form.city}; expires=Thu, 01 Jan 9999 00:00:00 UTC`;
+                document.cookie = `address=${this.form.address}; expires=Thu, 01 Jan 9999 00:00:00 UTC`;
+
+                this.success = true;
+            })
+            .catch((error) => {
+                console.log(JSON.stringify(error));
+            });
         },
         leaving(){
             this.session.template = this.id
@@ -266,6 +350,12 @@ const productsForm = {
                 if(response.data.products.length != 0){
                     this.form.product = this.template.products[0].id;
                     this.form.product_obj = this.template.products[0];
+                }
+
+                if (response.data.card_payment){
+                    this.form.payment_type = 'card'
+                } else {
+                    this.form.payment_type = 'cod'
                 }
 
                 this.form.name = this.getCookie('name');
@@ -307,7 +397,6 @@ const productsForm = {
     <div>
       <section class="mt-4">
         <div class="container">
-
             <h3 style="font-size: 16px;font-weight: bold;" class="mb-4">العرض</h3>
             <div id="swiperSlider" class="swiper-container" style="margin-bottom: 57px;overflow: hidden;">
                 <div class="swiper-wrapper" style="cursor: pointer;">
@@ -333,13 +422,13 @@ const productsForm = {
             </div>
             <div class="d-flex justify-content-between align-items-center">
                 <h3 style="font-size: 16px;font-weight: bold;">الكمية</h3>
-                <div class="d-flex justify-content-between align-items-center" style="width: 250px;padding: 10px 25px;border-radius: 5px;color: rgb(0,0,0);border: 1px solid #F2F2F2 ;"><i @click="decreaseQty()" class="fas fa-minus disabled" id="quantity-minus" style="color: var(--bs-primary);"></i><span id="quantity-text" style="font-size: 18px;">1</span><i @click="increaseQty()" class="fas fa-plus" id="quantity-plus" style="color: var(--bs-primary);"></i></div>
+                <div class="d-flex justify-content-between align-items-center" style="width: 250px;padding: 10px 25px;border-radius: 5px;color: rgb(0,0,0);border: 1px solid #F2F2F2 ;"><i @click="decreaseQty()" class="fas fa-minus" :class="form.quantity == 1 ? 'disabled':''" id="quantity-minus" style="color: var(--bs-primary);"></i><span id="quantity-text" style="font-size: 18px;">[[form.quantity]]</span><i @click="increaseQty()" class="fas fa-plus" id="quantity-plus" style="color: var(--bs-primary);"></i></div>
             </div>
             <div id="order_now" style="border-bottom: 1px solid #F2F2F2;margin-top: 25px;margin-bottom: 15px;" class="mb-4"></div>
         </div>
     </section>
 
-    <section v-if="!success" >
+    <section v-show="route == 'form'" >
       <div class="container">
           <div style="box-shadow: 0px 5px 12px #f2f2f2;border: 1px solid #f2f2f2;border-radius: 8px;" class="px-2 pb-3">
               <h1 style="font-size: 30px;text-align: center;" class="mb-4 mt-3">اطلبه الآن</h1>
@@ -354,11 +443,28 @@ const productsForm = {
                       <div id="formPhoneError" style="color: var(--bs-primary)" class="invalid-feedback"></div>
                   </div>
                   <div class="mb-2" style="position: relative;"><select v-model="form.city" class="form-select py-3" style="padding-right: 12px;padding-left: 34px;border-style: none;background: #f2f2f2;">
-                          <option v-for="city in template.cities" :key="city.id" :value="city.name">[[city.name]]</option>
+                          <option v-for="city in template.cities" :key="city.id" :value="city.id">[[city.main_city.name_ar]]</option>
                       </select><i class="fas fa-chevron-down" style="position: absolute;top: 50%;transform: translateY(-50%);left: 20px;"></i></div>
                   <div class="mb-2">
                       <input id="formAddress" v-model="form.address" class="form-control py-3" type="text" placeholder="العنوان (الحي، الشارع)" style="background: #f2f2f2;border-style: none;">
                       <div id="formAddressError" style="color: var(--bs-primary)" class="invalid-feedback"></div>
+                  </div>
+<!--                  <div class="mb-2" style="position: relative;">-->
+<!--                      <select v-model="form.payment_type" class="form-select py-3" style="padding-right: 12px;padding-left: 34px;border-style: none;background: #f2f2f2;">-->
+<!--                          <option value="cod">COD</option>-->
+<!--                          <option value="card">Credit Card</option>-->
+<!--                      </select><i class="fas fa-chevron-down" style="position: absolute;top: 50%;transform: translateY(-50%);left: 20px;"></i>-->
+<!--                  </div>-->
+                  <div class="mb-2" style="position: relative;">
+                    <!-- Credit card form tabs -->
+                    <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3" style="padding-right: 0;">
+                        <li v-show="template.card_payment" class="nav-item" @click="form.payment_type='card'">
+                            <a :style="form.payment_type=='card' ? 'color:white;background-color:var(--bs-primary);':'color:var(--bs-primary)'" data-toggle="pill" href="javascript:void(0);" class="nav-link"> <i class="fas fa-credit-card mr-2"></i> الدفع الالكتروني </a>
+                        </li>
+                        <li v-show="template.cod_payment" class="nav-item" @click="form.payment_type='cod'">
+                            <a :style="form.payment_type=='cod' ? 'color:white;background-color:var(--bs-primary);':'color:var(--bs-primary)'" data-toggle="pill" href="javascript:void(0);" class="nav-link"> <i class="fa fa-hand-holding-usd mr-2"></i> الدفع عند الاستلام </a>
+                        </li>
+                    </ul>
                   </div>
                   <div class="d-flex justify-content-between mt-3" style="color: #343434;"><span>[[form.product_obj.title]]</span><span>x[[form.quantity]]</span></div>
                   <div class="d-flex justify-content-between mt-2" style="color: #343434;"><span>السعر شامل الضريبة</span><span>[[unitPrice]] ر.س</span></div>
@@ -371,7 +477,7 @@ const productsForm = {
           </div>
       </div>
     </section>
-    <section v-else>
+    <section v-show="route == 'success'" >
         <div class="container">
             <div style="box-shadow: 0px 5px 12px #f2f2f2;border: 1px solid #f2f2f2;border-radius: 8px;" class="px-2 pb-3">
                 <!-- <h1 style="font-size: 30px;text-align: center;" class="mb-4 mt-3">اطلبه الآن</h1> -->
@@ -385,6 +491,15 @@ const productsForm = {
                 </div>
 
                 <a class="btn btn-primary py-3 mt-4" role="button" style="width: 100%;background: var(--bs-primary);border-style: none;border-radius: 4px;margin-top: 34px;">شارك العرض مع صديق</a>
+            </div>
+        </div>
+    </section>
+    <section v-show="route == 'payment'">
+        <div class="container mb-1 mt-2">
+            <div style="box-shadow: 0px 5px 12px #f2f2f2;border: 1px solid #f2f2f2;border-radius: 8px;" class="px-2 pb-3">
+                <a @click="route='form'" style="color: var(--bs-primary)" href="javascript:void(0);" class="link-underline-opacity-0 px-2"> <i class="fas fa-arrow-right mr-2"></i> العودة إلى عربة التسوق </a>
+<!--                <h4 @click="route='form'" style="color: var(&#45;&#45;bs-primary)">العودة إلى عربة التسوق</h4>-->
+                <div class="mysr-form" style="margin-top: 25px;"></div>
             </div>
         </div>
     </section>

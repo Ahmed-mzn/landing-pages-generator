@@ -2,7 +2,11 @@ from rest_framework import serializers
 from .models import Channel, ChannelField, ConstantChannel, ConstantChannelField, Order, OrderItem, Coupon, Warehouse
 
 from apps.main.models import Lead, Product, App, Affiliate
-from apps.main.serializers import LeadSerializer, ProductSerializer
+from apps.main.serializers import LeadSerializer, ProductSerializer, LeadCreationSerializer, \
+    TemplateMainDetailsSerializer
+
+from .utils import create_ship
+import threading
 
 
 class ChannelFieldSerializer(serializers.ModelSerializer):
@@ -71,6 +75,26 @@ class ChannelViewSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'type')
 
 
+class WarehouseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Warehouse
+        fields = ('id', 'title', 'city', 'email', 'name', 'phone_number', 'address','is_current',
+                  'created_at', 'updated_at')
+
+    def create(self, validated_data):
+        app = App.objects.filter(user=self.context['request'].user).first()
+
+        count_warehouses = Warehouse.objects.filter(app=app).count()
+
+        warehouse = Warehouse.objects.create(app=app, **validated_data)
+
+        if count_warehouses == 0:
+            warehouse.is_current = True
+            warehouse.save()
+
+        return warehouse
+
+
 class OrderItemSerializer(serializers.ModelSerializer):
     product = ProductSerializer(many=False, read_only=True)
 
@@ -83,7 +107,21 @@ class OrderItemSerializer(serializers.ModelSerializer):
 
 
 class OrderSerializer(serializers.ModelSerializer):
-    lead = LeadSerializer(many=False)
+    template = TemplateMainDetailsSerializer(many=False)
+    lead = LeadSerializer(many=False, read_only=True)
+    items = OrderItemSerializer(many=True, read_only=True)
+    shipping_company = ChannelViewSerializer(many=False, required=False)
+    warehouse = WarehouseSerializer(many=False, read_only=True)
+
+    class Meta:
+        model = Order
+        fields = ('id', 'lead', 'template', 'items', 'coupon', 'is_paid', 'shipping_company', 'status', 'payment_type',
+                  'shipping_company', 'shipping_tracking_id', 'shipping_awb', 'amount', 'warehouse',
+                  'created_at', 'updated_at')
+
+
+class OrderCreationSerializer(serializers.ModelSerializer):
+    lead = LeadCreationSerializer(many=False)
     items = OrderItemSerializer(many=True, read_only=True)
     input_items = serializers.ListField(write_only=True)
     shipping_company = ChannelViewSerializer(many=False, required=False)
@@ -91,7 +129,8 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = ('id', 'lead', 'template', 'items', 'coupon', 'is_paid', 'shipping_company', 'status', 'input_items',
-                  'shipping_company', 'shipping_tracking_id', 'shipping_awb', 'amount', 'created_at', 'updated_at')
+                  'payment_type', 'shipping_company', 'shipping_tracking_id', 'shipping_awb', 'amount', 'payment_id',
+                  'created_at', 'updated_at')
         extra_kwargs = {
             'is_paid': {'read_only': True},
             'shipping_company': {'read_only': True},
@@ -113,7 +152,10 @@ class OrderSerializer(serializers.ModelSerializer):
         input_lead = validated_data.pop("lead")
         items = validated_data.pop("input_items")
         template = validated_data.pop("template")
-        print(items)
+        payment_id = validated_data.pop("payment_id")
+        payment_type = validated_data.pop("payment_type")
+        # print(input_lead)
+
         try:
             lead = Lead.objects.all().get(phone_number=input_lead.get('phone_number'),
                                           name=input_lead.get('name'), address=input_lead.get('address'),
@@ -122,8 +164,10 @@ class OrderSerializer(serializers.ModelSerializer):
             lead = Lead.objects.create(name=input_lead.get('name'), phone_number=input_lead.get('phone_number'),
                                        city=input_lead.get('city'), address=input_lead.get('address'))
 
-        ship = Channel.objects.filter(app=template.app).first()
-        order = Order.objects.create(lead=lead, template=template, shipping_company=ship, amount=0)
+        # ship = Channel.objects.filter(app=template.app, type='aymakan').first()
+        # warehouse = Warehouse.objects.filter(app=template.app, is_current=True).first()
+        order = Order.objects.create(lead=lead, template=template, amount=0, payment_id=payment_id,
+                                     payment_type=payment_type)
 
         total_amount = 0
 
@@ -137,7 +181,14 @@ class OrderSerializer(serializers.ModelSerializer):
             OrderItem.objects.create(product=product, order=order, quantity=item["quantity"], amount=amount)
 
         order.amount = total_amount
+        # To be change
+        # order.is_paid = True
         order.save()
+
+        if order.payment_type == 'cod':
+            if template.app.auto_ship_cod:
+                thread = threading.Thread(target=create_ship, args=(order,))
+                thread.start()
 
         return order
 
@@ -172,23 +223,3 @@ class AffiliateSerializer(serializers.ModelSerializer):
         affiliate = Affiliate.objects.create(app=app, **validated_data)
 
         return affiliate
-
-
-class WarehouseSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Warehouse
-        fields = ('id', 'title', 'city', 'email', 'name', 'phone_number', 'address','is_current',
-                  'created_at', 'updated_at')
-
-    def create(self, validated_data):
-        app = App.objects.filter(user=self.context['request'].user).first()
-
-        count_warehouses = Warehouse.objects.filter(app=app).count()
-
-        warehouse = Warehouse.objects.create(app=app, **validated_data)
-
-        if count_warehouses == 0:
-            warehouse.is_current = True
-            warehouse.save()
-
-        return warehouse
