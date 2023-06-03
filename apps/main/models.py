@@ -116,7 +116,7 @@ class Template(SofDelete):
         print("[+] Screenshot for template " + str(self.id) + " start")
         url = settings.WEBSITE_URL + f"/templates/preview-editor/{self.id}"
 
-        drive_path = f"{settings.STATICFILES_DIRS[0]}/chromedriver.exe"
+        drive_path = f"{settings.STATIC_ROOT}/chromedriver.exe"
         options = webdriver.ChromeOptions()
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
         options.add_argument("--headless")
