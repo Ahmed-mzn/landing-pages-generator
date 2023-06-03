@@ -167,7 +167,7 @@ STATIC_URL = 'static/'
 #     os.path.join(BASE_DIR, 'static')
 # ]
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-STATIC_ROOT = '/home/khaled/static/'
+STATIC_ROOT = '/home/khaled/landing_pages/landing-pages-generator/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
