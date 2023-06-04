@@ -12,7 +12,7 @@ import threading
 def create_ship(order):
     app = order.template.app
     warehouse = Warehouse.objects.filter(app=app, is_current=True).first()
-    channels = [channel.id for channel in app.channels.all().order_by("id")]
+    channels = [channel.id for channel in app.channels.filter(is_active=True).order_by("id")]
     channels_count = app.channels.count()
     is_shipped = False
     channel = None
@@ -28,8 +28,8 @@ def create_ship(order):
             except:
                 channel = Channel.objects.get(pk=channels[0])
         current_channel_index = channels.index(channel.id)
-        print(channels)
-        print(current_channel_index)
+        # print(channels)
+        # print(current_channel_index)
         order.shipping_company = channel
         order.warehouse = warehouse
         order.save()

@@ -57,12 +57,19 @@ class Smsa:
                             data=json.dumps(params), headers=self.headers)
         print(res.text)
         try:
-            if res.json():
+            if res.json() and 'Failed' not in res.json():
                 self.order.shipping_tracking_id = res.json()
                 self.order.status = self.order.INDELIVERY
                 self.order.save()
                 return True
+            self.order.shipping_company = None
+            self.order.warehouse = None
+            self.order.save()
+            return False
         except:
+            self.order.shipping_company = None
+            self.order.warehouse = None
+            self.order.save()
             print("error create jonex")
             return False
         return False

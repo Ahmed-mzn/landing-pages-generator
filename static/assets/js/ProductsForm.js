@@ -63,14 +63,9 @@ const productsForm = {
     },
     created(){
       axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1'
-        window.setInterval(() => {
-            this.setDuration();
-        }, 1000)
-        window.addEventListener("beforeunload", this.leaving);
     },
     mounted() {
         this.getTemplate();
-        this.getIpInfo();
         console.log(window.location.href)
         function parse_query_string(query) {
           var vars = query.split("&");
@@ -195,9 +190,6 @@ const productsForm = {
             }
 
         },
-        setDuration(){
-            this.session.duration = this.session.duration + 1;
-        },
         getCookie(cname){
             let name = cname + "=";
             let decodedCookie = decodeURIComponent(document.cookie);
@@ -260,14 +252,9 @@ const productsForm = {
                     console.log(this.totalAmount)
                     Moyasar.init({
                         element: '.mysr-form',
-                        // Amount in the smallest currency unit.
-                        // For example:
-                        // 10 SAR = 10 * 100 Halalas
-                        // 10 KWD = 10 * 1000 Fils
-                        // 10 JPY = 10 JPY (Japanese Yen does not have fractions)
                         amount: this.totalAmount * 100,
                         currency: 'SAR',
-                        description: 'Coffee Order #1',
+                        description: 'Order Payment',
                         language: 'ar',
                         publishable_api_key: 'pk_test_37qqSidenDWUMRKRE6pEE41BmizEyzozete7RRX7',
                         callback_url: 'http://'+window.location.host + window.location.pathname,
@@ -319,20 +306,6 @@ const productsForm = {
             .catch((error) => {
                 console.log(JSON.stringify(error));
             });
-        },
-        leaving(){
-            this.session.template = this.id
-            fetch('https://landing.socialbot.dev/api/v1/public/create_visit', {
-                method: 'POST',
-                body: JSON.stringify(this.session),
-                credentials: "same-origin",
-                headers: {
-                    "Accept": "application/json",
-                    'Content-Type': 'application/json'
-                },
-                keepalive: true,
-            })
-            this.session.duration = 0;
         },
         getTemplate(){
             axios

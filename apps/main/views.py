@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Sum
+from django.conf import settings
 from rest_framework import generics, status, viewsets
 from rest_framework.response import Response
 
@@ -175,14 +176,31 @@ class TemplateViewSet(viewsets.ModelViewSet):
     @action(methods=['GET'], detail=True, url_path="statistics")
     def statistics(self, request, pk):
         template = get_object_or_404(Template, pk=pk)
+        templates_child = template.child_templates.all()
+        templates = []
+        for t in templates_child:
+            templates.append({
+                "template_name": t.template_name,
+                "preview_image": settings.WEBSITE_URL + t.preview_image.url,
+                "visits": t.visits.all().count(),
+                "orders": t.orders.all().count(),
+                "orders_paid": t.orders.all().filter(is_paid=True).count(),
+                "customers": Lead.objects.filter(orders__template=t).count(),
+                # "income": t.orders.all().aggregate(Sum('amount'))['amount__sum'],
+                "shares": t.shares.all().count()
+            })
         return Response(data={
-            "visits": template.visits.all().count(),
-            "orders": template.forms_records.all().count(),
-            "orders_paid": template.forms_records.all().filter(is_paid=True).count(),
-            "customers": Lead.objects.filter(forms_leads__template=template).count(),
-            "income": template.forms_records.all().aggregate(Sum('amount'))['amount__sum'],
-            "products": template.template_products.all().count(),
-            "shares": template.shares.all().count()
+            "template": {
+                "template_name": template.template_name,
+                "preview_image": settings.WEBSITE_URL + template.preview_image.url,
+                "visits": template.visits.all().count(),
+                "orders": template.orders.all().count(),
+                "orders_paid": template.orders.all().filter(is_paid=True).count(),
+                "customers": Lead.objects.filter(orders__template=template).count(),
+                # "income": template.orders.all().aggregate(Sum('amount'))['amount__sum'],
+                "shares": template.shares.all().count()
+            },
+            "templates_child": templates
         }, status=status.HTTP_200_OK)
 
     @action(detail=True, url_path='save_html', methods=['post'])
@@ -640,7 +658,7 @@ def create_visit(request):
             },
             status=status.HTTP_201_CREATED
         )
-
+    print(serializer.errors)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 

@@ -33,7 +33,7 @@ class ChannelSerializer(serializers.ModelSerializer):
         app = self.context['request'].user.apps.first()
         fields = validated_data.pop('fields')
 
-        channel = Channel.objects.create(**validated_data, app=app)
+        channel = Channel.objects.create(**validated_data, app=app, is_active=True)
         for field in fields:
             ChannelField.objects.create(channel=channel, **field)
 
@@ -43,6 +43,8 @@ class ChannelSerializer(serializers.ModelSerializer):
         if self.context['request'].method == 'PATCH':
             return super().update(instance, validated_data)
         fields = validated_data.pop('fields')
+        instance.is_active = True
+        instance.save()
 
         # update fields only
         for field in fields:
@@ -148,7 +150,7 @@ class OrderCreationSerializer(serializers.ModelSerializer):
         return value
 
     def create(self, validated_data):
-        print(validated_data)
+        # print(validated_data)
         input_lead = validated_data.pop("lead")
         items = validated_data.pop("input_items")
         template = validated_data.pop("template")

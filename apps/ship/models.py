@@ -1,5 +1,5 @@
 from django.db import models
-from apps.main.models import App, Template, Product, Lead, Affiliate, MainCity
+from apps.main.models import App, Template, Product, Lead, Affiliate, MainCity, SofDelete
 
 from django.utils.translation import gettext_lazy as _
 
@@ -67,9 +67,9 @@ class ConstantChannelField(models.Model):
         return f'<FIELD_CONSTANT {self.key} / {self.value}/>'
 
 
-class Warehouse(models.Model):
+class Warehouse(SofDelete):
     app = models.ForeignKey(App, related_name="warehouses", on_delete=models.CASCADE)
-    city = models.ForeignKey(MainCity, related_name="warehouses", on_delete=models.SET_NULL, null=True, blank=True)
+    city = models.ForeignKey(MainCity, related_name="warehouses", on_delete=models.CASCADE)
     email = models.EmailField(null=True, blank=True)
     title = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=100)
@@ -83,7 +83,7 @@ class Warehouse(models.Model):
         return f"<Warehouse {self.city}, {self.address} />"
 
 
-class Coupon(models.Model):
+class Coupon(SofDelete):
     class Meta:
         verbose_name = _("Coupon")
         verbose_name_plural = _("Coupons")

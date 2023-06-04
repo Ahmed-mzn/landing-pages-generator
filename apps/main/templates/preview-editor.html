@@ -25,6 +25,21 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=fetch"></script>
     <script src="https://cdn.moyasar.com/mpf/1.7.3/moyasar.js"></script>
 
+    <!-- Third party libs -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+{#    <!-- Vue development -->#}
+{#    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>#}
+
+    <!-- Vue production -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <!-- Js Files -->
+    <script src="{% static '/assets/js/ProductsForm.js' %}?id=1"></script>
+    <script src="{% static '/assets/js/ProductsForm2.js' %}?id=1"></script>
+    <script src="{% static '/assets/js/shareButton.js' %}?id=1"></script>
+
     <link href="{% static '/assets/css/styles.css' %}" rel="stylesheet">
     <title>{{ template.meta_title }}</title>
     <style>
@@ -44,13 +59,45 @@
 {% if template %}
     {{ template.html | safe }}
 {% endif %}
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="{% static '/assets/js/ProductsForm.js' %}"></script>
-<script src="{% static '/assets/js/ProductsForm2.js' %}"></script>
-<script src="{% static '/assets/js/shareButton.js' %}"></script>
+<script>
+    var session = {
+        template: {{ template.id }},
+        duration: 0,
+        city: '',
+        region: '',
+        ip_address: '',
+        country: '',
+        location: '',
+    }
+
+    function getIpInfo(){
+
+    }
+
+    function setDuration(){
+        session.duration += 1;
+    }
+
+    function leaving(){
+        fetch('http://localhost:8000/api/v1/public/create_visit', {
+            method: 'POST',
+            body: JSON.stringify(session),
+            credentials: "same-origin",
+            headers: {
+                "Accept": "application/json",
+                'Content-Type': 'application/json'
+            },
+            keepalive: true,
+        })
+    }
+
+    window.addEventListener("beforeunload", leaving);
+
+    window.setInterval(() => {
+        setDuration();
+    }, 1000)
+</script>
 <script src="{% static '/assets/bootstrap/js/bootstrap.min.js' %}"></script>
 <script src="{% static '/assets/js/app.js' %}"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </html>

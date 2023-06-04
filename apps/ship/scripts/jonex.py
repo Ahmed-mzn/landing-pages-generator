@@ -29,21 +29,29 @@ class Jonex:
                 "productType": "parcel"
             }
         }
-        print(data)
+        # print(data)
 
-        res = requests.post("https://api.fastcoo-tech.com/API_v2/CreateOrder", json=data)
-        print(res)
-        print(res.text)
         try:
+            res = requests.post("https://api.fastcoo-tech.com/API_v2/CreateOrder", json=data)
+            print(res)
+            print(res.text)
             if res.json()["awb_no"]:
+                print('ok')
                 self.order.shipping_tracking_id = res.json()["awb_no"]
                 self.order.shipping_awb = res.json()["label_print"]
                 self.order.status = self.order.INDELIVERY
                 self.order.save()
                 return True
+            print('nok')
+            self.order.shipping_company = None
+            self.order.warehouse = None
+            self.order.save()
             return False
         except:
             print("error create jonex")
+            self.order.shipping_company = None
+            self.order.warehouse = None
+            self.order.save()
             return False
 
     def tracking(self):

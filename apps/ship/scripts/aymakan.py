@@ -37,7 +37,7 @@ class Aymakan:
             "pieces": self.order.items.count(),
             "items_count": self.order.items.count()
         }
-        print(data)
+        # print(data)
 
         res = requests.post("https://api.aymakan.net/v2/shipping/create", json=data, headers=self.headers)
         print(res)
@@ -50,8 +50,14 @@ class Aymakan:
                 self.order.status = self.order.INDELIVERY
                 self.order.save()
                 return True
+            self.order.shipping_company = None
+            self.order.warehouse = None
+            self.order.save()
             return False
         except:
+            self.order.shipping_company = None
+            self.order.warehouse = None
+            self.order.save()
             print('error 500 aymakan')
             return False
 

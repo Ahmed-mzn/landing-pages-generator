@@ -45,6 +45,14 @@ class ChannelAPI(viewsets.ModelViewSet):
     def get_queryset(self):
         return self.queryset.filter(app__user=self.request.user)
 
+    @action(detail=True, url_path="disable", methods=['post'])
+    def disable(self, request, pk):
+        channel = get_object_or_404(Channel, pk=pk)
+        channel.is_active = False
+        channel.fields.all().update(value='')
+        channel.save()
+        return Response(data={'status': 'ok'}, status=status.HTTP_200_OK)
+
 
 class CouponViewSet(viewsets.ModelViewSet):
     queryset = Coupon.objects.all()
@@ -73,7 +81,22 @@ class WarehouseViewSet(viewsets.ModelViewSet):
     authentication_classes = [TokenAuthentication]
 
     def get_queryset(self):
-        return self.queryset.filter(app__user=self.request.user)
+        return self.queryset.filter(app__user=self.request.user, is_deleted=False)
+
+    def destroy(self, request, *args, **kwargs):
+        warehouse = self.get_object()
+        warehouse.soft_delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    @action(detail=True, url_path="make_current", methods=['post'])
+    def make_current(self, request, pk):
+        warehouse = get_object_or_404(Warehouse, pk=pk)
+        warehouse.is_current = True
+        warehouse.save()
+        warehouses = Warehouse.objects.filter(app__user=request.user).exclude(pk=pk)
+        warehouses.update(is_current=False)
+
+        return Response(data={'status': 'ok'}, status=status.HTTP_200_OK)
 
 
 class OrderViewSet(viewsets.ModelViewSet):

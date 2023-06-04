@@ -194,7 +194,7 @@ class Review(SofDelete):
         return f'{self.username} - {self.rating} stars'
 
 
-class Affiliate(models.Model):
+class Affiliate(SofDelete):
     app = models.ForeignKey(App, related_name='affiliates', on_delete=models.CASCADE)
     affiliate_identifier = models.CharField(max_length=200, default=uuid.uuid4)
     affiliate_secret = models.CharField(max_length=200, default=uuid.uuid4)
@@ -221,13 +221,13 @@ class TemplateShare(models.Model):
 class Visit(models.Model):
     template = models.ForeignKey(Template, related_name='visits', on_delete=models.CASCADE)
     affiliate = models.ForeignKey(Affiliate, related_name='visits', on_delete=models.SET_NULL, null=True, blank=True)
-    city = models.CharField(max_length=85)
-    region = models.CharField(max_length=85)
-    country = models.CharField(max_length=85)
-    location = models.CharField(max_length=222)
-    ip_address = models.CharField(max_length=30)
-    duration = models.CharField(max_length=100)
-    json_object = models.TextField()
+    city = models.CharField(max_length=85, null=True, blank=True)
+    region = models.CharField(max_length=85, null=True, blank=True)
+    country = models.CharField(max_length=85, null=True, blank=True)
+    location = models.CharField(max_length=222, null=True, blank=True)
+    ip_address = models.CharField(max_length=30, null=True, blank=True)
+    duration = models.CharField(max_length=100, null=True, blank=True)
+    json_object = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -252,7 +252,7 @@ class MainCity(models.Model):
         verbose_name_plural = 'MainCities'
 
 
-class City(models.Model):
+class City(SofDelete):
     app = models.ForeignKey(App, related_name='cities', on_delete=models.CASCADE)
     main_city = models.ForeignKey(MainCity, related_name='main_cities', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

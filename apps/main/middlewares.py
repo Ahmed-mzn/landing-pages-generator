@@ -20,7 +20,6 @@ class SimpleMiddleware:
             return response
 
         domain = Domain.objects.all().filter(name=request.META['HTTP_HOST']).first()
-
         if domain is None:
             return HttpResponse('Unauthorized', status=401)
         elif request.path == '/':
@@ -42,9 +41,7 @@ class SimpleMiddleware:
                     Q(is_deleted=False, is_child=True, template_redirect_numbers__gt=0, parent__template_name=current_path) |
                     Q(is_deleted=False, is_child=False, template_redirect_numbers__gt=0, template_name=current_path)
                 ).order_by("id")
-
                 app = templates.filter(is_child=False).first()
-
                 if app:
                     if app.next_template == 0:
                         app.next_template = templates[0].id
