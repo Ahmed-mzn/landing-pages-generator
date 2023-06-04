@@ -36,9 +36,9 @@
 {#    <script src="https://cdn.jsdelivr.net/npm/vue"></script>#}
 
     <!-- Js Files -->
-    <script async src="{% static '/assets/js/ProductsForm.js' %}?id=2"></script>
-    <script async src="{% static '/assets/js/ProductsForm2.js' %}?id=2"></script>
-    <script async src="{% static '/assets/js/shareButton.js' %}?id=2"></script>
+    <script src="{% static '/assets/js/ProductsForm.js' %}?id=2"></script>
+    <script src="{% static '/assets/js/ProductsForm2.js' %}?id=2"></script>
+    <script src="{% static '/assets/js/shareButton.js' %}?id=2"></script>
 
     <link href="{% static '/assets/css/styles.css' %}" rel="stylesheet">
     <title>{{ template.meta_title }}</title>
@@ -79,7 +79,7 @@
     }
 
     function leaving(){
-        fetch('http://localhost:8000/api/v1/public/create_visit', {
+        fetch('https://landing.socialbot.dev/api/v1/public/create_visit', {
             method: 'POST',
             body: JSON.stringify(session),
             credentials: "same-origin",
