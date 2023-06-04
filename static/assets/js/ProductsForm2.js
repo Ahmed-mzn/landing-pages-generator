@@ -258,7 +258,7 @@ const productsForm2 = {
                         description: 'Order Payment',
                         language: 'ar',
                         publishable_api_key: 'pk_test_37qqSidenDWUMRKRE6pEE41BmizEyzozete7RRX7',
-                        callback_url: 'http://'+window.location.host + window.location.pathname,
+                        callback_url: 'https://'+window.location.host + window.location.pathname,
                         on_completed: (payment) => {
                             console.log(payment)
                             console.log(this.form)
