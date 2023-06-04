@@ -27,7 +27,8 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_DOMAINS = ['landing.socialbot.dev', 'localhost:8000', 'test.ahmedzeini.com', 'localhost', 'sfhat.io']
+ALLOWED_DOMAINS = ['landing.socialbot.dev', 'localhost:8000', 'test.ahmedzeini.com', 'localhost', 'sfhat.io',
+                   'app.sfhat.io']
 ALLOWED_HOSTS = ['*']
 WEBSITE_URL = 'https://landing.socialbot.dev'
 # WEBSITE_URL = 'http://localhost:8000'
