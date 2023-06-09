@@ -243,21 +243,13 @@ class AppendTemplateChildSerializer(serializers.ModelSerializer):
             new_template.template_name = template.template_name + '(نسخة)'
             new_template.save()
 
-            # make copy of features
-            for f in template.features.all():
-                Feature.objects.create(template=new_template, title=f.title, description=f.description)
-
-            # make copy of reviews
-            for r in template.reviews.all():
-                Review.objects.create(template=new_template, username=r.username, comment=r.comment, rating=r.rating)
-
             # make copy of products
             for p in template.template_products.all():
                 TemplateProduct.objects.create(template=new_template, product=p.product)
 
         else:
             new_template = Template.objects.create(domain=template.domain, parent=parent_template, is_child=True,
-                                                   **validated_data)
+                                                   html='<h1>Blank Page</h1>', **validated_data)
 
         return new_template
 
@@ -332,8 +324,8 @@ class BlankTemplateCreationSerializer(serializers.ModelSerializer):
         app = App.objects.filter(user=self._user(None)).first()
 
         template = Template.objects.create(next_template_redirect_numbers=0, next_template=0,
-                                           html=theme.content, theme=theme, app=app, template_redirect_numbers=10,
-                                           total_redirect_numbers=10, **validated_data)
+                                           html=theme.content, theme=theme, app=app,
+                                           template_redirect_numbers=10, total_redirect_numbers=10, **validated_data)
         return template
 
 

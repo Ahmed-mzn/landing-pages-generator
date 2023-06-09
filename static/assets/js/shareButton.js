@@ -15,7 +15,7 @@ const shareTemplate = {
         };
     },
     created(){
-        axios.defaults.baseURL = 'http://localhost:8000/api/v1/public'
+        axios.defaults.baseURL = 'https://landing.socialbot.dev/api/v1/public'
     },
     methods: {
         checkPhoneNumberSize(from){
@@ -59,7 +59,7 @@ const shareTemplate = {
                             <button class="btn btn-primary ms-2" type="submit" style="width: 50px;background: var(--bs-black);">
                                 <i class="fas fa-level-down-alt" style="transform: rotate(90deg);"></i>
                             </button>
-                            <div id="formPhoneFlag2" class="d-flex align-items-center" style="position: absolute;top: 50%;transform: translateY(-50%);left: 20px;"><span>966&nbsp;&nbsp;</span><img src="http://localhost:8000/static/assets/img/saudi-arabia-flag-icon.png" style="width: 20px;"></div>
+                            <div id="formPhoneFlag2" class="d-flex align-items-center" style="position: absolute;top: 50%;transform: translateY(-50%);left: 20px;"><span>966&nbsp;&nbsp;</span><img src="https://landing.socialbot.dev/static/assets/img/saudi-arabia-flag-icon.png" style="width: 20px;"></div>
                         </div>
                     </form>
                 </div>

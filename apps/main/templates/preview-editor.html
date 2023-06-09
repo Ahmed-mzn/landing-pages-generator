@@ -6,7 +6,9 @@
     <meta charset="UTF-8">
     <meta name="description" content="{{ template.meta_description }}">
     <meta name="keywords" content="{{ template.meta_keywords }}">
+    <meta property="og:title" content="{{ request.path }}">
     <meta property="og:description" content="{{ template.meta_description }}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
     <meta property="og:image" content="{{ template.get_preview_image_url }}">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="436">
@@ -17,6 +19,7 @@
 {#    <link rel="stylesheet" href="{% static '/assets/fonts/fontawesome-all.min.css' %}" rel="stylesheet">#}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+
 
     <!-- Moyasar Styles -->
     <link rel="stylesheet" href="https://cdn.moyasar.com/mpf/1.7.3/moyasar.css">
@@ -31,16 +34,28 @@
 
 {#    <!-- Vue development -->#}
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>#}
 
     <!-- Vue production -->
 {#    <script src="https://cdn.jsdelivr.net/npm/vue"></script>#}
 
     <!-- Js Files -->
-    <script src="{% static '/assets/js/ProductsForm.js' %}?id=4"></script>
-    <script src="{% static '/assets/js/ProductsForm2.js' %}?id=4"></script>
-    <script src="{% static '/assets/js/shareButton.js' %}?id=4"></script>
+    <script src="{% static '/assets/js/ProductsForm.js' %}?id=11"></script>
+    <script src="{% static '/assets/js/ProductsForm2.js' %}?id=11"></script>
+    <script src="{% static '/assets/js/shareButton.js' %}?id=11"></script>
 
-    <link href="{% static '/assets/css/styles.css' %}" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+    <!-- Or for RTL support -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <link href="{% static '/assets/css/styles.css' %}?id=11" rel="stylesheet">
     <title>{{ template.meta_title }}</title>
     <style>
         {{ template.css | safe}}
@@ -96,8 +111,11 @@
     window.setInterval(() => {
         setDuration();
     }, 1000)
+
+
 </script>
 <script src="{% static '/assets/bootstrap/js/bootstrap.min.js' %}"></script>
-<script src="{% static '/assets/js/app.js' %}"></script>
+<script src="{% static '/assets/js/app.js' %}?id=11"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
 </html>

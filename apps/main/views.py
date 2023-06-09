@@ -135,8 +135,7 @@ class TemplateViewSet(viewsets.ModelViewSet):
 
         if serializer.is_valid():
             serializer.save()
-            thread = threading.Thread(target=serializer.instance.make_screenshot(), args=())
-            thread.start()
+            serializer.instance.make_screenshot()
             return Response(data=serializer.data, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -181,7 +180,7 @@ class TemplateViewSet(viewsets.ModelViewSet):
         for t in templates_child:
             templates.append({
                 "template_name": t.template_name,
-                "preview_image": settings.WEBSITE_URL + t.preview_image.url,
+                "preview_image": settings.WEBSITE_URL + t.preview_image.url if t.preview_image else '',
                 "visits": t.visits.all().count(),
                 "orders": t.orders.all().count(),
                 "orders_paid": t.orders.all().filter(is_paid=True).count(),
@@ -192,7 +191,8 @@ class TemplateViewSet(viewsets.ModelViewSet):
         return Response(data={
             "template": {
                 "template_name": template.template_name,
-                "preview_image": settings.WEBSITE_URL + template.preview_image.url,
+                "preview_image": settings.WEBSITE_URL + template.preview_image.url if template.preview_image else '',
+                "url": 'https://' + template.domain.name + '/' + template.template_name,
                 "visits": template.visits.all().count(),
                 "orders": template.orders.all().count(),
                 "orders_paid": template.orders.all().filter(is_paid=True).count(),

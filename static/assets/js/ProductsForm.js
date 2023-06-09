@@ -206,7 +206,17 @@ const productsForm = {
             return "";
         },
         submitForm(){
+            this.form.city = document.getElementById('basic-usage').value
             var valid = true;
+
+            if(this.form.city == '' || !this.form.city){
+                valid = false
+                document.getElementById("basic-usage").classList.add("is-invalid");
+                document.getElementById("cityError").textContent = "يرجى تحديد المدينة";
+            } else {
+                document.getElementById("basic-usage").classList.remove("is-invalid");
+                document.getElementById("cityError").textContent = "";
+            }
 
             if(this.form.name == ''){
                 valid = false;
@@ -256,7 +266,7 @@ const productsForm = {
                         currency: 'SAR',
                         description: 'Order Payment',
                         language: 'ar',
-                        publishable_api_key: 'pk_test_37qqSidenDWUMRKRE6pEE41BmizEyzozete7RRX7',
+                        publishable_api_key: 'pk_test_kkE8hHjmR1ZdhNPq6DGt7xcycWhNgMP12oRwMtzB',
                         callback_url: 'https://'+window.location.host + window.location.pathname,
                         on_completed: (payment) => {
                             console.log(payment)
@@ -272,6 +282,8 @@ const productsForm = {
                     this.createOrder()
                     this.route = 'success'
                 }
+            } else {
+                document.getElementById("order_now").scrollIntoView();
             }
         },
         createOrder(){
@@ -415,9 +427,15 @@ const productsForm = {
                       <div id="formPhoneFlag" class="d-flex align-items-center" style="position: absolute;top: 50%;transform: translateY(-50%);left: 20px;"><span>966&nbsp;&nbsp;</span><img src="https://landing.socialbot.dev/static/assets/img/saudi-arabia-flag-icon.png" style="width: 20px;"></div>
                       <div id="formPhoneError" style="color: var(--bs-primary)" class="invalid-feedback"></div>
                   </div>
-                  <div class="mb-2" style="position: relative;"><select v-model="form.city" class="form-select py-3" style="padding-right: 12px;padding-left: 34px;border-style: none;background: #f2f2f2;">
-                          <option v-for="city in template.cities" :key="city.id" :value="city.id">[[city.main_city.name_ar]]</option>
-                      </select><i class="fas fa-chevron-down" style="position: absolute;top: 50%;transform: translateY(-50%);left: 20px;"></i></div>
+                    <div class="mb-2">
+                        <select v-model="form.city" class="form-select py-2" id="basic-usage" data-placeholder="اختر المدينة">
+                            <option v-for="city in template.cities" :key="city.id" :value="city.id">[[city.main_city.name_ar]]</option>
+                        </select>
+                        <div id="cityError" style="color: var(--bs-primary)" class="invalid-feedback"></div>
+                    </div>
+<!--                  <div class="mb-2" style="position: relative;"><select v-model="form.city" class="form-select py-3" style="padding-right: 12px;padding-left: 34px;border-style: none;background: #f2f2f2;">-->
+<!--                          <option v-for="city in template.cities" :key="city.id" :value="city.id">[[city.main_city.name_ar]]</option>-->
+<!--                      </select><i class="fas fa-chevron-down" style="position: absolute;top: 50%;transform: translateY(-50%);left: 20px;"></i></div>-->
                   <div class="mb-2">
                       <input id="formAddress" v-model="form.address" class="form-control py-3" type="text" placeholder="العنوان (الحي، الشارع)" style="background: #f2f2f2;border-style: none;">
                       <div id="formAddressError" style="color: var(--bs-primary)" class="invalid-feedback"></div>

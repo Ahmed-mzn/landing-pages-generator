@@ -59,6 +59,7 @@ class Smsa:
         try:
             if res.json() and 'Failed' not in res.json():
                 self.order.shipping_tracking_id = res.json()
+                self.order.shipping_awb = ''
                 self.order.status = self.order.INDELIVERY
                 self.order.save()
                 return True

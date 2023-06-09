@@ -115,24 +115,8 @@ class Template(SofDelete):
         return ''
 
     def make_screenshot(self):
-        print("[+] Screenshot for template " + str(self.id) + " start")
-        url = settings.WEBSITE_URL + f"/templates/preview-editor/{self.id}"
-
-        options = webdriver.ChromeOptions()
-        options.add_experimental_option('excludeSwitches', ['enable-logging'])
-        options.add_argument("--headless")
-        options.add_argument("--hide-scrollbars")
-
-        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-        driver.get(url)
-        driver.set_window_size(1920, 1200)
-
-        time.sleep(3)
-        driver.save_screenshot(f'{settings.MEDIA_ROOT}/screenshots/screenshot-{self.id}.png')
-
-        self.preview_image.save(f"screenshot-{self.id}.png",
-                                File(open(f'{settings.MEDIA_ROOT}/screenshots/screenshot-{self.id}.png', 'rb')))
-        print("[+] End screenshot for template " + str(self.id))
+        thread = threading.Thread(target=screenshot, args=(self,))
+        thread.start()
 
     class Meta:
         ordering = ('pk', )
@@ -276,6 +260,25 @@ class Lead(SofDelete):
     def __str__(self):
         return f"<Lead {self.name} / {self.phone_number}>"
 
+
+def screenshot(template):
+    print("[+] Screenshot for template " + str(template.id) + " start")
+    url = settings.WEBSITE_URL + f"/templates/preview-editor/{template.id}"
+
+    options = webdriver.ChromeOptions()
+    options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    options.add_argument("--headless")
+    options.add_argument("--hide-scrollbars")
+
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    driver.get(url)
+    driver.set_window_size(1920, 1200)
+
+    driver.save_screenshot(f'{settings.MEDIA_ROOT}/screenshots/screenshot-{template.id}.png')
+
+    template.preview_image.save(f"screenshot-{template.id}.png",
+                            File(open(f'{settings.MEDIA_ROOT}/screenshots/screenshot-{template.id}.png', 'rb')))
+    print("[+] End screenshot for template " + str(template.id))
 
 # @receiver(post_save, sender=Template)
 # def create_profile(sender, instance, created, **kwargs):
