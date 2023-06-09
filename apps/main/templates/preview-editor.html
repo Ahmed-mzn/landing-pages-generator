@@ -104,6 +104,11 @@
             },
             keepalive: true,
         })
+        const time = Date.now();
+        while ((Date.now() - time) < 500) {
+
+        }
+        return true;
     }
 
     window.addEventListener("beforeunload", leaving);
