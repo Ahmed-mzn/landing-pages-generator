@@ -94,7 +94,7 @@
     }
 
     function leaving(){
-        fetch('https://landing.socialbot.dev/api/v1/public/create_visit', {
+        fetch('https://landing.socialbot.dev/api/v1/public/create_visit/', {
             method: 'POST',
             body: JSON.stringify(session),
             credentials: "same-origin",
