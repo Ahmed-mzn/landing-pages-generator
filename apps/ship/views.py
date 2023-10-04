@@ -108,8 +108,8 @@ class OrderViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         if self.request.GET.get('template_id', ''):
             template_id = self.request.GET.get('template_id', '')
-            return self.queryset.filter(template__app__user=self.request.user, template_id=template_id)
-        return self.queryset.filter(template__app__user=self.request.user)
+            return self.queryset.filter(template__app__user=self.request.user, template_id=template_id).order_by('-id')
+        return self.queryset.filter(template__app__user=self.request.user).order_by('-id')
 
     @action(methods=["GET"], detail=True, url_path="tracking")
     def tracking(self, request, pk):

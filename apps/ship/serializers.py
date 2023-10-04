@@ -231,7 +231,7 @@ class OrderCreationSerializer(serializers.ModelSerializer):
                                     },
                                     {
                                         "type": "text",
-                                        "text": f'order.amount'
+                                        "text": f'{order.amount}'
                                     },
                                     {
                                         "type": "text",
