@@ -192,60 +192,6 @@ class OrderCreationSerializer(serializers.ModelSerializer):
             if template.app.auto_ship_cod:
                 thread = threading.Thread(target=create_ship, args=(order,))
                 thread.start()
-            else:
-                headers = {
-                    'Authorization': 'Bearer EAAC4eE8WAOkBO1NjrlEWyaHhRUrj5uyZBx5a2asZCQKo9ht8EeksJhvzmKi2MYaohIgIXMjaODijpvT6iiphXo1ZCL6NNhLDakfmwZC4vEGxZBZC68sF5VNS0xQgJPcWdYEh4AyADWsVwkClNsiaunzDRUBCJX0q43TJcy72ik8ZBIAV8ZA5kdUB9Em3AqdnyKsw81fltinyNeYMzH8Q'
-                }
-                data = {
-                    "messaging_product": "whatsapp",
-                    "recipient_type": "individual",
-                    "to": "22220004200",
-                    "type": "template",
-                    "template": {
-                        "name": "cod_1689956899",
-                        "language": {
-                            "code": "ar"
-                        },
-                        "components": [
-                            {
-                                "type": "header",
-                                "parameters": [
-                                    {
-                                        "type": "image",
-                                        "image": {
-                                            "link": "https://i.ibb.co/vQFPLpZ/4-2.png"
-                                        }
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "body",
-                                "parameters": [
-                                    {
-                                        "type": "text",
-                                        "text": order.lead.name
-                                    },
-                                    {
-                                        "type": "text",
-                                        "text": f'SFT{order.id}'
-                                    },
-                                    {
-                                        "type": "text",
-                                        "text": f'{order.amount}'
-                                    },
-                                    {
-                                        "type": "text",
-                                        "text": order.lead.address
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                }
-                res = requests.post("https://graph.facebook.com/v14.0/109351868894671/messages", headers=headers,
-                                    json=data)
-                print(res)
-                print(res.text)
 
         return order
 
